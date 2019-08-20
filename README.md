@@ -1,4 +1,4 @@
-# Free online estimate
+# CV builder
 
 A CV builder to create Resumes with export in .pdf and .doc files written in React.js and Typescript
 

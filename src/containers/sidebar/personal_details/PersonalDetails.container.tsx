@@ -12,24 +12,27 @@ import {
 } from './PersonalDetails.style'
 
 interface State {
-  showAdditionalDetails: boolean
+  showAdditionalDetails: boolean,
+  isOpen: boolean
 }
 
 class PersonalDetails extends Component<{}, State> {
 
   state = {
-    showAdditionalDetails: false
+    showAdditionalDetails: false,
+    isOpen: false
   }
 
-  clickShowAdditionalDetails = () => {
+  clickShowAdditionalDetails = (): void => {
     this.setState({
-      showAdditionalDetails: !this.state.showAdditionalDetails
+      showAdditionalDetails: !this.state.showAdditionalDetails,
+      isOpen: !this.state.isOpen
     })
   }
 
   render() {
 
-    const { showAdditionalDetails } = this.state
+    const { showAdditionalDetails, isOpen } = this.state
 
     return (
       <Fragment>
@@ -43,7 +46,11 @@ class PersonalDetails extends Component<{}, State> {
             <Input type="text" withLabel={ true } label="Phone" />
             <Input type="email" withLabel={ true } label="Email" />
           </MainDetails>
-          <LinkAccordion onClick={ this.clickShowAdditionalDetails } label="Edit additional details" />
+          <LinkAccordion
+            onClick={ this.clickShowAdditionalDetails }
+            label="Edit additional details"
+            isOpen={ isOpen }
+          />
           <AdditionalDetails isVisible={ showAdditionalDetails }>
             <Input type="text" withLabel={ true } label="Country" />
             <Input type="text" withLabel={ true } label="City" />
