@@ -1,49 +1,27 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
-import Input from '../../../components/input/Input.view'
+import Textarea from '../../../components/textarea/Textarea.view'
+import Title from '../../../components/Title.view'
 
-import {
-  Wrapper,
-  Title,
-  MainDetails,
-  LinkDetails,
-  AdditionalDetails
-} from './ProfessionalSummary.style'
+export const Wrapper = styled.div`
+  padding: 10px;
+  margin: 10px 0;
+`
 
-interface State {
-  showAdditionalDetails: boolean
-}
-
-export default class PersonalDetails extends Component<{}, State> {
-
-  state = {
-    showAdditionalDetails: false
-  }
-
-  clickShowAdditionalDetails = () => {
-    this.setState({
-      showAdditionalDetails: !this.state.showAdditionalDetails
-    })
-  }
+export default class ProfessionalSummary extends Component {
 
   render() {
 
-    const { showAdditionalDetails } = this.state
-
     return (
-      <Fragment>
-        <Wrapper>
-          <Title>Professional Summary</Title>
-          <MainDetails>
-            <Input type="text" withLabel={ true } label="Job Title" />
-            <Input type="file" withLabel={ true } label="Upload Photo" />
-            <Input type="text" withLabel={ true } label="First Name" />
-            <Input type="text" withLabel={ true } label="Last Name" />
-            <Input type="text" withLabel={ true } label="Phone" />
-            <Input type="email" withLabel={ true } label="Email" />
-          </MainDetails>
-        </Wrapper>
-      </Fragment>
+      <Wrapper>
+        <Title>Professional Summary</Title>
+        <Textarea
+          isVisible={ true }
+          withLabel={ true }
+          label="Description"
+        />
+      </Wrapper>
     )
   }
 }

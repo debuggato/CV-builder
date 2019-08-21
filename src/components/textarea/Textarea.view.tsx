@@ -30,8 +30,9 @@ class Textarea extends Component<Props, State> {
 
     const { text } = this.state
 
-    const styleEditor = {
-      height: '200px'
+    const styleEditor: CSSProperties = {
+      height: '200px',
+      width: '100%'
     }
 
     return (

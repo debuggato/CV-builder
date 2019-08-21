@@ -9,7 +9,7 @@ interface Props {
 const SelectView: FC<Props> = props => {
 
   const items = props.list.map((item: string, key: number) =>
-    <option value={ key }>{ item }</option>
+    <option key={ key } value={ key }>{ item }</option>
   )
 
   return (

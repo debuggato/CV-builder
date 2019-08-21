@@ -34,7 +34,6 @@ export default class Education extends Component<{}, State> {
       <Wrapper>
         <Title>Education</Title>
         <Subtitle>If relevant, include your most recent education achievements and the dates here</Subtitle>
-        <LinkAccordion onClick={ this.clickShowDetailsToFill } label="Add education" isOpen={ isOpen } />
         <DetailsToFill isVisible={ isOpen }>
           <Input type="text" withLabel={ true } label="School" />
           <Input type="text" withLabel={ true } label="Degree" />
@@ -47,6 +46,7 @@ export default class Education extends Component<{}, State> {
           withLabel={ true }
           label="Description"
         />
+        <LinkAccordion onClick={ this.clickShowDetailsToFill } label="Add education" isOpen={ isOpen } />
       </Wrapper>
     )
   }

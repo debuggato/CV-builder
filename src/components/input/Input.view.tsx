@@ -8,7 +8,7 @@ import { Input, Wrapper } from './Input.style'
 
 interface Props {
   type: string,
-  label: string,
+  label?: string,
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
   style?: CSSProperties,
   defaultValue?: string,

@@ -10,3 +10,11 @@ export const Wrapper = styled.div`
   align-content: center;
   justify-content: center;
 `
+
+export const Page = styled.div`
+  background-color: #fff;
+  box-shadow: 0px 0px 2px #999;
+  width: 700px;
+  height: 910px;
+  margin: 10px;
+`
