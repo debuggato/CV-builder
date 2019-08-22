@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { colors } from './color.style'
+import colors from './color.style'
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   label {
-    color: ${ colors.basic.lightGrey };
+    color: ${ colors.lightGrey };
     display: inline-block;
     margin-bottom: .5rem;
   }

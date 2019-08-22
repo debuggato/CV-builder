@@ -5,6 +5,8 @@ const basic = {
   lightGrey: `#9e9e9e`
 }
 
-export const colors = {
-  basic
-}
+const colors = {
+  ...basic
+ }
+
+export default colors

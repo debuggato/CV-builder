@@ -1,21 +1,21 @@
 import * as constants from './constants'
 
-export const changeVat = (value: number) => ({
-  type: constants.CHANGE_VAT,
+export const changeJobTitle = (value: string) => ({
+  type: constants.SET_JOB_TITLE,
   payload: value
 })
 
-export const changeDiscount = (value: number) => ({
-  type: constants.CHANGE_DISCOUNT,
+export const changeFirstname = (value: string) => ({
+  type: constants.SET_FIRST_NAME,
   payload: value
 })
 
-export const totalAmount = (value: string) => ({
-  type: constants.TOTAL_AMOUNT,
+export const changeLastname = (value: string) => ({
+  type: constants.SET_LAST_NAME,
   payload: value
 })
 
-export const amountWithoutTaxes = (value: string) => ({
-  type: constants.AMOUNT_WITHOUT_TAXES,
+export const changeCity = (value: string) => ({
+  type: constants.SET_CITY,
   payload: value
 })

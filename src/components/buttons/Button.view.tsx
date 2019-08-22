@@ -4,9 +4,9 @@ import { Btn } from './Button.style'
 
 interface Props {
   onClick(): void,
-  color: string,
+  color?: string,
   label: string,
-  icon: string
+  icon?: string
 }
 
 const Button: FC<Props> = props => {

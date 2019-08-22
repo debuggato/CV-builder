@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, ChangeEvent } from 'react'
+import { connect } from 'react-redux';
 import i18n from '../../../i18n'
 
+import { changeJobTitle, changeFirstname } from '../../../store/actions'
 import Input from '../../../components/input/Input.view'
 import LinkAccordion from '../../../components/LinkAccordion.view'
 import Title from '../../../components/Title.view'
@@ -12,46 +14,92 @@ import {
 } from './PersonalDetails.style'
 
 interface State {
-  showAdditionalDetails: boolean,
   isOpen: boolean
 }
 
-class PersonalDetails extends Component<{}, State> {
+interface Props {
+  sendJobTitleToStore: (e: ChangeEvent<HTMLInputElement>) => void,
+  sendFirstNameToStore: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+class PersonalDetails extends Component<Props, State> {
 
   state = {
-    showAdditionalDetails: false,
     isOpen: false
   }
 
   clickShowAdditionalDetails = (): void => {
     this.setState({
-      showAdditionalDetails: !this.state.showAdditionalDetails,
       isOpen: !this.state.isOpen
     })
   }
 
+  onInputChange = (e: any): void => {
+    switch (e.target.name) {
+      case 'jobTitle':
+        this.props.sendJobTitleToStore(e.target.value)
+      break;
+      case 'firstName':
+        this.props.sendFirstNameToStore(e.target.value)
+    }
+  }
+
   render() {
 
-    const { showAdditionalDetails, isOpen } = this.state
+    const { isOpen } = this.state
 
     return (
       <Fragment>
         <Wrapper>
           <Title>{ i18n.t('personal_details') }</Title>
           <MainDetails>
-            <Input type="text" withLabel={ true } label="Job Title" />
-            <Input type="file" withLabel={ true } label="Upload Photo" />
-            <Input type="text" withLabel={ true } label="First Name" />
-            <Input type="text" withLabel={ true } label="Last Name" />
-            <Input type="text" withLabel={ true } label="Phone" />
-            <Input type="email" withLabel={ true } label="Email" />
+            <Input
+              type="text"
+              withLabel={ true }
+              label="Job Title"
+              name="jobTitle"
+              onChange={ this.onInputChange }
+            />
+            <Input
+              type="file"
+              withLabel={ true }
+              label="Upload Photo"
+            />
+            <Input
+              type="text"
+              withLabel={ true }
+              label="First Name"
+              name="firstName"
+              onChange={ this.onInputChange }
+            />
+            <Input
+              type="text"
+              withLabel={ true }
+              label="Last Name"
+              name="lastName"
+              onChange={ this.onInputChange }
+            />
+            <Input
+              type="text"
+              withLabel={ true }
+              label="Phone"
+              name="phone"
+              onChange={ this.onInputChange }
+            />
+            <Input
+              type="email"
+              withLabel={ true }
+              label="Email"
+              name="email"
+              onChange={ this.onInputChange }
+            />
           </MainDetails>
           <LinkAccordion
             onClick={ this.clickShowAdditionalDetails }
             label="Edit additional details"
             isOpen={ isOpen }
           />
-          <AdditionalDetails isVisible={ showAdditionalDetails }>
+          <AdditionalDetails isVisible={ isOpen }>
             <Input type="text" withLabel={ true } label="Country" />
             <Input type="text" withLabel={ true } label="City" />
             <Input type="text" withLabel={ true } label="Adress" />
@@ -67,4 +115,15 @@ class PersonalDetails extends Component<{}, State> {
   }
 }
 
-export default PersonalDetails
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    sendJobTitleToStore: (value: any) => {
+      dispatch(changeJobTitle(value))
+    },
+    sendFirstNameToStore: (value: any) => {
+      dispatch(changeFirstname(value))
+    },
+  }
+}
+
+export default connect(null, mapDispatchToProps)(PersonalDetails)
