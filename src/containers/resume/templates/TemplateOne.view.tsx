@@ -1,12 +1,16 @@
 import React, { FC } from 'react'
 
-import { Wrapper } from './TemplateOne.style'
+import {
+  Wrapper,
+  FullName,
+  JobTitle
+} from './TemplateOne.style'
 
 const TemplateOne: FC = (props: any) => {
   return (
     <Wrapper>
-      <h1>{ props.getFirstName }</h1>
-      { props.getJobTitle }
+      <FullName>{ props.getFirstName + ' ' + props.getLastName}</FullName>
+      <JobTitle>{ props.getJobTitle }</JobTitle>
     </Wrapper>
   )
 }

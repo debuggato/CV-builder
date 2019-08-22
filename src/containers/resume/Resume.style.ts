@@ -15,9 +15,18 @@ export const Wrapper = styled.div`
 `
 
 export const PageWrapper = styled.div`
-  background: #fff;
-  box-shadow: 0px 0px 2px #999;
-  width: 700px;
-  height: auto;
-  margin: 35px;
+  background: ${ colors.white };
+  width: 595px;
+  height: 842px;
+  margin: 15px 30px 60px 30px;
+`
+
+export const Actions = styled.div`
+  background: ${ colors.lightGrey };
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
 `

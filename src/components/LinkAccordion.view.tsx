@@ -10,7 +10,7 @@ interface Props {
 export const Link = styled.a`
   cursor: pointer;
   margin: 15px 0;
-  display: block;
+  display: inline-block;
 
   &:hover {
     text-decoration: underline;
