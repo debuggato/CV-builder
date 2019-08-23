@@ -9,8 +9,9 @@ interface State {
 }
 
 const Wrapper = styled.div`
-  text-align: center;
-  margin-top: 40px;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
 `
 
 export default class Header extends Component<{}, State> {
@@ -28,12 +29,14 @@ export default class Header extends Component<{}, State> {
 
     const titleStyle: CSSProperties = {
       border: 0,
-      width: '135px',
-      margin: '0 auto',
+      width: '70%',
       marginBottom: '10px',
-      fontSize: '17px',
+      marginRight: '55px',
+      fontSize: '20px',
       fontWeight: 700,
-      textAlign: "center"
+      textAlign: 'left',
+      paddingLeft: '35px',
+      textTransform: 'capitalize'
     }
 
     return (

@@ -4,8 +4,8 @@ import { Btn } from './Button.style'
 
 interface Props {
   onClick(): void,
-  color?: string,
   label: string,
+  color?: string,
   icon?: string
 }
 

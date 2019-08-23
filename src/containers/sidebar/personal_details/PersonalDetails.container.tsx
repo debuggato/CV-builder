@@ -72,6 +72,9 @@ class PersonalDetails extends Component<Props, State> {
       case 'country':
         this.props.sendCountryToStore(value)
         break;
+      case 'address':
+        this.props.sendAddressToStore(value)
+        break;
       default: break;
     }
   }
@@ -84,46 +87,58 @@ class PersonalDetails extends Component<Props, State> {
       <Wrapper>
         <Title>{i18n.t('personal_details')}</Title>
         <MainDetails>
-          <Input
-            type="text"
-            withLabel={true}
-            label="Job Title"
-            name="jobTitle"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="file"
-            withLabel={true}
-            label="Upload Photo"
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="First Name"
-            name="firstName"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Last Name"
-            name="lastName"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Phone"
-            name="phone"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="email"
-            withLabel={true}
-            label="Email"
-            name="email"
-            onChange={this.onInputChange}
-          />
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Job Title"
+              name="jobTitle"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="file"
+              withLabel={true}
+              label="Upload Photo"
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="First Name"
+              name="firstName"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Last Name"
+              name="lastName"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Phone"
+              name="phone"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="email"
+              withLabel={true}
+              label="Email"
+              name="email"
+              onChange={this.onInputChange}
+            />
+          </div>
         </MainDetails>
         <LinkAccordion
           onClick={this.clickShowAdditionalDetails}
@@ -131,62 +146,78 @@ class PersonalDetails extends Component<Props, State> {
           isOpen={isOpen}
         />
         <AdditionalDetails isVisible={isOpen}>
-          <Input
-            type="text"
-            withLabel={true}
-            label="Country"
-            name="country"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="City"
-            name="city"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Address"
-            name="address"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Postal code"
-            name="postalCode"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Driving License"
-            name="drivingLicense"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Nationality"
-            name="nationality"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Place of birth"
-            name="placeOfBirth"
-            onChange={this.onInputChange}
-          />
-          <Input
-            type="text"
-            withLabel={true}
-            label="Date of birth"
-            name="dateOfBirth"
-            onChange={this.onInputChange}
-          />
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Country"
+              name="country"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="City"
+              name="city"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Address"
+              name="address"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Postal code"
+              name="postalCode"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Driving License"
+              name="drivingLicense"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Nationality"
+              name="nationality"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Place of birth"
+              name="placeOfBirth"
+              onChange={this.onInputChange}
+            />
+          </div>
+          <div>
+            <Input
+              type="text"
+              withLabel={true}
+              label="Date of birth"
+              name="dateOfBirth"
+              onChange={this.onInputChange}
+            />
+          </div>
         </AdditionalDetails>
       </Wrapper>
     )

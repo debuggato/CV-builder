@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Document, Page } from 'react-pdf'
 
 import { Wrapper, PageWrapper, Actions } from './Resume.style'
 import TemplateOneView from './templates/TemplateOne.view';
@@ -22,12 +21,6 @@ interface Props {
 
 class Resume extends Component<Props> {
   state = {
-    numPages: null,
-    pageNumber: 1,
-  }
-
-  onDocumentLoadSuccess = (numPages: any) => {
-    this.setState({ numPages });
   }
 
   onClickDownload = () => {
@@ -49,8 +42,6 @@ class Resume extends Component<Props> {
       getPlaceOfBirth
     } = this.props
 
-    const { pageNumber, numPages } = this.state;
-
     const dataFromState: object = {
       getJobTitle: getJobTitle,
       getFirstName: getFirstName,
@@ -68,16 +59,12 @@ class Resume extends Component<Props> {
       <Wrapper>
         <PageWrapper>
           <TemplateOneView {...dataFromState} />
-          {/* <Document
-            file="CV.pdf"
-            onLoadSuccess={this.onDocumentLoadSuccess}
-          > */}
-          {/* <Page pageNumber={pageNumber} /> */}
-        {/* </Document> */}
-        {/* <p>Page {pageNumber} of {numPages}</p> */}
         </PageWrapper>
         <Actions>
-          <Button onClick={ this.onClickDownload } label="Download" />
+          <Button
+            onClick={ this.onClickDownload }
+            label="Download"
+          />
         </Actions>
       </Wrapper>
     )

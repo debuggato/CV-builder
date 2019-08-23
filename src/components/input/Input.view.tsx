@@ -1,10 +1,11 @@
 import React, {
   FC,
   CSSProperties,
-  ChangeEvent
+  ChangeEvent,
+  Fragment
 } from 'react'
 
-import { Input, Wrapper } from './Input.style'
+import { Input } from './Input.style'
 
 interface Props {
   type: string,
@@ -21,7 +22,7 @@ interface Props {
 
 const InputView: FC<Props> = props => {
   return (
-    <Wrapper>
+    <Fragment>
       {
         props.withLabel ? <label>{ props.label }</label> : null
       }
@@ -36,7 +37,7 @@ const InputView: FC<Props> = props => {
         readOnly={ props.readOnly }
         id={ props.id }
       />
-    </Wrapper>
+    </Fragment>
   )
 }
 

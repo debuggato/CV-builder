@@ -18,15 +18,23 @@ export const PageWrapper = styled.div`
   background: ${ colors.white };
   width: 595px;
   height: 842px;
-  margin: 15px 30px 60px 30px;
+  margin: 15px 20px 60px 20px;
+  box-sizing: border-box;
+  padding: 15px;
 `
 
 export const Actions = styled.div`
   background: ${ colors.lightGrey };
   width: 100%;
-  height: 40px;
+  height: auto;
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 10px;
+
+  button {
+    float: right;
+    margin-right: 40px;
+    font-size: 20px;
+  }
 `
