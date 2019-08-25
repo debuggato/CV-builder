@@ -1,8 +1,6 @@
 import { createStore, combineReducers } from 'redux'
 
-import {
-  personalDetailsReducer
-} from './reducers'
+import personalDetailsReducer from '../app/sidebar/personal_details/duck/reducers'
 
 const rootReducer = combineReducers({
   personalDetails: personalDetailsReducer

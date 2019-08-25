@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Normalize } from 'styled-normalize'
 
-import Resume from './containers/resume/Resume.container'
-import Sidebar from './containers/sidebar/Sidebar.container'
-import Wizard from './containers/wizard/Wizard.container'
+import Resume from './app/resume/Resume.container'
+import Sidebar from './app/sidebar/Sidebar.container'
 
 import { GlobalStyle } from './styles/global.style'
 
