@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import colors from '../../../styles/color.style'
+import colors from '../../styles/color.style'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -17,6 +17,7 @@ export const Phone = styled.h4`
 `
 
 export const Description = styled.p`
+  margin-left: 10px;
 `
 
 export const Main = styled.main`

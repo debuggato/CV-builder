@@ -4,12 +4,16 @@ interface Props {
   isVisible: boolean
 }
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   padding: 10px;
 `
 
 export const Subtitle = styled.p`
 
+`
+
+export const Wrapper = styled.div`
+  margin: 10px;
 `
 
 export const DetailsToFill = styled.div`

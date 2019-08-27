@@ -29,9 +29,10 @@ export const LinkAccordion = styled.a`
 `
 
 export const MainDetails = styled.div`
-  grid-gap: 10px;
+
 `
 
 export const AdditionalDetails = styled(MainDetails)`
   display: ${ (props: Props) => props.isVisible ? "block" : "none" };
+  padding-bottom: 120px;
 `

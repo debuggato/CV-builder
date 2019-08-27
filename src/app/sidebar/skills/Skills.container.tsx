@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Container } from './ProfessionalSummary.style'
+import { Container } from './Skills.style'
 import mapDispatchToProps from './duck/dispatch'
 import Textarea from '../../../components/textarea/Textarea.view'
 import Title from '../../../components/Title.view'
@@ -15,7 +15,7 @@ interface State {
   value: string
 }
 
-class ProfessionalSummary extends Component<Props, State> {
+class Skills extends Component<Props, State> {
 
   state = {
     value: ''
@@ -31,13 +31,13 @@ class ProfessionalSummary extends Component<Props, State> {
 
   render() {
 
-    if (this.props.currentStep !== 2) {
+    if (this.props.currentStep !== 5) {
       return null;
     }
 
     return (
       <Container>
-        <Title>Professional Summary</Title>
+        <Title>Skills</Title>
         <Textarea
           isVisible={ true }
           withLabel={ true }
@@ -51,4 +51,4 @@ class ProfessionalSummary extends Component<Props, State> {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ProfessionalSummary)
+export default connect(null, mapDispatchToProps)(Skills)

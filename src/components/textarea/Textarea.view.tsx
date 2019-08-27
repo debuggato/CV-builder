@@ -1,4 +1,4 @@
-import React, { CSSProperties, Component } from 'react'
+import React, { CSSProperties, FC } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
@@ -7,47 +7,30 @@ import { Wrapper } from './Textarea.style'
 interface Props {
   label?: string,
   isVisible?: boolean,
-  withLabel: boolean
-}
-
-interface State {
+  withLabel: boolean,
+  onChange: (e: any) => void,
+  name: string,
   text: string
 }
 
-class Textarea extends Component<Props, State> {
+const styleEditor: CSSProperties = {
+  height: '200px',
+  width: '100%'
+}
 
-  state = {
-    text: ''
-  }
-
-  handleChange = (value: string): void => {
-    this.setState({
-      text: value
-    })
-  }
-
-  render () {
-
-    const { text } = this.state
-
-    const styleEditor: CSSProperties = {
-      height: '200px',
-      width: '100%'
-    }
-
-    return (
-      <Wrapper isVisible={ this.props.isVisible }>
-        {
-          this.props.withLabel ? <label>{ this.props.label }</label> : null
-        }
-        <ReactQuill
-          value={ text }
-          onChange={ this.handleChange }
-          style={ styleEditor }
-        />
-      </Wrapper>
-    )
-  }
+const Textarea: FC<Props> = (props: any) => {
+  return (
+    <Wrapper isVisible={ props.isVisible }>
+      {
+        props.withLabel ? <label>{ props.label }</label> : null
+      }
+      <ReactQuill
+        value={ props.text }
+        onChange={ props.onChange }
+        style={ styleEditor }
+      />
+    </Wrapper>
+  )
 }
 
 export default Textarea

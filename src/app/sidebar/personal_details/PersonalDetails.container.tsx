@@ -20,7 +20,7 @@ interface State {
 }
 
 interface Props {
-  currentStep?: number,
+  currentStep: number,
   sendJobTitleToStore: (arg0: string) => void,
   sendFirstNameToStore: (arg0: string) => void,
   sendLastNameToStore: (arg0: string) => void,

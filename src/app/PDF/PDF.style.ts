@@ -1,6 +1,6 @@
 import { StyleSheet } from '@react-pdf/renderer'
 
-import colors from '../../../styles/color.style'
+import colors from '../../styles/color.style'
 
 const stylePDF = StyleSheet.create({
   page: {

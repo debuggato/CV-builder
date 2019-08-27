@@ -29,7 +29,7 @@ const TemplateOne: FC = (props: any) => {
       <Main>
         <FullName>{ props.getFirstName + ' ' + props.getLastName}</FullName>
         <JobTitle>{ props.getJobTitle }</JobTitle>
-        <Description>{ props.get }</Description>
+        <Description dangerouslySetInnerHTML={{ __html: props.getJobDescription }} />
       </Main>
     </Wrapper>
   )

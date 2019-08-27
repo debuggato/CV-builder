@@ -7,12 +7,14 @@ import Title from '../../../components/Title.view'
 import Subtitle from '../../../components/Subtitle.view'
 
 import {
+  Container,
   Wrapper,
   DetailsToFill
 } from './Education.style'
 
 interface State {
-  isOpen: boolean
+  isOpen: boolean,
+  text: string
 }
 
 interface Props {
@@ -22,12 +24,19 @@ interface Props {
 class Education extends Component<Props, State> {
 
   state = {
-    isOpen: false
+    isOpen: false,
+    text: ''
   }
 
   clickShowDetailsToFill = (): void => {
     this.setState({
       isOpen: !this.state.isOpen
+    })
+  }
+
+  onDescriptionChange = (value: any): void => {
+    this.setState({
+      text: value 
     })
   }
 
@@ -40,23 +49,60 @@ class Education extends Component<Props, State> {
     const { isOpen } = this.state
 
     return (
-      <Wrapper>
+      <Container>
         <Title>Education</Title>
         <Subtitle>If relevant, include your most recent education achievements and the dates here</Subtitle>
         <DetailsToFill isVisible={ isOpen }>
-          <Input type="text" withLabel={ true } label="School" />
-          <Input type="text" withLabel={ true } label="Degree" />
-          <Input type="text" withLabel={ true } label="City" />
-          <Input type="text" withLabel={ true } label="Start & End date" />
-          <Input type="text" withLabel={ false } label="End date" />
+          <Wrapper>
+            <Input
+              type="text"
+              withLabel={ true }
+              label="School"
+            />
+          </Wrapper>
+          <Wrapper>
+            <Input
+              type="text"
+              withLabel={ true }
+              label="Degree"
+            />
+          </Wrapper>
+          <Wrapper>
+            <Input
+              type="text"
+              withLabel={ true }
+              label="City"
+            />
+          </Wrapper>
+          <Wrapper>
+            <Input
+              type="text"
+              withLabel={ true }
+              label="Start & End date"
+            />
+          </Wrapper>
+          <Wrapper>
+            <Input
+              type="text"
+              withLabel={ false }
+              label="End date"
+            />
+          </Wrapper>
         </DetailsToFill>
         <Textarea
           isVisible={ isOpen }
           withLabel={ true }
           label="Description"
+          name="description"
+          onChange={ this.onDescriptionChange }
+          text={ this.state.text }
         />
-        <LinkAccordion onClick={ this.clickShowDetailsToFill } label="Add education" isOpen={ isOpen } />
-      </Wrapper>
+        <LinkAccordion
+          onClick={ this.clickShowDetailsToFill }
+          label="Add education"
+          isOpen={ isOpen }
+        />
+      </Container>
     )
   }
 }
