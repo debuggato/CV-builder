@@ -6,7 +6,7 @@ export interface StyleProps {
   withoutStyle?: boolean
 }
 
-export const Input = styled.input`
+const Input = styled.input`
   display: block;
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
@@ -27,3 +27,5 @@ export const Input = styled.input`
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25)
   }
 `
+
+export default Input

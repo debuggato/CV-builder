@@ -5,6 +5,7 @@ import Textarea from '../../../components/textarea/Textarea.view'
 import LinkAccordion from '../../../components/LinkAccordion.view'
 import Title from '../../../components/Title.view'
 import Subtitle from '../../../components/Subtitle.view'
+import FromToDate from '../../../components/FromToDate.view'
 
 import {
   Container,
@@ -74,29 +75,17 @@ class Education extends Component<Props, State> {
               label="City"
             />
           </Wrapper>
+          <FromToDate />
           <Wrapper>
-            <Input
-              type="text"
+            <Textarea
               withLabel={ true }
-              label="Start & End date"
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={ false }
-              label="End date"
+              label="Description"
+              name="description"
+              onChange={ this.onDescriptionChange }
+              text={ this.state.text }
             />
           </Wrapper>
         </DetailsToFill>
-        <Textarea
-          isVisible={ isOpen }
-          withLabel={ true }
-          label="Description"
-          name="description"
-          onChange={ this.onDescriptionChange }
-          text={ this.state.text }
-        />
         <LinkAccordion
           onClick={ this.clickShowDetailsToFill }
           label="Add education"

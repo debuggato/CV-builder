@@ -17,7 +17,5 @@ export const Wrapper = styled.div`
 `
 
 export const DetailsToFill = styled.div`
-  display: ${ (props: Props) => props.isVisible ? "grid" : "none" };
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  display: ${ (props: Props) => props.isVisible ? "block" : "none" };
 `

@@ -1,20 +1,22 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 
-const ErrorLabel: FC = () => {
-  return (
-    <Label>
-      Logo Required!
-    </Label>
-  )
-}
+import colors from '../styles/color.style'
 
 const Label = styled.span`
-  color: red;
+  color: ${ colors.red };
   font-weight: 600;
   position: relative;
   top: 35px;
   left: 153px;
 `
+
+const ErrorLabel: FC = props => {
+  return (
+    <Label>
+      
+    </Label>
+  )
+}
 
 export default ErrorLabel

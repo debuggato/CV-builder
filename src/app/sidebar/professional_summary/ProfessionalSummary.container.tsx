@@ -39,7 +39,6 @@ class ProfessionalSummary extends Component<Props, State> {
       <Container>
         <Title>Professional Summary</Title>
         <Textarea
-          isVisible={ true }
           withLabel={ true }
           label="Description"
           name="description"

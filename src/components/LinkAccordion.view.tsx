@@ -24,7 +24,7 @@ export const Link = styled.a`
   }
 `
 
-const LinkView: FC<Props> = props => {
+const LinkAccordionView: FC<Props> = props => {
   return (
     <Link onClick={ props.onClick }>
       { props.label }
@@ -33,4 +33,4 @@ const LinkView: FC<Props> = props => {
   )
 }
 
-export default LinkView
+export default LinkAccordionView

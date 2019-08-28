@@ -2,11 +2,10 @@ import React, { CSSProperties, FC } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
-import { Wrapper } from './Textarea.style'
+import FieldLabel from '../FieldLabel.view'
 
 interface Props {
   label?: string,
-  isVisible?: boolean,
   withLabel: boolean,
   onChange: (e: any) => void,
   name: string,
@@ -20,16 +19,16 @@ const styleEditor: CSSProperties = {
 
 const Textarea: FC<Props> = (props: any) => {
   return (
-    <Wrapper isVisible={ props.isVisible }>
+    <div>
       {
-        props.withLabel ? <label>{ props.label }</label> : null
+        props.withLabel ? <FieldLabel value={ props.label } /> : null
       }
       <ReactQuill
         value={ props.text }
         onChange={ props.onChange }
         style={ styleEditor }
       />
-    </Wrapper>
+    </div>
   )
 }
 

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import { Container } from './Skills.style'
 import mapDispatchToProps from './duck/dispatch'
-import Textarea from '../../../components/textarea/Textarea.view'
 import Title from '../../../components/Title.view'
 
 interface Props {
@@ -38,14 +37,7 @@ class Skills extends Component<Props, State> {
     return (
       <Container>
         <Title>Skills</Title>
-        <Textarea
-          isVisible={ true }
-          withLabel={ true }
-          label="Description"
-          name="description"
-          onChange={ this.onDescriptionChange }
-          text={ this.state.value }
-        />
+        
       </Container>
     )
   }

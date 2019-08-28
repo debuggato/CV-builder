@@ -7,6 +7,7 @@ import mapDispatchToProps from './duck/dispatch'
 import Input from '../../../components/input/Input.view'
 import LinkAccordion from '../../../components/LinkAccordion.view'
 import Title from '../../../components/Title.view'
+import Photo from '../../../components/Photo/Photo.view'
 
 import {
   Container,
@@ -94,6 +95,7 @@ class PersonalDetails extends Component<Props, State> {
       <Container>
         <Title>{i18n.t('personal_details')}</Title>
         <MainDetails>
+          <Photo />
           <Wrapper>
             <Input
               type="text"
@@ -101,13 +103,6 @@ class PersonalDetails extends Component<Props, State> {
               label="Job Title"
               name="jobTitle"
               onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="file"
-              withLabel={true}
-              label="Upload Photo"
             />
           </Wrapper>
           <Wrapper>
