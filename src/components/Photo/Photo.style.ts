@@ -8,6 +8,24 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+
+  input {
+    visibility: hidden;
+  }
+
+  label {
+    height: 40px;
+    margin: 22px 0;
+    color: ${ colors.lightGrey }
+  }
+`
+
+export const UploadLabel = styled.span`
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 export const IconContainer = styled.div`

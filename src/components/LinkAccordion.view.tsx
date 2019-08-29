@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
 
-interface Props {
+type Props = {
   onClick: () => void,
   label: string,
   isOpen: boolean

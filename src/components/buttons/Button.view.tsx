@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { Btn } from './Button.style'
 
-interface Props {
+type Props = {
   onClick(): void,
   label: string,
   color?: string,

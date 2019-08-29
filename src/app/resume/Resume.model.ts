@@ -1,4 +1,4 @@
-interface Props {
+type Props {
   getJobTitle: string,
   getFirstName: string,
   getLastName: string,

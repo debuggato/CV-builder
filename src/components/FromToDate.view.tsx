@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Input from './input/Input.view'
 import FieldLabel from './FieldLabel.view'
 
-interface Props {  }
+type Props = {  }
 
 const Container = styled.div`
   margin: 10px;

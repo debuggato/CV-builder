@@ -2,22 +2,15 @@ import React, { CSSProperties, FC } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
+import Props from './Textarea.model'
 import FieldLabel from '../FieldLabel.view'
-
-interface Props {
-  label?: string,
-  withLabel: boolean,
-  onChange: (e: any) => void,
-  name: string,
-  text: string
-}
 
 const styleEditor: CSSProperties = {
   height: '200px',
   width: '100%'
 }
 
-const Textarea: FC<Props> = (props: any) => {
+const Textarea: FC<Props> = props => {
   return (
     <div>
       {

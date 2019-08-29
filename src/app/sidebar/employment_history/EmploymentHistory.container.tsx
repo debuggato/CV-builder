@@ -16,12 +16,12 @@ import {
   Wrapper
 } from './EmploymentHistory.style'
 
-interface State {
+type State = {
   isOpen: boolean,
   text: string
 }
 
-interface Props {
+type Props = {
   currentStep: number
 }
 

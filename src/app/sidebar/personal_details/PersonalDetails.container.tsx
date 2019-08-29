@@ -16,11 +16,11 @@ import {
   AdditionalDetails
 } from './PersonalDetails.style'
 
-interface State {
+type State = {
   isOpen: boolean
 }
 
-interface Props {
+type Props = {
   currentStep: number,
   sendJobTitleToStore: (arg0: string) => void,
   sendFirstNameToStore: (arg0: string) => void,

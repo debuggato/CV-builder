@@ -5,12 +5,12 @@ import { Container } from './Skills.style'
 import mapDispatchToProps from './duck/dispatch'
 import Title from '../../../components/Title.view'
 
-interface Props {
+type Props = {
   currentStep?: number,
   sendJobDescriptionToStore: (arg0: string) => void
 }
 
-interface State {
+type State = {
   value: string
 }
 

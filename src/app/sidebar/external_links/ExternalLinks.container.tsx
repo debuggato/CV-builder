@@ -10,7 +10,7 @@ import {
   AdditionalDetails
 } from './ExternalLinks.style'
 
-interface State {
+type State {
   showAdditionalDetails: boolean
 }
 

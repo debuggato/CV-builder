@@ -1,6 +1,6 @@
 import { CSSProperties, ChangeEvent } from 'react'
 
-interface Props {
+type Props {
   type: string,
   label?: string,
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void,

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import colors from '../styles/color.style'
 
-interface Props {
+type Props = {
   children: string
 }
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import colors from '../../styles/color.style'
 
-export interface StyleProps {
+export type StyleProps = {
   withoutStyle?: boolean
 }
 

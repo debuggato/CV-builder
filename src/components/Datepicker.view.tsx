@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-interface Props {}
+type Props {}
 
 const Datepicker: FC<Props> = props => {
   return (

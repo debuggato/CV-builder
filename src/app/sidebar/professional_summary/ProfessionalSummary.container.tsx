@@ -6,12 +6,12 @@ import mapDispatchToProps from './duck/dispatch'
 import Textarea from '../../../components/textarea/Textarea.view'
 import Title from '../../../components/Title.view'
 
-interface Props {
+type Props = {
   currentStep?: number,
   sendJobDescriptionToStore: (arg0: string) => void
 }
 
-interface State {
+type State = {
   value: string
 }
 

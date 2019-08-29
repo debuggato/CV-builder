@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { Select } from './Select.style'
 
-interface Props {
+type Props = {
   list: string[]
 }
 

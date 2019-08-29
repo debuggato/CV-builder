@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Select from '../../../components/select/Select.view'
 import Input from '../../../components/input/Input.view'
 
-interface State {
+type State = {
   langs: string[]
 }
 

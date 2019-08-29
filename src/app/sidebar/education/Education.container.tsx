@@ -13,12 +13,12 @@ import {
   DetailsToFill
 } from './Education.style'
 
-interface State {
+type State = {
   isOpen: boolean,
   text: string
 }
 
-interface Props {
+type Props = {
   currentStep: number
 }
 

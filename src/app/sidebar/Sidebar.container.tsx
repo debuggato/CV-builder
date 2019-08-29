@@ -9,7 +9,7 @@ import EmploymentHistory from './employment_history/EmploymentHistory.container'
 import Skills from './skills/Skills.container'
 import Button from '../../components/buttons/Button.view'
 
-interface State {
+type State = {
   currentStep: number,
   sectionToShow: number
 }
@@ -62,14 +62,18 @@ export default class Sidebar extends Component<{}, State> {
         <Education currentStep={ currentStep } />
         <Skills currentStep={ currentStep } />
         <Action>
-          <Button
-            onClick={ this.onPrev }
-            label="Prev"
-          />
-          <Button
-            onClick={ this.onNext }
-            label="Next"
-          />
+          {
+            currentStep !== 1 &&
+            <Button
+              onClick={ this.onPrev }
+              label="Prev"
+            />
+          } : {
+            <Button
+              onClick={ this.onNext }
+              label="Next"
+            />
+          }
         </Action>
       </Wrapper>
     )

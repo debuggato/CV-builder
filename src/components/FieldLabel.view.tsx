@@ -9,7 +9,7 @@ const Label = styled.label`
   margin-bottom: .5rem;
 `
 
-interface Props {
+type Props = {
   value: string | undefined
 }
 
