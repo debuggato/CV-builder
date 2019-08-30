@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 
 import Input from '../input/Input.view'
 import FieldLabel from '../FieldLabel.view'
+import Icon from '../Icon.view'
 
 import {
   Container,
@@ -10,6 +11,10 @@ import {
   UploadLabel
 } from './Photo.style'
 
+const iconStyle = {
+  marginRight: '10px'
+}
+
 const Photo: FC = () => {
   return (
     <Container>
@@ -17,12 +22,12 @@ const Photo: FC = () => {
       <Wrapper>
         <img src="" alt="" />
         <IconContainer>
-          <i className="ion-md-contact" />
+          <Icon icon="contact" />
         </IconContainer>
 
         <label htmlFor="upload">
           <UploadLabel>
-            <i className="ion-md-image"></i>
+            <Icon icon="image" style={ iconStyle }></Icon>
             Upload Photo
           </UploadLabel>
           <Input

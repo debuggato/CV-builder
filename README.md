@@ -1,6 +1,10 @@
 # CV builder
 
-A CV builder to create Resumes with export in .pdf and .doc files written in React.js and Typescript
+📝 Application to create Resumes with export in .pdf and .doc (coming soon...) files written in React.js and Typescript
+
+## The idea behind
+For months I was searching for a free tool which allows me to create, in an awesome way, my own resume without paying for it, but I failed.
+I believe that this kind of tool should be free so I decided to start this project as a way to improve my own skills on React.js and the hope to have the necessary help from the open source community to create a great experience through the creation of our  resumes.
 
 ### Installing
 
@@ -16,7 +20,6 @@ npm start
 
 # build for production
 npm run build
-
 ```
 
 ## Authors

@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Btn = styled.button`
+type Props = {
+  iconPosition?: string
+}
+
+const Btn = styled.button`
   display: inline-block;
   font-weight: 400;
   color: white;
@@ -17,13 +21,11 @@ export const Btn = styled.button`
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   font-size: 15px;
   margin: 0 5px;
-  background: ${ props => props.color }
+  background: ${ props => props.color };
 
   &:focus {
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
   }
 `
 
-export const Icon = styled.i`
-  color: #fff;
-`
+export default Btn

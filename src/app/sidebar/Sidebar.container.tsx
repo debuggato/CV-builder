@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
+import { CSSProperties } from 'styled-components'
 
+import Button from '../../components/buttons/Button.view'
+import Icon from '../../components/Icon.view'
 import { Wrapper, Action } from './Sidebar.style'
 import Header from './header/Header.container'
 import PersonalDetails from './personal_details/PersonalDetails.container'
@@ -7,7 +10,7 @@ import ProfessionalSummary from './professional_summary/ProfessionalSummary.cont
 import Education from './education/Education.container'
 import EmploymentHistory from './employment_history/EmploymentHistory.container'
 import Skills from './skills/Skills.container'
-import Button from '../../components/buttons/Button.view'
+import ExternalLinks from './external_links/ExternalLinks.container'
 
 type State = {
   currentStep: number,
@@ -18,7 +21,15 @@ export default class Sidebar extends Component<{}, State> {
 
   state = {
     currentStep: 1,
-    sectionToShow: 5
+    sectionToShow: 6
+  }
+
+  arrowNext: CSSProperties = {
+    marginLeft: '10px'
+  }
+  
+  arrowPrev: CSSProperties = {
+    marginRight: '10px'
   }
 
   onNext = (): void => {
@@ -52,6 +63,23 @@ export default class Sidebar extends Component<{}, State> {
   render() {
 
     const { currentStep } = this.state
+    let
+      renderPrevBtn: ReactNode = null,
+      renderNextBtn: ReactNode = null
+
+    if (currentStep !== 1) {
+      renderPrevBtn = <Button onClick={ this.onPrev } >
+                        <Icon icon="arrow-back" style={ this.arrowPrev } />
+                        { 'Prev' }
+                      </Button>
+    }
+
+    if (currentStep !== 6) {
+      renderNextBtn = <Button onClick={ this.onNext } >
+                        { 'Next' }
+                        <Icon icon="arrow-forward" style={ this.arrowNext } />
+                      </Button>
+    }
 
     return (
       <Wrapper>
@@ -61,20 +89,8 @@ export default class Sidebar extends Component<{}, State> {
         <EmploymentHistory currentStep={ currentStep } />
         <Education currentStep={ currentStep } />
         <Skills currentStep={ currentStep } />
-        <Action>
-          {
-            currentStep !== 1 &&
-            <Button
-              onClick={ this.onPrev }
-              label="Prev"
-            />
-          } : {
-            <Button
-              onClick={ this.onNext }
-              label="Next"
-            />
-          }
-        </Action>
+        <ExternalLinks currentStep={ currentStep } />
+        <Action>{ renderPrevBtn } { renderNextBtn }</Action>
       </Wrapper>
     )
   }

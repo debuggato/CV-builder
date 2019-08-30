@@ -1,18 +1,12 @@
 import React, { FC } from 'react'
 
-import { Btn } from './Button.style'
-
-type Props = {
-  onClick(): void,
-  label: string,
-  color?: string,
-  icon?: string
-}
+import Btn from './Button.style'
+import Props from './Button.model'
 
 const Button: FC<Props> = props => {
   return (
-    <Btn type="button" onClick={ props.onClick } color={ props.color }>
-      { props.label }
+    <Btn type="button" onClick={ props.onClick }>
+      { props.children }
     </Btn>
   )
 }

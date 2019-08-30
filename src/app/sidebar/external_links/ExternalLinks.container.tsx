@@ -2,48 +2,54 @@ import React, { Component, Fragment } from 'react'
 
 import Input from '../../../components/input/Input.view'
 import Title from '../../../components/Title.view'
+import Subtitle from '../../../components/Subtitle.view'
 
 import {
-  Wrapper,
-  MainDetails,
-  LinkDetails,
-  AdditionalDetails
+  Container,
+  Wrapper
 } from './ExternalLinks.style'
 
-type State {
-  showAdditionalDetails: boolean
+type State = {
+
 }
 
-export default class ExternalLinks extends Component<{}, State> {
+type Props = {
+  currentStep: number
+}
+
+export default class ExternalLinks extends Component<Props, State> {
 
   state = {
-    showAdditionalDetails: false
-  }
-
-  clickShowAdditionalDetails = () => {
-    this.setState({
-      showAdditionalDetails: !this.state.showAdditionalDetails
-    })
+    
   }
 
   render() {
 
-    const { showAdditionalDetails } = this.state
+    if (this.props.currentStep !== 6) {
+      return null;
+    }
 
     return (
-      <Fragment>
+      <Container>
+        <Title>Websites & Social links</Title>
+        <Subtitle>You can add links to websites like your portfolio, Lineding profile or personal website</Subtitle>
         <Wrapper>
-          <Title>Websites & Social links</Title>
-          <MainDetails>
-            <Input type="text" withLabel={ true } label="Job Title" />
-            <Input type="file" withLabel={ true } label="Upload Photo" />
-            <Input type="text" withLabel={ true } label="First Name" />
-            <Input type="text" withLabel={ true } label="Last Name" />
-            <Input type="text" withLabel={ true } label="Phone" />
-            <Input type="email" withLabel={ true } label="Email" />
-          </MainDetails>
+          <Input
+            type="text"
+            withLabel={ true }
+            label="Label"
+            name="label"
+          />
         </Wrapper>
-      </Fragment>
+        <Wrapper>
+          <Input
+            type="text"
+            withLabel={ true }
+            label="Link"
+            name="link"
+          />
+        </Wrapper>
+      </Container>
     )
   }
 }
