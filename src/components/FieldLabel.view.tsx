@@ -7,6 +7,7 @@ const Label = styled.label`
   color: ${ colors.lightGrey };
   display: inline-block;
   margin-bottom: .5rem;
+  font-size: 14px;
 `
 
 type Props = {

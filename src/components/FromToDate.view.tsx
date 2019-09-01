@@ -7,7 +7,7 @@ import FieldLabel from './FieldLabel.view'
 type Props = {  }
 
 const Container = styled.div`
-  margin: 10px;
+  margin: 10px 0;
 `
 
 const Wrapper = styled.div`

@@ -6,7 +6,6 @@ import Props from './Textarea.model'
 import FieldLabel from '../FieldLabel.view'
 
 const styleEditor: CSSProperties = {
-  height: '200px',
   width: '100%'
 }
 

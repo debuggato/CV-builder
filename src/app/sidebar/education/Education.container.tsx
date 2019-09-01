@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
+import i18n from '../../../i18n'
 
-import Input from '../../../components/input/Input.view'
-import Textarea from '../../../components/textarea/Textarea.view'
-import LinkAccordion from '../../../components/LinkAccordion.view'
+import Button from '../../../components/buttons/Button.view'
 import Title from '../../../components/Title.view'
 import Subtitle from '../../../components/Subtitle.view'
-import FromToDate from '../../../components/FromToDate.view'
+import Details from '../accordion_details/AccordionDetails.container'
+import { addBlock } from '../../functions'
 
 import {
-  Container,
-  Wrapper,
-  DetailsToFill
+  Container
 } from './Education.style'
 
 type State = {
-  isOpen: boolean,
-  text: string
+  rows: number[],
+  clicks: number
 }
 
 type Props = {
@@ -25,19 +23,17 @@ type Props = {
 class Education extends Component<Props, State> {
 
   state = {
-    isOpen: false,
-    text: ''
+    rows: [ 0 ],
+    clicks: 0
   }
 
-  clickShowDetailsToFill = (): void => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
+  addEducationBlock = () => {
+    addBlock(this)
   }
 
-  onDescriptionChange = (value: any): void => {
-    this.setState({
-      text: value 
+  renderBlock = (): JSX.Element[] => {
+    return this.state.rows.map((index, el) => {
+      return <Details context="education" key={ el } id={ el } />
     })
   }
 
@@ -47,50 +43,14 @@ class Education extends Component<Props, State> {
       return null;
     }
 
-    const { isOpen } = this.state
-
     return (
       <Container>
-        <Title>Education</Title>
-        <Subtitle>If relevant, include your most recent education achievements and the dates here</Subtitle>
-        <DetailsToFill isVisible={ isOpen }>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={ true }
-              label="School"
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={ true }
-              label="Degree"
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={ true }
-              label="City"
-            />
-          </Wrapper>
-          <FromToDate />
-          <Wrapper>
-            <Textarea
-              withLabel={ true }
-              label="Description"
-              name="description"
-              onChange={ this.onDescriptionChange }
-              text={ this.state.text }
-            />
-          </Wrapper>
-        </DetailsToFill>
-        <LinkAccordion
-          onClick={ this.clickShowDetailsToFill }
-          label="Add education"
-          isOpen={ isOpen }
-        />
+        <Title>{ i18n.t("add_education") }</Title>
+        <Subtitle>{ i18n.t("education_subtitle") }</Subtitle>
+        { this.renderBlock() }
+        <Button typology="link" onClick={ this.addEducationBlock }>
+        { i18n.t('add_education') }
+        </Button>
       </Container>
     )
   }

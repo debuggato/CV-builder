@@ -8,7 +8,7 @@ import Header from './header/Header.container'
 import PersonalDetails from './personal_details/PersonalDetails.container'
 import ProfessionalSummary from './professional_summary/ProfessionalSummary.container'
 import Education from './education/Education.container'
-import EmploymentHistory from './employment_history/EmploymentHistory.container'
+import EmploymentHistory from './employment_history/Employment.container'
 import Skills from './skills/Skills.container'
 import ExternalLinks from './external_links/ExternalLinks.container'
 
@@ -68,14 +68,14 @@ export default class Sidebar extends Component<{}, State> {
       renderNextBtn: ReactNode = null
 
     if (currentStep !== 1) {
-      renderPrevBtn = <Button onClick={ this.onPrev } >
+      renderPrevBtn = <Button onClick={ this.onPrev } typology="button" secondary>
                         <Icon icon="arrow-back" style={ this.arrowPrev } />
                         { 'Prev' }
                       </Button>
     }
 
     if (currentStep !== 6) {
-      renderNextBtn = <Button onClick={ this.onNext } >
+      renderNextBtn = <Button onClick={ this.onNext } typology="button" primary>
                         { 'Next' }
                         <Icon icon="arrow-forward" style={ this.arrowNext } />
                       </Button>

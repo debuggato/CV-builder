@@ -5,9 +5,9 @@ import i18n from '../../../i18n'
 import mapDispatchToProps from './duck/dispatch'
 
 import Input from '../../../components/input/Input.view'
-import LinkAccordion from '../../../components/LinkAccordion.view'
+import Button from '../../../components/buttons/Button.view'
 import Title from '../../../components/Title.view'
-import Photo from '../../../components/Photo/Photo.view'
+import Photo from '../../../components/photo/Photo.view'
 
 import {
   Container,
@@ -142,11 +142,12 @@ class PersonalDetails extends Component<Props, State> {
             />
           </Wrapper>
         </MainDetails>
-        <LinkAccordion
+        <Button
+          typology="link"
           onClick={this.clickShowAdditionalDetails}
-          label="Edit additional details"
-          isOpen={isOpen}
-        />
+        >
+          {i18n.t('edit_additional_details')}
+        </Button>
         <AdditionalDetails isVisible={isOpen}>
           <Wrapper>
             <Input

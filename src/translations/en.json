@@ -1,7 +1,15 @@
 {
   "en": {
     "translation": {
-      "personal_details": "Personal Details"
+      "personal_details": "Personal Details",
+      "employment_history": "Employment History",
+      "employment_history_subtitle": "Include your last 10 years of relevant experience and dates in this section. List your most recent position first.",
+      "edit_additional_details": "Edit additional details",
+      "upload_photo": "Upload Photo",
+      "add_employment": "Add employment",
+      "add_education": "Add education",
+      "not_specified": "Not specified",
+      "education_subtitle": "If relevant, include your most recent education achievements and the dates here"
     }
   }
 }

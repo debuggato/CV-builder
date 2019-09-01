@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 type Props = {
-  iconPosition?: string
+  typology: string,
+  primary?: boolean,
+  secondary?: boolean
 }
 
 const Btn = styled.button`
@@ -21,7 +23,8 @@ const Btn = styled.button`
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   font-size: 15px;
   margin: 0 5px;
-  background: ${ props => props.color };
+  ${ (props: Props) => props.primary ? 'background: #000' : null };
+  ${ (props: Props) => props.secondary ? 'background: #fff' : null };
 
   &:focus {
     box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);

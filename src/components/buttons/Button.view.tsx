@@ -5,7 +5,13 @@ import Props from './Button.model'
 
 const Button: FC<Props> = props => {
   return (
-    <Btn type="button" onClick={ props.onClick }>
+    <Btn 
+      type="button"
+      onClick={ props.onClick }
+      typology={ props.typology }
+      { ...props.primary }
+      { ...props.secondary }
+    >
       { props.children }
     </Btn>
   )

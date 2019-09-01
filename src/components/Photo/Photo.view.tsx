@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import Input from '../input/Input.view'
 import FieldLabel from '../FieldLabel.view'
 import Icon from '../Icon.view'
+import i18n from '../../i18n'
 
 import {
   Container,
@@ -28,7 +29,7 @@ const Photo: FC = () => {
         <label htmlFor="upload">
           <UploadLabel>
             <Icon icon="image" style={ iconStyle }></Icon>
-            Upload Photo
+            { i18n.t('upload_photo') }
           </UploadLabel>
           <Input
             type="file"
