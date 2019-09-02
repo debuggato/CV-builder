@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  padding: 10px;
+export const Container = styled.section`
   margin: 10px 0;
 `

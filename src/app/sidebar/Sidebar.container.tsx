@@ -11,17 +11,18 @@ import Education from './education/Education.container'
 import EmploymentHistory from './employment_history/Employment.container'
 import Skills from './skills/Skills.container'
 import ExternalLinks from './external_links/ExternalLinks.container'
+import AddSection from './add_section/AddSection.container'
 
 type State = {
   currentStep: number,
   sectionToShow: number
 }
 
-export default class Sidebar extends Component<{}, State> {
+export default class Sidebar extends Component<null, State> {
 
   state = {
     currentStep: 1,
-    sectionToShow: 6
+    sectionToShow: 7
   }
 
   arrowNext: CSSProperties = {
@@ -62,7 +63,7 @@ export default class Sidebar extends Component<{}, State> {
 
   render() {
 
-    const { currentStep } = this.state
+    const { currentStep, sectionToShow } = this.state
     let
       renderPrevBtn: ReactNode = null,
       renderNextBtn: ReactNode = null
@@ -74,7 +75,7 @@ export default class Sidebar extends Component<{}, State> {
                       </Button>
     }
 
-    if (currentStep !== 6) {
+    if (currentStep !== sectionToShow) {
       renderNextBtn = <Button onClick={ this.onNext } typology="button" primary>
                         { 'Next' }
                         <Icon icon="arrow-forward" style={ this.arrowNext } />
@@ -90,6 +91,7 @@ export default class Sidebar extends Component<{}, State> {
         <Education currentStep={ currentStep } />
         <Skills currentStep={ currentStep } />
         <ExternalLinks currentStep={ currentStep } />
+        <AddSection currentStep={ currentStep } />
         <Action>{ renderPrevBtn } { renderNextBtn }</Action>
       </Wrapper>
     )

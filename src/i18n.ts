@@ -2,11 +2,12 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import en from './translations/en.json'
+import it from './translations/it.json'
 
 // the translations
-// (tip move them in a JSON file and import them)
 const resources = {
-  ...en
+  ...en,
+  ...it
 };
 
 i18n

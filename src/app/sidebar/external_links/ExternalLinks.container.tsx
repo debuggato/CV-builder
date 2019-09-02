@@ -1,16 +1,17 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
-import Input from '../../../components/input/Input.view'
+import i18n from '../../../i18n'
+
 import Title from '../../../components/Title.view'
 import Subtitle from '../../../components/Subtitle.view'
-
-import {
-  Container,
-  Wrapper
-} from './ExternalLinks.style'
+import Button from '../../../components/buttons/Button.view'
+import Details from '../accordion_details/AccordionDetails.container'
+import { addBlock } from '../../functions'
+import { Container } from './ExternalLinks.style'
 
 type State = {
-
+  rows: number[],
+  clicks: number
 }
 
 type Props = {
@@ -20,7 +21,18 @@ type Props = {
 export default class ExternalLinks extends Component<Props, State> {
 
   state = {
-    
+    rows: [ 0 ],
+    clicks: 0
+  }
+
+  renderBlock = (): JSX.Element[] => {
+    return this.state.rows.map((index, el) => {
+      return <Details context="external_links" key={ el } id={ el } />
+    })
+  }
+
+  addExternalLinksBlock = () => {
+    addBlock(this)
   }
 
   render() {
@@ -31,24 +43,12 @@ export default class ExternalLinks extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>Websites & Social links</Title>
-        <Subtitle>You can add links to websites like your portfolio, Lineding profile or personal website</Subtitle>
-        <Wrapper>
-          <Input
-            type="text"
-            withLabel={ true }
-            label="Label"
-            name="label"
-          />
-        </Wrapper>
-        <Wrapper>
-          <Input
-            type="text"
-            withLabel={ true }
-            label="Link"
-            name="link"
-          />
-        </Wrapper>
+        <Title>{ i18n.t("websites_social_links") }</Title>
+        <Subtitle>{ i18n.t("website_sicial_links_subtitle") }</Subtitle>
+        { this.renderBlock() }
+        <Button typology="link" onClick={ this.addExternalLinksBlock }>
+        { i18n.t('add_link') }
+        </Button>
       </Container>
     )
   }

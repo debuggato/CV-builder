@@ -4,8 +4,7 @@ type Props = {
   isVisible: boolean
 }
 
-export const Container = styled.div`
-  padding: 10px;
+export const Container = styled.section`
   position: absolute;
   width: 100%;
   box-sizing: border-box;

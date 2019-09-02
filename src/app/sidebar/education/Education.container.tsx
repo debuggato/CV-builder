@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import i18n from '../../../i18n'
 
 import Button from '../../../components/buttons/Button.view'

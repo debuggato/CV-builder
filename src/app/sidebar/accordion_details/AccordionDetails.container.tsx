@@ -5,6 +5,8 @@ import i18n from '../../../i18n'
 import Icon from '../../../components/Icon.view'
 import EmploymentView from '../employment_history/Employment.view'
 import EducationView from '../education/Education.view'
+import ExternalLinksView from '../external_links/ExternalLinks.view'
+import CoursesView from '../courses/Courses.view'
 
 import {
   Container,
@@ -17,11 +19,12 @@ import {
 type State = {
   text: string,
   title: string,
-  isOpen: boolean
+  isOpen: boolean,
+  dates: string | null
 }
 
 type Props = {
-  id: number,
+  id?: number,
   context: string
 }
 
@@ -30,7 +33,8 @@ class AccordionDetails extends Component<Props, State> {
   state = {
     text: '',
     title: i18n.t("not_specified"),
-    isOpen: false
+    isOpen: false,
+    dates: ''
   }
 
   onChangeDescription = (value: any): void => {
@@ -39,7 +43,7 @@ class AccordionDetails extends Component<Props, State> {
     })
   }
 
-  accordionHandler = (): void => {
+  onClickAccordion = (): void => {
     this.setState({
       isOpen: !this.state.isOpen
     })
@@ -56,31 +60,45 @@ class AccordionDetails extends Component<Props, State> {
 
   render() {
 
-    const { text, isOpen, title } = this.state
+    const { text, isOpen, title, dates } = this.state
+    const { context } = this.props
     let renderBody = null
 
-    if (this.props.context === 'employment') {
-      renderBody = <EmploymentView
-                      text={ text }
-                      onChangeDescription={ this.onChangeDescription }
-                      onTitleSectionChange={ this.onTitleSectionChange }
-                    />
-    } else {
-      renderBody = <EducationView
-                      text={ text }
-                      onChangeDescription={ this.onChangeDescription }
-                      onTitleSectionChange={ this.onTitleSectionChange }
-                    />
+    switch (context) {
+      case 'employment':
+        renderBody = <EmploymentView
+                        text={ text }
+                        onChangeDescription={ this.onChangeDescription }
+                        onTitleSectionChange={ this.onTitleSectionChange }
+                      />
+        break
+      case 'education':
+        renderBody = <EducationView
+                        text={ text }
+                        onChangeDescription={ this.onChangeDescription }
+                        onTitleSectionChange={ this.onTitleSectionChange }
+                      />
+        break
+      case 'external_links':
+        renderBody = <ExternalLinksView
+                        onTitleSectionChange={ this.onTitleSectionChange }
+                      />
+        break
+      case 'courses':
+        renderBody = <CoursesView
+                        onTitleSectionChange={ this.onTitleSectionChange }
+                      />
+        break
     }
 
     return (
       <Container key={ this.props.id }>
-        <Header onClick={this.accordionHandler}>
+        <Header onClick={ this.onClickAccordion }>
           <Title>
             { title }
             <Icon icon={ isOpen ? 'arrow-dropup' : 'arrow-dropdown' } />
           </Title>
-          <Dates>Dal 25/6 al 5/12</Dates>
+          <Dates>{ dates }</Dates>
         </Header>
         <Body isVisible={ isOpen }>
           { renderBody }

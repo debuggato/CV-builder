@@ -1,9 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, ChangeEvent } from 'react'
 
 import { Select } from './Select.style'
 
 type Props = {
-  list: string[]
+  list: string[],
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
 const SelectView: FC<Props> = props => {
@@ -13,7 +14,7 @@ const SelectView: FC<Props> = props => {
   )
 
   return (
-    <Select>{ items }</Select>
+    <Select onChange={ props.onChange }>{ items }</Select>
   )
 }
 

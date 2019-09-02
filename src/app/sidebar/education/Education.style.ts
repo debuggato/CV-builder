@@ -4,13 +4,9 @@ type Props = {
   isVisible: boolean
 }
 
-export const Container = styled.div`
-  padding: 10px;
-`
+export const Container = styled.section``
 
-export const Subtitle = styled.p`
-
-`
+export const Subtitle = styled.p``
 
 export const Wrapper = styled.div`
   margin: 10px;

@@ -1,13 +1,9 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  padding: 10px;
-`
-
-export const LinkDetails = styled.h4`
-  cursor: pointer;
-`
+export const Container = styled.section``
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  margin: 10px 0;
 `

@@ -1,6 +1,8 @@
 import React, { Component, CSSProperties } from 'react'
 import styled from 'styled-components'
 
+import i18n from '../../../i18n'
+
 import Select from '../../../components/select/Select.view'
 import Input from '../../../components/input/Input.view'
 
@@ -14,13 +16,33 @@ const Wrapper = styled.div`
   flex-direction: row;
 `
 
-export default class Header extends Component<{}, State> {
+class Header extends Component<null, State> {
+
   state = {
     langs: [
       'Italian',
       'English',
       'Spanish'
     ]
+  }
+
+  onLangChange = (e: any) => {
+    let { value } = e.target
+    
+    switch (value) {
+      case 0:
+        i18n.changeLanguage('it')
+        break
+      case 1:
+        i18n.changeLanguage('en')
+        break
+      case 2:
+        i18n.changeLanguage('es')
+        break
+      default:
+        i18n.changeLanguage('en')
+        break
+    }
   }
 
   render() {
@@ -41,14 +63,16 @@ export default class Header extends Component<{}, State> {
 
     return (
       <Wrapper>
-        <Input 
+        <Input
           type="text"
           withLabel={ false }
           label="Untitled"
           style={ titleStyle }
         />
-        <Select list={langs} />
+        <Select list={ langs } onChange={ this.onLangChange } />
       </Wrapper>
     )
   }
 }
+
+export default Header

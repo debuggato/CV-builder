@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 
 import Input from '../input/Input.view'
-import FieldLabel from '../FieldLabel.view'
 import Icon from '../Icon.view'
 import i18n from '../../i18n'
 
@@ -19,7 +18,6 @@ const iconStyle = {
 const Photo: FC = () => {
   return (
     <Container>
-      <FieldLabel value="Upload Photo" />
       <Wrapper>
         <img src="" alt="" />
         <IconContainer>
