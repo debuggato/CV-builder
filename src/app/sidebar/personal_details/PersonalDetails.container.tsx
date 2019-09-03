@@ -1,36 +1,22 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import React, { Component, ChangeEvent } from 'react'
+import { connect } from 'react-redux'
+
 import i18n from '../../../i18n'
 
-import mapDispatchToProps from './duck/dispatch'
-
-import Input from '../../../components/input/Input.view'
 import Button from '../../../components/buttons/Button.view'
 import Title from '../../../components/Title.view'
-import Photo from '../../../components/photo/Photo.view'
 
+import mapDispatchToProps from './duck/dispatch'
+import Props from './PersonalDetails.model'
+import AdditionalDetails from './AdditionalDetails.view'
+import MainDetails from './MainDetails.view'
 import {
   Container,
-  Wrapper,
-  MainDetails,
-  AdditionalDetails
+  Details
 } from './PersonalDetails.style'
 
 type State = {
   isOpen: boolean
-}
-
-type Props = {
-  currentStep: number,
-  sendJobTitleToStore: (arg0: string) => void,
-  sendFirstNameToStore: (arg0: string) => void,
-  sendLastNameToStore: (arg0: string) => void,
-  sendCityToStore: (arg0: string) => void,
-  sendAddressToStore: (arg0: string) => void,
-  sendPostalCodeToStore: (arg0: string) => void,
-  sendPhoneToStore: (arg0: string) => void,
-  sendEmailToStore: (arg0: string) => void,
-  sendCountryToStore: (arg0: string) => void
 }
 
 class PersonalDetails extends Component<Props, State> {
@@ -45,7 +31,7 @@ class PersonalDetails extends Component<Props, State> {
     })
   }
 
-  onInputChange = (e: any): void => {
+  onInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
 
     let
       name: string = e.target.name,
@@ -79,6 +65,18 @@ class PersonalDetails extends Component<Props, State> {
       case 'address':
         this.props.sendAddressToStore(value)
         break;
+      case 'drivingLicense':
+        this.props.sendDrivingLicenseToStore(value)
+        break;
+      case 'nationality':
+        this.props.sendNationalityToStore(value)
+        break;
+      case 'placeOfBirth':
+        this.props.sendPlaceOfBirthToStore(value)
+        break;
+      case 'dateOfBirth':
+        this.props.sendDateOfBirthToStore(value)
+        break;
       default: break;
     }
   }
@@ -94,134 +92,18 @@ class PersonalDetails extends Component<Props, State> {
     return (
       <Container>
         <Title>{i18n.t('personal_details')}</Title>
-        <MainDetails>
-          <Photo />
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Job Title"
-              name="jobTitle"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="First Name"
-              name="firstName"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Last Name"
-              name="lastName"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Phone"
-              name="phone"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="email"
-              withLabel={true}
-              label="Email"
-              name="email"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-        </MainDetails>
+        <Details isVisible={ true }>
+          <MainDetails onInputChange={ this.onInputChange }/>
+        </Details>
         <Button
           typology="link"
           onClick={this.clickShowAdditionalDetails}
         >
           {i18n.t('edit_additional_details')}
         </Button>
-        <AdditionalDetails isVisible={isOpen}>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Country"
-              name="country"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="City"
-              name="city"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Address"
-              name="address"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Postal code"
-              name="postalCode"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Driving License"
-              name="drivingLicense"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Nationality"
-              name="nationality"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Place of birth"
-              name="placeOfBirth"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-          <Wrapper>
-            <Input
-              type="text"
-              withLabel={true}
-              label="Date of birth"
-              name="dateOfBirth"
-              onChange={this.onInputChange}
-            />
-          </Wrapper>
-        </AdditionalDetails>
+        <Details isVisible={ isOpen }>
+          <AdditionalDetails onInputChange={ this.onInputChange } />
+        </Details>
       </Container>
     )
   }

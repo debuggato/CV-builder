@@ -37,6 +37,9 @@ const mapDispatchToProps = (dispatch: any) => {
     },
     sendPlaceOfBirthToStore: (value: string) => {
       dispatch(action.setPlaceOfBirth(value))
+    },
+    sendDateOfBirthToStore: (value: string) => {
+      dispatch(action.setDateOfBirth(value))
     }
   }
 }

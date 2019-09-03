@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { connect } from 'react-redux'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 
-import { Wrapper, PageWrapper, Actions } from './Resume.style'
+import { Container, Page, Bar } from './Resume.style'
 import Props from './Resume.model'
 import TemplateOneView from '../templates/TemplateOne.view'
 import FilePDF from '../PDF/PDF.view'
@@ -43,18 +43,30 @@ const Resume: FC<Props> = (props: any) => {
     getDrivingLicense: getDrivingLicense,
     getNationality: getNationality
   }
+
+  const downloadBtn = {
+    backgroundColor: '#6dd9f7',
+    color: '#ffffff',
+    padding: '10px',
+    width: 'auto',
+    textDecoration: 'none'
+  }
   
   return (
-    <Wrapper>
-      <PageWrapper>
-        <TemplateOneView {...dataFromState} />
-      </PageWrapper>
-      <Actions>
-        <PDFDownloadLink document={<FilePDF { ...dataFromState } />} fileName="CV.pdf">
+    <Container>
+      <Bar>
+        <PDFDownloadLink
+          document={<FilePDF { ...dataFromState } />}
+          fileName="CV.pdf"
+          style={ downloadBtn }
+        >
           {({ loading, error }) => (loading ? 'Loading document...' : 'Download')}
         </PDFDownloadLink>
-      </Actions>
-    </Wrapper>
+      </Bar>
+      <Page>
+        <TemplateOneView {...dataFromState} />
+      </Page>
+    </Container>
   )
 }
 

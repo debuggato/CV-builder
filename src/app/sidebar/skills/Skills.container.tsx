@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import i18n from '../../../i18n'
+
+import Title from '../../../components/Title.view'
+import Details from '../accordion_details/AccordionDetails.container'
+import Button from '../../../components/buttons/Button.view'
+import { addBlock } from '../../functions'
+
 import { Container } from './Skills.style'
 import mapDispatchToProps from './duck/dispatch'
-import Title from '../../../components/Title.view'
 
 type Props = {
   currentStep?: number,
@@ -11,21 +17,25 @@ type Props = {
 }
 
 type State = {
-  value: string
+  rows: number[],
+  clicks: number
 }
 
 class Skills extends Component<Props, State> {
 
   state = {
-    value: ''
+    rows: [ 0 ],
+    clicks: 0
   }
 
-  onDescriptionChange = (value: any): void => {
-    this.props.sendJobDescriptionToStore(value)
-
-    this.setState({
-      value: value
+  renderBlock = (): JSX.Element[] => {
+    return this.state.rows.map((index, el) => {
+      return <Details context="skills" key={ el } id={ el } />
     })
+  }
+
+  addExternalLinksBlock = () => {
+    addBlock(this)
   }
 
   render() {
@@ -36,8 +46,11 @@ class Skills extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>Skills</Title>
-        
+        <Title>{ i18n.t('skills') }</Title>
+        { this.renderBlock() }
+        <Button typology="link" onClick={ this.addExternalLinksBlock }>
+        { i18n.t('add_skill') }
+        </Button>
       </Container>
     )
   }

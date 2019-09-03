@@ -27,11 +27,6 @@ export const LinkAccordion = styled.a`
   }
 `
 
-export const MainDetails = styled.div`
-
-`
-
-export const AdditionalDetails = styled(MainDetails)`
+export const Details = styled.div`
   display: ${ (props: Props) => props.isVisible ? "block" : "none" };
-  padding-bottom: 120px;
 `

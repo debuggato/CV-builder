@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 import colors from '../../styles/color.style'
 
-export const Wrapper = styled.div`
-  width: 40%;
+export const Container = styled.aside`
+  width: 30%;
   min-height: 100vh;
   position: relative;
 `
 
-export const Action = styled.div`
-  width: 40%;
+export const ActionBar = styled.div`
+  width: 30%;
   height: auto;
   background-color: ${ colors.white };
   position: fixed;

@@ -3,7 +3,7 @@ import { CSSProperties } from 'styled-components'
 
 import Button from '../../components/buttons/Button.view'
 import Icon from '../../components/Icon.view'
-import { Wrapper, Action } from './Sidebar.style'
+import { Container, ActionBar } from './Sidebar.style'
 import Header from './header/Header.container'
 import PersonalDetails from './personal_details/PersonalDetails.container'
 import ProfessionalSummary from './professional_summary/ProfessionalSummary.container'
@@ -83,7 +83,7 @@ export default class Sidebar extends Component<null, State> {
     }
 
     return (
-      <Wrapper>
+      <Container>
         <Header />
         <PersonalDetails currentStep={ currentStep } />
         <ProfessionalSummary currentStep={ currentStep } />
@@ -92,8 +92,8 @@ export default class Sidebar extends Component<null, State> {
         <Skills currentStep={ currentStep } />
         <ExternalLinks currentStep={ currentStep } />
         <AddSection currentStep={ currentStep } />
-        <Action>{ renderPrevBtn } { renderNextBtn }</Action>
-      </Wrapper>
+        <ActionBar>{ renderPrevBtn } { renderNextBtn }</ActionBar>
+      </Container>
     )
   }
 }

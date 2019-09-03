@@ -1,4 +1,8 @@
-import React, { Component, CSSProperties } from 'react'
+import React, {
+  Component,
+  CSSProperties,
+  ChangeEvent
+} from 'react'
 import styled from 'styled-components'
 
 import i18n from '../../../i18n'
@@ -26,17 +30,17 @@ class Header extends Component<null, State> {
     ]
   }
 
-  onLangChange = (e: any) => {
+  onLangChange = (e: ChangeEvent<HTMLSelectElement>) => {
     let { value } = e.target
     
     switch (value) {
-      case 0:
+      case '0':
         i18n.changeLanguage('it')
         break
-      case 1:
+      case '1':
         i18n.changeLanguage('en')
         break
-      case 2:
+      case '2':
         i18n.changeLanguage('es')
         break
       default:

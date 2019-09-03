@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 
+import i18n from '../../i18n'
+
 import {
-  Wrapper,
+  Container,
   FullName,
   JobTitle,
   Sidebar,
@@ -9,14 +11,19 @@ import {
   Address,
   Phone,
   Main,
-  Description
+  Description,
+  Header
 } from './TemplateOne.style'
 
 const TemplateOne: FC = (props: any) => {
   return (
-    <Wrapper>
+    <Container>
+      <Header>
+        <FullName>{ props.getFirstName + ' ' + props.getLastName}</FullName>
+        <JobTitle>{ props.getJobTitle }</JobTitle>
+      </Header>
       <Sidebar>
-        <h3>Contact Informations</h3>
+        <h3>{ i18n.t("contact_information") }</h3>
         <Email>{ props.getEmail ? `E-mail: ${props.getEmail}` : ''}</Email>
         <Address>
         { props.getAddress ? `Address: ${props.getAddress} - ` : ''}
@@ -27,11 +34,10 @@ const TemplateOne: FC = (props: any) => {
         <h3>Competenze</h3>
       </Sidebar>
       <Main>
-        <FullName>{ props.getFirstName + ' ' + props.getLastName}</FullName>
-        <JobTitle>{ props.getJobTitle }</JobTitle>
+        <h3>{ i18n.t("about_me") }</h3>
         <Description dangerouslySetInnerHTML={{ __html: props.getJobDescription }} />
       </Main>
-    </Wrapper>
+    </Container>
   )
 }
 

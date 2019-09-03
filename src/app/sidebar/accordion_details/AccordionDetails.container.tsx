@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ChangeEvent } from 'react'
 
 import i18n from '../../../i18n'
 
@@ -7,6 +7,7 @@ import EmploymentView from '../employment_history/Employment.view'
 import EducationView from '../education/Education.view'
 import ExternalLinksView from '../external_links/ExternalLinks.view'
 import CoursesView from '../courses/Courses.view'
+import SkillsView from '../skills/Skills.view'
 
 import {
   Container,
@@ -49,7 +50,7 @@ class AccordionDetails extends Component<Props, State> {
     })
   }
 
-  onTitleSectionChange = (e: any): void => {
+  onTitleSectionChange = (e: ChangeEvent<HTMLInputElement>): void => {
 
     let value = e.target.value
 
@@ -86,6 +87,11 @@ class AccordionDetails extends Component<Props, State> {
         break
       case 'courses':
         renderBody = <CoursesView
+                        onTitleSectionChange={ this.onTitleSectionChange }
+                      />
+        break
+      case 'skills':
+        renderBody = <SkillsView
                         onTitleSectionChange={ this.onTitleSectionChange }
                       />
         break
