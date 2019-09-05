@@ -26,6 +26,10 @@ export const Phone = styled.h4`
 export const Description = styled.p`
 `
 
+export const Title = styled.h4`
+  border-bottom: 1px solid ${ colors.black };
+`
+
 export const Main = styled.main`
   grid-area: main;
   padding: 5px;

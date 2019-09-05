@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   flex-direction: row;
 `
 
-class Header extends Component<null, State> {
+class Header extends Component<{}, State> {
 
   state = {
     langs: [

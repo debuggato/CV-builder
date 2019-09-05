@@ -48,8 +48,7 @@ const Resume: FC<Props> = (props: any) => {
     backgroundColor: '#6dd9f7',
     color: '#ffffff',
     padding: '10px',
-    width: 'auto',
-    textDecoration: 'none'
+    width: 'auto'
   }
   
   return (

@@ -2,8 +2,26 @@
   "it": {
     "translation": {
       "personal_details": "Dettagli personali",
-      "employment_history": "",
-      "employment_history_subtitle": ""
+      "employment_history": "Esperienza lavorativa",
+      "employment_history_subtitle": "Include your last 10 years of relevant experience and dates in this section. List your most recent position first.",
+      "edit_additional_details": "Modifica i dettagli aggiuntivi",
+      "upload_photo": "Carica foto",
+      "add_employment": "Aggiungi lavoro",
+      "add_education": "Aggiungi percorso scolastico",
+      "not_specified": "Non specificato",
+      "education_subtitle": "If relevant, include your most recent education achievements and the dates here",
+      "add_section": "Aggiungi sezione",
+      "websites_social_links": "Siti web e link social",
+      "website_sicial_links_subtitle": "You can add links to websites like your portfolio, Linkedin profile or personal website",
+      "add_link": "Aggiungi link",
+      "courses_title": "Corsi",
+      "add_course": "Aggiungi corso",
+      "skills": "Competenze",
+      "add_skill": "Aggiungi competenza",
+      "contact_information": "Informazioni di contatto",
+      "about_me": "Su di me",
+      "education": "Percorso formativo",
+      "langs": "Lingue parlate"
     }
   }
 }

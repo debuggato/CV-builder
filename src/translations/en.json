@@ -19,7 +19,9 @@
       "skills": "Skills",
       "add_skill": "Add skill",
       "contact_information": "Contact information",
-      "about_me": "About me"
+      "about_me": "About me",
+      "education": "Education",
+      "langs": "Languages"
     }
   }
 }

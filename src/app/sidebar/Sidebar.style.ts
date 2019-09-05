@@ -5,7 +5,7 @@ import colors from '../../styles/color.style'
 export const Container = styled.aside`
   width: 30%;
   min-height: 100vh;
-  position: relative;
+  padding-bottom: 76px;
 `
 
 export const ActionBar = styled.div`

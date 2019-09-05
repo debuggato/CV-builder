@@ -5,7 +5,6 @@ type Props = {
 }
 
 export const Container = styled.section`
-  position: absolute;
   width: 100%;
   box-sizing: border-box;
 `

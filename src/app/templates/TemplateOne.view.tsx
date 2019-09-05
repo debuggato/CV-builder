@@ -12,7 +12,8 @@ import {
   Phone,
   Main,
   Description,
-  Header
+  Header,
+  Title
 } from './TemplateOne.style'
 
 const TemplateOne: FC = (props: any) => {
@@ -30,11 +31,12 @@ const TemplateOne: FC = (props: any) => {
         { `${props.getPostalCode} ${props.getCity}, ${props.getCountry}` }
         </Address>
         <Phone>{ props.getPhone ? `Phone: ${props.getPhone}` : ''}</Phone>
-        <h3>Lingue</h3>
-        <h3>Competenze</h3>
+        <Title>{ i18n.t("education") }</Title>
+        <Title>{ i18n.t("langs") }</Title>
+        <Title>{ i18n.t("skills") }</Title>
       </Sidebar>
       <Main>
-        <h3>{ i18n.t("about_me") }</h3>
+        <Title>{ i18n.t("about_me") }</Title>
         <Description dangerouslySetInnerHTML={{ __html: props.getJobDescription }} />
       </Main>
     </Container>
