@@ -18,7 +18,7 @@ type State = {
   sectionToShow: number
 }
 
-export default class Sidebar extends Component<null, State> {
+export default class Sidebar extends Component<{}, State> {
 
   state = {
     currentStep: 1,

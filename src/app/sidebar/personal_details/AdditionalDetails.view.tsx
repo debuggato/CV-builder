@@ -2,7 +2,7 @@ import React, { FC, ChangeEvent, Fragment } from 'react'
 
 import Input from '../../../components/input/Input.view'
 
-import { Wrapper, Container } from './PersonalDetails.style'
+import { Wrapper } from './PersonalDetails.style'
 
 type Props = {
   onInputChange: (e: ChangeEvent<HTMLInputElement>) => void

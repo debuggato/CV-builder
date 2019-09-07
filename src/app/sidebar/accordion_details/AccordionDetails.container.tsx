@@ -95,10 +95,13 @@ class AccordionDetails extends Component<Props, State> {
                         onTitleSectionChange={ this.onTitleSectionChange }
                       />
         break
+      default:
+        renderBody = null
+        break
     }
 
     return (
-      <Container key={ this.props.id }>
+      <Container>
         <Header onClick={ this.onClickAccordion }>
           <Title>
             { title }

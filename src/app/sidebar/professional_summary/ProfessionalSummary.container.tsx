@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import i18n from '../../../i18n'
+
 import { Container } from './ProfessionalSummary.style'
 import mapDispatchToProps from './duck/dispatch'
-import Textarea from '../../../components/textarea/Textarea.view'
+import Input from '../../../components/input/Input.view'
 import Title from '../../../components/Title.view'
 
 type Props = {
@@ -21,7 +23,7 @@ class ProfessionalSummary extends Component<Props, State> {
     value: ''
   }
 
-  onDescriptionChange = (value: any): void => {
+  onDescriptionChange = (value: string): void => {
     this.props.sendJobDescriptionToStore(value)
 
     this.setState({
@@ -37,11 +39,9 @@ class ProfessionalSummary extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>Professional Summary</Title>
-        <Textarea
-          withLabel={ true }
-          label="Description"
-          name="description"
+        <Title>{ i18n.t('professional_summary') }</Title>
+        <Input
+          type="textarea"
           onChange={ this.onDescriptionChange }
           text={ this.state.value }
         />

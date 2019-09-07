@@ -1,7 +1,6 @@
 import React, { FC, Fragment, ChangeEvent } from 'react'
 
 import Input from '../../../components/input/Input.view'
-import Textarea from '../../../components/textarea/Textarea.view'
 import FromToDate from '../../../components/FromToDate.view'
 
 import {
@@ -10,7 +9,7 @@ import {
 
 type Props = {
   onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  onChangeDescription: (value: HTMLTextAreaElement) => void,
+  onChangeDescription: (value: string) => void,
   text: string
 }
 
@@ -42,7 +41,8 @@ const EducationView: FC<Props> = props => {
       </Wrapper>
       <FromToDate />
       <Wrapper>
-        <Textarea
+        <Input
+          type="textarea"
           withLabel={true}
           label="Description"
           name="description"

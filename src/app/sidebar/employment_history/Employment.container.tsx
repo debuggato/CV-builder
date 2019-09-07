@@ -30,7 +30,7 @@ class EmploymentHistory extends Component<Props, State> {
 
   renderBlock = (): JSX.Element[] => {
     return this.state.rows.map((index, el) => {
-      return <Details context="employment" key={ el } id={ el } />
+      return <Details context="employment" key={ el } />
     })
   }
 

@@ -5,12 +5,11 @@ import {
 } from '../accordion_details/AccordionDetails.style'
 
 import Input from '../../../components/input/Input.view'
-import Textarea from '../../../components/textarea/Textarea.view'
 import FromToDate from '../../../components/FromToDate.view'
 
 type Props = {
   onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  onChangeDescription: (value: HTMLTextAreaElement) => void,
+  onChangeDescription: (value: string) => void,
   text: string
 }
 
@@ -44,7 +43,8 @@ const EmploymentView: FC<Props> = props => {
       </Wrapper>
       <FromToDate />
       <Wrapper>
-        <Textarea
+        <Input
+          type="textarea"
           withLabel={true}
           label="Description"
           name="description"
