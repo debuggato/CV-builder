@@ -2,6 +2,7 @@
   "name": "cv-builder",
   "version": "0.0.1",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@react-pdf/renderer": "^1.6.4",
     "@types/jest": "^24.0.17",
@@ -46,6 +47,6 @@
     ]
   },
   "devDependencies": {
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.2"
   }
 }
