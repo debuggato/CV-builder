@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 import { connect } from 'react-redux'
 import i18n from '../../../i18n'
 
@@ -6,7 +6,7 @@ import Title from '../../../components/Title.view'
 import Subtitle from '../../../components/Subtitle.view'
 import Button from '../../../components/buttons/Button.view'
 import Details from '../accordion_details/AccordionDetails.container'
-import { addBlock } from '../../functions'
+import { addBlock } from '../../utils/functions'
 
 import mapDispatchToProps from './duck/dispatch'
 
@@ -34,11 +34,11 @@ class EmploymentHistory extends Component<Props, State> {
     })
   }
 
-  addEmploymentBlock = () => {
+  addEmploymentBlock = (): void => {
     addBlock(this)
   }
 
-  render() {
+  render(): ReactNode {
 
     if (this.props.currentStep !== 3) {
       return null;
@@ -49,7 +49,11 @@ class EmploymentHistory extends Component<Props, State> {
         <Title>{ i18n.t('employment_history') }</Title>
         <Subtitle>{ i18n.t('employment_history_subtitle') }</Subtitle>
         { this.renderBlock() }
-        <Button typology="link" onClick={ this.addEmploymentBlock }>
+        <Button
+          typology="link"
+          onClick={ this.addEmploymentBlock }
+          color="primary"  
+        >
         { i18n.t('add_employment') }
         </Button>
       </Container>

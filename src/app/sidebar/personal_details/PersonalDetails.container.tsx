@@ -1,10 +1,12 @@
-import React, { Component, ChangeEvent } from 'react'
+import React, { Component, ChangeEvent, ReactNode } from 'react'
 import { connect } from 'react-redux'
 
 import i18n from '../../../i18n'
+import { saveData } from '../../utils/functions'
 
 import Button from '../../../components/buttons/Button.view'
 import Title from '../../../components/Title.view'
+import Loader from '../../../components/loader/Loader.view'
 
 import mapDispatchToProps from './duck/dispatch'
 import Props from './PersonalDetails.model'
@@ -31,7 +33,7 @@ class PersonalDetails extends Component<Props, State> {
     })
   }
 
-  onInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
+  onChange = (e: ChangeEvent<HTMLInputElement>): void => {
 
     let
       name: string = e.target.name,
@@ -81,11 +83,99 @@ class PersonalDetails extends Component<Props, State> {
     }
   }
 
-  render() {
+  onBlur = (e: ChangeEvent<HTMLInputElement>): void => {
+    let
+      name: string = e.target.name,
+      value: string = e.target.value
+
+    let data: object = {}
+
+    switch (name) {
+      case 'jobTitle':
+        data = {
+          jobTitle: value
+        }
+        break;
+      case 'firstName':
+        data = {
+          firstName: value
+        }
+        break;
+      case 'lastName':
+        data = {
+          lastName: value
+        }
+        break;
+      case 'city':
+        data = {
+          city: value
+        }
+        break;
+      case 'postalCode':
+        data = {
+          postalCode: value
+        }
+        break;
+      case 'phone':
+        data = {
+          phone: value
+        }
+        break;
+      case 'email':
+        data = {
+          email: value
+        }
+        break;
+      case 'country':
+        data = {
+          country: value
+        }
+        break;
+      case 'address':
+        data = {
+          address: value
+        }
+        break;
+      case 'drivingLicense':
+        data = {
+          drivingLicense: value
+        }
+        break;
+      case 'nationality':
+        data = {
+          nationality: value
+        }
+        break;
+      case 'placeOfBirth':
+        data = {
+          placeOfBirth: value
+        }
+        break;
+      case 'dateOfBirth':
+        data = {
+          dataOfBirth: value
+        }
+        break;
+      default: break;
+    }
+
+    if (value !== '') {
+      this.showLoader()
+      saveData('/personal_datails', data)
+    }
+  }
+
+  showLoader = () => {
+    return (
+      <Loader withLabel={ true } loading={ true } />
+    )
+  }
+
+  render(): ReactNode {
 
     if (this.props.currentStep !== 1) {
       return null;
-    } 
+    }
 
     const { isOpen } = this.state
 
@@ -93,16 +183,23 @@ class PersonalDetails extends Component<Props, State> {
       <Container>
         <Title>{i18n.t('personal_details')}</Title>
         <Details isVisible={ true }>
-          <MainDetails onInputChange={ this.onInputChange }/>
+          <MainDetails
+            onChange={ this.onChange }
+            onBlur={ this.onBlur }
+          />
         </Details>
         <Button
           typology="link"
           onClick={this.clickShowAdditionalDetails}
+          color="primary"
         >
           {i18n.t('edit_additional_details')}
         </Button>
         <Details isVisible={ isOpen }>
-          <AdditionalDetails onInputChange={ this.onInputChange } />
+          <AdditionalDetails
+            onChange={ this.onChange }
+            onBlur={ this.onBlur }
+          />
         </Details>
       </Container>
     )

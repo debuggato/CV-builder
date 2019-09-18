@@ -3,7 +3,9 @@ const basic = {
   black: '#000000',
   grey: '#cec6c6',
   lightGrey: '#9e9e9e',
-  red: 'red'
+  red: '#d60d0d',
+  primary: '#3498eb',
+  secondary: '#93acc1'
 }
 
 const colors = {

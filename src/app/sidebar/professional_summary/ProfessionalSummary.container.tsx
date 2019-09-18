@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 import { connect } from 'react-redux'
 
 import i18n from '../../../i18n'
@@ -31,7 +31,7 @@ class ProfessionalSummary extends Component<Props, State> {
     })
   }
 
-  render() {
+  render(): ReactNode {
 
     if (this.props.currentStep !== 2) {
       return null;

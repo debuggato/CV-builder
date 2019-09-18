@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 
 import i18n from '../../../i18n'
-import { addBlock } from '../../functions'
+import { addBlock } from '../../utils/functions'
 
 import Title from '../../../components/Title.view'
 import Button from '../../../components/buttons/Button.view'
@@ -35,12 +35,16 @@ export default class Courses extends Component<Props, State> {
     })
   }
 
-  render() {
+  render(): ReactNode {
     return (
       <Container isVisible={ this.props.isVisible }>
         <Title>{ i18n.t("courses_title") }</Title>
         { this.renderBlock() }
-        <Button typology="link" onClick={ this.addCourseBlock }>
+        <Button
+          typology="link"
+          onClick={ this.addCourseBlock }
+          color="primary"
+        >
         { i18n.t('add_course') }
         </Button>
       </Container>

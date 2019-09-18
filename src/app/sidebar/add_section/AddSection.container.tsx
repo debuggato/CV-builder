@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 
 import i18n from '../../../i18n'
 
@@ -31,7 +31,7 @@ class AddSection extends Component<Props, State> {
     })
   }
 
-  render() {
+  render(): ReactNode {
 
     if (this.props.currentStep !== 7) {
       return null;

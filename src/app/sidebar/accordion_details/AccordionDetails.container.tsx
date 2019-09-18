@@ -1,4 +1,4 @@
-import React, { Component, ChangeEvent } from 'react'
+import React, { Component, ChangeEvent, ReactNode } from 'react'
 
 import i18n from '../../../i18n'
 
@@ -59,7 +59,7 @@ class AccordionDetails extends Component<Props, State> {
     })
   }
 
-  render() {
+  render(): ReactNode {
 
     const { text, isOpen, title, dates } = this.state
     const { context } = this.props

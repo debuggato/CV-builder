@@ -1,37 +1,27 @@
 import React, {
   FC,
-  Fragment,
-  CSSProperties
+  Fragment
 } from 'react'
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
 
+import Textarea from './Textarea.container'
 import Props from './Input.model'
 import Input from './Input.style'
 import FieldLabel from '../FieldLabel.view'
 
 const InputView: FC<Props> = props => {
-
-  const styleEditor: CSSProperties = {
-    width: '100%'
-  }
-
   return (
     <Fragment>
       {
         props.withLabel ? <FieldLabel value={props.label} /> : null
       }
       { props.type === 'textarea' ?
-        <ReactQuill
-          value={props.text}
-          onChange={props.onChange}
-          style={styleEditor}
-        />
+        <Textarea />
       :
         <Input
           type={props.type}
           placeholder={props.label}
           onChange={props.onChange}
+          onBlur={props.onBlur}
           style={props.style}
           defaultValue={props.defaultValue}
           value={props.value}

@@ -1,34 +1,34 @@
 import styled from 'styled-components'
 
-type Props = {
-  typology: string,
-  primary?: boolean,
-  secondary?: boolean
-}
+import colors from '../../styles/color.style'
+
+import Props from './Button.model'
 
 const Btn = styled.button`
-  display: inline-block;
-  font-weight: 400;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-  font-size: 15px;
-  margin: 0 5px;
-  ${ (props: Props) => props.primary ? 'background: #000' : null };
-  ${ (props: Props) => props.secondary ? 'background: #fff' : null };
+  background-color: ${ (props: Props) => props.color === 'primary' ? `${ colors.primary }` : `${ colors.secondary }` };
+  color: ${ (props: Props) => props.color === 'primary' ? `${ colors.primary }` : `${ colors.secondary }` };
 
-  &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
-  }
+  /* if button  */
+  ${ (props: Props) => props.typology !== 'link' && `
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 10px;
+    color: ${ colors.white };
+  `}
+
+  ${ (props: Props) => props.typology === 'link' && `
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  `}
 `
 
 export default Btn

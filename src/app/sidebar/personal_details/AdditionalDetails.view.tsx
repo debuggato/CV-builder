@@ -5,7 +5,8 @@ import Input from '../../../components/input/Input.view'
 import { Wrapper } from './PersonalDetails.style'
 
 type Props = {
-  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  onBlur: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const AdditionalDetails: FC<Props> = props => {
@@ -17,7 +18,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Country"
           name="country"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -26,7 +28,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="City"
           name="city"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -35,7 +38,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Address"
           name="address"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -44,7 +48,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Postal code"
           name="postalCode"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -53,7 +58,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Driving License"
           name="drivingLicense"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -62,7 +68,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Nationality"
           name="nationality"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -71,7 +78,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Place of birth"
           name="placeOfBirth"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -80,7 +88,8 @@ const AdditionalDetails: FC<Props> = props => {
           withLabel={true}
           label="Date of birth"
           name="dateOfBirth"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
     </Fragment>

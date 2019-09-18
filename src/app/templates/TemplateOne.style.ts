@@ -8,7 +8,8 @@ export const Container = styled.div`
     'aside main';
 `
 
-export const Email = styled.h4`
+export const Email = styled.div`
+
 `
 
 export const Header = styled.header`
@@ -16,11 +17,11 @@ export const Header = styled.header`
   grid-area: header;
 `
 
-export const Address = styled.h4`
+export const Address = styled.div`
   text-transform: capitalize;
 `
 
-export const Phone = styled.h4`
+export const Phone = styled.div`
 `
 
 export const Description = styled.p`

@@ -6,7 +6,8 @@ import Input from '../../../components/input/Input.view'
 import { Wrapper } from './PersonalDetails.style'
 
 interface Props {
-  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  onBlur: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const MainDetails: FC<Props> = props => {
@@ -19,7 +20,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Job Title"
           name="jobTitle"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -28,7 +30,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="First Name"
           name="firstName"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -37,7 +40,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Last Name"
           name="lastName"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -46,7 +50,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Phone"
           name="phone"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
       <Wrapper>
@@ -55,7 +60,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Email"
           name="email"
-          onChange={ props.onInputChange }
+          onChange={ props.onChange }
+          onBlur={ props.onBlur }
         />
       </Wrapper>
     </Fragment>

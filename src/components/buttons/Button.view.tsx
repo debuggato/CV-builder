@@ -9,8 +9,7 @@ const Button: FC<Props> = props => {
       type="button"
       onClick={ props.onClick }
       typology={ props.typology }
-      { ...props.primary }
-      { ...props.secondary }
+      color={ props.color }
     >
       { props.children }
     </Btn>

@@ -1,9 +1,10 @@
-import { CSSProperties, ChangeEvent } from 'react'
+import { CSSProperties } from 'react'
 
 type Props = {
   type: string,
   label?: string,
   onChange?: (e: any) => void,
+  onBlur?: (e: any) => void,
   style?: CSSProperties,
   defaultValue?: string,
   value?: string,

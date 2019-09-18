@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, ReactNode } from 'react'
 
 import i18n from '../../../i18n'
 
@@ -6,7 +6,7 @@ import Button from '../../../components/buttons/Button.view'
 import Title from '../../../components/Title.view'
 import Subtitle from '../../../components/Subtitle.view'
 import Details from '../accordion_details/AccordionDetails.container'
-import { addBlock } from '../../functions'
+import { addBlock } from '../../utils/functions'
 
 import {
   Container
@@ -38,7 +38,7 @@ class Education extends Component<Props, State> {
     })
   }
 
-  render() {
+  render(): ReactNode {
 
     if (this.props.currentStep !== 4) {
       return null;
@@ -49,7 +49,11 @@ class Education extends Component<Props, State> {
         <Title>{ i18n.t("add_education") }</Title>
         <Subtitle>{ i18n.t("education_subtitle") }</Subtitle>
         { this.renderBlock() }
-        <Button typology="link" onClick={ this.addEducationBlock }>
+        <Button
+          typology="link"
+          onClick={ this.addEducationBlock }
+          color="primary"
+        >
         { i18n.t('add_education') }
         </Button>
       </Container>

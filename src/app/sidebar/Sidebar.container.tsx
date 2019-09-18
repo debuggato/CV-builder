@@ -61,7 +61,7 @@ export default class Sidebar extends Component<{}, State> {
     });
   }
 
-  render() {
+  render(): ReactNode {
 
     const { currentStep, sectionToShow } = this.state
     let
@@ -69,14 +69,14 @@ export default class Sidebar extends Component<{}, State> {
       renderNextBtn: ReactNode = null
 
     if (currentStep !== 1) {
-      renderPrevBtn = <Button onClick={ this.onPrev } typology="button" secondary>
+      renderPrevBtn = <Button onClick={ this.onPrev } typology="button" color="secondary">
                         <Icon icon="arrow-back" style={ this.arrowPrev } />
                         { 'Prev' }
                       </Button>
     }
 
     if (currentStep !== sectionToShow) {
-      renderNextBtn = <Button onClick={ this.onNext } typology="button" primary>
+      renderNextBtn = <Button onClick={ this.onNext } typology="button" color="primary">
                         { 'Next' }
                         <Icon icon="arrow-forward" style={ this.arrowNext } />
                       </Button>

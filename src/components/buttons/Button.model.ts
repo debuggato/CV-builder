@@ -1,8 +1,7 @@
 type Props = {
   onClick(): void,
-  typology: string,
-  primary?: boolean,
-  secondary?: boolean
+  color: string,
+  typology: string
 }
 
 export default Props

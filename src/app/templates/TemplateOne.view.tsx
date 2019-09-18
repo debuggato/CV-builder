@@ -17,20 +17,36 @@ import {
 } from './TemplateOne.style'
 
 const TemplateOne: FC = (props: any) => {
+
+  const getAddress = (): string => {
+    return props.getAddress ? `${props.getAddress} - ${props.getPostalCode} ${props.getCity}, ${props.getCountry}` : ''
+  }
+
+  const getPhone = (): string => {
+    return props.getPhone ? `${props.getPhone}` : ''
+  }
+
+  const getEmail = (): string => {
+    return props.getEmail ? `${props.getEmail}` : ''
+  }
+
+  const getFullName = (): string => {
+    return props.getFirstName + ' ' + props.getLastName
+  }
+
   return (
     <Container>
       <Header>
-        <FullName>{ props.getFirstName + ' ' + props.getLastName}</FullName>
+        <FullName>{ getFullName() }</FullName>
         <JobTitle>{ props.getJobTitle }</JobTitle>
       </Header>
       <Sidebar>
         <h3>{ i18n.t("contact_information") }</h3>
-        <Email>{ props.getEmail ? `E-mail: ${props.getEmail}` : ''}</Email>
+        <Email>{ i18n.t("email") }: <strong>{ getEmail() }</strong></Email>
         <Address>
-        { props.getAddress ? `Address: ${props.getAddress} - ` : ''}
-        { `${props.getPostalCode} ${props.getCity}, ${props.getCountry}` }
+          { i18n.t("address") }: <strong>{ getAddress() }</strong>
         </Address>
-        <Phone>{ props.getPhone ? `Phone: ${props.getPhone}` : ''}</Phone>
+        <Phone>{ i18n.t("phone") }: <strong>{ getPhone() }</strong></Phone>
         <Title>{ i18n.t("education") }</Title>
         <Title>{ i18n.t("langs") }</Title>
         <Title>{ i18n.t("skills") }</Title>

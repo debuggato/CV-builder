@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { connect } from 'react-redux'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 
+import colors from 'styles/color.style'
 import { Container, Page, Bar } from './Resume.style'
 import Props from './Resume.model'
 import TemplateOneView from '../templates/TemplateOne.view'
@@ -45,10 +46,11 @@ const Resume: FC<Props> = (props: any) => {
   }
 
   const downloadBtn = {
-    backgroundColor: '#6dd9f7',
-    color: '#ffffff',
+    backgroundColor: colors.primary,
+    color: colors.white,
     padding: '10px',
-    width: 'auto'
+    width: 'auto',
+    borderRadius: '10px'
   }
   
   return (

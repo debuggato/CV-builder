@@ -1,7 +1,8 @@
 import React, {
   Component,
   CSSProperties,
-  ChangeEvent
+  ChangeEvent,
+  ReactNode
 } from 'react'
 import styled from 'styled-components'
 
@@ -9,6 +10,7 @@ import i18n from '../../../i18n'
 
 import Select from '../../../components/select/Select.view'
 import Input from '../../../components/input/Input.view'
+import Loader from '../../../components/loader/Loader.view'
 
 type State = {
   langs: string[]
@@ -49,7 +51,7 @@ class Header extends Component<{}, State> {
     }
   }
 
-  render() {
+  render(): ReactNode {
 
     const { langs } = this.state
 
@@ -73,6 +75,7 @@ class Header extends Component<{}, State> {
           label="Untitled"
           style={ titleStyle }
         />
+        {/* <Loader /> */}
         <Select list={ langs } onChange={ this.onLangChange } />
       </Wrapper>
     )
