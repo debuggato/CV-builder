@@ -14,7 +14,7 @@
       "websites_social_links": "Websites & Social links",
       "website_sicial_links_subtitle": "You can add links to websites like your portfolio, Linkedin profile or personal website",
       "add_link": "Add link",
-      "courses_title": "Courses",
+      "courses": "Courses",
       "add_course": "Add course",
       "skills": "Skills",
       "add_skill": "Add skill",
@@ -28,7 +28,12 @@
       "saving": "Saving...",
       "email": "Email",
       "phone": "Phone",
-      "address": "Address"
+      "address": "Address",
+      "hobbies": "Hobbies",
+      "extra_activities": "Extra-curricula activities",
+      "languages": "Languages",
+      "references": "References",
+      "custom_section": "Custom section"
     }
   }
 }

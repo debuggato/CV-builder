@@ -68,4 +68,4 @@ const MainDetails: FC<Props> = props => {
   )
 }
 
-export default MainDetails;
+export default MainDetails

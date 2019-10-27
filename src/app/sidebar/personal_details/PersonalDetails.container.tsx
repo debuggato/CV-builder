@@ -16,6 +16,7 @@ import {
   Container,
   Details
 } from './PersonalDetails.style'
+import Icon from 'components/Icon.view'
 
 type State = {
   isOpen: boolean
@@ -194,6 +195,7 @@ class PersonalDetails extends Component<Props, State> {
           color="primary"
         >
           {i18n.t('edit_additional_details')}
+          <Icon icon={ isOpen ? 'arrow-dropup' : 'arrow-dropdown' } />
         </Button>
         <Details isVisible={ isOpen }>
           <AdditionalDetails

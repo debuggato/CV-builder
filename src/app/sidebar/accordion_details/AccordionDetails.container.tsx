@@ -26,7 +26,8 @@ type State = {
 
 type Props = {
   id?: number,
-  context: string
+  context: string,
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 class AccordionDetails extends Component<Props, State> {
@@ -69,8 +70,8 @@ class AccordionDetails extends Component<Props, State> {
       case 'employment':
         renderBody = <EmploymentView
                         text={ text }
-                        onChangeDescription={ this.onChangeDescription }
                         onTitleSectionChange={ this.onTitleSectionChange }
+                        onChange={ this.props.onChange }
                       />
         break
       case 'education':

@@ -9,7 +9,7 @@ import FromToDate from '../../../components/FromToDate.view'
 
 type Props = {
   onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  onChangeDescription: (value: string) => void,
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
   text: string
 }
 
@@ -22,6 +22,7 @@ const EmploymentView: FC<Props> = props => {
           withLabel={true}
           label="Job Title"
           name="jobTitle"
+          onChange={ props.onChange }
         />
       </Wrapper>
       <Wrapper>
@@ -30,7 +31,7 @@ const EmploymentView: FC<Props> = props => {
           withLabel={true}
           label="Employer"
           name="employer"
-          onChange={ props.onTitleSectionChange }
+          onChange={ props.onChange }
         />
       </Wrapper>
       <Wrapper>
@@ -39,6 +40,7 @@ const EmploymentView: FC<Props> = props => {
           withLabel={true}
           label="City"
           name="city"
+          onChange={ props.onChange }
         />
       </Wrapper>
       <FromToDate />
@@ -48,7 +50,7 @@ const EmploymentView: FC<Props> = props => {
           withLabel={true}
           label="Description"
           name="description"
-          onChange={ props.onChangeDescription }
+          onChange={ props.onChange }
           text={ props.text }
         />
       </Wrapper>

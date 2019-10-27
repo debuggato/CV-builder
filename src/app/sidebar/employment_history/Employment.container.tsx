@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react'
+import React, { Component, ReactNode, ChangeEvent } from 'react'
 import { connect } from 'react-redux'
 import i18n from '../../../i18n'
 
@@ -13,7 +13,11 @@ import mapDispatchToProps from './duck/dispatch'
 import { Container } from './Employment.style'
 
 type Props = {
-  currentStep: number
+  currentStep: number,
+  sendJobTitleToStore: (arg0: string) => void,
+  sendEmployerToStore: (arg0: string) => void,
+  sendCityToStore: (arg0: string) => void,
+  sendDescriptionToStore: (arg0: string) => void
 }
 
 type State = {
@@ -30,8 +34,30 @@ class EmploymentHistory extends Component<Props, State> {
 
   renderBlock = (): JSX.Element[] => {
     return this.state.rows.map((index, el) => {
-      return <Details context="employment" key={ el } />
+      return <Details context="employment" key={ el } onChange={ this.onChange } />
     })
+  }
+
+  onChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    let
+      name: string = e.target.name,
+      value: string = e.target.value
+
+    switch (name) {
+      case 'jobTitle':
+        this.props.sendJobTitleToStore(value)
+        break;
+      case 'employer':
+        this.props.sendEmployerToStore(value)
+        break;
+      case 'city':
+        this.props.sendCityToStore(value)
+        break;
+      case 'description':
+        this.props.sendDescriptionToStore(value)
+        break;
+      default: break;
+    }
   }
 
   addEmploymentBlock = (): void => {
@@ -52,7 +78,7 @@ class EmploymentHistory extends Component<Props, State> {
         <Button
           typology="link"
           onClick={ this.addEmploymentBlock }
-          color="primary"  
+          color="primary"
         >
         { i18n.t('add_employment') }
         </Button>

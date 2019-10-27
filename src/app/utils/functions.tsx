@@ -1,4 +1,3 @@
-import React, { FC } from 'react'
 import API from './API'
 
 import Loader from '../../components/loader/Loader.view'
