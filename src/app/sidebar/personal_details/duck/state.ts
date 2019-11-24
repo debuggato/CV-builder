@@ -11,7 +11,7 @@ const initialState = {
   drivingLicense: '',
   nationality: '',
   placeOfBirth: '',
-  dateOfBirth: ''
-}
+  dateOfBirth: '',
+};
 
-export default initialState
+export default initialState;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Select = styled.select`
   border-radius: 0;
@@ -7,4 +7,4 @@ export const Select = styled.select`
   background: white;
   cursor: pointer;
   font-size: 14px;
-`
+`;

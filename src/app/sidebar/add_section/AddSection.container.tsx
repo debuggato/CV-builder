@@ -1,11 +1,11 @@
-import React, { Component, ReactNode } from "react";
+import React, { Component, ReactNode } from 'react';
 
-import i18n from "../../../i18n";
+import i18n from '../../../i18n';
 
-import Title from "../../../components/Title.view";
-import Courses from "../courses/Courses.container";
+import Title from '../../../components/Title.view';
+import Courses from '../courses/Courses.container';
 
-import { Container, Body, Wrapper } from "./AddSection.style";
+import { Container, Body, Wrapper } from './AddSection.style';
 
 type Props = {
   currentStep: number;
@@ -29,48 +29,48 @@ class AddSection extends Component<Props, State> {
     showExtraActivities: false,
     showLanguages: false,
     showInternships: false,
-    showReferences: false
+    showReferences: false,
   };
 
   coursesHandler = (): void => {
     this.setState({
-      showCourses: !this.state.showCourses
+      showCourses: !this.state.showCourses,
     });
   };
 
   hobbiesHandler = (): void => {
     this.setState({
-      showHobbies: !this.state.showHobbies
+      showHobbies: !this.state.showHobbies,
     });
   };
 
   languagesHandler = (): void => {
     this.setState({
-      showLanguages: !this.state.showLanguages
+      showLanguages: !this.state.showLanguages,
     });
   };
 
   extraActivitiesHandler = (): void => {
     this.setState({
-      showExtraActivities: !this.state.showExtraActivities
+      showExtraActivities: !this.state.showExtraActivities,
     });
   };
 
   internshipsHandler = (): void => {
     this.setState({
-      showInternships: !this.state.showInternships
+      showInternships: !this.state.showInternships,
     });
   };
 
   referencesHandler = (): void => {
     this.setState({
-      showReferences: !this.state.showReferences
+      showReferences: !this.state.showReferences,
     });
   };
 
   customSectionHandler = (): void => {
     this.setState({
-      showCustomSection: !this.state.showCustomSection
+      showCustomSection: !this.state.showCustomSection,
     });
   };
 
@@ -83,37 +83,29 @@ class AddSection extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{i18n.t("add_section")}</Title>
+        <Title>{i18n.t('add_section')}</Title>
         <Courses isVisible={showCourses} />
         <Body>
           <Wrapper>
-            <label onClick={this.customSectionHandler}>
-              {i18n.t("custom_section")}
-            </label>
+            <label onClick={this.customSectionHandler}>{i18n.t('custom_section')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.coursesHandler}>{i18n.t("courses")}</label>
+            <label onClick={this.coursesHandler}>{i18n.t('courses')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.internshipsHandler}>
-              {i18n.t("internships")}
-            </label>
+            <label onClick={this.internshipsHandler}>{i18n.t('internships')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.extraActivitiesHandler}>
-              {i18n.t("extra_activities")}
-            </label>
+            <label onClick={this.extraActivitiesHandler}>{i18n.t('extra_activities')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.hobbiesHandler}>{i18n.t("hobbies")}</label>
+            <label onClick={this.hobbiesHandler}>{i18n.t('hobbies')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.languagesHandler}>{i18n.t("languages")}</label>
+            <label onClick={this.languagesHandler}>{i18n.t('languages')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.referencesHandler}>
-              {i18n.t("references")}
-            </label>
+            <label onClick={this.referencesHandler}>{i18n.t('references')}</label>
           </Wrapper>
         </Body>
       </Container>

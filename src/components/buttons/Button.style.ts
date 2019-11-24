@@ -1,25 +1,31 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import colors from '../../styles/color.style'
+import colors from '../../styles/color.style';
 
-import Props from './Button.model'
+import Props from './Button.model';
 
 const Btn = styled.button`
-  background-color: ${ (props: Props) => props.color === 'primary' ? `${ colors.primary }` : `${ colors.secondary }` };
-  color: ${ (props: Props) => props.color === 'primary' ? `${ colors.primary }` : `${ colors.secondary }` };
+  background-color: ${(props: Props) =>
+    props.color === 'primary' ? `${colors.primary}` : `${colors.secondary}`};
+  color: ${(props: Props) =>
+    props.color === 'primary' ? `${colors.primary}` : `${colors.secondary}`};
 
   /* if button  */
-  ${ (props: Props) => props.typology !== 'link' && `
+  ${(props: Props) =>
+    props.typology !== 'link' &&
+    `
     color: white;
     cursor: pointer;
     user-select: none;
     border: 1px solid transparent;
     padding: 10px;
     border-radius: 10px;
-    color: ${ colors.white };
+    color: ${colors.white};
   `}
 
-  ${ (props: Props) => props.typology === 'link' && `
+  ${(props: Props) =>
+    props.typology === 'link' &&
+    `
     border: 0;
     background-color: transparent;
     cursor: pointer;
@@ -29,6 +35,6 @@ const Btn = styled.button`
       text-decoration: underline;
     }
   `}
-`
+`;
 
-export default Btn
+export default Btn;

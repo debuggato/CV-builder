@@ -1,18 +1,14 @@
-import React, { FC } from 'react'
-import styled from 'styled-components'
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
 type Props = {
-  children: string
-}
+  children: string;
+};
 
-export const Subtitle = styled.p`
-
-`
+export const Subtitle = styled.p``;
 
 const SubtitleView: FC<Props> = props => {
-  return (
-    <Subtitle>{ props.children }</Subtitle>
-  )
-}
+  return <Subtitle>{props.children}</Subtitle>;
+};
 
-export default SubtitleView
+export default SubtitleView;

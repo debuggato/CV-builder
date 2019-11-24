@@ -1,18 +1,18 @@
-import * as type from './types'
-import initialState from './state'
+import * as type from './types';
+import initialState from './state';
 
 const reducer = (state = initialState, action: any) => {
   switch (action.type) {
     case type.SET_JOB_DESCRIPTION:
       state = {
         ...state,
-        jobDescription: action.payload
-      }
-    break;
+        jobDescription: action.payload,
+      };
+      break;
     default:
       break;
   }
-  return state
-}
+  return state;
+};
 
-export default reducer
+export default reducer;

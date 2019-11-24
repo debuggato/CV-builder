@@ -1,13 +1,9 @@
-import React, { Component, ReactNode } from 'react'
+import React, { Component, ReactNode } from 'react';
 
 export default class Wizard extends Component {
-  state = {}
+  state = {};
 
   render(): ReactNode {
-    return (
-      <div>
-        { 'Working in progress...' }
-      </div>
-    )
+    return <div>{'Working in progress...'}</div>;
   }
 }

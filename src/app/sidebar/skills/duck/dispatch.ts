@@ -1,12 +1,11 @@
-import * as action from './actions'
+import * as action from './actions';
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
     sendJobDescriptionToStore: (value: string) => {
-      dispatch(action.setJobDescription(value))
-    }
-  }
-}
+      dispatch(action.setJobDescription(value));
+    },
+  };
+};
 
-export default mapDispatchToProps
-
+export default mapDispatchToProps;

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 type Props = {
-  isVisible: boolean
-}
+  isVisible: boolean;
+};
 
 export const Container = styled.section`
-  display: ${ (props: Props) => props.isVisible ? 'block' : 'none' };
-`
+  display: ${(props: Props) => (props.isVisible ? 'block' : 'none')};
+`;

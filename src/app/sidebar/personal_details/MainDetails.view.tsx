@@ -1,13 +1,13 @@
 import React, { FC, Fragment, ChangeEvent } from 'react';
 
-import Photo from '../../../components/photo/Photo.view'
-import Input from '../../../components/input/Input.view'
+import Photo from '../../../components/photo/Photo.view';
+import Input from '../../../components/input/Input.view';
 
-import { Wrapper } from './PersonalDetails.style'
+import { Wrapper } from './PersonalDetails.style';
 
 interface Props {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  onBlur: (e: ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const MainDetails: FC<Props> = props => {
@@ -20,8 +20,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Job Title"
           name="jobTitle"
-          onChange={ props.onChange }
-          onBlur={ props.onBlur }
+          onChange={props.onChange}
+          onBlur={props.onBlur}
         />
       </Wrapper>
       <Wrapper>
@@ -30,8 +30,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="First Name"
           name="firstName"
-          onChange={ props.onChange }
-          onBlur={ props.onBlur }
+          onChange={props.onChange}
+          onBlur={props.onBlur}
         />
       </Wrapper>
       <Wrapper>
@@ -40,8 +40,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Last Name"
           name="lastName"
-          onChange={ props.onChange }
-          onBlur={ props.onBlur }
+          onChange={props.onChange}
+          onBlur={props.onBlur}
         />
       </Wrapper>
       <Wrapper>
@@ -50,8 +50,8 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Phone"
           name="phone"
-          onChange={ props.onChange }
-          onBlur={ props.onBlur }
+          onChange={props.onChange}
+          onBlur={props.onBlur}
         />
       </Wrapper>
       <Wrapper>
@@ -60,12 +60,12 @@ const MainDetails: FC<Props> = props => {
           withLabel={true}
           label="Email"
           name="email"
-          onChange={ props.onChange }
-          onBlur={ props.onBlur }
+          onChange={props.onChange}
+          onBlur={props.onBlur}
         />
       </Wrapper>
     </Fragment>
-  )
-}
+  );
+};
 
-export default MainDetails
+export default MainDetails;

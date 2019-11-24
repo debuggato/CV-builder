@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
@@ -10,5 +10,5 @@ export const GlobalStyle = createGlobalStyle`
 
   section {
     padding: 10px;
-  }
-`
+  } 
+`;

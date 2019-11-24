@@ -1,5 +1,5 @@
 const initialState = {
-  jobDescription: ''
-}
+  jobDescription: '',
+};
 
-export default initialState
+export default initialState;

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import Props from './Loader.model'
+import Props from './Loader.model';
 
 export const Loader = styled.div`
-  display: ${ (props: Props) => props.show ? 'block' : 'none' };
+  display: ${(props: Props) => (props.show ? 'block' : 'none')};
   border-radius: 50%;
   width: 10em;
   height: 10em;
@@ -17,7 +17,7 @@ export const Loader = styled.div`
   border-left: 1.1em solid #ffffff;
   transform: translateZ(0);
   animation: load8 1.1s infinite linear;
-    
+
   &:after {
     border-radius: 50%;
     width: 10em;
@@ -41,8 +41,8 @@ export const Loader = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
 export const Container = styled.div`
   display: flex;
-`
+`;

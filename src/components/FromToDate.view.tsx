@@ -1,15 +1,15 @@
-import React, { FC, useState } from 'react'
-import styled from 'styled-components'
-import DatePicker from 'react-datepicker'
+import React, { FC, useState } from 'react';
+import styled from 'styled-components';
+import DatePicker from 'react-datepicker';
 
-import 'react-datepicker/dist/react-datepicker.css'
+import 'react-datepicker/dist/react-datepicker.css';
 
-import FieldLabel from './FieldLabel.view'
-import InputStyle from '../components/input/Input.style'
+import FieldLabel from './FieldLabel.view';
+import InputStyle from '../components/input/Input.style';
 
 const Container = styled.div`
   margin: 10px 0;
-`
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,12 +17,11 @@ const Wrapper = styled.div`
   input:first-child {
     margin-right: 10px;
   }
-`
+`;
 
-const DatepickerCustom = InputStyle.withComponent(DatePicker)
+const DatepickerCustom = InputStyle.withComponent(DatePicker);
 
 const FromToDate: FC = () => {
-
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -50,7 +49,7 @@ const FromToDate: FC = () => {
         />
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default FromToDate
+export default FromToDate;

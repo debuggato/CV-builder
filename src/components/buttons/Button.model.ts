@@ -1,7 +1,7 @@
 type Props = {
-  onClick(): void,
-  color: string,
-  typology: string
-}
+  onClick(): void;
+  color: string;
+  typology: string;
+};
 
-export default Props
+export default Props;

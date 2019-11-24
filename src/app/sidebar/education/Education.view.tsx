@@ -1,43 +1,27 @@
-import React, { FC, Fragment, ChangeEvent } from 'react'
+import React, { FC, Fragment, ChangeEvent } from 'react';
 
-import Input from '../../../components/input/Input.view'
-import FromToDate from '../../../components/FromToDate.view'
+import Input from '../../../components/input/Input.view';
+import FromToDate from '../../../components/FromToDate.view';
 
-import {
-  Wrapper
-} from '../accordion_details/AccordionDetails.style'
+import { Wrapper } from '../accordion_details/AccordionDetails.style';
 
 type Props = {
-  onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  onChangeDescription: (value: string) => void,
-  text: string
-}
+  onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChangeDescription: (value: string) => void;
+  text: string;
+};
 
 const EducationView: FC<Props> = props => {
-
   return (
     <Fragment>
       <Wrapper>
-        <Input
-          type="text"
-          withLabel={true}
-          label="School"
-          onChange={ props.onTitleSectionChange }
-        />
+        <Input type="text" withLabel={true} label="School" onChange={props.onTitleSectionChange} />
       </Wrapper>
       <Wrapper>
-        <Input
-          type="text"
-          withLabel={true}
-          label="Degree"
-        />
+        <Input type="text" withLabel={true} label="Degree" />
       </Wrapper>
       <Wrapper>
-        <Input
-          type="text"
-          withLabel={true}
-          label="City"
-        />
+        <Input type="text" withLabel={true} label="City" />
       </Wrapper>
       <FromToDate />
       <Wrapper>
@@ -51,7 +35,7 @@ const EducationView: FC<Props> = props => {
         />
       </Wrapper>
     </Fragment>
-  )
-}
+  );
+};
 
-export default EducationView
+export default EducationView;

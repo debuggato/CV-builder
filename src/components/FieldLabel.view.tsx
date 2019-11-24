@@ -1,23 +1,21 @@
-import React, { FC } from 'react'
-import styled from 'styled-components'
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
-import colors from '../styles/color.style'
+import colors from '../styles/color.style';
 
 const Label = styled.label`
-  color: ${ colors.lightGrey };
+  color: ${colors.lightGrey};
   display: inline-block;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 14px;
-`
+`;
 
 type Props = {
-  value: string | undefined
-}
+  value: string | undefined;
+};
 
 const FieldLabel: FC<Props> = props => {
-  return (
-    <Label>{ props.value }</Label>
-  )
+  return <Label>{props.value}</Label>;
 };
 
 export default FieldLabel;

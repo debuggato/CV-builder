@@ -1,211 +1,187 @@
-import React, { Component, ChangeEvent, ReactNode } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, ChangeEvent, ReactNode } from 'react';
+import { connect } from 'react-redux';
 
-import i18n from '../../../i18n'
-import { saveData } from '../../utils/functions'
+import i18n from '../../../i18n';
 
-import Button from '../../../components/buttons/Button.view'
-import Title from '../../../components/Title.view'
-import Loader from '../../../components/loader/Loader.view'
+import Button from '../../../components/buttons/Button.view';
+import Title from '../../../components/Title.view';
+import Loader from '../../../components/loader/Loader.view';
 
-import mapDispatchToProps from './duck/dispatch'
-import Props from './PersonalDetails.model'
-import AdditionalDetails from './AdditionalDetails.view'
-import MainDetails from './MainDetails.view'
-import {
-  Container,
-  Details
-} from './PersonalDetails.style'
-import Icon from 'components/Icon.view'
+import mapDispatchToProps from './duck/dispatch';
+import Props from './PersonalDetails.model';
+import AdditionalDetails from './AdditionalDetails.view';
+import MainDetails from './MainDetails.view';
+import { Container, Details } from './PersonalDetails.style';
+import Icon from 'components/Icon.view';
 
 type State = {
-  isOpen: boolean
-}
+  isOpen: boolean;
+};
 
 class PersonalDetails extends Component<Props, State> {
-
   state = {
-    isOpen: false
-  }
+    isOpen: false,
+  };
 
   clickShowAdditionalDetails = (): void => {
     this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
+      isOpen: !this.state.isOpen,
+    });
+  };
 
   onChange = (e: ChangeEvent<HTMLInputElement>): void => {
-
-    let
-      name: string = e.target.name,
-      value: string = e.target.value
+    let name: string = e.target.name,
+      value: string = e.target.value;
 
     switch (name) {
       case 'jobTitle':
-        this.props.sendJobTitleToStore(value)
+        this.props.sendJobTitleToStore(value);
         break;
       case 'firstName':
-        this.props.sendFirstNameToStore(value)
+        this.props.sendFirstNameToStore(value);
         break;
       case 'lastName':
-        this.props.sendLastNameToStore(value)
+        this.props.sendLastNameToStore(value);
         break;
       case 'city':
-        this.props.sendCityToStore(value)
+        this.props.sendCityToStore(value);
         break;
       case 'postalCode':
-        this.props.sendPostalCodeToStore(value)
+        this.props.sendPostalCodeToStore(value);
         break;
       case 'phone':
-        this.props.sendPhoneToStore(value)
+        this.props.sendPhoneToStore(value);
         break;
       case 'email':
-        this.props.sendEmailToStore(value)
+        this.props.sendEmailToStore(value);
         break;
       case 'country':
-        this.props.sendCountryToStore(value)
+        this.props.sendCountryToStore(value);
         break;
       case 'address':
-        this.props.sendAddressToStore(value)
+        this.props.sendAddressToStore(value);
         break;
       case 'drivingLicense':
-        this.props.sendDrivingLicenseToStore(value)
+        this.props.sendDrivingLicenseToStore(value);
         break;
       case 'nationality':
-        this.props.sendNationalityToStore(value)
+        this.props.sendNationalityToStore(value);
         break;
       case 'placeOfBirth':
-        this.props.sendPlaceOfBirthToStore(value)
+        this.props.sendPlaceOfBirthToStore(value);
         break;
       case 'dateOfBirth':
-        this.props.sendDateOfBirthToStore(value)
+        this.props.sendDateOfBirthToStore(value);
         break;
-      default: break;
+      default:
+        break;
     }
-  }
+  };
 
   onBlur = (e: ChangeEvent<HTMLInputElement>): void => {
-    let
-      name: string = e.target.name,
-      value: string = e.target.value
+    let name: string = e.target.name,
+      value: string = e.target.value;
 
-    let data: object = {}
+    let data: object = {};
 
     switch (name) {
       case 'jobTitle':
         data = {
-          jobTitle: value
-        }
+          jobTitle: value,
+        };
         break;
       case 'firstName':
         data = {
-          firstName: value
-        }
+          firstName: value,
+        };
         break;
       case 'lastName':
         data = {
-          lastName: value
-        }
+          lastName: value,
+        };
         break;
       case 'city':
         data = {
-          city: value
-        }
+          city: value,
+        };
         break;
       case 'postalCode':
         data = {
-          postalCode: value
-        }
+          postalCode: value,
+        };
         break;
       case 'phone':
         data = {
-          phone: value
-        }
+          phone: value,
+        };
         break;
       case 'email':
         data = {
-          email: value
-        }
+          email: value,
+        };
         break;
       case 'country':
         data = {
-          country: value
-        }
+          country: value,
+        };
         break;
       case 'address':
         data = {
-          address: value
-        }
+          address: value,
+        };
         break;
       case 'drivingLicense':
         data = {
-          drivingLicense: value
-        }
+          drivingLicense: value,
+        };
         break;
       case 'nationality':
         data = {
-          nationality: value
-        }
+          nationality: value,
+        };
         break;
       case 'placeOfBirth':
         data = {
-          placeOfBirth: value
-        }
+          placeOfBirth: value,
+        };
         break;
       case 'dateOfBirth':
         data = {
-          dataOfBirth: value
-        }
+          dataOfBirth: value,
+        };
         break;
-      default: break;
+      default:
+        break;
     }
-
-    if (value !== '') {
-      this.showLoader()
-      saveData('/personal_datails', data)
-    }
-  }
+  };
 
   showLoader = () => {
-    return (
-      <Loader withLabel={ true } loading={ true } />
-    )
-  }
+    return <Loader withLabel={true} loading={true} />;
+  };
 
   render(): ReactNode {
-
     if (this.props.currentStep !== 1) {
       return null;
     }
 
-    const { isOpen } = this.state
+    const { isOpen } = this.state;
 
     return (
       <Container>
         <Title>{i18n.t('personal_details')}</Title>
-        <Details isVisible={ true }>
-          <MainDetails
-            onChange={ this.onChange }
-            onBlur={ this.onBlur }
-          />
+        <Details isVisible={true}>
+          <MainDetails onChange={this.onChange} onBlur={this.onBlur} />
         </Details>
-        <Button
-          typology="link"
-          onClick={this.clickShowAdditionalDetails}
-          color="primary"
-        >
+        <Button typology="link" onClick={this.clickShowAdditionalDetails} color="primary">
           {i18n.t('edit_additional_details')}
-          <Icon icon={ isOpen ? 'arrow-dropup' : 'arrow-dropdown' } />
+          <Icon icon={isOpen ? 'arrow-dropup' : 'arrow-dropdown'} />
         </Button>
-        <Details isVisible={ isOpen }>
-          <AdditionalDetails
-            onChange={ this.onChange }
-            onBlur={ this.onBlur }
-          />
+        <Details isVisible={isOpen}>
+          <AdditionalDetails onChange={this.onChange} onBlur={this.onBlur} />
         </Details>
       </Container>
-    )
+    );
   }
 }
 
-export default connect(null, mapDispatchToProps)(PersonalDetails)
+export default connect(null, mapDispatchToProps)(PersonalDetails);

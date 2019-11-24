@@ -1,14 +1,13 @@
-import * as type from './types'
-import initialState from './state'
+import * as type from './types';
+import initialState from './state';
 
 const reducer = (state = initialState, action: any) => {
-
   switch (action.type) {
     case type.SET_JOB_TITLE:
       return {
         ...state,
-        jobTitle: [...action.payload]
-      }
+        jobTitle: [...action.payload],
+      };
     /* case type.SET_EMPLOYER:
       state = {
         ...state,
@@ -40,10 +39,10 @@ const reducer = (state = initialState, action: any) => {
       }
     break;*/
     default:
-      break; 
+      break;
   }
-  console.log(state)
-  return state
-}
+  console.log(state);
+  return state;
+};
 
-export default reducer
+export default reducer;

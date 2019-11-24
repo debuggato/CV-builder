@@ -1,11 +1,11 @@
-import React, { FC, ChangeEvent, Fragment } from 'react'
+import React, { FC, ChangeEvent, Fragment } from 'react';
 
-import Input from '../../../components/input/Input.view'
+import Input from '../../../components/input/Input.view';
 
-import { Wrapper } from './ExternalLinks.style'
+import { Wrapper } from './ExternalLinks.style';
 
 interface Props {
-  onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ExternalLinksView: FC<Props> = props => {
@@ -17,19 +17,14 @@ const ExternalLinksView: FC<Props> = props => {
           withLabel={true}
           label="Label"
           name="label"
-          onChange={ props.onTitleSectionChange }
+          onChange={props.onTitleSectionChange}
         />
       </Wrapper>
       <Wrapper>
-        <Input
-          type="text"
-          withLabel={true}
-          label="Link"
-          name="link"
-        />
+        <Input type="text" withLabel={true} label="Link" name="link" />
       </Wrapper>
     </Fragment>
-  )
-}
+  );
+};
 
-export default ExternalLinksView
+export default ExternalLinksView;

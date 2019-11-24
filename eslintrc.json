@@ -1,0 +1,107 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": 1,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-no-bind": 2,
+    "max-len": [2, { "code": 100, "ignoreStrings": true, "ignoreTemplateLiterals": true }],
+    "import/extensions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/prefer-stateless-function": 0,
+    "react/destructuring-assignment": 0,
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "import/order": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "@typescript-eslint/array-type": 2,
+    "camelcase": 0,
+    "@typescript-eslint/camelcase": [2, { "properties": "always" }],
+    "@typescript-eslint/class-name-casing": 2,
+    "@typescript-eslint/explicit-function-return-type": [2, { "allowExpressions": true }],
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "func-call-spacing": 0,
+    "@typescript-eslint/func-call-spacing": [2, "never"],
+    "react/jsx-indent": 0,
+    "indent": 0,
+    "consistent-return": 0,
+    "@typescript-eslint/no-angle-bracket-type-assertion": 2,
+    "@typescript-eslint/no-array-constructor": 2,
+    "@typescript-eslint/no-for-in-array": 2,
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-inferrable-types": 2,
+    "@typescript-eslint/no-magic-numbers": [
+      2,
+      {
+        "ignoreNumericLiteralTypes": true,
+        "ignoreArrayIndexes": true,
+        "ignore": [0, 1, 2]
+      }
+    ],
+    "@typescript-eslint/no-misused-new": 2,
+    "@typescript-eslint/no-namespace": 2,
+    "@typescript-eslint/no-non-null-assertion": 1,
+    "@typescript-eslint/no-object-literal-type-assertion": 2,
+    "@typescript-eslint/no-parameter-properties": 2,
+    "@typescript-eslint/no-triple-slash-reference": 2,
+    "@typescript-eslint/no-unnecessary-type-assertion": 2,
+    "@typescript-eslint/no-unused-vars": 2,
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/no-useless-constructor": 2,
+    "@typescript-eslint/prefer-includes": 2,
+    "@typescript-eslint/prefer-interface": 2,
+    "@typescript-eslint/prefer-namespace-keyword": 2,
+    "@typescript-eslint/restrict-plus-operands": 2,
+    "@typescript-eslint/unified-signatures": 2,
+    "newline-after-var": [2, "always"],
+    "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "padding-line-between-statements": [
+      2,
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": "for" },
+      { "blankLine": "always", "prev": "*", "next": "function" },
+      { "blankLine": "always", "prev": "*", "next": "expression" },
+      { "blankLine": "always", "prev": "*", "next": "if" },
+      { "blankLine": "always", "prev": "import", "next": "*" },
+      { "blankLine": "never", "prev": "import", "next": "import" },
+      { "blankLine": "always", "prev": "*", "next": "class" },
+      { "blankLine": "always", "prev": "*", "next": "switch" },
+      { "blankLine": "always", "prev": "*", "next": "while" },
+      { "blankLine": "always", "prev": "*", "next": "throw" },
+      { "blankLine": "always", "prev": "try", "next": "*" },
+      { "blankLine": "always", "prev": "try", "next": "*" },
+      { "blankLine": "always", "prev": "directive", "next": "*" },
+      { "blankLine": "any", "prev": "directive", "next": "directive" },
+      { "blankLine": "any", "prev": "expression", "next": "expression" },
+      { "blankLine": "always", "prev": "*", "next": "export" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+    "react/jsx-one-expression-per-line": 0
+  }
+}

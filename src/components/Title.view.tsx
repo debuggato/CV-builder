@@ -1,23 +1,21 @@
-import React, { FC } from 'react'
-import styled from 'styled-components'
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
-import colors from '../styles/color.style'
+import colors from '../styles/color.style';
 
 type Props = {
-  children: string
-}
+  children: string;
+};
 
 export const Title = styled.h3`
   margin: 0;
   margin-bottom: 15px;
-  border-bottom: 1px solid ${ colors.grey };
+  border-bottom: 1px solid ${colors.grey};
   padding-bottom: 3px;
-`
+`;
 
 const TitleView: FC<Props> = props => {
-  return (
-    <Title>{ props.children }</Title>
-  )
-}
+  return <Title>{props.children}</Title>;
+};
 
-export default TitleView
+export default TitleView;
