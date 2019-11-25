@@ -19,7 +19,6 @@ const Btn = styled.button`
     user-select: none;
     border: 1px solid transparent;
     padding: 10px;
-    border-radius: 10px;
     color: ${colors.white};
   `}
 

@@ -16,7 +16,6 @@ const Input = styled.input`
   border: 1px solid #ced4da;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   font-size: 15px;
-  border-radius: 5px;
   box-sizing: border-box;
   width: 100%;
 
