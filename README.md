@@ -4,8 +4,8 @@
 
 ## The idea behind
 
-For months I was searching for a free tool which allows me to create, in an awesome way, my own resume without paying for it, but I failed.
-I believe that this kind of tool should be free so I decided to start this project as a way to improve my own skills on React.js and the hope to have the necessary help from the open source community to create a great experience through the creation of our resumes.
+For months I've been searching for a free tool which allows me to create, in an awesome way, my own resume without paying for it, but I failed.
+I believe that this tool should be free so I've decided to start this project as a way to improve my skills on React.js and I hope to have the necessary help from the open source community to create a great experience through the creation of our resumes.
 
 ### Installing
 
