@@ -6,15 +6,15 @@ import i18n from '../../../i18n';
 import Title from '../../../components/Title.view';
 import Details from '../accordion_details/AccordionDetails.container';
 import Button from '../../../components/buttons/Button.view';
-import { addBlock } from '../../utils/functions';
+import { addBlock } from '../../utils/utils';
 
 import { Container } from './Skills.style';
 import mapDispatchToProps from './duck/dispatch';
 
-type Props = {
+interface Props {
   currentStep?: number;
   sendJobDescriptionToStore: (arg0: string) => void;
-};
+}
 
 type State = {
   rows: number[];
@@ -27,6 +27,10 @@ class Skills extends Component<Props, State> {
     clicks: 0,
   };
 
+  skillsStructureData = {
+
+  }
+
   renderBlock = (): JSX.Element[] => {
     return this.state.rows.map((index, el) => {
       return <Details context="skills" key={el} id={el} />;
@@ -34,10 +38,10 @@ class Skills extends Component<Props, State> {
   };
 
   addExternalLinksBlock = () => {
-    addBlock(this);
+    addBlock(this, this.skillsStructureData);
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     if (this.props.currentStep !== 5) {
       return null;
     }
@@ -46,7 +50,7 @@ class Skills extends Component<Props, State> {
       <Container>
         <Title>{i18n.t('skills')}</Title>
         {this.renderBlock()}
-        <Button typology="link" onClick={this.addExternalLinksBlock} color="primary">
+        <Button type="button" isLink={true} onClick={this.addExternalLinksBlock} color="primary">
           {i18n.t('add_skill')}
         </Button>
       </Container>

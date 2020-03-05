@@ -1,5 +1,10 @@
 import * as type from './types';
 
+export const addEmployment = (id: number, value: any) => ({
+  type: type.ADD_EMPLOYMENT,
+  payload: [id, value],
+});
+
 export const setJobTitle = (value: string) => ({
   type: type.SET_JOB_TITLE,
   payload: value,

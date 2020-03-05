@@ -1,4 +1,4 @@
-type Props = {
+interface Model {
   currentStep: number;
   sendJobTitleToStore: (arg0: string) => void;
   sendFirstNameToStore: (arg0: string) => void;
@@ -13,6 +13,6 @@ type Props = {
   sendNationalityToStore: (arg0: string) => void;
   sendPlaceOfBirthToStore: (arg0: string) => void;
   sendDateOfBirthToStore: (arg0: string) => void;
-};
+}
 
-export default Props;
+export default Model;

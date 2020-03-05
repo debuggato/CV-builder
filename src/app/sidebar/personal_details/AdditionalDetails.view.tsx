@@ -4,7 +4,7 @@ import Input from '../../../components/input/Input.view';
 
 import { Wrapper } from './PersonalDetails.style';
 
-type Props = {
+interface Props {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
 };

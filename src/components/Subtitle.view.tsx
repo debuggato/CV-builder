@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-type Props = {
+interface Props {
   children: string;
-};
+}
 
 export const Subtitle = styled.p``;
 

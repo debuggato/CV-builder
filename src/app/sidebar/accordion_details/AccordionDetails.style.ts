@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import colors from '../../../styles/color.style';
 
-type Props = {
+interface Props {
   isVisible: boolean;
 };
 

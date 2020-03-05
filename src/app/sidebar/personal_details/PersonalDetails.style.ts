@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-type Props = {
+interface Props {
   isVisible: boolean;
-};
+}
 
 export const Container = styled.section`
   width: 100%;

@@ -7,7 +7,7 @@ import Courses from '../courses/Courses.container';
 
 import { Container, Body, Wrapper } from './AddSection.style';
 
-type Props = {
+interface Props {
   currentStep: number;
 };
 
@@ -74,7 +74,7 @@ class AddSection extends Component<Props, State> {
     });
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     if (this.props.currentStep !== 7) {
       return null;
     }

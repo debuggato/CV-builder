@@ -8,7 +8,7 @@ import mapDispatchToProps from './duck/dispatch';
 import Input from '../../../components/input/Input.view';
 import Title from '../../../components/Title.view';
 
-type Props = {
+interface Props {
   currentStep?: number;
   sendJobDescriptionToStore: (arg0: string) => void;
 };
@@ -30,7 +30,7 @@ class ProfessionalSummary extends Component<Props, State> {
     });
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     if (this.props.currentStep !== 2) {
       return null;
     }

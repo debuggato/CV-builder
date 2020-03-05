@@ -1,7 +1,9 @@
-type Props = {
+interface Model {
   onClick(): void;
   color: string;
-  typology: string;
-};
+  type: 'submit' | 'button' | 'reset';
+  isLink?: boolean;
+  disabled?: boolean;
+}
 
-export default Props;
+export default Model;

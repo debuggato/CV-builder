@@ -21,7 +21,23 @@
       "contact_information": "Informazioni di contatto",
       "about_me": "Su di me",
       "education": "Percorso formativo",
-      "langs": "Lingue parlate"
+      "langs": "Lingue parlate",
+      "professional_summary": "Profilo professionale",
+      "saved": "Salvato",
+      "error_save": "Errore: I dati non sono stati salvati",
+      "saving": "Salvataggio...",
+      "email": "E-mail",
+      "phone": "Telefono",
+      "address": "Indirizzo",
+      "hobbies": "Hobby",
+      "extra_activities": "Attivita' extra curriculari",
+      "languages": "Lingue",
+      "references": "Referenze",
+      "custom_section": "Sezione modificabile",
+      "download_pdf": "Scarica PDF",
+      "choose_template": "Scegli il template",
+      "next": "Successivo",
+      "prev": "Precedente"
     }
   }
 }

@@ -2,6 +2,9 @@ import * as action from './actions';
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
+    addEmployment: (id: number, value: any) => {
+      dispatch(action.addEmployment(id, value));
+    },
     sendJobTitleToStore: (value: string) => {
       dispatch(action.setJobTitle(value));
     },

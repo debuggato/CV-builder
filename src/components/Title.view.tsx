@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import colors from '../styles/color.style';
 
-type Props = {
+interface Props {
   children: string;
-};
+}
 
 export const Title = styled.h3`
   margin: 0;

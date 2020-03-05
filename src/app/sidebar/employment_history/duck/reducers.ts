@@ -3,11 +3,22 @@ import initialState from './state';
 
 const reducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case type.SET_JOB_TITLE:
+    case type.ADD_EMPLOYMENT:
       return {
         ...state,
-        jobTitle: [...action.payload],
+        [action.payload[0]]: action.payload[1],
       };
+    /*case type.SET_JOB_TITLE:
+      return Object.assign({}, state, {
+        todos: [
+          ...state,
+          {
+            text: action.text,
+            completed: false,
+          },
+        ],
+      });
+      */
     /* case type.SET_EMPLOYER:
       state = {
         ...state,
@@ -41,7 +52,6 @@ const reducer = (state = initialState, action: any) => {
     default:
       break;
   }
-  console.log(state);
   return state;
 };
 

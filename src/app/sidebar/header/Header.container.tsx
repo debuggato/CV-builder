@@ -11,7 +11,7 @@ type State = {
 };
 
 const Wrapper = styled.div`
-  padding: 15px 0;
+  padding: 10px;
   display: flex;
   flex-direction: row;
 `;
@@ -40,7 +40,7 @@ class Header extends Component<{}, State> {
     }
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     const { langs } = this.state;
 
     const titleStyle: CSSProperties = {

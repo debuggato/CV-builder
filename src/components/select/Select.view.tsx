@@ -2,12 +2,12 @@ import React, { FC, ChangeEvent } from 'react';
 
 import { Select } from './Select.style';
 
-type Props = {
+interface Model {
   list: string[];
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-};
+}
 
-const SelectView: FC<Props> = props => {
+const SelectView: FC<Model> = props => {
   const items = props.list.map((item: string, key: number) => (
     <option key={key} value={key}>
       {item}

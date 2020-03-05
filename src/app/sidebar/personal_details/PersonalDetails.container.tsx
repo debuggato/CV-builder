@@ -159,7 +159,7 @@ class PersonalDetails extends Component<Props, State> {
     return <Loader withLabel={true} loading={true} />;
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     if (this.props.currentStep !== 1) {
       return null;
     }
@@ -172,7 +172,12 @@ class PersonalDetails extends Component<Props, State> {
         <Details isVisible={true}>
           <MainDetails onChange={this.onChange} onBlur={this.onBlur} />
         </Details>
-        <Button typology="link" onClick={this.clickShowAdditionalDetails} color="primary">
+        <Button
+          type="button"
+          isLink={true}
+          onClick={this.clickShowAdditionalDetails}
+          color="primary"
+        >
           {i18n.t('edit_additional_details')}
           <Icon icon={isOpen ? 'arrow-dropup' : 'arrow-dropdown'} />
         </Button>

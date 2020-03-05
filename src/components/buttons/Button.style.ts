@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import colors from '../../styles/color.style';
-
 import Props from './Button.model';
 
 const Btn = styled.button`
@@ -12,7 +11,7 @@ const Btn = styled.button`
 
   /* if button  */
   ${(props: Props) =>
-    props.typology !== 'link' &&
+    !props.isLink &&
     `
     color: white;
     cursor: pointer;
@@ -23,7 +22,7 @@ const Btn = styled.button`
   `}
 
   ${(props: Props) =>
-    props.typology === 'link' &&
+    props.isLink &&
     `
     border: 0;
     background-color: transparent;

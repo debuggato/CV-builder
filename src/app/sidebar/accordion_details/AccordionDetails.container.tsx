@@ -18,7 +18,7 @@ type State = {
   dates: string | null;
 };
 
-type Props = {
+interface Props {
   id?: number;
   context: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -52,7 +52,7 @@ class AccordionDetails extends Component<Props, State> {
     });
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     const { text, isOpen, title, dates } = this.state;
     const { context } = this.props;
     let renderBody = null;

@@ -6,7 +6,7 @@ import Title from '../../../components/Title.view';
 import Subtitle from '../../../components/Subtitle.view';
 import Button from '../../../components/buttons/Button.view';
 import Details from '../accordion_details/AccordionDetails.container';
-import { addBlock } from '../../utils/functions';
+import { addBlock } from '../../utils/utils';
 import { Container } from './ExternalLinks.style';
 
 type State = {
@@ -14,15 +14,17 @@ type State = {
   clicks: number;
 };
 
-type Props = {
+interface Props {
   currentStep: number;
-};
+}
 
 export default class ExternalLinks extends Component<Props, State> {
   state = {
     rows: [0],
     clicks: 0,
   };
+
+  externalLinkStructureData = {}
 
   renderBlock = (): JSX.Element[] => {
     return this.state.rows.map((index, el) => {
@@ -31,10 +33,10 @@ export default class ExternalLinks extends Component<Props, State> {
   };
 
   addExternalLinksBlock = () => {
-    addBlock(this);
+    addBlock(this, this.externalLinkStructureData);
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     if (this.props.currentStep !== 6) {
       return null;
     }
@@ -44,7 +46,7 @@ export default class ExternalLinks extends Component<Props, State> {
         <Title>{i18n.t('websites_social_links')}</Title>
         <Subtitle>{i18n.t('website_sicial_links_subtitle')}</Subtitle>
         {this.renderBlock()}
-        <Button typology="link" onClick={this.addExternalLinksBlock} color="primary">
+        <Button type="button" isLink={true} onClick={this.addExternalLinksBlock} color="primary">
           {i18n.t('add_link')}
         </Button>
       </Container>

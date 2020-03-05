@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 
 import i18n from '../../../i18n';
-import { addBlock } from '../../utils/functions';
+import { addBlock } from '../../utils/utils';
 
 import Title from '../../../components/Title.view';
 import Button from '../../../components/buttons/Button.view';
@@ -14,9 +14,9 @@ type State = {
   clicks: number;
 };
 
-type Props = {
+interface Props {
   isVisible: boolean;
-};
+}
 
 export default class Courses extends Component<Props, State> {
   state = {
@@ -24,8 +24,12 @@ export default class Courses extends Component<Props, State> {
     clicks: 0,
   };
 
+  coursesStructureData = {
+
+  }
+
   addCourseBlock = () => {
-    addBlock(this);
+    addBlock(this, this.coursesStructureData);
   };
 
   renderBlock = (): JSX.Element[] => {
@@ -34,12 +38,12 @@ export default class Courses extends Component<Props, State> {
     });
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     return (
       <Container isVisible={this.props.isVisible}>
         <Title>{i18n.t('courses_title')}</Title>
         {this.renderBlock()}
-        <Button typology="link" onClick={this.addCourseBlock} color="primary">
+        <Button type="button" isLink={true} onClick={this.addCourseBlock} color="primary">
           {i18n.t('add_course')}
         </Button>
       </Container>

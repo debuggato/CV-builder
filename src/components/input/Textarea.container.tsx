@@ -15,7 +15,7 @@ class Textarea extends Component {
 
   onChange = (editorState: any) => this.setState({ editorState });
 
-  render() {
+  public render() {
     return <Editor editorState={this.state.editorState} onChange={this.onChange} />;
   }
 }

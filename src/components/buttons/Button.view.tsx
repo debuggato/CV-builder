@@ -5,7 +5,7 @@ import Props from './Button.model';
 
 const Button: FC<Props> = props => {
   return (
-    <Btn type="button" onClick={props.onClick} typology={props.typology} color={props.color}>
+    <Btn type={props.type} isLink={props.isLink} onClick={props.onClick} color={props.color}>
       {props.children}
     </Btn>
   );

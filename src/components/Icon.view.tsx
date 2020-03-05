@@ -1,9 +1,9 @@
 import React, { Fragment, FC, CSSProperties } from 'react';
 
-type Props = {
+interface Props {
   icon: string;
   style?: CSSProperties;
-};
+}
 
 const Icon: FC<Props> = props => {
   return (

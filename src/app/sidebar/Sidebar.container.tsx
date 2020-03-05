@@ -1,6 +1,8 @@
 import React, { Component, ReactNode } from 'react';
 import { CSSProperties } from 'styled-components';
 
+import i18n from '../../i18n';
+
 import Button from '../../components/buttons/Button.view';
 import Icon from '../../components/Icon.view';
 import { Container, ActionBar } from './Sidebar.style';
@@ -33,51 +35,46 @@ export default class Sidebar extends Component<{}, State> {
   };
 
   onNext = (): void => {
-    let currentStep = this.state.currentStep;
+    const { sectionToShow, currentStep } = this.state;
+    let step: number = currentStep;
 
-    if (currentStep === this.state.sectionToShow) {
-      currentStep = this.state.sectionToShow;
-    } else {
-      currentStep = currentStep + 1;
-    }
+    step = currentStep === sectionToShow ? sectionToShow : currentStep + 1;
 
     this.setState({
-      currentStep: currentStep,
+      currentStep: step,
     });
   };
 
   onPrev = (): void => {
-    let currentStep = this.state.currentStep;
+    const { currentStep } = this.state;
 
-    if (currentStep <= 1) {
-      currentStep = 1;
-    } else {
-      currentStep = currentStep - 1;
-    }
+    let step: number = currentStep;
+
+    step = currentStep <= 1 ? step = 1 : step - 1;
 
     this.setState({
-      currentStep: currentStep,
+      currentStep: step,
     });
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     const { currentStep, sectionToShow } = this.state;
     let renderPrevBtn: ReactNode = null,
       renderNextBtn: ReactNode = null;
 
     if (currentStep !== 1) {
       renderPrevBtn = (
-        <Button onClick={this.onPrev} typology="button" color="secondary">
+        <Button onClick={this.onPrev} type="button" color="secondary">
           <Icon icon="arrow-back" style={this.arrowPrev} />
-          {'Prev'}
+          {i18n.t('prev')}
         </Button>
       );
     }
 
     if (currentStep !== sectionToShow) {
       renderNextBtn = (
-        <Button onClick={this.onNext} typology="button" color="primary">
-          {'Next'}
+        <Button onClick={this.onNext} type="button" color="primary">
+          {i18n.t('next')}
           <Icon icon="arrow-forward" style={this.arrowNext} />
         </Button>
       );

@@ -1,13 +1,14 @@
 import React, { Component, ReactNode } from 'react';
 
-import { Container, Page, Bar } from './Resume.style';
+import { Container, Page } from './Resume.style';
 import TemplateOneView from '../templates/TemplateOne.view';
+import Topbar from '../topbar/Topbar.container';
 
 class ResumeContainer extends Component {
-  render(): ReactNode {
+  public render(): ReactNode {
     return (
       <Container>
-        <Bar></Bar>
+        <Topbar></Topbar>
         <Page>
           <TemplateOneView />
         </Page>

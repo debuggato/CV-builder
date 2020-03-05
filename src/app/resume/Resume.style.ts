@@ -24,18 +24,3 @@ export const Page = styled.div`
   position: relative;
   top: 60px;
 `;
-
-export const Bar = styled.header`
-  background: ${colors.white};
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  left: 0;
-  padding: 10px;
-
-  button {
-    float: right;
-    margin-right: 40px;
-    font-size: 20px;
-  }
-`;

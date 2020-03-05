@@ -5,7 +5,7 @@ import FromToDate from '../../../components/FromToDate.view';
 
 import { Wrapper } from '../accordion_details/AccordionDetails.style';
 
-type Props = {
+interface Props {
   onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onChangeDescription: (value: string) => void;
   text: string;

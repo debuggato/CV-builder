@@ -6,7 +6,7 @@ import Button from '../../../components/buttons/Button.view';
 import Title from '../../../components/Title.view';
 import Subtitle from '../../../components/Subtitle.view';
 import Details from '../accordion_details/AccordionDetails.container';
-import { addBlock } from '../../utils/functions';
+import { addBlock } from '../../utils/utils';
 
 import { Container } from './Education.style';
 
@@ -15,9 +15,9 @@ type State = {
   clicks: number;
 };
 
-type Props = {
+interface Props {
   currentStep: number;
-};
+}
 
 class Education extends Component<Props, State> {
   state = {
@@ -25,8 +25,12 @@ class Education extends Component<Props, State> {
     clicks: 0,
   };
 
+  educationStructureData = {
+
+  }
+
   addEducationBlock = () => {
-    addBlock(this);
+    addBlock(this, this.educationStructureData);
   };
 
   renderBlock = (): JSX.Element[] => {
@@ -35,7 +39,7 @@ class Education extends Component<Props, State> {
     });
   };
 
-  render(): ReactNode {
+  public render(): ReactNode {
     if (this.props.currentStep !== 4) {
       return null;
     }
@@ -45,7 +49,7 @@ class Education extends Component<Props, State> {
         <Title>{i18n.t('add_education')}</Title>
         <Subtitle>{i18n.t('education_subtitle')}</Subtitle>
         {this.renderBlock()}
-        <Button typology="link" onClick={this.addEducationBlock} color="primary">
+        <Button type="button" isLink={true} onClick={this.addEducationBlock} color="primary">
           {i18n.t('add_education')}
         </Button>
       </Container>

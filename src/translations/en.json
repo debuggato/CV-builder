@@ -33,7 +33,11 @@
       "extra_activities": "Extra-curricula activities",
       "languages": "Languages",
       "references": "References",
-      "custom_section": "Custom section"
+      "custom_section": "Custom section",
+      "download_pdf": "Download PDF",
+      "choose_template": "Choose template",
+      "next": "Next",
+      "prev": "Prev"
     }
   }
 }

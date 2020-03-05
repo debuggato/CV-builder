@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-type Props = {
+interface Model {
   type: string;
   label?: string;
   onChange?: (e: any) => void;
@@ -13,6 +13,6 @@ type Props = {
   withLabel?: boolean;
   id?: string;
   text?: string;
-};
+}
 
-export default Props;
+export default Model;

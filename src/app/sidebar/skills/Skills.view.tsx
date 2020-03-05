@@ -3,7 +3,7 @@ import React, { FC, Fragment, ChangeEvent } from 'react';
 import Input from '../../../components/input/Input.view';
 import { Wrapper } from './Skills.style';
 
-type Props = {
+interface Props {
   onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
