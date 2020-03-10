@@ -5,9 +5,10 @@ import { addBlock } from '../../utils/utils';
 
 import Title from '../../../components/Title.view';
 import Button from '../../../components/buttons/Button.view';
-import Details from '../accordion_details/AccordionDetails.container';
+import Accordion from '../../../components/accordion/Accordion.view';
 
 import { Container } from './Courses.style';
+import CoursesView from '../courses/Courses.view'
 
 type State = {
   rows: number[];
@@ -32,10 +33,8 @@ export default class Courses extends Component<Props, State> {
     addBlock(this, this.coursesStructureData);
   };
 
-  renderBlock = (): JSX.Element[] => {
-    return this.state.rows.map((index, el) => {
-      return <Details context="courses" key={el} id={el} />;
-    });
+  renderBlock = () => {
+
   };
 
   public render(): ReactNode {

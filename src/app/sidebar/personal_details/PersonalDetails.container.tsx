@@ -156,7 +156,7 @@ class PersonalDetails extends Component<Props, State> {
   };
 
   showLoader = () => {
-    return <Loader withLabel={true} loading={true} />;
+    return <Loader loading={true} />;
   };
 
   public render(): ReactNode {

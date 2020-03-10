@@ -5,10 +5,10 @@ import i18n from '../../../i18n';
 import Button from '../../../components/buttons/Button.view';
 import Title from '../../../components/Title.view';
 import Subtitle from '../../../components/Subtitle.view';
-import Details from '../accordion_details/AccordionDetails.container';
-import { addBlock } from '../../utils/utils';
+import Accordion from '../../../components/accordion/Accordion.view';
 
 import { Container } from './Education.style';
+import EducationView from '../education/Education.view';
 
 type State = {
   rows: number[];
@@ -30,13 +30,11 @@ class Education extends Component<Props, State> {
   }
 
   addEducationBlock = () => {
-    addBlock(this, this.educationStructureData);
+    //addBlock(this, this.educationStructureData);
   };
 
-  renderBlock = (): JSX.Element[] => {
-    return this.state.rows.map((index, el) => {
-      return <Details context="education" key={el} id={el} />;
-    });
+  renderBlock = () => {
+
   };
 
   public render(): ReactNode {

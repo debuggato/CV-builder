@@ -1,52 +1,49 @@
-import React, { Fragment, FC, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent, ReactElement, FocusEvent } from 'react';
 
-import { Wrapper } from '../accordion_details/AccordionDetails.style';
+import { Wrapper } from '../../../components/accordion/Accordion.style';
 
 import Input from '../../../components/input/Input.view';
 import FromToDate from '../../../components/FromToDate.view';
 
 interface Props {
-  onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  //onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  text: string;
+  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
+  //text: string;
 };
 
-const EmploymentView: FC<Props> = props => {
+const EmploymentView: FC<Props> = ({ onChange, onFocus }: Props): ReactElement => {
   return (
-    <Fragment>
+    <>
       <Wrapper>
         <Input
           type="text"
-          withLabel={true}
           label="Job Title"
           name="jobTitle"
-          onChange={props.onChange}
+          onChange={onChange}
+          onFocus={onFocus}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
-          withLabel={true}
           label="Employer"
-          name="employer"
-          onChange={props.onChange}
+          onChange={onChange}
         />
       </Wrapper>
       <Wrapper>
-        <Input type="text" withLabel={true} label="City" name="city" onChange={props.onChange} />
+        <Input type="text" label="City" onChange={onChange} />
       </Wrapper>
       <FromToDate />
       <Wrapper>
         <Input
           type="textarea"
-          withLabel={true}
           label="Description"
-          name="description"
-          onChange={props.onChange}
-          text={props.text}
+          onChange={onChange}
+          text={''}
         />
       </Wrapper>
-    </Fragment>
+    </>
   );
 };
 

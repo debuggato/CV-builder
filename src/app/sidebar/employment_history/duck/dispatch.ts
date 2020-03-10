@@ -5,8 +5,8 @@ const mapDispatchToProps = (dispatch: any) => {
     addEmployment: (id: number, value: any) => {
       dispatch(action.addEmployment(id, value));
     },
-    sendJobTitleToStore: (value: string) => {
-      dispatch(action.setJobTitle(value));
+    sendJobTitleToStore: (id: number, value: string) => {
+      dispatch(action.setJobTitle(id, value));
     },
     sendEmployerToStore: (value: string) => {
       dispatch(action.setEmployer(value));

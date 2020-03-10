@@ -1,34 +1,37 @@
 import React, { Component, ReactNode, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
+
 import i18n from '../../../i18n';
 
 import Title from 'components/Title.view';
 import Subtitle from 'components/Subtitle.view';
 import Button from 'components/buttons/Button.view';
-import Details from '../accordion_details/AccordionDetails.container';
+import Accordion from 'components/accordion/Accordion.view';
 import ErrorBoundary from 'components/ErrorBoundary';
 
 import mapDispatchToProps from './duck/dispatch';
 
 import { Container } from './Employment.style';
+import EmploymentView from './Employment.view';
 
 interface Props {
   currentStep: number;
-  sendJobTitleToStore: (arg0: string) => void;
+  sendJobTitleToStore: (arg0: number, arg1: string) => void;
   sendEmployerToStore: (arg0: string) => void;
   sendCityToStore: (arg0: string) => void;
   sendDescriptionToStore: (arg0: string) => void;
   addEmployment: (arg0: number, arg1: any) => void;
-  item: any;
+  items: any;
+  title: string;
 }
 
 type State = {
-  clicks: number;
+  id: number;
 };
 
 class EmploymentHistory extends Component<Props, State> {
   state = {
-    clicks: 0,
+    id: 0,
   };
 
   employmentInitialData = {
@@ -40,21 +43,13 @@ class EmploymentHistory extends Component<Props, State> {
     description: ''
   }
 
-  renderBlock = (): any => {
-
-    return this.props.item.map((el: any) => {
-      console.log(el)
-      return <Details context="employment" key={el} onChange={this.onChange} />;
-    });
-  };
-
   onChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    let name: string = e.target.name,
-      value: string = e.target.value;
+    let name: string = e.target.name;
+    let value: string = e.target.value;
 
     switch (name) {
       case 'jobTitle':
-        this.props.sendJobTitleToStore(value);
+        this.props.sendJobTitleToStore(this.state.id, value);
         break;
       case 'employer':
         this.props.sendEmployerToStore(value);
@@ -72,22 +67,32 @@ class EmploymentHistory extends Component<Props, State> {
 
   addEmploymentItem = (): void => {
     this.setState({
-      clicks: this.state.clicks + 1
+      id: this.state.id + 1
     });
-    this.props.addEmployment(this.state.clicks, this.employmentInitialData);
+    this.props.addEmployment(this.state.id, this.employmentInitialData);
   };
 
   public render(): ReactNode {
-    if (this.props.currentStep !== 3) {
+    const { currentStep, items } = this.props;
+
+    if (currentStep !== 3) {
       return null;
     }
+
+    const item = items.map((index: any) => {
+      return (
+        <Accordion key={index} id={index}>
+          <EmploymentView onChange={this.onChange} />
+        </Accordion>
+      )
+    });
 
     return (
       <ErrorBoundary>
         <Container>
           <Title>{i18n.t('employment_history')}</Title>
           <Subtitle>{i18n.t('employment_history_subtitle')}</Subtitle>
-          {this.renderBlock()}
+          {item}
           <Button type="button" isLink={true} onClick={this.addEmploymentItem} color="primary">
             {i18n.t('add_employment')}
           </Button>
@@ -98,8 +103,12 @@ class EmploymentHistory extends Component<Props, State> {
 }
 
 const mapStateToProps = (state: any) => {
+  let keys = Object.keys(state.employmentHistory);
+
+  const { jobTitle } = state.employmentHistory;
   return {
-    item: Object.keys(state.employmentHistory)
+    items: keys,
+    title: jobTitle
   }
 };
 

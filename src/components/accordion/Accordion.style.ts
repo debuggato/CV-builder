@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-import colors from '../../../styles/color.style';
-
-interface Props {
-  isVisible: boolean;
-};
+import colors from '../../styles/color.style';
 
 export const Container = styled.div`
   padding: 10px;
@@ -23,10 +19,6 @@ export const Header = styled.div`
   i {
     float: right;
   }
-`;
-
-export const Body = styled.div`
-  display: ${(props: Props) => (props.isVisible ? 'block' : 'none')};
 `;
 
 export const Title = styled.div`

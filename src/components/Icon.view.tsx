@@ -1,4 +1,4 @@
-import React, { Fragment, FC, CSSProperties } from 'react';
+import React, { FC, CSSProperties } from 'react';
 
 interface Props {
   icon: string;
@@ -7,9 +7,9 @@ interface Props {
 
 const Icon: FC<Props> = props => {
   return (
-    <Fragment>
+    <>
       <i className={`ion-md-${props.icon}`} style={props.style} />
-    </Fragment>
+    </>
   );
 };
 

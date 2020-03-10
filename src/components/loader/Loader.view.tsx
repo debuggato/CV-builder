@@ -8,7 +8,7 @@ import { Loader, Container } from './Loader.style';
 const LoaderView: FC<Props> = props => {
   let label: string = '';
 
-  if (props.withLabel) {
+  if (label) {
     if (props.success) {
       label = i18n.t('saved');
     } else if (props.error) {
@@ -18,7 +18,7 @@ const LoaderView: FC<Props> = props => {
     }
   }
 
-  return <Container>{props.withLabel ? <label>{label}</label> : null}</Container>;
+  return <Container>{label ? <label>{label}</label> : null}</Container>;
 };
 
 export default LoaderView;

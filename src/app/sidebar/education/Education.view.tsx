@@ -1,40 +1,34 @@
-import React, { FC, Fragment, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 
 import Input from '../../../components/input/Input.view';
 import FromToDate from '../../../components/FromToDate.view';
 
-import { Wrapper } from '../accordion_details/AccordionDetails.style';
+import { Wrapper } from '../../../components/accordion/Accordion.style';
 
 interface Props {
-  onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onChangeDescription: (value: string) => void;
-  text: string;
+  //onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const EducationView: FC<Props> = props => {
   return (
-    <Fragment>
+    <>
       <Wrapper>
-        <Input type="text" withLabel={true} label="School" onChange={props.onTitleSectionChange} />
+        <Input type="text" label="School" />
       </Wrapper>
       <Wrapper>
-        <Input type="text" withLabel={true} label="Degree" />
+        <Input type="text" label="Degree" />
       </Wrapper>
       <Wrapper>
-        <Input type="text" withLabel={true} label="City" />
+        <Input type="text" label="City" />
       </Wrapper>
       <FromToDate />
       <Wrapper>
         <Input
           type="textarea"
-          withLabel={true}
           label="Description"
-          name="description"
-          onChange={props.onChangeDescription}
-          text={props.text}
         />
       </Wrapper>
-    </Fragment>
+    </>
   );
 };
 

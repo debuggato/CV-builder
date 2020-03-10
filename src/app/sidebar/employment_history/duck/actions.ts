@@ -5,9 +5,9 @@ export const addEmployment = (id: number, value: any) => ({
   payload: [id, value],
 });
 
-export const setJobTitle = (value: string) => ({
+export const setJobTitle = (id: number, value: string) => ({
   type: type.SET_JOB_TITLE,
-  payload: value,
+  payload: [id, value],
 });
 
 export const setEmployer = (value: string) => ({

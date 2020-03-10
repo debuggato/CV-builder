@@ -57,8 +57,7 @@ class Header extends Component<{}, State> {
 
     return (
       <Wrapper>
-        <Input type="text" withLabel={false} label="Untitled" style={titleStyle} />
-        {/* <Loader /> */}
+        <Input type="text" onFocus={() => console.log('bluer')} defaultValue="Untitled" style={titleStyle} />
         <Select list={langs} onChange={this.onLangChange} />
       </Wrapper>
     );

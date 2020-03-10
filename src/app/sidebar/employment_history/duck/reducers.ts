@@ -6,49 +6,50 @@ const reducer = (state = initialState, action: any) => {
     case type.ADD_EMPLOYMENT:
       return {
         ...state,
-        [action.payload[0]]: action.payload[1],
+        [action.payload[0] + 1]: action.payload[1],
       };
-    /*case type.SET_JOB_TITLE:
-      return Object.assign({}, state, {
-        todos: [
-          ...state,
-          {
-            text: action.text,
-            completed: false,
-          },
-        ],
-      });
-      */
-    /* case type.SET_EMPLOYER:
-      state = {
+    case type.SET_JOB_TITLE:
+      return {
         ...state,
-        employer: action.payload
-      }
-    break;
+        [action.payload[0]]: {
+          jobTitle: action.payload[1],
+        },
+      };
+    case type.SET_EMPLOYER:
+      return {
+        ...state,
+        [action.payload[0]]: {
+          employer: action.payload[1],
+        },
+      };
     case type.SET_CITY:
-      state = {
+      return {
         ...state,
-        city: action.payload
-      }
-    break;
+        [action.payload[0]]: {
+          city: action.payload[1],
+        },
+      };
     case type.SET_START_DATE:
-      state = {
+      return {
         ...state,
-        startDate: action.payload
-      }
-    break;
+        [action.payload[0]]: {
+          startDate: action.payload[1],
+        },
+      };
     case type.SET_END_DATE:
-      state = {
+      return {
         ...state,
-        endDate: action.payload
-      }
-    break;
+        [action.payload[0]]: {
+          endDate: action.payload[1],
+        },
+      };
     case type.SET_DESCRIPTION:
-      state = {
+      return {
         ...state,
-        description: action.payload
-      }
-    break;*/
+        [action.payload[0]]: {
+          description: action.payload[1],
+        },
+      };
     default:
       break;
   }

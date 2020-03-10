@@ -38,7 +38,7 @@ class ProfessionalSummary extends Component<Props, State> {
     return (
       <Container>
         <Title>{i18n.t('professional_summary')}</Title>
-        <Input type="textarea" onChange={this.onDescriptionChange} text={this.state.value} />
+        <Input type="textarea" onChange={undefined} text={this.state.value} />
       </Container>
     );
   }

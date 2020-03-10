@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import i18n from '../../../i18n';
 
 import Title from '../../../components/Title.view';
-import Details from '../accordion_details/AccordionDetails.container';
+import Accordion from '../../../components/accordion/Accordion.view';
 import Button from '../../../components/buttons/Button.view';
 import { addBlock } from '../../utils/utils';
 
 import { Container } from './Skills.style';
+import SkillsView from '../skills/Skills.view';
+
 import mapDispatchToProps from './duck/dispatch';
 
 interface Props {
@@ -31,10 +33,7 @@ class Skills extends Component<Props, State> {
 
   }
 
-  renderBlock = (): JSX.Element[] => {
-    return this.state.rows.map((index, el) => {
-      return <Details context="skills" key={el} id={el} />;
-    });
+  renderBlock = () => {
   };
 
   addExternalLinksBlock = () => {

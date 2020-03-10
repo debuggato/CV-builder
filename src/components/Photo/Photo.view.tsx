@@ -24,7 +24,7 @@ const Photo: FC = () => {
             <Icon icon="image" style={iconStyle}></Icon>
             {i18n.t('upload_photo')}
           </UploadLabel>
-          <Input type="file" withLabel={false} id="upload" />
+          <Input type="file" id="upload" />
         </label>
       </Wrapper>
     </Container>

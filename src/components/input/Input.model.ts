@@ -1,18 +1,19 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ChangeEvent } from 'react';
 
 interface Model {
   type: string;
   label?: string;
-  onChange?: (e: any) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: any) => void;
+  onFocus?: (e: any) => void;
   style?: CSSProperties;
   defaultValue?: string;
   value?: string;
-  name?: string;
   readOnly?: boolean;
-  withLabel?: boolean;
   id?: string;
   text?: string;
+  name?: string;
+  ref?: any;
 }
 
 export default Model;
