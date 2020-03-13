@@ -1,5 +1,4 @@
 const UPDATE_IS_MODAL_OPENED: string = 'UPDATE_IS_MODAL_OPENED';
-const SET_CURRENT_ACCORDION_ID: string = 'SET_CURRENT_ACCORDION_ID';
 
 const genericState = {
   isModalOpened: false,
@@ -15,12 +14,6 @@ export const generic = (state = genericState, action: any) => {
         isModalOpened: action.payload,
       };
       break;
-    case SET_CURRENT_ACCORDION_ID:
-      state = {
-        ...state,
-        currentAccordionId: action.payload,
-      };
-      break;
     default:
       break;
   }
@@ -30,10 +23,5 @@ export const generic = (state = genericState, action: any) => {
 // ACTIONS
 export const updateIsModalOpened = (value: boolean) => ({
   type: UPDATE_IS_MODAL_OPENED,
-  payload: value,
-});
-
-export const setCurrentAccordionId = (value: string) => ({
-  type: SET_CURRENT_ACCORDION_ID,
   payload: value,
 });
