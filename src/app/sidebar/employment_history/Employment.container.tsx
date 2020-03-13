@@ -45,12 +45,6 @@ class EmploymentHistory extends Component<Props, State> {
     this.props.addEmployment(this.state.id, this.employmentInitialData);
   };
 
-  onFocus = (id: any) => {
-    this.setState({
-      id: parseInt(id)
-    });
-  }
-
   public render(): ReactNode {
     const { currentStep, items } = this.props;
 

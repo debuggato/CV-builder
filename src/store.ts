@@ -1,14 +1,16 @@
 import { createStore, combineReducers } from 'redux';
 
-import personalDetailsReducer from './app/sidebar/personal_details/duck/reducers';
-import professionalSummaryReducer from './app/sidebar/professional_summary/duck/reducers';
-import employmentHistoryReducer from './app/sidebar/employment_history/duck/reducers';
+import personalDetails from './app/sidebar/personal_details/duck/reducers';
+import professionalSummary from './app/sidebar/professional_summary/duck/reducers';
+import employmentHistory from './app/sidebar/employment_history/duck/reducers';
+import education from './app/sidebar/education/duck/reducers';
 import { generic } from './genericState';
 
 const rootReducer = combineReducers({
-  personalDetails: personalDetailsReducer,
-  professionalSummary: professionalSummaryReducer,
-  employmentHistory: employmentHistoryReducer,
+  personalDetails,
+  professionalSummary,
+  employmentHistory,
+  education,
   generic: generic,
 });
 
