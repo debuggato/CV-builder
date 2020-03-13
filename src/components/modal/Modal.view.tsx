@@ -14,7 +14,7 @@ const Modal: FC = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => {
-  const { isModalOpened } = state.genericReducer;
+  const { isModalOpened } = state.generic;
   return {
     isOpened: isModalOpened,
   };

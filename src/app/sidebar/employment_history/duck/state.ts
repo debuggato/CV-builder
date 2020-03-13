@@ -1,11 +1,13 @@
-const initialState = [
+import { EmploymentState } from './model';
+
+const initialState: EmploymentState = [
   {
-    jobTitle: '',
-    employer: '',
-    city: '',
-    startDate: '',
-    endDate: '',
-    description: '',
+    jobTitle: null,
+    employer: null,
+    city: null,
+    startDate: new Date(),
+    endDate: new Date(),
+    description: null,
   },
 ];
 

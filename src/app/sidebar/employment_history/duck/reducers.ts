@@ -1,59 +1,65 @@
-import * as type from './types';
 import initialState from './state';
+import * as type from './types';
+import { ActionType } from './model';
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
     case type.ADD_EMPLOYMENT:
       return {
         ...state,
-        [action.payload[0] + 1]: action.payload[1],
+        [action.id]: action.value,
       };
     case type.SET_JOB_TITLE:
       return {
         ...state,
-        [action.payload[0]]: {
-          jobTitle: action.payload[1],
+        [action.id]: {
+          ...state[action.id],
+          jobTitle: action.value,
         },
       };
     case type.SET_EMPLOYER:
       return {
         ...state,
-        [action.payload[0]]: {
-          employer: action.payload[1],
+        [action.id]: {
+          ...state[action.id],
+          employer: action.value,
         },
       };
     case type.SET_CITY:
       return {
         ...state,
-        [action.payload[0]]: {
-          city: action.payload[1],
+        [action.id]: {
+          ...state[action.id],
+          city: action.value,
         },
       };
     case type.SET_START_DATE:
       return {
         ...state,
-        [action.payload[0]]: {
-          startDate: action.payload[1],
+        [action.id]: {
+          ...state[action.id],
+          startDate: action.value,
         },
       };
     case type.SET_END_DATE:
       return {
         ...state,
-        [action.payload[0]]: {
-          endDate: action.payload[1],
+        [action.id]: {
+          ...state[action.id],
+          endDate: action.value,
         },
       };
     case type.SET_DESCRIPTION:
       return {
         ...state,
-        [action.payload[0]]: {
-          description: action.payload[1],
+        [action.id]: {
+          ...state[action.id],
+          description: action.value,
         },
       };
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 export default reducer;

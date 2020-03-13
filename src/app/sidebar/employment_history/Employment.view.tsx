@@ -1,45 +1,50 @@
-import React, { FC, ChangeEvent, ReactElement, FocusEvent } from 'react';
+import React, { FC, ReactElement } from 'react';
+import { connect } from 'react-redux';
 
-import { Wrapper } from '../../../components/accordion/Accordion.style';
+import { Wrapper } from 'components/accordion/Accordion.style';
+import mapDispatchToProps from './duck/dispatch';
+import { ReduxProps } from './duck/model';
 
-import Input from '../../../components/input/Input.view';
-import FromToDate from '../../../components/FromToDate.view';
+import Input from 'components/input/Input.view';
+import FromToDate from 'components/FromToDate.view';
 
-interface Props {
-  //onTitleSectionChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
-  //text: string;
+interface OwnProps {
+  id: number;
 };
 
-const EmploymentView: FC<Props> = ({ onChange, onFocus }: Props): ReactElement => {
+interface Props extends OwnProps, ReduxProps { }
+
+const EmploymentView: FC<Props> = ({ id, setJobTitle, setEmployer, setCity, setDescription }: Props): ReactElement => {
+
   return (
     <>
       <Wrapper>
         <Input
           type="text"
           label="Job Title"
-          name="jobTitle"
-          onChange={onChange}
-          onFocus={onFocus}
+          onChange={e => setJobTitle(id, e.target.value)}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
           label="Employer"
-          onChange={onChange}
+          onChange={e => setEmployer(id, e.target.value)}
         />
       </Wrapper>
       <Wrapper>
-        <Input type="text" label="City" onChange={onChange} />
+        <Input
+          type="text"
+          label="City"
+          onChange={e => setCity(id, e.target.value)}
+        />
       </Wrapper>
       <FromToDate />
       <Wrapper>
         <Input
           type="textarea"
           label="Description"
-          onChange={onChange}
+          onChange={e => setDescription(id, e.target.value)}
           text={''}
         />
       </Wrapper>
@@ -47,4 +52,4 @@ const EmploymentView: FC<Props> = ({ onChange, onFocus }: Props): ReactElement =
   );
 };
 
-export default EmploymentView;
+export default connect(null, mapDispatchToProps)(EmploymentView);

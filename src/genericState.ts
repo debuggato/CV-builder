@@ -7,7 +7,7 @@ const genericState = {
 };
 
 // REDUCER
-export const genericReducer = (state = genericState, action: any) => {
+export const generic = (state = genericState, action: any) => {
   switch (action.type) {
     case UPDATE_IS_MODAL_OPENED:
       state = {

@@ -8,24 +8,19 @@ import Subtitle from 'components/Subtitle.view';
 import Button from 'components/buttons/Button.view';
 import Accordion from 'components/accordion/Accordion.view';
 import ErrorBoundary from 'components/ErrorBoundary';
-
 import mapDispatchToProps from './duck/dispatch';
 
-import { Container } from './Employment.style';
 import EmploymentView from './Employment.view';
 
-interface Props {
+interface OwnProps {
   currentStep: number;
-  sendJobTitleToStore: (arg0: number, arg1: string) => void;
-  sendEmployerToStore: (arg0: string) => void;
-  sendCityToStore: (arg0: string) => void;
-  sendDescriptionToStore: (arg0: string) => void;
-  addEmployment: (arg0: number, arg1: any) => void;
-  items: any;
   title: string;
+  addEmployment: (arg0: number, arg1: any) => void;
 }
 
-type State = {
+type Props = OwnProps & ReduxState;
+
+interface State {
   id: number;
 };
 
@@ -35,35 +30,13 @@ class EmploymentHistory extends Component<Props, State> {
   };
 
   employmentInitialData = {
-    jobTitle: '',
-    employer: '',
-    city: '',
-    startDate: '',
-    endDate: '',
-    description: ''
+    jobTitle: null,
+    employer: null,
+    city: null,
+    startDate: new Date(),
+    endDate: new Date(),
+    description: null
   }
-
-  onChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    let name: string = e.target.name;
-    let value: string = e.target.value;
-
-    switch (name) {
-      case 'jobTitle':
-        this.props.sendJobTitleToStore(this.state.id, value);
-        break;
-      case 'employer':
-        this.props.sendEmployerToStore(value);
-        break;
-      case 'city':
-        this.props.sendCityToStore(value);
-        break;
-      case 'description':
-        this.props.sendDescriptionToStore(value);
-        break;
-      default:
-        break;
-    }
-  };
 
   addEmploymentItem = (): void => {
     this.setState({
@@ -72,34 +45,43 @@ class EmploymentHistory extends Component<Props, State> {
     this.props.addEmployment(this.state.id, this.employmentInitialData);
   };
 
+  onFocus = (id: any) => {
+    this.setState({
+      id: parseInt(id)
+    });
+  }
+
   public render(): ReactNode {
     const { currentStep, items } = this.props;
 
-    if (currentStep !== 3) {
-      return null;
-    }
+    if (currentStep !== 3) return false;
 
     const item = items.map((index: any) => {
       return (
-        <Accordion key={index} id={index}>
-          <EmploymentView onChange={this.onChange} />
+        <Accordion key={index}>
+          <EmploymentView id={index} />
         </Accordion>
       )
     });
 
     return (
       <ErrorBoundary>
-        <Container>
+        <div>
           <Title>{i18n.t('employment_history')}</Title>
           <Subtitle>{i18n.t('employment_history_subtitle')}</Subtitle>
           {item}
           <Button type="button" isLink={true} onClick={this.addEmploymentItem} color="primary">
             {i18n.t('add_employment')}
           </Button>
-        </Container>
+        </div>
       </ErrorBoundary>
     );
   }
+}
+
+interface ReduxState {
+  items: any;
+  title: string;
 }
 
 const mapStateToProps = (state: any) => {

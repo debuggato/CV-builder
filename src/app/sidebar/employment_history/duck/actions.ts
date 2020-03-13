@@ -2,35 +2,42 @@ import * as type from './types';
 
 export const addEmployment = (id: number, value: any) => ({
   type: type.ADD_EMPLOYMENT,
-  payload: [id, value],
+  id: id + 1,
+  value,
 });
 
 export const setJobTitle = (id: number, value: string) => ({
   type: type.SET_JOB_TITLE,
-  payload: [id, value],
+  id,
+  value,
 });
 
-export const setEmployer = (value: string) => ({
+export const setEmployer = (id: number, value: string) => ({
   type: type.SET_EMPLOYER,
-  payload: value,
+  id,
+  value,
 });
 
-export const setCity = (value: string) => ({
+export const setCity = (id: number, value: string) => ({
   type: type.SET_CITY,
-  payload: value,
+  id,
+  value,
 });
 
-export const setStartDate = (value: string) => ({
+export const setStartDate = (id: number, value: string) => ({
   type: type.SET_START_DATE,
-  payload: value,
+  id,
+  value,
 });
 
-export const setEndDate = (value: string) => ({
+export const setEndDate = (id: number, value: string) => ({
   type: type.SET_END_DATE,
-  payload: value,
+  id,
+  value,
 });
 
-export const setDescription = (value: string) => ({
+export const setDescription = (id: number, value: string) => ({
   type: type.SET_DESCRIPTION,
-  payload: value,
+  id,
+  value,
 });

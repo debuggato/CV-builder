@@ -1,27 +1,30 @@
-import * as action from './actions';
+import { Dispatch } from 'redux';
 
-const mapDispatchToProps = (dispatch: any) => {
+import * as action from './actions';
+import { ReduxProps } from './model';
+
+const mapDispatchToProps = (dispatch: Dispatch): ReduxProps => {
   return {
-    addEmployment: (id: number, value: any) => {
+    addEmployment: (id, value) => {
       dispatch(action.addEmployment(id, value));
     },
-    sendJobTitleToStore: (id: number, value: string) => {
+    setJobTitle: (id, value) => {
       dispatch(action.setJobTitle(id, value));
     },
-    sendEmployerToStore: (value: string) => {
-      dispatch(action.setEmployer(value));
+    setEmployer: (id, value) => {
+      dispatch(action.setEmployer(id, value));
     },
-    sendCityToStore: (value: string) => {
-      dispatch(action.setCity(value));
+    setCity: (id, value) => {
+      dispatch(action.setCity(id, value));
     },
-    sendStartDateToStore: (value: string) => {
-      dispatch(action.setStartDate(value));
+    setStartDate: (id, value) => {
+      dispatch(action.setStartDate(id, value));
     },
-    sendEndDateToStore: (value: string) => {
-      dispatch(action.setEndDate(value));
+    setEndDate: (id, value) => {
+      dispatch(action.setEndDate(id, value));
     },
-    sendDescriptionToStore: (value: string) => {
-      dispatch(action.setDescription(value));
+    setDescription: (id, value) => {
+      dispatch(action.setDescription(id, value));
     },
   };
 };

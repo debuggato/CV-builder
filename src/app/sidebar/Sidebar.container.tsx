@@ -15,7 +15,7 @@ import Skills from './skills/Skills.container';
 import ExternalLinks from './external_links/ExternalLinks.container';
 import AddSection from './add_section/AddSection.container';
 
-type State = {
+interface State {
   currentStep: number;
   sectionToShow: number;
 };
