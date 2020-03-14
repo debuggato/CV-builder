@@ -2,8 +2,8 @@ import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 
 import { Wrapper } from 'components/accordion/Accordion.style';
-import mapDispatchToProps from './duck/dispatch';
-import { ReduxProps } from './duck/model';
+import mapDispatchToProps from './duck/Employment.dispatch';
+import { ReduxProps } from './duck/Employment.model';
 
 import Input from 'components/input/Input.view';
 import FromToDate from 'components/FromToDate.view';

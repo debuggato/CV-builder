@@ -1,4 +1,4 @@
-import { EmploymentState } from './model';
+import { EmploymentState } from './Employment.model';
 
 const initialState: EmploymentState = [
   {

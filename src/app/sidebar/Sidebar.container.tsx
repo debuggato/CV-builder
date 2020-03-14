@@ -10,7 +10,7 @@ import Header from './header/Header.container';
 import PersonalDetails from './personal_details/PersonalDetails.container';
 import ProfessionalSummary from './professional_summary/ProfessionalSummary.container';
 import Education from './education/Education.container';
-import EmploymentHistory from './employment_history/Employment.container';
+import Employment from './employment/Employment.container';
 import Skills from './skills/Skills.container';
 import ExternalLinks from './external_links/ExternalLinks.container';
 import AddSection from './add_section/AddSection.container';
@@ -85,7 +85,7 @@ export default class Sidebar extends Component<{}, State> {
         <Header />
         <PersonalDetails currentStep={currentStep} />
         <ProfessionalSummary currentStep={currentStep} />
-        <EmploymentHistory currentStep={currentStep} />
+        <Employment currentStep={currentStep} />
         <Education currentStep={currentStep} />
         <Skills currentStep={currentStep} />
         <ExternalLinks currentStep={currentStep} />

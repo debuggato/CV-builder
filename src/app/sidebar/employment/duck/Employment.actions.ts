@@ -1,4 +1,4 @@
-import * as type from './types';
+import * as type from './Employment.types';
 
 export const addEmployment = (id: number, value: any) => ({
   type: type.ADD_EMPLOYMENT,

@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, ChangeEvent } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 
 import i18n from '../../../i18n';
@@ -8,7 +8,7 @@ import Subtitle from 'components/Subtitle.view';
 import Button from 'components/buttons/Button.view';
 import Accordion from 'components/accordion/Accordion.view';
 import ErrorBoundary from 'components/ErrorBoundary';
-import mapDispatchToProps from './duck/dispatch';
+import mapDispatchToProps from './duck/Employment.dispatch';
 
 import EmploymentView from './Employment.view';
 
@@ -24,7 +24,7 @@ interface State {
   id: number;
 };
 
-class EmploymentHistory extends Component<Props, State> {
+class Employment extends Component<Props, State> {
   state = {
     id: 0,
   };
@@ -79,13 +79,13 @@ interface ReduxState {
 }
 
 const mapStateToProps = (state: any) => {
-  let keys = Object.keys(state.employmentHistory);
+  let keys = Object.keys(state.employment);
 
-  const { jobTitle } = state.employmentHistory;
+  const { jobTitle } = state.employment;
   return {
     items: keys,
     title: jobTitle
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmploymentHistory);
+export default connect(mapStateToProps, mapDispatchToProps)(Employment);
