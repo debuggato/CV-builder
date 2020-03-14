@@ -2,11 +2,6 @@
 
 📝 The idea is to create Resumes with export in .pdf and .doc. A project written in React.js and Typescript
 
-## The idea behind
-
-For months I've been searching for a free tool which allows me to create, in an awesome way, my own resume without paying for it, but I failed.
-I believe that this tool should be free so I've decided to start this project as a way to improve my skills on React.js and I hope to have the necessary help from the open source community to create a great experience through the creation of our resumes.
-
 ### Installing
 
 ```
@@ -17,7 +12,7 @@ git clone https://github.com/ivanlori/CV-builder.git
 yarn install
 
 # serve with hot reload at localhost:3000
-yarn start
+yarn dev
 ```
 
 ## Contributing
@@ -27,7 +22,6 @@ Please, if you are interested in this project, feel free to contact me at [ivan.
 There're lots of things to do, (this project is born recently).
 Major features are:
 
-- backend written in python;
 - conversion of the CV in PDF;
 
 For minor features I'll create open Issue on Github.
