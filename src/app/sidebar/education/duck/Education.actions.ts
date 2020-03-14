@@ -1,4 +1,4 @@
-import * as type from './types';
+import * as type from './Education.types';
 
 export const addEducation = (id: number, value: any) => ({
   type: type.ADD_EDUCATION,

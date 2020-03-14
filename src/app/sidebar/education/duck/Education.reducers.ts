@@ -1,6 +1,6 @@
-import initialState from './state';
-import * as type from './types';
-import { ActionType } from './model';
+import initialState from './Education.state';
+import * as type from './Education.types';
+import { ActionType } from './Education.model';
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {

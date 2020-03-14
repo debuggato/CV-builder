@@ -1,4 +1,4 @@
-import { EducationState } from './model';
+import { EducationState } from './Education.model';
 
 const initialState: EducationState = [
   {

@@ -11,7 +11,7 @@ import ErrorBoundary from 'components/ErrorBoundary';
 
 import { Container } from './Education.style';
 import EducationView from '../education/Education.view';
-import mapDispatchToProps from './duck/dispatch';
+import mapDispatchToProps from './duck/Education.dispatch';
 
 interface State {
   id: number;

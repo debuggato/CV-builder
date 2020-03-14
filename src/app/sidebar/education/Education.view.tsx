@@ -5,8 +5,8 @@ import Input from 'components/input/Input.view';
 import FromToDate from 'components/FromToDate.view';
 import { Wrapper } from 'components/accordion/Accordion.style';
 
-import mapDispatchToProps from './duck/dispatch';
-import { ReduxProps } from './duck/model';
+import mapDispatchToProps from './duck/Education.dispatch';
+import { ReduxProps } from './duck/Education.model';
 
 interface OwnProps {
   id: number;

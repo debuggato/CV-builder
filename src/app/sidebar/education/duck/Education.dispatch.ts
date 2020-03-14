@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 
-import * as action from './actions';
-import { ReduxProps } from './model';
+import * as action from './Education.actions';
+import { ReduxProps } from './Education.model';
 
 const mapDispatchToProps = (dispatch: Dispatch): ReduxProps => {
   return {
