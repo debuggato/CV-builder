@@ -82,7 +82,7 @@ const mapStateToProps = (state: any) => {
     dateOfBirth,
   } = state.personalDetails;
 
-  const { jobDescription } = state.professionalSummary;
+  const { summary } = state.summary;
 
   return {
     getJobTitle: jobTitle,
@@ -98,7 +98,7 @@ const mapStateToProps = (state: any) => {
     getNationality: nationality,
     getPlaceOfBirth: placeOfBirth,
     getDateOfBirth: dateOfBirth,
-    getJobDescription: jobDescription,
+    getJobDescription: summary,
   };
 };
 
