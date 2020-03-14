@@ -1,74 +1,64 @@
 import * as type from './types';
 import initialState from './state';
+import { ActionType } from './model';
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
     case type.SET_JOB_TITLE:
-      state = {
+      return {
         ...state,
-        jobTitle: action.payload,
+        jobTitle: action.value,
       };
-      break;
     case type.SET_FIRST_NAME:
-      state = {
+      return {
         ...state,
-        firstName: action.payload,
+        firstName: action.value,
       };
-      break;
     case type.SET_LAST_NAME:
-      state = {
+      return {
         ...state,
-        lastName: action.payload,
+        lastName: action.value,
       };
-      break;
     case type.SET_ADDRESS:
-      state = {
+      return {
         ...state,
-        address: action.payload,
+        address: action.value,
       };
-      break;
     case type.SET_CITY:
-      state = {
+      return {
         ...state,
-        city: action.payload,
+        city: action.value,
       };
-      break;
     case type.SET_COUNTRY:
-      state = {
+      return {
         ...state,
-        country: action.payload,
+        country: action.value,
       };
-      break;
     case type.SET_DATE_OF_BIRTH:
-      state = {
+      return {
         ...state,
-        dateOfBirth: action.payload,
+        dateOfBirth: action.value,
       };
-      break;
     case type.SET_DRIVING_LICENSE:
-      state = {
+      return {
         ...state,
-        drivingLicense: action.payload,
+        drivingLicense: action.value,
       };
-      break;
     case type.SET_EMAIL:
-      state = {
+      return {
         ...state,
-        email: action.payload,
+        email: action.value,
       };
-      break;
     case type.SET_PHONE:
-      state = {
+      return {
         ...state,
-        phone: action.payload,
+        phone: action.value,
       };
-      break;
     case type.SET_POSTAL_CODE:
-      state = {
+      return {
         ...state,
-        postalCode: action.payload,
+        postalCode: action.value,
       };
-      break;
     default:
       break;
   }

@@ -1,16 +1,22 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC, ReactElement } from 'react';
+import { connect } from 'react-redux';
 
-import Photo from '../../../components/photo/Photo.view';
-import Input from '../../../components/input/Input.view';
+import Photo from 'components/photo/Photo.view';
+import Input from 'components/input/Input.view';
 
 import { Wrapper } from './PersonalDetails.style';
+import mapDispatchToProps from './duck/dispatch';
+import { ReduxProps } from './duck/model';
 
-interface Props {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+const MainDetails: FC<ReduxProps> = (props: ReduxProps): ReactElement => {
+  const {
+    setJobTitle,
+    setFirstName,
+    setLastName,
+    setEmail,
+    setPhone,
+  } = props;
 
-const MainDetails: FC<Props> = props => {
   return (
     <>
       <Photo />
@@ -18,44 +24,39 @@ const MainDetails: FC<Props> = props => {
         <Input
           type="text"
           label="Job Title"
-          onChange={props.onChange}
-          onBlur={props.onBlur}
+          onChange={e => setJobTitle(e.target.value)}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
           label="First Name"
-          onChange={props.onChange}
-          onBlur={props.onBlur}
+          onChange={e => setFirstName(e.target.value)}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
           label="Last Name"
-          onChange={props.onChange}
-          onBlur={props.onBlur}
+          onChange={e => setLastName(e.target.value)}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
           label="Phone"
-          onChange={props.onChange}
-          onBlur={props.onBlur}
+          onChange={e => setPhone(parseInt(e.target.value))}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="email"
           label="Email"
-          onChange={props.onChange}
-          onBlur={props.onBlur}
+          onChange={e => setEmail(e.target.value)}
         />
       </Wrapper>
     </>
   );
 };
 
-export default MainDetails;
+export default connect(null, mapDispatchToProps)(MainDetails);

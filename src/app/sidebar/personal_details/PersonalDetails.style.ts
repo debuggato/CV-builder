@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface Props {
-  isVisible: boolean;
-}
-
 export const Container = styled.section`
   width: 100%;
   box-sizing: border-box;
@@ -22,8 +18,4 @@ export const LinkAccordion = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`;
-
-export const Details = styled.div`
-  display: ${(props: Props) => (props.isVisible ? 'block' : 'none')};
 `;

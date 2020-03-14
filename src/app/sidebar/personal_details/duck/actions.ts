@@ -2,65 +2,65 @@ import * as type from './types';
 
 export const setJobTitle = (value: string) => ({
   type: type.SET_JOB_TITLE,
-  payload: value,
+  value,
 });
 
 export const setFirstname = (value: string) => ({
   type: type.SET_FIRST_NAME,
-  payload: value,
+  value,
 });
 
 export const setLastname = (value: string) => ({
   type: type.SET_LAST_NAME,
-  payload: value,
+  value,
 });
 
 export const setCity = (value: string) => ({
   type: type.SET_CITY,
-  payload: value,
+  value,
 });
 
 export const setAddress = (value: string) => ({
   type: type.SET_ADDRESS,
-  payload: value,
+  value,
 });
 
 export const setCountry = (value: string) => ({
   type: type.SET_COUNTRY,
-  payload: value,
+  value,
 });
 
-export const setDateOfBirth = (value: string) => ({
+export const setDateOfBirth = (value: Date) => ({
   type: type.SET_DATE_OF_BIRTH,
-  payload: value,
+  value,
 });
 
 export const setDrivingLicense = (value: string) => ({
   type: type.SET_DRIVING_LICENSE,
-  payload: value,
+  value,
 });
 
 export const setEmail = (value: string) => ({
   type: type.SET_EMAIL,
-  payload: value,
+  value,
 });
 
 export const setNationality = (value: string) => ({
   type: type.SET_NATIONALITY,
-  payload: value,
+  value,
 });
 
 export const setPlaceOfBirth = (value: string) => ({
   type: type.SET_PLACE_OF_BIRTH,
-  payload: value,
+  value,
 });
 
-export const setPostalCode = (value: string) => ({
+export const setPostalCode = (value: number) => ({
   type: type.SET_POSTAL_CODE,
-  payload: value,
+  value,
 });
 
-export const setPhone = (value: string) => ({
+export const setPhone = (value: number) => ({
   type: type.SET_PHONE,
-  payload: value,
+  value,
 });

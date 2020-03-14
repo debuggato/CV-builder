@@ -1,44 +1,45 @@
+import { Dispatch } from 'redux';
 import * as action from './actions';
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    sendJobTitleToStore: (value: string) => {
+    setJobTitle: (value: string) => {
       dispatch(action.setJobTitle(value));
     },
-    sendFirstNameToStore: (value: string) => {
+    setFirstName: (value: string) => {
       dispatch(action.setFirstname(value));
     },
-    sendLastNameToStore: (value: string) => {
+    setLastName: (value: string) => {
       dispatch(action.setLastname(value));
     },
-    sendCityToStore: (value: string) => {
+    setCity: (value: string) => {
       dispatch(action.setCity(value));
     },
-    sendEmailToStore: (value: string) => {
+    setEmail: (value: string) => {
       dispatch(action.setEmail(value));
     },
-    sendPhoneToStore: (value: string) => {
+    setPhone: (value: number) => {
       dispatch(action.setPhone(value));
     },
-    sendCountryToStore: (value: string) => {
+    setCountry: (value: string) => {
       dispatch(action.setCountry(value));
     },
-    sendAddressToStore: (value: string) => {
+    setAddress: (value: string) => {
       dispatch(action.setAddress(value));
     },
-    sendPostalCodeToStore: (value: string) => {
+    setPostalCode: (value: number) => {
       dispatch(action.setPostalCode(value));
     },
-    sendDrivingLicenseToStore: (value: string) => {
+    setDrivingLicense: (value: string) => {
       dispatch(action.setDrivingLicense(value));
     },
-    sendNationalityToStore: (value: string) => {
+    setNationality: (value: string) => {
       dispatch(action.setNationality(value));
     },
-    sendPlaceOfBirthToStore: (value: string) => {
+    setPlaceOfBirth: (value: string) => {
       dispatch(action.setPlaceOfBirth(value));
     },
-    sendDateOfBirthToStore: (value: string) => {
+    setDateOfBirth: (value: Date) => {
       dispatch(action.setDateOfBirth(value));
     },
   };
