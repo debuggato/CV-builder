@@ -12,7 +12,7 @@ import ProfessionalSummary from './summary/Summary.container';
 import Education from './education/Education.container';
 import Employment from './employment/Employment.container';
 import Skills from './skills/Skills.container';
-import ExternalLinks from './external_links/ExternalLinks.container';
+import Links from './links/Links.container';
 import AddSection from './add_section/AddSection.container';
 
 interface State {
@@ -88,7 +88,7 @@ export default class Sidebar extends Component<{}, State> {
         <Employment currentStep={currentStep} />
         <Education currentStep={currentStep} />
         <Skills currentStep={currentStep} />
-        <ExternalLinks currentStep={currentStep} />
+        <Links currentStep={currentStep} />
         <AddSection currentStep={currentStep} />
         <ActionBar>
           {renderPrevBtn} {renderNextBtn}
