@@ -1,1 +1,0 @@
-export const SET_JOB_DESCRIPTION: string = 'SET_JOB_DESCRIPTION';

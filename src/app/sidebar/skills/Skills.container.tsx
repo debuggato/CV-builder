@@ -3,53 +3,61 @@ import { connect } from 'react-redux';
 
 import i18n from '../../../i18n';
 
-import Title from '../../../components/Title.view';
-import Accordion from '../../../components/accordion/Accordion.view';
-import Button from '../../../components/buttons/Button.view';
-import { addBlock } from '../../utils/utils';
+import Title from 'components/Title.view';
+import Button from 'components/buttons/Button.view';
+import Accordion from 'components/accordion/Accordion.view';
 
 import { Container } from './Skills.style';
 import SkillsView from '../skills/Skills.view';
 
-import mapDispatchToProps from './duck/dispatch';
+import mapDispatchToProps from './duck/Skills.dispatch';
 
-interface Props {
-  currentStep?: number;
-  sendJobDescriptionToStore: (arg0: string) => void;
+interface OwnProps {
+  currentStep: number;
+  addSkill: (arg0: number, arg1: any) => void;
 }
 
-type State = {
-  rows: number[];
-  clicks: number;
+interface State {
+  id: number;
 };
+
+type Props = OwnProps & ReduxState;
 
 class Skills extends Component<Props, State> {
   state = {
-    rows: [0],
-    clicks: 0,
+    id: 0
   };
 
-  skillsStructureData = {
-
+  skillInitialData = {
+    name: null,
+    level: null
   }
 
-  renderBlock = () => {
-  };
-
-  addExternalLinksBlock = () => {
-    addBlock(this, this.skillsStructureData);
+  addItem = (): void => {
+    this.setState({
+      id: this.state.id + 1
+    });
+    this.props.addSkill(this.state.id, this.skillInitialData);
   };
 
   public render(): ReactNode {
-    if (this.props.currentStep !== 5) {
-      return null;
-    }
+    const { currentStep, items } = this.props;
+
+    if (currentStep !== 5) return null;
+
+    const item = items.map((index: any) => {
+      return (
+        <Accordion key={index}>
+          <SkillsView id={index} />
+        </Accordion>
+      )
+    });
 
     return (
       <Container>
         <Title>{i18n.t('skills')}</Title>
-        {this.renderBlock()}
-        <Button type="button" isLink={true} onClick={this.addExternalLinksBlock} color="primary">
+        {item}
+        <Button type="button" isLink={true} onClick={this.addItem} color="primary">
           {i18n.t('add_skill')}
         </Button>
       </Container>
@@ -57,4 +65,19 @@ class Skills extends Component<Props, State> {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Skills);
+interface ReduxState {
+  items: any;
+  title: string;
+}
+
+const mapStateToProps = (state: any) => {
+  let keys = Object.keys(state.skills);
+
+  const { name } = state.skills;
+  return {
+    items: keys,
+    title: name
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Skills);
