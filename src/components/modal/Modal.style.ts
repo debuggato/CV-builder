@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 import colors from '../../styles/color.style';
-import breakpoints from '../../app/utils/breakpoints';
 
-interface Props {
+interface OwnProps {
   isOpened: boolean;
 }
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<OwnProps>`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -16,7 +15,20 @@ export const Wrapper = styled.div`
   align-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
-  display: ${(props: Props) => (props.isOpened ? 'flex' : 'none')};
+  z-index: 999;
+  overflow-y: hidden;
+  display: ${({ isOpened }) => (isOpened ? 'flex' : 'none')};
+`;
+
+export const Title = styled.span`
+  color: ${colors.white};
+  font-size: 25px;
+`;
+
+export const Close = styled.div`
+  color: ${colors.white};
+  font-size: 30px;
+  cursor: pointer;
 `;
 
 export const Card = styled.div`
@@ -34,4 +46,8 @@ export const Header = styled.div`
   height: 50px;
   background: ${colors.primary};
   border-bottom: 1px solid ${colors.grey};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
 `;

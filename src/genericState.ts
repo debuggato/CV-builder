@@ -1,27 +1,39 @@
-const UPDATE_IS_MODAL_OPENED: string = 'UPDATE_IS_MODAL_OPENED';
+const SHOW_MODAL: string = 'SHOW_MODAL';
 
-const genericState = {
-  isModalOpened: false,
-  currentAccordionId: '0',
+interface ShowModalAction {
+  type: typeof SHOW_MODAL;
+  value: boolean;
+}
+
+interface GenericState {
+  showModal: boolean;
+}
+
+const genericState: GenericState = {
+  showModal: false,
 };
 
+type ActionType = ShowModalAction;
+
+export interface ReduxProps {
+  showModal: (arg0: boolean) => void;
+}
+
 // REDUCER
-export const generic = (state = genericState, action: any) => {
+export const generic = (state = genericState, action: ActionType) => {
   switch (action.type) {
-    case UPDATE_IS_MODAL_OPENED:
-      state = {
+    case SHOW_MODAL:
+      return {
         ...state,
-        isModalOpened: action.payload,
+        showModal: action.value,
       };
-      break;
     default:
-      break;
+      return state;
   }
-  return state;
 };
 
 // ACTIONS
-export const updateIsModalOpened = (value: boolean) => ({
-  type: UPDATE_IS_MODAL_OPENED,
-  payload: value,
+export const showModalAction = (value: boolean): ShowModalAction => ({
+  type: SHOW_MODAL,
+  value,
 });
