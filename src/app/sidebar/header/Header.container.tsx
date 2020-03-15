@@ -1,13 +1,16 @@
-import React, { Component, CSSProperties, ChangeEvent, ReactNode } from 'react';
+import React, { Component, CSSProperties, ReactNode } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
+import { changeLangAction } from '../../../genericState';
 import i18n from '../../../i18n';
 
-import Select from '../../../components/select/Select.view';
-import Input from '../../../components/input/Input.view';
+import Select from 'components/select/Select.view';
+import Input from 'components/input/Input.view';
 
-type State = {
-  langs: string[];
+interface State {
+  langs: Object;
 };
 
 const Wrapper = styled.div`
@@ -16,28 +19,15 @@ const Wrapper = styled.div`
   flex-direction: row;
 `;
 
-class Header extends Component<{}, State> {
+class Header extends Component<ReduxProps, State> {
   state = {
-    langs: ['Italian', 'English', 'Spanish'],
-  };
-
-  onLangChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    let { value } = e.target;
-
-    switch (value) {
-      case '0':
-        i18n.changeLanguage('it');
-        break;
-      case '1':
-        i18n.changeLanguage('en');
-        break;
-      case '2':
-        i18n.changeLanguage('es');
-        break;
-      default:
-        i18n.changeLanguage('en');
-        break;
-    }
+    langs: [
+      { 'it': 'Italian' },
+      { 'en': 'English' },
+      { 'es': 'Spanish' },
+      { 'fr': 'French' },
+      { 'de': 'German' }
+    ]
   };
 
   public render(): ReactNode {
@@ -57,11 +47,23 @@ class Header extends Component<{}, State> {
 
     return (
       <Wrapper>
-        <Input type="text" onFocus={() => console.log('bluer')} defaultValue="Untitled" style={titleStyle} />
-        <Select list={langs} onChange={this.onLangChange} />
+        <Input type="text" defaultValue="Untitled" style={titleStyle} />
+        <Select list={langs} onChange={e => i18n.changeLanguage(e.target.value)} />
       </Wrapper>
     );
   }
 }
 
-export default Header;
+interface ReduxProps {
+  changeLang: (arg0: string) => void;
+}
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    changeLang: (value: string) => {
+      dispatch(changeLangAction(value));
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Header);
