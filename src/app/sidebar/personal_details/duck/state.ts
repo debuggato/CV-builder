@@ -1,18 +1,18 @@
 import { PersonalDetailsState } from './model';
 
 const initialState: PersonalDetailsState = {
-  jobTitle: null,
-  firstName: null,
-  lastName: null,
-  email: null,
+  jobTitle: '',
+  firstName: '',
+  lastName: '',
+  email: '',
   phone: null,
-  country: null,
-  city: null,
-  address: null,
+  country: '',
+  city: '',
+  address: '',
   postalCode: null,
-  drivingLicense: null,
-  nationality: null,
-  placeOfBirth: null,
+  drivingLicense: '',
+  nationality: '',
+  placeOfBirth: '',
   dateOfBirth: new Date(),
 };
 

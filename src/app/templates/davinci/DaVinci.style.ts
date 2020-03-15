@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-import colors from '../../styles/color.style';
+import colors from '../../../styles/color.style';
+
+interface Props {
+  border: string;
+}
 
 export const Container = styled.div`
   display: grid;
@@ -11,8 +15,8 @@ export const Container = styled.div`
 
 export const Email = styled.div``;
 
-export const Header = styled.header`
-  border-bottom: 1px solid ${colors.black};
+export const Header = styled.header<Props>`
+  border-bottom: ${({ border }) => (border ? `1px solid ${colors.black}` : 'none')};
   grid-area: header;
 `;
 

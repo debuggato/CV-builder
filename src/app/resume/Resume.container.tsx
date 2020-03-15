@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 
 import { Container, Page } from './Resume.style';
-import TemplateOneView from '../templates/TemplateOne.view';
+import DaVinci from '../templates/davinci/DaVinci.view';
 import Topbar from '../topbar/Topbar.container';
 
 class ResumeContainer extends Component {
@@ -10,7 +10,7 @@ class ResumeContainer extends Component {
       <Container>
         <Topbar></Topbar>
         <Page>
-          <TemplateOneView />
+          <DaVinci />
         </Page>
       </Container>
     );
