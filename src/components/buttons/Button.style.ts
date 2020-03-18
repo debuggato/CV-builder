@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 
 import colors from '../../styles/color.style';
-import Props from './Button.model';
+import { Props } from './Button.view';
 
-const Btn = styled.button`
-  background-color: ${(props: Props) =>
-    props.color === 'primary' ? `${colors.primary}` : `${colors.secondary}`};
-  color: ${(props: Props) =>
-    props.color === 'primary' ? `${colors.primary}` : `${colors.secondary}`};
+const Btn = styled.button<Props>`
+  background-color: ${({ color }) => color === 'primary' ? `${colors.primary}` : `${colors.secondary}`};
+  color: ${({ color }) => color === 'primary' ? `${colors.primary}` : `${colors.secondary}`};
 
   /* if button  */
-  ${(props: Props) =>
-    !props.isLink &&
-    `
+  ${({ isLink }) =>
+    !isLink && `
     color: white;
     cursor: pointer;
     user-select: none;
@@ -21,9 +18,8 @@ const Btn = styled.button`
     color: ${colors.white};
   `}
 
-  ${(props: Props) =>
-    props.isLink &&
-    `
+  ${({ isLink }) =>
+    isLink && `
     border: 0;
     background-color: transparent;
     cursor: pointer;

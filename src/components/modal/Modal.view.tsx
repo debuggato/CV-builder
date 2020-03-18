@@ -10,7 +10,15 @@ interface OwnProps {
   title: string;
 }
 
-type Props = OwnProps & ReduxState & ReduxProps;
+interface StateProps {
+  isOpened: boolean;
+}
+
+interface DispatchProps {
+  setShowModal: (arg0: boolean) => void;
+}
+
+type Props = OwnProps & StateProps & DispatchProps;
 
 const Modal: FC<Props> = ({ isOpened, children, setShowModal, title }: Props): ReactElement => {
   return (
@@ -26,26 +34,14 @@ const Modal: FC<Props> = ({ isOpened, children, setShowModal, title }: Props): R
   );
 };
 
-interface ReduxState {
-  isOpened: boolean;
-}
-
-interface ReduxProps {
-  setShowModal: (arg0: boolean) => void;
-}
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    setShowModal(value: boolean) {
-      dispatch(showModalAction(value));
-    }
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setShowModal(value: boolean) {
+    dispatch(showModalAction(value));
   }
-}
+})
 
-const mapStateToProps = (state: any) => {
-  return {
-    isOpened: state.generic.showModal
-  }
-};
+const mapStateToProps = (state: any) => ({
+  isOpened: state.generic.showModal
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

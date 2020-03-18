@@ -1,14 +1,11 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import React, { FC, ReactElement } from 'react';
 
 interface Props {
   children: string;
 }
 
-export const Subtitle = styled.p``;
-
-const SubtitleView: FC<Props> = props => {
-  return <Subtitle>{props.children}</Subtitle>;
+const SubtitleView: FC<Props> = ({ children }: Props): ReactElement => {
+  return <p>{children}</p>;
 };
 
 export default SubtitleView;

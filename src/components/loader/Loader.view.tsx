@@ -1,19 +1,20 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 
 import i18n from '../../i18n';
 
 import Props from './Loader.model';
-import { Loader, Container } from './Loader.style';
+import { Container } from './Loader.style';
 
-const LoaderView: FC<Props> = props => {
+//TODO refactoring
+const LoaderView: FC<Props> = ({ error, loading, success }: Props): ReactElement => {
   let label: string = '';
 
   if (label) {
-    if (props.success) {
+    if (success) {
       label = i18n.t('saved');
-    } else if (props.error) {
+    } else if (error) {
       label = i18n.t('error_save');
-    } else if (props.loading) {
+    } else if (loading) {
       label = i18n.t('saving');
     }
   }

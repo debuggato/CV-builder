@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
 import colors from '../styles/color.style';
@@ -14,8 +14,8 @@ interface Props {
   value: string | undefined;
 }
 
-const FieldLabel: FC<Props> = props => {
-  return <Label>{props.value}</Label>;
+const FieldLabel: FC<Props> = ({ value }: Props): ReactElement => {
+  return <Label>{value}</Label>;
 };
 
 export default FieldLabel;

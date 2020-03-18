@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, ReactElement } from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const DatepickerCustom = InputStyle.withComponent(DatePicker);
 
-const FromToDate: FC = () => {
+const FromToDate: FC = (): ReactElement => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 

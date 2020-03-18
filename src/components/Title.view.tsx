@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
 
 import colors from '../styles/color.style';
@@ -14,8 +14,8 @@ export const Title = styled.h3`
   padding-bottom: 3px;
 `;
 
-const TitleView: FC<Props> = props => {
-  return <Title>{props.children}</Title>;
+const TitleView: FC<Props> = ({ children }: Props): ReactElement => {
+  return <Title>{children}</Title>;
 };
 
 export default TitleView;

@@ -1,13 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode, ReactElement } from 'react';
 
 import Btn from './Button.style';
-import Props from './Button.model';
 
-const Button: FC<Props> = props => {
+export interface Props {
+  onClick: () => void;
+  color: string;
+  type: 'submit' | 'button' | 'reset';
+  isLink?: boolean;
+  disabled?: boolean;
+  children?: ReactNode;
+}
+
+const Button: FC<Props> = ({ ...props }: Props): ReactElement => {
   return (
-    <Btn type={props.type} isLink={props.isLink} onClick={props.onClick} color={props.color}>
-      {props.children}
-    </Btn>
+    <Btn {...props}>{props.children}</Btn>
   );
 };
 

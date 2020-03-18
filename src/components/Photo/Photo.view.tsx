@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 
 import Input from '../input/Input.view';
 import Icon from '../Icon.view';
@@ -10,7 +10,7 @@ const iconStyle = {
   marginRight: '10px',
 };
 
-const Photo: FC = () => {
+const Photo: FC = (): ReactElement => {
   return (
     <Container>
       <Wrapper>

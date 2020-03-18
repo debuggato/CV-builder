@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import i18n from '../../i18n';
 import { showModalAction, previewPdfAction } from '../../genericState/Generic.actions';
-import { ReduxProps } from '../../genericState/Generic.model';
 
 import Button from 'components/buttons/Button.view';
 import Modal from 'components/modal/Modal.view';
@@ -15,7 +14,12 @@ interface OwnProps {
   expand: boolean;
 }
 
-type Props = OwnProps & ReduxProps;
+interface DispatchProps {
+  showModal: (arg0: boolean) => void;
+  previewPdf: (arg0: boolean) => void;
+}
+
+type Props = OwnProps & DispatchProps;
 
 const ResumeContainer: FC<Props> = ({ expand, showModal, previewPdf }: Props): ReactElement => {
   return (

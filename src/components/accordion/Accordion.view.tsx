@@ -1,7 +1,6 @@
-import React, { FC, useState, ReactNode } from 'react';
+import React, { FC, useState, ReactNode, ReactElement } from 'react';
 
 import i18n from '../../i18n';
-
 import Icon from '../Icon.view';
 
 import { Container, Header, Title, Dates } from './Accordion.style';
@@ -11,8 +10,7 @@ interface Props {
   children: ReactNode;
 };
 
-const Accordion: FC<Props> = props => {
-  const { children, title } = props;
+const Accordion: FC<Props> = ({ title, children }: Props): ReactElement => {
   let [collapsed, setCollapsed] = useState<boolean>(true);
 
   return (

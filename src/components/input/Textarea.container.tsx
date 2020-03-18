@@ -1,23 +1,10 @@
-import React, { Component } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import { Editor, EditorState } from 'draft-js';
 
-const styles = {
-  editor: {
-    border: '1px solid gray',
-    minHeight: '6em',
-  },
-};
+const Textarea: FC = (): ReactElement => {
+  const [editor, setEditor] = useState(EditorState.createEmpty());
 
-class Textarea extends Component {
-  state = {
-    editorState: EditorState.createEmpty(),
-  };
-
-  onChange = (editorState: any) => this.setState({ editorState });
-
-  public render() {
-    return <Editor editorState={this.state.editorState} onChange={this.onChange} />;
-  }
+  return <Editor editorState={editor} onChange={e => setEditor(e)} />;
 }
 
 export default Textarea;
