@@ -1,23 +1,28 @@
 import initialState from './Generic.state';
-import { SHOW_MODAL, CHANGE_LANGUAGE, PREVIEW_PDF } from './Generic.types';
+import * as type from './Generic.types';
 import { ActionType } from './Generic.model';
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
-    case SHOW_MODAL:
+    case type.SHOW_MODAL:
       return {
         ...state,
         showModal: action.value,
       };
-    case CHANGE_LANGUAGE:
+    case type.CHANGE_LANGUAGE:
       return {
         ...state,
         lang: action.value,
       };
-    case PREVIEW_PDF:
+    case type.PREVIEW_PDF:
       return {
         ...state,
         previewPdf: action.value,
+      };
+    case type.UPDATE_DOCUMENT_TITLE:
+      return {
+        ...state,
+        documentTitle: action.value,
       };
     default:
       return state;

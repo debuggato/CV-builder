@@ -12,15 +12,15 @@ export interface PreviewPdfState {
   previewPdf: boolean;
 }
 
+export interface UpdateDocumentTitleState {
+  documentTitle: string;
+}
+
 export interface GenericState {
   showModal: boolean;
   lang: string;
   previewPdf: boolean;
-}
-
-export interface ReduxProps {
-  showModal: (arg0: boolean) => void;
-  previewPdf: (arg0: boolean) => void;
+  documentTitle: string;
 }
 
 export interface ShowModalAction {
@@ -38,6 +38,12 @@ export interface PreviewPdfAction {
   value: boolean;
 }
 
+export interface UpdateDocumentTitleAction {
+  type: typeof types.UPDATE_DOCUMENT_TITLE;
+  value: string;
+}
+
 export type ActionType = ShowModalAction &
   ChangeLangAction &
-  PreviewPdfAction;
+  PreviewPdfAction &
+  UpdateDocumentTitleAction;
