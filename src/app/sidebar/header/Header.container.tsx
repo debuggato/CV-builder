@@ -1,25 +1,14 @@
-import React, { Component, CSSProperties, ReactNode } from 'react';
-import styled from 'styled-components';
+import React, { PureComponent, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { changeLangAction } from '../../../genericState';
+import { changeLangAction } from '../../../genericState/Generic.actions';
 import i18n from '../../../i18n';
 
+import { InputTitle, Wrapper } from './Header.style';
 import Select from 'components/select/Select.view';
-import Input from 'components/input/Input.view';
 
-interface State {
-  langs: Object;
-};
-
-const Wrapper = styled.div`
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-`;
-
-class Header extends Component<ReduxProps, State> {
+class Header extends PureComponent<ReduxProps, {}> {
   state = {
     langs: [
       { 'it': 'Italian' },
@@ -28,32 +17,19 @@ class Header extends Component<ReduxProps, State> {
       { 'fr': 'French' },
       { 'de': 'German' }
     ]
-  };
-
-  public render(): ReactNode {
+  }
+  render(): ReactNode {
     const { langs } = this.state;
-
-    const titleStyle: CSSProperties = {
-      border: 0,
-      width: '70%',
-      marginBottom: '10px',
-      marginRight: '55px',
-      fontSize: '20px',
-      fontWeight: 700,
-      textAlign: 'left',
-      paddingLeft: '35px',
-      textTransform: 'capitalize',
-    };
-
     return (
       <Wrapper>
-        <Input type="text" defaultValue="Untitled" style={titleStyle} />
+        <InputTitle type="text" defaultValue="Untitled" />
         <Select list={langs} onChange={e => i18n.changeLanguage(e.target.value)} />
       </Wrapper>
     );
   }
 }
 
+//TODO to figure out what to do with data from state
 interface ReduxProps {
   changeLang: (arg0: string) => void;
 }

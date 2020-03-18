@@ -3,16 +3,16 @@ import { CSSProperties } from 'styled-components';
 
 import i18n from '../../i18n';
 
-import Button from '../../components/buttons/Button.view';
-import Icon from '../../components/Icon.view';
-import { Container, ActionBar } from './Sidebar.style';
-import Header from './header/Header.container';
+import Button from 'components/buttons/Button.view';
+import Icon from 'components/Icon.view';
+import { Container, ActionBar, SectionWrapper } from './Sidebar.style';
 import PersonalDetails from './personal_details/PersonalDetails.container';
 import ProfessionalSummary from './summary/Summary.container';
 import Education from './education/Education.container';
 import Employment from './employment/Employment.container';
 import Skills from './skills/Skills.container';
 import Links from './links/Links.container';
+import Header from '../sidebar/header/Header.container';
 import AddSection from './add_section/AddSection.container';
 
 interface State {
@@ -20,7 +20,7 @@ interface State {
   sectionToShow: number;
 };
 
-export default class Sidebar extends Component<{}, State> {
+class Sidebar extends Component<{}, State> {
   state = {
     currentStep: 1,
     sectionToShow: 7,
@@ -59,6 +59,7 @@ export default class Sidebar extends Component<{}, State> {
 
   public render(): ReactNode {
     const { currentStep, sectionToShow } = this.state;
+
     let renderPrevBtn: ReactNode = null,
       renderNextBtn: ReactNode = null;
 
@@ -83,13 +84,15 @@ export default class Sidebar extends Component<{}, State> {
     return (
       <Container>
         <Header />
-        <PersonalDetails currentStep={currentStep} />
-        <ProfessionalSummary currentStep={currentStep} />
-        <Employment currentStep={currentStep} />
-        <Education currentStep={currentStep} />
-        <Skills currentStep={currentStep} />
-        <Links currentStep={currentStep} />
-        <AddSection currentStep={currentStep} />
+        <SectionWrapper>
+          <PersonalDetails currentStep={currentStep} />
+          <ProfessionalSummary currentStep={currentStep} />
+          <Employment currentStep={currentStep} />
+          <Education currentStep={currentStep} />
+          <Skills currentStep={currentStep} />
+          <Links currentStep={currentStep} />
+          <AddSection currentStep={currentStep} />
+        </SectionWrapper>
         <ActionBar>
           {renderPrevBtn} {renderNextBtn}
         </ActionBar>
@@ -97,3 +100,5 @@ export default class Sidebar extends Component<{}, State> {
     );
   }
 }
+
+export default Sidebar;

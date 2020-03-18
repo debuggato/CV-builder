@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 import colors from '../../styles/color.style';
 
-export type StyleProps = {
-  withoutStyle?: boolean;
-};
-
-const Input = styled.input`
+const InputStyled = styled.input`
   display: block;
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
@@ -27,4 +23,4 @@ const Input = styled.input`
   }
 `;
 
-export default Input;
+export default InputStyled;

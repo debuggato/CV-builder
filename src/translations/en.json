@@ -37,7 +37,8 @@
       "download_pdf": "Download PDF",
       "choose_template": "Choose template",
       "next": "Next",
-      "prev": "Prev"
+      "prev": "Prev",
+      "generate_pdf": "Generate PDF"
     }
   }
 }

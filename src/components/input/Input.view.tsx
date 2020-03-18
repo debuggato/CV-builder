@@ -1,11 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, CSSProperties, ChangeEvent, ReactElement } from 'react';
 
 import Textarea from './Textarea.container';
-import Props from './Input.model';
-import Input from './Input.style';
+import InputStyled from './Input.style';
 import FieldLabel from '../FieldLabel.view';
 
-const InputView: FC<Props> = props => {
+interface Props {
+  type: string;
+  label?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
+  style?: CSSProperties;
+  defaultValue?: string;
+  value?: string;
+  readOnly?: boolean;
+  id?: string;
+  text?: string;
+  name?: string;
+  ref?: any;
+  className?: string;
+}
+
+const Input: FC<Props> = (props: Props): ReactElement => {
   const {
     label,
     type,
@@ -18,7 +34,8 @@ const InputView: FC<Props> = props => {
     value,
     onFocus,
     name,
-    ref
+    ref,
+    className
   } = props;
 
   return (
@@ -27,7 +44,7 @@ const InputView: FC<Props> = props => {
       {type === 'textarea' ? (
         <Textarea />
       ) : (
-          <Input
+          <InputStyled
             type={type}
             placeholder={label}
             onChange={onChange}
@@ -40,10 +57,11 @@ const InputView: FC<Props> = props => {
             id={id}
             name={name}
             ref={ref}
+            className={className}
           />
         )}
     </>
   );
 };
 
-export default InputView;
+export default Input;

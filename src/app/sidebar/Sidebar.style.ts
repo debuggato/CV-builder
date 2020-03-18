@@ -3,21 +3,26 @@ import styled from 'styled-components';
 import colors from '../../styles/color.style';
 
 export const Container = styled.aside`
-  width: 30%;
-  min-height: 100vh;
-  padding-bottom: 76px;
+  background-color: ${colors.white};
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+`;
+
+export const SectionWrapper = styled.div`
+  padding-bottom: 90px;
 `;
 
 export const ActionBar = styled.div`
-  width: 30%;
-  height: auto;
-  background-color: ${colors.white};
+  background: ${colors.white};
   position: fixed;
   bottom: 0;
-  padding: 20px;
+  left: 0;
+  padding: 15px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border-top: 1px solid ${colors.lightGrey};
+  width: 50%;
 `;

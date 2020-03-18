@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { Wrapper, Card, Header, Close, Title } from './Modal.style';
-import { showModalAction } from '../../genericState';
+import { showModalAction } from '../../genericState/Generic.actions';
 
 interface OwnProps {
   children?: ReactNode;

@@ -7,8 +7,4 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif;
     color: #333;
   }
-
-  section {
-    padding: 10px;
-  } 
 `;
