@@ -18,13 +18,7 @@ yarn dev
 ## Contributing
 
 We can build something awesome!
-Please, if you are interested in this project, feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).  
-There're lots of things to do, (this project is born recently).
-Major features are:
-
-- conversion of the CV in PDF;
-
-For minor features I'll create open Issue on Github.
+Please, if you are interested in this project, feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).
 
 ## Authors
 
