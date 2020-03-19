@@ -24,6 +24,11 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         documentTitle: action.value,
       };
+    case type.CHOOSE_TEMPLATE:
+      return {
+        ...state,
+        templateSelected: action.value,
+      };
     default:
       return state;
   }

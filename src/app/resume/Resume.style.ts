@@ -15,14 +15,20 @@ export const Container = styled.section<Props>`
   position: fixed;
   right: 0;
   height: 100vh;
-  background: ${({ expand }) => expand ? 'inherit' : `${colors.lightGrey}`};
+  background-color: ${colors.lightGrey};
+  
+  ${({ expand }) => expand && `
+  background-color: inherit;
+  width: 100%;
+  `};
 `;
 
 export const Page = styled.div<Props>`
-  background: ${colors.white};
+  background: ${ colors.white};
   box-sizing: border-box;
   width: 100%;
   border-radius: 5px;
+  
   ${({ expand }) => !expand && `
   width: 500px;
   height: 600px;

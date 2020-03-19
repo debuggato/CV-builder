@@ -15,7 +15,7 @@ import {
   Description,
   Header,
   Title,
-} from './DaVinci.style';
+} from './Caravaggio.style';
 
 interface OwnProps { }
 
@@ -38,7 +38,7 @@ interface StateProps {
 
 type Props = OwnProps & StateProps;
 
-class DaVinci extends PureComponent<Props, {}> {
+class Caravaggio extends PureComponent<Props, {}> {
   render(): ReactNode {
     const { address, postalCode, city, country, phone, firstName, lastName, jobTitle, summary, email } = this.props;
 
@@ -58,7 +58,7 @@ class DaVinci extends PureComponent<Props, {}> {
 
     return (
       <Container>
-        DA VINCI
+        CARAVAGGIO
         <Header border={jobTitle}>
           {getFullName() && <FullName>{getFullName()}</FullName>}
           {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
@@ -129,4 +129,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps, {})(DaVinci);
+export default connect(mapStateToProps, {})(Caravaggio);

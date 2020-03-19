@@ -2,7 +2,7 @@ import React, { FC, ReactElement, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { Wrapper, Card, Header, Close, Title } from './Modal.style';
+import { Wrapper, Card, Header, Close, Title, Body } from './Modal.style';
 import { showModalAction } from '../../genericState/Generic.actions';
 
 interface OwnProps {
@@ -28,7 +28,9 @@ const Modal: FC<Props> = ({ isOpened, children, setShowModal, title }: Props): R
           <Title>{title}</Title>
           <Close onClick={() => setShowModal(false)}>✕</Close>
         </Header>
-        {children}
+        <Body>
+          {children}
+        </Body>
       </Card>
     </Wrapper>
   );

@@ -16,11 +16,17 @@ export interface UpdateDocumentTitleState {
   documentTitle: string;
 }
 
+export interface TemplateState {
+  template: number;
+}
+
 export interface GenericState {
   showModal: boolean;
   lang: string;
   previewPdf: boolean;
   documentTitle: string;
+  templateSelected: number | null;
+  templatesAvailable: Object;
 }
 
 export interface ShowModalAction {
@@ -43,7 +49,13 @@ export interface UpdateDocumentTitleAction {
   value: string;
 }
 
+export interface TemplateAction {
+  type: typeof types.CHOOSE_TEMPLATE;
+  value: string;
+}
+
 export type ActionType = ShowModalAction &
   ChangeLangAction &
   PreviewPdfAction &
-  UpdateDocumentTitleAction;
+  UpdateDocumentTitleAction &
+  TemplateAction;
