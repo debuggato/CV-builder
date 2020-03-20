@@ -1,9 +1,11 @@
 import React, { ReactNode, PureComponent } from 'react';
 import { Normalize } from 'styled-normalize';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Resume from './app/resume/Resume.container';
 import Sidebar from './app/sidebar/Sidebar.container';
+import ResumePreview from './app/resume/Resume.preview';
 
 import { GlobalStyle } from './styles/global.style';
 import { Main } from 'App.style';
@@ -17,16 +19,21 @@ class App extends PureComponent<StateProps, {}> {
     const { isPreview } = this.props;
 
     return (
-      <>
+      <Router>
         <Normalize />
         <GlobalStyle />
-        <Main>
-          {!isPreview &&
-            <Sidebar />
-          }
-          <Resume expand={isPreview} />
-        </Main>
-      </>
+        <Switch>
+          <Route path="/" exact>
+            <Main>
+              {!isPreview &&
+                <Sidebar />
+              }
+              <Resume />
+            </Main>
+          </Route>
+          <Route path="/generate-pdf" exact component={ResumePreview} />
+        </Switch>
+      </Router>
     );
   }
 }

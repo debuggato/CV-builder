@@ -1,23 +1,17 @@
 import React, { PureComponent, ReactNode } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import i18n from '../../i18n';
-import { showModalAction, previewPdfAction, selectTemplateAction } from '../../genericState/Generic.actions';
+import { showModalAction, selectTemplateAction } from '../../genericState/Generic.actions';
 
 import Button from 'components/buttons/Button.view';
 import Modal from 'components/modal/Modal.view';
 import TemplateMiniature from 'components/TemplateMiniature';
-import { Container, Page, ActionsWrapper } from './Resume.style';
-import DaVinci from '../templates/davinci/DaVinci.view';
-import Michelangelo from '../templates/michelangelo/Michelangelo.view';
-import Raffaello from '../templates/raffaello/Raffaello.view';
-import Donatello from '../templates/donatello/Donatello.view';
-import Caravaggio from '../templates/caravaggio/Caravaggio.view';
-
-interface OwnProps {
-  expand: boolean;
-}
+import { Container, ActionsWrapper } from './Resume.style';
+import ResumeView from './Resume.view';
+import ResumeViewer from './Resume.preview';
 
 interface StateProps {
   items: any;
@@ -26,43 +20,25 @@ interface StateProps {
 
 interface DispatchProps {
   showModal: (arg0: boolean) => void;
-  previewPdf: (arg0: boolean) => void;
   selectTemplate: (arg0: string) => void;
 }
 
-type Props = OwnProps & StateProps & DispatchProps;
+type Props = StateProps & DispatchProps;
 
 class ResumeContainer extends PureComponent<Props, {}> {
 
   render(): ReactNode {
-    const { expand, showModal, previewPdf, items, selectTemplate, templateSelected } = this.props;
+    const { showModal, items, selectTemplate, templateSelected } = this.props;
 
     const item = items.map((el: any) => {
-      return <TemplateMiniature id={el[0]} onClick={e => selectTemplate(e.currentTarget.id)}>{el[1]}</TemplateMiniature>
+      return <TemplateMiniature key={el[0]} id={el[0]} onClick={e => selectTemplate(e.currentTarget.id)}>{el[1]}</TemplateMiniature>
     });
 
-    const getTemplate = (): ReactNode => {
-      switch (templateSelected) {
-        case '0':
-          return <DaVinci />
-        case '1':
-          return <Michelangelo />
-        case '2':
-          return <Donatello />
-        case '3':
-          return <Raffaello />
-        case '4':
-          return <Caravaggio />
-      }
-    }
-
     return (
-      <Container expand={expand}>
+      <Container>
         {
           templateSelected &&
-          <Page expand={expand}>
-            {getTemplate()}
-          </Page>
+          <ResumeView />
         }
         <ActionsWrapper>
           <Button type="button" color="secondary" onClick={() => showModal(true)}>
@@ -70,9 +46,9 @@ class ResumeContainer extends PureComponent<Props, {}> {
           </Button>
 
           {templateSelected &&
-            <Button type="button" color="primary" onClick={() => previewPdf(true)}>
+            <Link to="/generate-pdf">
               {i18n.t('generate_pdf')}
-            </Button>
+            </Link>
           }
         </ActionsWrapper>
         <Modal title={i18n.t('choose_template')} >
@@ -86,9 +62,6 @@ class ResumeContainer extends PureComponent<Props, {}> {
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   showModal: (value: boolean) => {
     dispatch(showModalAction(value));
-  },
-  previewPdf: (value: boolean) => {
-    dispatch(previewPdfAction(value));
   },
   selectTemplate: (value: string) => {
     dispatch(selectTemplateAction(value));

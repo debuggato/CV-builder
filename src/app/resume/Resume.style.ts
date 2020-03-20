@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 import colors from '../../styles/color.style';
 
-interface Props {
-  expand: boolean;
-}
-
-export const Container = styled.section<Props>`
+export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,24 +12,15 @@ export const Container = styled.section<Props>`
   right: 0;
   height: 100vh;
   background-color: ${colors.lightGrey};
-  
-  ${({ expand }) => expand && `
-  background-color: inherit;
-  width: 100%;
-  `};
 `;
 
-export const Page = styled.div<Props>`
-  background: ${ colors.white};
+export const Page = styled.div`
+  background: ${colors.white};
   box-sizing: border-box;
-  width: 100%;
   border-radius: 5px;
-  
-  ${({ expand }) => !expand && `
   width: 500px;
   height: 600px;
   padding: 15px;
-  `};
 `;
 
 export const ActionsWrapper = styled.div`
