@@ -1,6 +1,6 @@
 import React, { FC, CSSProperties, ChangeEvent, ReactElement } from 'react';
 
-import Textarea from './Textarea.container';
+import TextEditor from '../text_editor/TextEditor.container';
 import InputStyled from './Input.style';
 import FieldLabel from '../FieldLabel.view';
 
@@ -21,11 +21,11 @@ interface Props {
   className?: string;
 }
 
-const Input: FC<Props> = ({ type, label, ...props }: Props): ReactElement => {
+const Input: FC<Props> = ({ label, ...props }: Props): ReactElement => {
   return (
     <>
       {label ? <FieldLabel value={label} /> : null}
-      {type === 'textarea' ? <Textarea /> : <InputStyled {...props} />}
+      <InputStyled {...props} />
     </>
   );
 };
