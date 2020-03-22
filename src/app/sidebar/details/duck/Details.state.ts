@@ -1,6 +1,6 @@
-import { PersonalDetailsState } from './model';
+import { DetailsState } from './Details.model';
 
-const initialState: PersonalDetailsState = {
+const initialState: DetailsState = {
   jobTitle: '',
   firstName: '',
   lastName: '',

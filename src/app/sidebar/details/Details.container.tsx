@@ -1,14 +1,15 @@
 import React, { Component, ReactNode } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 import i18n from '../../../i18n';
 
 import Button from 'components/buttons/Button.view';
 import Title from 'components/Title.view';
-import Icon from 'components/Icon.view';
 
 import AdditionalDetails from './AdditionalDetails.view';
 import MainDetails from './MainDetails.view';
-import { Container } from './PersonalDetails.style';
+import { Container, ButtonWrapper } from './Details.style';
 
 interface State {
   isOpen: boolean;
@@ -18,7 +19,7 @@ interface OwnProps {
   currentStep: number;
 }
 
-class PersonalDetails extends Component<OwnProps, State> {
+class Details extends Component<OwnProps, State> {
   state = {
     isOpen: false,
   };
@@ -40,15 +41,18 @@ class PersonalDetails extends Component<OwnProps, State> {
       <Container>
         <Title>{i18n.t('personal_details')}</Title>
         <MainDetails />
-        <Button
-          type="button"
-          isLink={true}
-          onClick={this.showAdditionalDetails}
-          color="primary"
-        >
-          {i18n.t('edit_additional_details')}
-          <Icon icon={isOpen ? 'arrow-dropup' : 'arrow-dropdown'} />
-        </Button>
+        <ButtonWrapper>
+          <Button
+            type="button"
+            isLink={true}
+            onClick={this.showAdditionalDetails}
+            color="primary"
+          >
+            {i18n.t('edit_additional_details')}
+
+          </Button>
+          <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
+        </ButtonWrapper>
         {isOpen &&
           <AdditionalDetails />
         }
@@ -57,4 +61,4 @@ class PersonalDetails extends Component<OwnProps, State> {
   }
 }
 
-export default PersonalDetails;
+export default Details;

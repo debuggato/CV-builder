@@ -107,7 +107,7 @@ const mapStateToProps = (state: any) => {
     nationality,
     placeOfBirth,
     dateOfBirth,
-  } = state.personalDetails;
+  } = state.details;
 
   const { summary } = state.summary;
 

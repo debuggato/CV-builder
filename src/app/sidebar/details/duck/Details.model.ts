@@ -1,6 +1,6 @@
-import * as types from './types';
+import * as types from './Details.types';
 
-export type PersonalDetailsState = {
+export type DetailsState = {
   jobTitle: string | null;
   firstName: string | null;
   lastName: string | null;
@@ -16,7 +16,7 @@ export type PersonalDetailsState = {
   dateOfBirth: Date;
 };
 
-export interface ReduxProps {
+export interface StateProps {
   setJobTitle: (arg0: string) => void;
   setFirstName: (arg0: string) => void;
   setLastName: (arg0: string) => void;

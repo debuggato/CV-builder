@@ -1,4 +1,4 @@
-import * as type from './types';
+import * as type from './Details.types';
 
 export const setJobTitle = (value: string) => ({
   type: type.SET_JOB_TITLE,

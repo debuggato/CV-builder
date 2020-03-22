@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import Input from 'components/input/Input.view';
 
-import { Wrapper } from './PersonalDetails.style';
-import mapDispatchToProps from './duck/dispatch';
-import { ReduxProps } from './duck/model';
+import { Wrapper } from './Details.style';
+import mapDispatchToProps from './duck/Details.dispatch';
+import { StateProps } from './duck/Details.model';
 
-const AdditionalDetails: FC<ReduxProps> = (props: ReduxProps): ReactElement => {
+const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
   const {
     setAddress,
     setCity,

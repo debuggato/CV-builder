@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import Photo from 'components/photo/Photo.view';
 import Input from 'components/input/Input.view';
 
-import { Wrapper } from './PersonalDetails.style';
-import mapDispatchToProps from './duck/dispatch';
-import { ReduxProps } from './duck/model';
+import { Wrapper } from './Details.style';
+import mapDispatchToProps from './duck/Details.dispatch';
+import { StateProps } from './duck/Details.model';
 
-const MainDetails: FC<ReduxProps> = (props: ReduxProps): ReactElement => {
+const MainDetails: FC<StateProps> = (props: StateProps): ReactElement => {
   const {
     setJobTitle,
     setFirstName,

@@ -9,13 +9,7 @@ export const Wrapper = styled.div`
   margin: 10px;
 `;
 
-export const Title = styled.h3``;
-
-export const LinkAccordion = styled.a`
-  cursor: pointer;
-  margin-top: 15px;
-
-  &:hover {
-    text-decoration: underline;
-  }
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
