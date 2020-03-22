@@ -11,7 +11,6 @@ import Modal from 'components/modal/Modal.view';
 import TemplateMiniature from 'components/TemplateMiniature';
 import { Container, ActionsWrapper } from './Resume.style';
 import ResumeView from './Resume.view';
-import ResumeViewer from './Resume.preview';
 
 interface StateProps {
   items: any;

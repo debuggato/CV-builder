@@ -13,10 +13,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-
-  input:first-child {
-    margin-right: 10px;
-  }
+  justify-content: space-between;
 `;
 
 const DatepickerCustom = InputStyle.withComponent(DatePicker);

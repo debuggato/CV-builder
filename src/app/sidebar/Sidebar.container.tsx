@@ -1,12 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { CSSProperties } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import i18n from '../../i18n';
 
 import Button from 'components/buttons/Button.view';
-import Icon from 'components/Icon.view';
 import { Container, ActionBar, SectionWrapper } from './Sidebar.style';
-import PersonalDetails from './personal_details/PersonalDetails.container';
+import Details from './details/Details.container';
 import ProfessionalSummary from './summary/Summary.container';
 import Education from './education/Education.container';
 import Employment from './employment/Employment.container';
@@ -66,7 +67,7 @@ class Sidebar extends Component<{}, State> {
     if (currentStep !== 1) {
       renderPrevBtn = (
         <Button onClick={this.onPrev} type="button" color="secondary">
-          <Icon icon="arrow-back" style={this.arrowPrev} />
+          <FontAwesomeIcon icon={faArrowLeft} style={this.arrowPrev} />
           {i18n.t('prev')}
         </Button>
       );
@@ -76,7 +77,7 @@ class Sidebar extends Component<{}, State> {
       renderNextBtn = (
         <Button onClick={this.onNext} type="button" color="primary">
           {i18n.t('next')}
-          <Icon icon="arrow-forward" style={this.arrowNext} />
+          <FontAwesomeIcon icon={faArrowRight} style={this.arrowNext} />
         </Button>
       );
     }
@@ -85,7 +86,7 @@ class Sidebar extends Component<{}, State> {
       <Container>
         <Header />
         <SectionWrapper>
-          <PersonalDetails currentStep={currentStep} />
+          <Details currentStep={currentStep} />
           <ProfessionalSummary currentStep={currentStep} />
           <Employment currentStep={currentStep} />
           <Education currentStep={currentStep} />

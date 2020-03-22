@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Resume from './app/resume/Resume.container';
 import Sidebar from './app/sidebar/Sidebar.container';
-import ResumePreview from './app/resume/Resume.preview';
 
 import { GlobalStyle } from './styles/global.style';
 import { Main } from 'App.style';
@@ -31,7 +30,7 @@ class App extends PureComponent<StateProps, {}> {
               <Resume />
             </Main>
           </Route>
-          <Route path="/generate-pdf" exact component={ResumePreview} />
+          <Route path="/generate-pdf" exact />
         </Switch>
       </Router>
     );
