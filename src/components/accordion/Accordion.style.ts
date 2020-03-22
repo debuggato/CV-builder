@@ -15,10 +15,8 @@ export const Wrapper = styled.div`
 
 export const Header = styled.div`
   cursor: pointer;
-
-  i {
-    float: right;
-  }
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Title = styled.div`

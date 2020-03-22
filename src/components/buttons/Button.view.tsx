@@ -4,7 +4,7 @@ import Btn from './Button.style';
 
 export interface Props {
   onClick: () => void;
-  color: string;
+  color?: string;
   type: 'submit' | 'button' | 'reset';
   isLink?: boolean;
   disabled?: boolean;

@@ -30,10 +30,11 @@ export const UploadLabel = styled.span`
 
 export const IconContainer = styled.div`
   border: 1px dashed ${colors.lightGrey};
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 100px;
   margin-right: 15px;
-
-  i {
-    font-size: 90px;
-  }
+  font-size: 50px;
 `;
