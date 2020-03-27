@@ -11,7 +11,7 @@ interface Props {
   currentStep: number;
 };
 
-type State = {
+interface State {
   showCourses: boolean;
   showHobbies: boolean;
   showCustomSection: boolean;
@@ -75,16 +75,16 @@ class AddSection extends Component<Props, State> {
   };
 
   public render(): ReactNode {
-    if (this.props.currentStep !== 7) {
-      return null;
-    }
+    const { currentStep } = this.props;
+
+    if (currentStep !== 7) return null;
 
     const { showCourses } = this.state;
 
     return (
       <Container>
         <Title>{i18n.t('add_section')}</Title>
-        <Courses isVisible={showCourses} />
+        {showCourses && <Courses />}
         <Body>
           <Wrapper>
             <label onClick={this.customSectionHandler}>{i18n.t('custom_section')}</label>

@@ -16,7 +16,7 @@ interface OwnProps {
   currentStep: number;
   title: string;
   addEmployment: (arg0: number, arg1: any) => void;
-}
+};
 
 type Props = OwnProps & ReduxState;
 
@@ -24,31 +24,31 @@ interface State {
   id: number;
 };
 
+const employmentInitialData = {
+  jobTitle: null,
+  employer: null,
+  city: null,
+  startDate: new Date(),
+  endDate: new Date(),
+  description: null
+};
+
 class Employment extends Component<Props, State> {
   state = {
     id: 0,
   };
 
-  employmentInitialData = {
-    jobTitle: null,
-    employer: null,
-    city: null,
-    startDate: new Date(),
-    endDate: new Date(),
-    description: null
-  }
-
   addEmploymentItem = (): void => {
     this.setState({
       id: this.state.id + 1
     });
-    this.props.addEmployment(this.state.id, this.employmentInitialData);
+    this.props.addEmployment(this.state.id, employmentInitialData);
   };
 
   public render(): ReactNode {
     const { currentStep, items } = this.props;
 
-    if (currentStep !== 3) return false;
+    if (currentStep !== 3) return null;
 
     const item = items.map((index: any) => {
       return (

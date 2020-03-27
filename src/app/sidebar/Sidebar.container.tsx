@@ -27,14 +27,6 @@ class Sidebar extends Component<{}, State> {
     sectionToShow: 7,
   };
 
-  arrowNext: CSSProperties = {
-    marginLeft: '10px',
-  };
-
-  arrowPrev: CSSProperties = {
-    marginRight: '10px',
-  };
-
   onNext = (): void => {
     const { sectionToShow, currentStep } = this.state;
     let step: number = currentStep;
@@ -61,26 +53,13 @@ class Sidebar extends Component<{}, State> {
   public render(): ReactNode {
     const { currentStep, sectionToShow } = this.state;
 
-    let renderPrevBtn: ReactNode = null,
-      renderNextBtn: ReactNode = null;
+    const arrowNext: CSSProperties = {
+      marginLeft: '10px',
+    };
 
-    if (currentStep !== 1) {
-      renderPrevBtn = (
-        <Button onClick={this.onPrev} type="button" color="secondary">
-          <FontAwesomeIcon icon={faArrowLeft} style={this.arrowPrev} />
-          {i18n.t('prev')}
-        </Button>
-      );
-    }
-
-    if (currentStep !== sectionToShow) {
-      renderNextBtn = (
-        <Button onClick={this.onNext} type="button" color="primary">
-          {i18n.t('next')}
-          <FontAwesomeIcon icon={faArrowRight} style={this.arrowNext} />
-        </Button>
-      );
-    }
+    const arrowPrev: CSSProperties = {
+      marginRight: '10px',
+    };
 
     return (
       <Container>
@@ -95,7 +74,19 @@ class Sidebar extends Component<{}, State> {
           <AddSection currentStep={currentStep} />
         </SectionWrapper>
         <ActionBar>
-          {renderPrevBtn} {renderNextBtn}
+          {currentStep !== 1 &&
+            <Button onClick={this.onPrev} type="button" color="secondary">
+              <FontAwesomeIcon icon={faArrowLeft} style={arrowPrev} />
+              {i18n.t('prev')}
+            </Button>
+          }
+
+          {currentStep !== sectionToShow &&
+            <Button onClick={this.onNext} type="button" color="primary">
+              {i18n.t('next')}
+              <FontAwesomeIcon icon={faArrowRight} style={arrowNext} />
+            </Button>
+          }
         </ActionBar>
       </Container>
     );
