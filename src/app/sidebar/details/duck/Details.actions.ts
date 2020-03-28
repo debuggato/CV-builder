@@ -30,7 +30,7 @@ export const setCountry = (value: string) => ({
   value,
 });
 
-export const setDateOfBirth = (value: Date) => ({
+export const setDateOfBirth = (value: string | Date) => ({
   type: type.SET_DATE_OF_BIRTH,
   value,
 });
@@ -55,12 +55,12 @@ export const setPlaceOfBirth = (value: string) => ({
   value,
 });
 
-export const setPostalCode = (value: number) => ({
+export const setPostalCode = (value: string) => ({
   type: type.SET_POSTAL_CODE,
   value,
 });
 
-export const setPhone = (value: number) => ({
+export const setPhone = (value: string) => ({
   type: type.SET_PHONE,
   value,
 });

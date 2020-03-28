@@ -129,4 +129,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps, {})(Caravaggio);
+export default connect(mapStateToProps)(Caravaggio);

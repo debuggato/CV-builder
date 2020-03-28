@@ -1,34 +1,42 @@
 import React, { FC, useState, ReactElement } from 'react';
-import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-import FieldLabel from './FieldLabel.view';
-import InputStyle from '../components/input/Input.style';
+import FieldLabel from '../FieldLabel.view';
+import InputStyle from '../input/Input.style';
 
-const Container = styled.div`
-  margin: 10px 0;
-`;
+import { Wrapper, Container } from './Datepicker.style';
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
+interface Props {
+  label: string;
+  onChangeDateFrom: (arg0: Date) => void;
+  onChangeDateTo: (arg0: Date) => void;
+}
 
 const DatepickerCustom = InputStyle.withComponent(DatePicker);
 
-const FromToDate: FC = (): ReactElement => {
+const FromToDate: FC<Props> = ({ label, onChangeDateFrom, onChangeDateTo }: Props): ReactElement => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  const onSetDateFrom = (date: Date) => {
+    setStartDate(date);
+    onChangeDateFrom(date);
+  }
+
+  const onSetDateTo = (date: Date) => {
+    setEndDate(date);
+    onChangeDateTo(date);
+  }
+
   return (
     <Container>
-      <FieldLabel value="Start & End date" />
+      <FieldLabel value={label} />
       <Wrapper>
         <DatepickerCustom
           selected={startDate}
-          onChange={(date: Date) => setStartDate(date)}
+          onChange={(date: Date) => onSetDateFrom(date)}
           selectsStart
           startDate={startDate}
           endDate={endDate}
@@ -37,7 +45,7 @@ const FromToDate: FC = (): ReactElement => {
         />
         <DatepickerCustom
           selected={endDate}
-          onChange={(date: Date) => setEndDate(date)}
+          onChange={(date: Date) => onSetDateTo(date)}
           selectsStart
           startDate={startDate}
           endDate={endDate}

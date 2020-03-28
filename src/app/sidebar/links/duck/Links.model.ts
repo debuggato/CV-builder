@@ -7,12 +7,6 @@ export type LinksState = [
   },
 ];
 
-export interface ReduxProps {
-  setLink: (arg0: number, arg1: string) => void;
-  setLabel: (arg0: number, arg1: string) => void;
-  addLink: (arg0: number, arg1: any) => void;
-}
-
 interface AddLinkAction {
   type: typeof ADD_LINK;
   id: number;

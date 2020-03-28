@@ -6,6 +6,7 @@ import employment from './app/sidebar/employment/duck/Employment.reducers';
 import education from './app/sidebar/education/duck/Education.reducers';
 import skills from './app/sidebar/skills/duck/Skills.reducers';
 import links from './app/sidebar/links/duck/Links.reducers';
+import courses from './app/sidebar/courses/duck/Courses.reducers';
 import generic from './genericState/Generic.reducers';
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   education,
   skills,
   links,
+  courses,
   generic,
 });
 

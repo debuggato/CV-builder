@@ -5,15 +5,15 @@ const initialState: DetailsState = {
   firstName: '',
   lastName: '',
   email: '',
-  phone: null,
+  phone: '',
   country: '',
   city: '',
   address: '',
-  postalCode: null,
+  postalCode: '',
   drivingLicense: '',
   nationality: '',
   placeOfBirth: '',
-  dateOfBirth: new Date(),
+  dateOfBirth: '',
 };
 
 export default initialState;

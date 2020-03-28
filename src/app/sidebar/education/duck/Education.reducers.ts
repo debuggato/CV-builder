@@ -41,6 +41,22 @@ const reducer = (state = initialState, action: ActionType) => {
           description: action.value,
         },
       };
+    case type.SET_DATE_FROM:
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          dateFrom: action.value,
+        },
+      };
+    case type.SET_DATE_TO:
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          dateTo: action.value,
+        },
+      };
     default:
       return state;
   }

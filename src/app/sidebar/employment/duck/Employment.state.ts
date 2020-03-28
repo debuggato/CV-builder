@@ -5,8 +5,8 @@ const initialState: EmploymentState = [
     jobTitle: null,
     employer: null,
     city: null,
-    startDate: new Date(),
-    endDate: new Date(),
+    dateFrom: new Date(),
+    dateTo: new Date(),
     description: null,
   },
 ];

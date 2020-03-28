@@ -1,24 +1,33 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import i18n from '../../../i18n';
+import { addEmploymentAction } from './duck/Employment.actions';
 
 import Title from 'components/Title.view';
 import Subtitle from 'components/Subtitle.view';
 import Button from 'components/buttons/Button.view';
 import Accordion from 'components/accordion/Accordion.view';
 import ErrorBoundary from 'components/ErrorBoundary';
-import mapDispatchToProps from './duck/Employment.dispatch';
 
 import EmploymentView from './Employment.view';
 
 interface OwnProps {
   currentStep: number;
   title: string;
-  addEmployment: (arg0: number, arg1: any) => void;
 };
 
-type Props = OwnProps & ReduxState;
+interface DispatchProps {
+  addEmployment: (arg0: number, arg1: any) => void;
+}
+
+interface StateProps {
+  items: any;
+  title: string;
+}
+
+type Props = OwnProps & DispatchProps & StateProps;
 
 interface State {
   id: number;
@@ -73,19 +82,20 @@ class Employment extends Component<Props, State> {
   }
 }
 
-interface ReduxState {
-  items: any;
-  title: string;
-}
-
 const mapStateToProps = (state: any) => {
   let keys = Object.keys(state.employment);
-
   const { jobTitle } = state.employment;
+
   return {
     items: keys,
     title: jobTitle
   }
 };
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  addEmployment: (id, value) => {
+    dispatch(addEmploymentAction(id, value));
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Employment);

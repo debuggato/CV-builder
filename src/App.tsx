@@ -41,4 +41,4 @@ const mapStateToProps = (state: any) => ({
   isPreview: state.generic.previewPdf
 });
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps)(App);

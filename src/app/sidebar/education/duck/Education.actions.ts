@@ -29,3 +29,15 @@ export const setDescription = (id: number, value: string) => ({
   id,
   value,
 });
+
+export const setDateFrom = (id: number, value: Date) => ({
+  type: type.SET_DATE_FROM,
+  id,
+  value,
+});
+
+export const setDateTo = (id: number, value: Date) => ({
+  type: type.SET_DATE_TO,
+  id,
+  value,
+});

@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import i18n from '../../../i18n';
 
@@ -11,18 +12,25 @@ import ErrorBoundary from 'components/ErrorBoundary';
 
 import { Container } from './Education.style';
 import EducationView from '../education/Education.view';
-import mapDispatchToProps from './duck/Education.dispatch';
+import { addEducation } from './duck/Education.actions';
+
+interface OwnProps {
+  currentStep: number;
+}
+
+interface DispatchProps {
+  addEducation: (arg0: number, arg1: any) => void;
+}
+
+interface StateProps {
+  items: any;
+}
+
+type Props = OwnProps & DispatchProps & StateProps;
 
 interface State {
   id: number;
 };
-
-interface OwnProps {
-  currentStep: number;
-  addEducation: (arg0: number, arg1: any) => void;
-}
-
-type Props = OwnProps & ReduxState;
 
 class Education extends Component<Props, State> {
   state = {
@@ -71,10 +79,6 @@ class Education extends Component<Props, State> {
   }
 }
 
-interface ReduxState {
-  items: any;
-}
-
 const mapStateToProps = (state: any) => {
   let keys = Object.keys(state.education);
 
@@ -82,5 +86,11 @@ const mapStateToProps = (state: any) => {
     items: keys
   }
 };
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  addEducation: (id, value) => {
+    dispatch(addEducation(id, value));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Education);

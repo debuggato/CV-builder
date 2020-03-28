@@ -6,6 +6,8 @@ const initialState: EducationState = [
     degree: null,
     city: null,
     description: null,
+    dateFrom: '',
+    dateTo: ''
   },
 ];
 

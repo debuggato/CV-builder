@@ -40,6 +40,6 @@ const mapStateToProps = (state: any) => ({
   templateSelected: state.generic.templateSelected
 })
 
-export default connect(mapStateToProps, {})(ResumeView);
+export default connect(mapStateToProps)(ResumeView);
 
 

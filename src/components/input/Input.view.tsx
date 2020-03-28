@@ -1,6 +1,5 @@
 import React, { FC, CSSProperties, ChangeEvent, ReactElement } from 'react';
 
-import TextEditor from '../text_editor/TextEditor.container';
 import InputStyled from './Input.style';
 import FieldLabel from '../FieldLabel.view';
 

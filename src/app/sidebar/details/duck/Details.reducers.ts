@@ -59,6 +59,16 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         postalCode: action.value,
       };
+    case type.SET_NATIONALITY:
+      return {
+        ...state,
+        nationality: action.value,
+      };
+    case type.SET_PLACE_OF_BIRTH:
+      return {
+        ...state,
+        placeOfBirth: action.value,
+      };
     default:
       break;
   }

@@ -1,20 +1,38 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import Input from 'components/input/Input.view';
-import FromToDate from 'components/FromToDate.view';
+import RangePicker from 'components/datepicker/RangePicker.view';
 import { Wrapper } from 'components/accordion/Accordion.style';
-
-import mapDispatchToProps from './duck/Education.dispatch';
-import { ReduxProps } from './duck/Education.model';
+import * as action from './duck/Education.actions';
 
 interface OwnProps {
   id: number;
 };
 
-interface Props extends OwnProps, ReduxProps { }
+interface DispatchProps {
+  setSchool: (arg0: number, arg1: string) => void;
+  setDegree: (arg0: number, arg1: string) => void;
+  setCity: (arg0: number, arg1: string) => void;
+  setDescription: (arg0: number, arg1: string) => void;
+  setDateFrom: (arg0: number, arg1: Date) => void;
+  setDateTo: (arg0: number, arg1: Date) => void;
+};
 
-const EducationView: FC<Props> = ({ id, setSchool, setCity, setDescription, setDegree }: Props): ReactElement => {
+type Props = OwnProps & DispatchProps;
+
+const EducationView: FC<Props> = (props: Props): ReactElement => {
+  const {
+    id,
+    setSchool,
+    setCity,
+    setDescription,
+    setDegree,
+    setDateFrom,
+    setDateTo
+  } = props;
+
   return (
     <>
       <Wrapper>
@@ -38,7 +56,11 @@ const EducationView: FC<Props> = ({ id, setSchool, setCity, setDescription, setD
           onChange={e => setCity(id, e.target.value)}
         />
       </Wrapper>
-      <FromToDate />
+      <RangePicker
+        label="From to date"
+        onChangeDateFrom={date => setDateFrom(id, new Date(date))}
+        onChangeDateTo={date => setDateTo(id, new Date(date))}
+      />
       <Wrapper>
         <Input
           type="textarea"
@@ -49,5 +71,26 @@ const EducationView: FC<Props> = ({ id, setSchool, setCity, setDescription, setD
     </>
   );
 };
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  setSchool: (id, value) => {
+    dispatch(action.setSchool(id, value));
+  },
+  setDegree: (id, value) => {
+    dispatch(action.setDegree(id, value));
+  },
+  setCity: (id, value) => {
+    dispatch(action.setCity(id, value));
+  },
+  setDescription: (id, value) => {
+    dispatch(action.setDescription(id, value));
+  },
+  setDateFrom: (id, value) => {
+    dispatch(action.setDateFrom(id, value));
+  },
+  setDateTo: (id, value) => {
+    dispatch(action.setDateTo(id, value));
+  },
+});
 
 export default connect(null, mapDispatchToProps)(EducationView);

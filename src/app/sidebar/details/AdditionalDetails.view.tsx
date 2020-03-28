@@ -2,13 +2,45 @@ import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 
 import Input from 'components/input/Input.view';
+import Datepicker from 'components/datepicker/Datepicker.view';
 
 import { Wrapper } from './Details.style';
 import mapDispatchToProps from './duck/Details.dispatch';
-import { StateProps } from './duck/Details.model';
 
-const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
+interface StateProps {
+  city: string;
+  postalCode: string;
+  country: string;
+  address: string;
+  drivingLicense: string;
+  nationality: string;
+  placeOfBirth: string;
+  dateOfBirth: string;
+}
+
+interface DispatchProps {
+  setAddress: (arg0: string) => void;
+  setCity: (arg0: string) => void;
+  setCountry: (arg0: string) => void;
+  setDateOfBirth: (arg0: Date | string) => void;
+  setDrivingLicense: (arg0: string) => void;
+  setNationality: (arg0: string) => void;
+  setPlaceOfBirth: (arg0: string) => void;
+  setPostalCode: (arg0: string) => void;
+}
+
+type Props = StateProps & DispatchProps;
+
+const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
   const {
+    city,
+    postalCode,
+    country,
+    address,
+    drivingLicense,
+    nationality,
+    placeOfBirth,
+    dateOfBirth,
     setAddress,
     setCity,
     setCountry,
@@ -26,6 +58,7 @@ const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
           type="text"
           label="Country"
           onChange={e => setCountry(e.target.value)}
+          value={country}
         />
       </Wrapper>
       <Wrapper>
@@ -33,6 +66,7 @@ const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
           type="text"
           label="City"
           onChange={e => setCity(e.target.value)}
+          value={city}
         />
       </Wrapper>
       <Wrapper>
@@ -40,13 +74,15 @@ const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
           type="text"
           label="Address"
           onChange={e => setAddress(e.target.value)}
+          value={address}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
           label="Postal code"
-          onChange={e => setPostalCode(parseInt(e.target.value))}
+          onChange={e => setPostalCode(e.target.value)}
+          value={postalCode + ''}
         />
       </Wrapper>
       <Wrapper>
@@ -54,6 +90,7 @@ const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
           type="text"
           label="Driving License"
           onChange={e => setDrivingLicense(e.target.value)}
+          value={drivingLicense}
         />
       </Wrapper>
       <Wrapper>
@@ -61,6 +98,7 @@ const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
           type="text"
           label="Nationality"
           onChange={e => setNationality(e.target.value)}
+          value={nationality}
         />
       </Wrapper>
       <Wrapper>
@@ -68,17 +106,43 @@ const AdditionalDetails: FC<StateProps> = (props: StateProps): ReactElement => {
           type="text"
           label="Place of birth"
           onChange={e => setPlaceOfBirth(e.target.value)}
+          value={placeOfBirth}
         />
       </Wrapper>
       <Wrapper>
-        <Input
-          type="text"
+        <Datepicker
           label="Date of birth"
-          onChange={e => setDateOfBirth(new Date(e.target.value))}
+          value={dateOfBirth}
+          onChange={date => setDateOfBirth(date)}
         />
       </Wrapper>
     </>
   );
 };
 
-export default connect(null, mapDispatchToProps)(AdditionalDetails);
+const mapStateToProps = (state: any) => {
+
+  const {
+    city,
+    postalCode,
+    country,
+    address,
+    drivingLicense,
+    nationality,
+    placeOfBirth,
+    dateOfBirth
+  } = state.details;
+
+  return {
+    city,
+    postalCode,
+    country,
+    address,
+    drivingLicense,
+    nationality,
+    placeOfBirth,
+    dateOfBirth
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdditionalDetails);

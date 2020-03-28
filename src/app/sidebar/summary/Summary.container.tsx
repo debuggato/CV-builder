@@ -8,13 +8,16 @@ import i18n from '../../../i18n';
 import { Container } from './Summary.style';
 import TextEditor from 'components/text_editor/TextEditor.container';
 import Title from 'components/Title.view';
-import { ReduxProps } from './duck/Summary.model';
 
 interface OwnProps {
   currentStep: number;
 };
 
-type Props = OwnProps & ReduxProps;
+interface DispatchProps {
+  setSummary: (arg0: string) => void;
+}
+
+type Props = OwnProps & DispatchProps;
 
 class Summary extends Component<Props, {}> {
 
@@ -38,7 +41,7 @@ class Summary extends Component<Props, {}> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     setSummary: (value: string) => {
       dispatch(action.setSummary(value));

@@ -10,18 +10,25 @@ import Accordion from 'components/accordion/Accordion.view';
 
 import { Container } from './Links.style';
 import LinksView from './Links.view';
-import { ReduxProps } from './duck/Links.model';
 import mapDispatchToProps from './duck/Links.dispatch';
-
-interface State {
-  id: number;
-}
 
 interface OwnProps {
   currentStep: number;
 }
 
-type Props = OwnProps & ReduxState & ReduxProps;
+interface DispatchProps {
+  addLink: (arg0: number, arg1: any) => void;
+}
+
+interface StateProps {
+  items: any;
+}
+
+type Props = OwnProps & StateProps & DispatchProps;
+
+interface State {
+  id: number;
+}
 
 class Links extends Component<Props, State> {
   state = {
@@ -64,10 +71,6 @@ class Links extends Component<Props, State> {
       </Container>
     );
   }
-}
-
-interface ReduxState {
-  items: any;
 }
 
 const mapStateToProps = (state: any) => {

@@ -1,36 +1,20 @@
 import * as types from './Details.types';
 
 export type DetailsState = {
-  jobTitle: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  email: string | null;
-  phone: number | null;
-  country: string | null;
-  city: string | null;
-  address: string | null;
-  postalCode: number | null;
-  drivingLicense: string | null;
-  nationality: string | null;
-  placeOfBirth: string | null;
-  dateOfBirth: Date;
+  jobTitle: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  country: string;
+  city: string;
+  address: string;
+  postalCode: string;
+  drivingLicense: string;
+  nationality: string;
+  placeOfBirth: string;
+  dateOfBirth: string | Date;
 };
-
-export interface StateProps {
-  setJobTitle: (arg0: string) => void;
-  setFirstName: (arg0: string) => void;
-  setLastName: (arg0: string) => void;
-  setCity: (arg0: string) => void;
-  setPostalCode: (arg0: number) => void;
-  setPhone: (arg0: number) => void;
-  setEmail: (arg0: string) => void;
-  setCountry: (arg0: string) => void;
-  setAddress: (arg0: string) => void;
-  setDrivingLicense: (arg0: string) => void;
-  setNationality: (arg0: string) => void;
-  setPlaceOfBirth: (arg0: string) => void;
-  setDateOfBirth: (arg0: Date) => void;
-}
 
 interface SetJobTitleAction {
   type: typeof types.SET_JOB_TITLE;

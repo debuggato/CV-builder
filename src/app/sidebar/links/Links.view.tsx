@@ -5,13 +5,17 @@ import Input from 'components/input/Input.view';
 
 import { Wrapper } from './Links.style';
 import mapDispatchToProps from './duck/Links.dispatch';
-import { ReduxProps } from './duck/Links.model';
 
 interface OwnProps {
   id: number;
 }
 
-type Props = OwnProps & ReduxProps;
+interface DispatchProps {
+  setLink: (arg0: number, arg1: string) => void;
+  setLabel: (arg0: number, arg1: string) => void;
+}
+
+type Props = OwnProps & DispatchProps;
 
 const LinksView: FC<Props> = ({ id, setLabel, setLink }: Props): ReactElement => {
   return (

@@ -5,23 +5,13 @@ export type EmploymentState = [
     jobTitle: string | null;
     employer: string | null;
     city: string | null;
-    startDate: Date | string;
-    endDate: Date | string;
+    dateFrom: Date | string;
+    dateTo: Date | string;
     description: string | null;
   },
 ];
 
-export interface ReduxProps {
-  addEmployment: (arg0: number, arg1: any) => void;
-  setJobTitle: (arg0: number, arg1: string) => void;
-  setEmployer: (arg0: number, arg1: string) => void;
-  setCity: (arg0: number, arg1: string) => void;
-  setStartDate: (arg0: number, arg1: string) => void;
-  setEndDate: (arg0: number, arg1: string) => void;
-  setDescription: (arg0: number, arg1: string) => void;
-}
-
-interface AddEmployment {
+interface AddEmploymentAction {
   type: typeof types.ADD_EMPLOYMENT;
   id: number;
   value: any;
@@ -51,22 +41,22 @@ interface SetDescriptionAction {
   value: string;
 }
 
-interface SetStartDateAction {
-  type: typeof types.SET_START_DATE;
+interface SetDateFromAction {
+  type: typeof types.SET_DATE_FROM;
   id: number;
   value: string;
 }
 
-interface SetEndDateAction {
-  type: typeof types.SET_END_DATE;
+interface SetDateToAction {
+  type: typeof types.SET_DATE_TO;
   id: number;
   value: string;
 }
 
-export type ActionType = AddEmployment &
+export type ActionType = AddEmploymentAction &
   SetJobTitleAction &
   SetEmployerAction &
   SetCityAction &
   SetDescriptionAction &
-  SetStartDateAction &
-  SetEndDateAction;
+  SetDateFromAction &
+  SetDateToAction;

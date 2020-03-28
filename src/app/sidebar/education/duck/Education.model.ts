@@ -6,16 +6,10 @@ export type EducationState = [
     degree: string | null;
     city: string | null;
     description: string | null;
+    dateFrom: string | Date;
+    dateTo: string | Date;
   },
 ];
-
-export interface ReduxProps {
-  addEducation: (arg0: number, arg1: any) => void;
-  setSchool: (arg0: number, arg1: string) => void;
-  setDegree: (arg0: number, arg1: string) => void;
-  setCity: (arg0: number, arg1: string) => void;
-  setDescription: (arg0: number, arg1: string) => void;
-}
 
 interface AddEducation {
   type: typeof types.ADD_EDUCATION;

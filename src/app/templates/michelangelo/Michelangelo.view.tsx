@@ -129,4 +129,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps, {})(Michelangelo);
+export default connect(mapStateToProps)(Michelangelo);
