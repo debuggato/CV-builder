@@ -7,7 +7,7 @@ import { addEmploymentAction } from './duck/Employment.actions';
 
 import Title from 'components/Title.view';
 import Subtitle from 'components/Subtitle.view';
-import Button from 'components/buttons/Button.view';
+import AddLinkLabel from 'components/AddLinkLabel.view';
 import Accordion from 'components/accordion/Accordion.view';
 import ErrorBoundary from 'components/ErrorBoundary';
 
@@ -73,9 +73,9 @@ class Employment extends Component<Props, State> {
           <Title>{i18n.t('employment_history')}</Title>
           <Subtitle>{i18n.t('employment_history_subtitle')}</Subtitle>
           {item}
-          <Button type="button" linkStyle onClick={this.addEmploymentItem} primary>
+          <AddLinkLabel onClick={this.addEmploymentItem}>
             {i18n.t('add_employment')}
-          </Button>
+          </AddLinkLabel>
         </div>
       </ErrorBoundary>
     );

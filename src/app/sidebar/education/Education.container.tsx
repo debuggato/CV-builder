@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 
 import i18n from '../../../i18n';
 
-import Button from 'components/buttons/Button.view';
+import AddLinkLabel from 'components/AddLinkLabel.view';
 import Title from 'components/Title.view';
 import Subtitle from 'components/Subtitle.view';
 import Accordion from 'components/accordion/Accordion.view';
@@ -70,9 +70,9 @@ class Education extends Component<Props, State> {
           <Title>{i18n.t('add_education')}</Title>
           <Subtitle>{i18n.t('education_subtitle')}</Subtitle>
           {item}
-          <Button type="button" linkStyle onClick={this.addEducationItem} primary>
+          <AddLinkLabel onClick={this.addEducationItem}>
             {i18n.t('add_education')}
-          </Button>
+          </AddLinkLabel>
         </Container>
       </ErrorBoundary>
     );

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import i18n from '../../../i18n';
 
 import Title from 'components/Title.view';
-import Button from 'components/buttons/Button.view';
+import AddLinkLabel from 'components/AddLinkLabel.view';
 import Accordion from 'components/accordion/Accordion.view';
 
 import { Container } from './Skills.style';
@@ -57,9 +57,9 @@ class Skills extends Component<Props, State> {
       <Container>
         <Title>{i18n.t('skills')}</Title>
         {item}
-        <Button type="button" linkStyle onClick={this.addItem} primary>
+        <AddLinkLabel onClick={this.addItem}>
           {i18n.t('add_skill')}
-        </Button>
+        </AddLinkLabel>
       </Container>
     );
   }

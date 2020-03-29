@@ -3,7 +3,6 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 
 import i18n from '../../i18n';
 import { showModalAction, selectTemplateAction } from '../../genericState/Generic.actions';

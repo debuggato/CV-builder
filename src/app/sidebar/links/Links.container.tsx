@@ -5,7 +5,7 @@ import i18n from '../../../i18n';
 
 import Title from 'components/Title.view';
 import Subtitle from 'components/Subtitle.view';
-import Button from 'components/buttons/Button.view';
+import AddLinkLabel from 'components/AddLinkLabel.view';
 import Accordion from 'components/accordion/Accordion.view';
 
 import { Container } from './Links.style';
@@ -65,9 +65,9 @@ class Links extends Component<Props, State> {
         <Title>{i18n.t('websites_social_links')}</Title>
         <Subtitle>{i18n.t('website_social_links_subtitle')}</Subtitle>
         {item}
-        <Button type="button" linkStyle onClick={this.addItem} primary>
+        <AddLinkLabel onClick={this.addItem}>
           {i18n.t('add_link')}
-        </Button>
+        </AddLinkLabel>
       </Container>
     );
   }

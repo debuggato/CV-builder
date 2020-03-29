@@ -6,7 +6,7 @@ import i18n from '../../../i18n';
 import { addCourse } from './duck/Courses.actions';
 
 import Title from 'components/Title.view';
-import Button from 'components/buttons/Button.view';
+import AddLinkLabel from 'components/AddLinkLabel.view';
 import Accordion from 'components/accordion/Accordion.view';
 
 import { Container } from './Courses.style';
@@ -60,9 +60,9 @@ class Courses extends PureComponent<Props, State> {
       <Container>
         <Title>{i18n.t('courses_title')}</Title>
         {item}
-        <Button type="button" linkStyle={true} onClick={this.addCourseItem} primary>
+        <AddLinkLabel onClick={this.addCourseItem}>
           {i18n.t('add_course')}
-        </Button>
+        </AddLinkLabel>
       </Container>
     );
   }
