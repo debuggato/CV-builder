@@ -23,14 +23,22 @@ interface DispatchProps {
 
 type Props = OwnProps & DispatchProps;
 
-const CoursesView: FC<Props> = ({ id, setDateFrom, setDateTo }: Props): ReactElement => {
+const CoursesView: FC<Props> = ({ id, setDateFrom, setDateTo, setCourse, setInstitution }: Props): ReactElement => {
   return (
     <ErrorBoundary>
       <Wrapper>
-        <Input type="text" label="Course" />
+        <Input
+          type="text"
+          label="Course"
+          onChange={e => setCourse(id, e.target.value)}
+        />
       </Wrapper>
       <Wrapper>
-        <Input type="text" label="Institution" />
+        <Input
+          type="text"
+          label="Institution"
+          onChange={e => setInstitution(id, e.target.value)}
+        />
       </Wrapper>
       <Wrapper>
         <RangePicker
