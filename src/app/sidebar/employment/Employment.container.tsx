@@ -73,7 +73,7 @@ class Employment extends Component<Props, State> {
           <Title>{i18n.t('employment_history')}</Title>
           <Subtitle>{i18n.t('employment_history_subtitle')}</Subtitle>
           {item}
-          <Button type="button" isLink={true} onClick={this.addEmploymentItem} color="primary">
+          <Button type="button" linkStyle onClick={this.addEmploymentItem} primary>
             {i18n.t('add_employment')}
           </Button>
         </div>

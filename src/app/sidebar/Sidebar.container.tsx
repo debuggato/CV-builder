@@ -75,14 +75,14 @@ class Sidebar extends Component<{}, State> {
         </SectionWrapper>
         <ActionBar>
           {currentStep !== 1 &&
-            <Button onClick={this.onPrev} type="button" color="secondary">
+            <Button onClick={this.onPrev} type="button" secondary>
               <FontAwesomeIcon icon={faArrowLeft} style={arrowPrev} />
               {i18n.t('prev')}
             </Button>
           }
 
           {currentStep !== sectionToShow &&
-            <Button onClick={this.onNext} type="button" color="primary">
+            <Button onClick={this.onNext} type="button" primary>
               {i18n.t('next')}
               <FontAwesomeIcon icon={faArrowRight} style={arrowNext} />
             </Button>

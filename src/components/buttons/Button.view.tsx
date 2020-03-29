@@ -4,9 +4,10 @@ import Btn from './Button.style';
 
 export interface Props {
   onClick: () => void;
-  color?: string;
+  primary?: boolean;
+  secondary?: boolean;
   type: 'submit' | 'button' | 'reset';
-  isLink?: boolean;
+  linkStyle?: boolean;
   disabled?: boolean;
   children?: ReactNode;
 }

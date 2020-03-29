@@ -65,7 +65,7 @@ class Links extends Component<Props, State> {
         <Title>{i18n.t('websites_social_links')}</Title>
         <Subtitle>{i18n.t('website_social_links_subtitle')}</Subtitle>
         {item}
-        <Button type="button" isLink={true} onClick={this.addItem} color="primary">
+        <Button type="button" linkStyle onClick={this.addItem} primary>
           {i18n.t('add_link')}
         </Button>
       </Container>

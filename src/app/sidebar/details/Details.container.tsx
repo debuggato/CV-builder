@@ -44,9 +44,9 @@ class Details extends Component<OwnProps, State> {
         <ButtonWrapper>
           <Button
             type="button"
-            isLink={true}
+            linkStyle={true}
             onClick={this.showAdditionalDetails}
-            color="primary"
+            primary
           >
             {i18n.t('edit_additional_details')}
 

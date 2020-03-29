@@ -60,7 +60,7 @@ class Courses extends PureComponent<Props, State> {
       <Container>
         <Title>{i18n.t('courses_title')}</Title>
         {item}
-        <Button type="button" isLink={true} onClick={this.addCourseItem} color="primary">
+        <Button type="button" linkStyle={true} onClick={this.addCourseItem} primary>
           {i18n.t('add_course')}
         </Button>
       </Container>

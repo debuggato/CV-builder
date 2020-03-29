@@ -70,7 +70,7 @@ class Education extends Component<Props, State> {
           <Title>{i18n.t('add_education')}</Title>
           <Subtitle>{i18n.t('education_subtitle')}</Subtitle>
           {item}
-          <Button type="button" isLink={true} onClick={this.addEducationItem} color="primary">
+          <Button type="button" linkStyle onClick={this.addEducationItem} primary>
             {i18n.t('add_education')}
           </Button>
         </Container>

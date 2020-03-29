@@ -1,6 +1,8 @@
 import React, { PureComponent, ReactNode } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 import i18n from '../../i18n';
@@ -26,6 +28,8 @@ type Props = StateProps & DispatchProps;
 
 class ResumeContainer extends PureComponent<Props, {}> {
 
+  renderPdf = () => { }
+
   render(): ReactNode {
     const { showModal, items, selectTemplate, templateSelected } = this.props;
 
@@ -40,14 +44,14 @@ class ResumeContainer extends PureComponent<Props, {}> {
           <ResumeView />
         }
         <ActionsWrapper>
-          <Button type="button" color="secondary" onClick={() => showModal(true)}>
-            {i18n.t('choose_template')}
+          <Button type="button" linkStyle onClick={() => showModal(true)}>
+            <FontAwesomeIcon icon={faThLarge} /> {i18n.t('choose_template')}
           </Button>
 
           {templateSelected &&
-            <Link to="/generate-pdf">
+            <Button type="button" primary onClick={this.renderPdf}>
               {i18n.t('generate_pdf')}
-            </Link>
+            </Button>
           }
         </ActionsWrapper>
         <Modal title={i18n.t('choose_template')} >

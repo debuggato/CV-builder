@@ -57,7 +57,7 @@ class Skills extends Component<Props, State> {
       <Container>
         <Title>{i18n.t('skills')}</Title>
         {item}
-        <Button type="button" isLink={true} onClick={this.addItem} color="primary">
+        <Button type="button" linkStyle onClick={this.addItem} primary>
           {i18n.t('add_skill')}
         </Button>
       </Container>
