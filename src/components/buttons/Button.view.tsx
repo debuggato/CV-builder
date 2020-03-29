@@ -3,7 +3,7 @@ import React, { FC, ReactNode, ReactElement } from 'react';
 import Btn from './Button.style';
 
 export interface Props {
-  onClick: () => void;
+  onClick?: () => void;
   primary?: boolean;
   secondary?: boolean;
   type: 'submit' | 'button' | 'reset';

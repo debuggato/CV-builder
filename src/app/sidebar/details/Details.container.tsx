@@ -41,15 +41,13 @@ class Details extends Component<OwnProps, State> {
       <Container>
         <Title>{i18n.t('personal_details')}</Title>
         <MainDetails />
-        <ButtonWrapper>
+        <ButtonWrapper onClick={this.showAdditionalDetails}>
           <Button
             type="button"
-            linkStyle={true}
-            onClick={this.showAdditionalDetails}
+            linkStyle
             primary
           >
             {i18n.t('edit_additional_details')}
-
           </Button>
           <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
         </ButtonWrapper>
