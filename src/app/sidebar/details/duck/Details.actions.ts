@@ -1,7 +1,7 @@
 import * as type from './Details.types';
 
 export const setJobTitle = (value: string) => ({
-  type: type.SET_JOB_TITLE,
+  type: type.SET_MAIN_JOB_TITLE,
   value,
 });
 

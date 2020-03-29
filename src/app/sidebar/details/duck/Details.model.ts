@@ -17,7 +17,7 @@ export type DetailsState = {
 };
 
 interface SetJobTitleAction {
-  type: typeof types.SET_JOB_TITLE;
+  type: typeof types.SET_MAIN_JOB_TITLE;
   value: string;
 }
 

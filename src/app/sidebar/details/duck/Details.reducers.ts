@@ -4,7 +4,7 @@ import { ActionType } from './Details.model';
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
-    case type.SET_JOB_TITLE:
+    case type.SET_MAIN_JOB_TITLE:
       return {
         ...state,
         jobTitle: action.value,
