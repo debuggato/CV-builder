@@ -19,7 +19,7 @@ export const setEmployerAction = (id: number, value: string) => ({
 });
 
 export const setCityAction = (id: number, value: string) => ({
-  type: type.SET_CITY,
+  type: type.SET_EMPLOYMENT_CITY,
   id,
   value,
 });
@@ -37,7 +37,7 @@ export const setDateToAction = (id: number, value: Date) => ({
 });
 
 export const setDescriptionAction = (id: number, value: string) => ({
-  type: type.SET_DESCRIPTION,
+  type: type.SET_EMPLOYMENT_DESCRIPTION,
   id,
   value,
 });

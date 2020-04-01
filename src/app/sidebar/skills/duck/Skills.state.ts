@@ -2,8 +2,8 @@ import { SkillsState } from './Skills.model';
 
 const initialState: SkillsState = [
   {
-    name: null,
-    level: null,
+    name: '',
+    level: '',
   },
 ];
 

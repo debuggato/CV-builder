@@ -15,9 +15,14 @@ interface DispatchProps {
   setLabel: (arg0: number, arg1: string) => void;
 }
 
-type Props = OwnProps & DispatchProps;
+interface StateProps {
+  items: any;
+}
 
-const LinksView: FC<Props> = ({ id, setLabel, setLink }: Props): ReactElement => {
+type Props = OwnProps & DispatchProps & StateProps;
+
+const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactElement => {
+  const { label, link } = items[id];
   return (
     <>
       <Wrapper>
@@ -25,6 +30,7 @@ const LinksView: FC<Props> = ({ id, setLabel, setLink }: Props): ReactElement =>
           type="text"
           label="Label"
           onChange={e => setLabel(id, e.target.value)}
+          value={label}
         />
       </Wrapper>
       <Wrapper>
@@ -32,10 +38,15 @@ const LinksView: FC<Props> = ({ id, setLabel, setLink }: Props): ReactElement =>
           type="text"
           label="Link"
           onChange={e => setLink(id, e.target.value)}
+          value={link}
         />
       </Wrapper>
     </>
   );
 };
 
-export default connect(null, mapDispatchToProps)(LinksView);
+const mapStateToProps = (state: any) => ({
+  items: state.links
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LinksView);

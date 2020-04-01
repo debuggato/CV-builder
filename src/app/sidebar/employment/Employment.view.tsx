@@ -21,7 +21,11 @@ interface DispatchProps {
   setDateTo: (arg0: number, arg1: Date) => void;
 }
 
-type Props = OwnProps & DispatchProps;
+interface StateProps {
+  items: any;
+}
+
+type Props = OwnProps & DispatchProps & StateProps;
 
 const EmploymentView: FC<Props> = (props: Props): ReactElement => {
   const {
@@ -34,6 +38,8 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
     setDateTo
   } = props;
 
+  const { jobTitle, employer, city, description } = props.items[id];
+
   return (
     <>
       <Wrapper>
@@ -41,6 +47,7 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
           type="text"
           label="Job Title"
           onChange={e => setJobTitle(id, e.target.value)}
+          value={jobTitle}
         />
       </Wrapper>
       <Wrapper>
@@ -48,6 +55,7 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
           type="text"
           label="Employer"
           onChange={e => setEmployer(id, e.target.value)}
+          value={employer}
         />
       </Wrapper>
       <Wrapper>
@@ -55,6 +63,7 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
           type="text"
           label="City"
           onChange={e => setCity(id, e.target.value)}
+          value={city}
         />
       </Wrapper>
       <RangePicker
@@ -67,7 +76,7 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
           type="textarea"
           label="Description"
           onChange={e => setDescription(id, e.target.value)}
-          text={''}
+          value={description}
         />
       </Wrapper>
     </>
@@ -95,4 +104,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(EmploymentView);
+const mapStateToProps = (state: any) => ({
+  items: state.employment
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmploymentView);

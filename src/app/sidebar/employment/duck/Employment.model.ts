@@ -2,12 +2,12 @@ import * as types from './Employment.types';
 
 export type EmploymentState = [
   {
-    jobTitle: string | null;
-    employer: string | null;
-    city: string | null;
+    jobTitle: string;
+    employer: string;
+    city: string;
     dateFrom: Date | string;
     dateTo: Date | string;
-    description: string | null;
+    description: string;
   },
 ];
 
@@ -30,13 +30,13 @@ interface SetEmployerAction {
 }
 
 interface SetCityAction {
-  type: typeof types.SET_CITY;
+  type: typeof types.SET_EMPLOYMENT_CITY;
   id: number;
   value: string;
 }
 
 interface SetDescriptionAction {
-  type: typeof types.SET_DESCRIPTION;
+  type: typeof types.SET_EMPLOYMENT_DESCRIPTION;
   id: number;
   value: string;
 }

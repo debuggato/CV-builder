@@ -20,7 +20,11 @@ interface DispatchProps {
   setDateTo: (arg0: number, arg1: Date) => void;
 };
 
-type Props = OwnProps & DispatchProps;
+interface StateProps {
+  items: any;
+}
+
+type Props = OwnProps & DispatchProps & StateProps;
 
 const EducationView: FC<Props> = (props: Props): ReactElement => {
   const {
@@ -30,8 +34,10 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
     setDescription,
     setDegree,
     setDateFrom,
-    setDateTo
+    setDateTo,
   } = props;
+
+  const { school, degree, city, description } = props.items[id];
 
   return (
     <>
@@ -40,6 +46,7 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
           type="text"
           label="School"
           onChange={e => setSchool(id, e.target.value)}
+          value={school}
         />
       </Wrapper>
       <Wrapper>
@@ -47,6 +54,7 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
           type="text"
           label="Degree"
           onChange={e => setDegree(id, e.target.value)}
+          value={degree}
         />
       </Wrapper>
       <Wrapper>
@@ -54,6 +62,7 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
           type="text"
           label="City"
           onChange={e => setCity(id, e.target.value)}
+          value={city}
         />
       </Wrapper>
       <RangePicker
@@ -66,6 +75,7 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
           type="textarea"
           label="Description"
           onChange={e => setDescription(id, e.target.value)}
+          value={description}
         />
       </Wrapper>
     </>
@@ -93,4 +103,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(EducationView);
+const mapStateToProps = (state: any) => ({
+  items: state.education
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EducationView);

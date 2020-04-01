@@ -25,7 +25,7 @@ export const setCity = (id: number, value: string) => ({
 });
 
 export const setDescription = (id: number, value: string) => ({
-  type: type.SET_DESCRIPTION,
+  type: type.SET_EDUCATION_DESCRIPTION,
   id,
   value,
 });

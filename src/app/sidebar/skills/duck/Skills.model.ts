@@ -2,8 +2,8 @@ import * as types from './Skills.types';
 
 export type SkillsState = [
   {
-    name: string | null;
-    level: string | null;
+    name: string;
+    level: string;
   },
 ];
 

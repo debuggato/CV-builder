@@ -33,7 +33,7 @@ const reducer = (state = initialState, action: ActionType) => {
           city: action.value,
         },
       };
-    case type.SET_DESCRIPTION:
+    case type.SET_EDUCATION_DESCRIPTION:
       return {
         ...state,
         [action.id]: {

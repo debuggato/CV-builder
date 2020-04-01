@@ -25,7 +25,7 @@ const reducer = (state = initialState, action: ActionType) => {
           employer: action.value,
         },
       };
-    case type.SET_CITY:
+    case type.SET_EMPLOYMENT_CITY:
       return {
         ...state,
         [action.id]: {
@@ -49,7 +49,7 @@ const reducer = (state = initialState, action: ActionType) => {
           dateTo: action.value,
         },
       };
-    case type.SET_DESCRIPTION:
+    case type.SET_EMPLOYMENT_DESCRIPTION:
       return {
         ...state,
         [action.id]: {

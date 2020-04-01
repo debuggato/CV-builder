@@ -21,9 +21,15 @@ interface DispatchProps {
   setDateTo: (arg0: number, arg1: Date) => void;
 }
 
-type Props = OwnProps & DispatchProps;
+interface StateProps {
+  items: any;
+}
 
-const CoursesView: FC<Props> = ({ id, setDateFrom, setDateTo, setCourse, setInstitution }: Props): ReactElement => {
+type Props = OwnProps & DispatchProps & StateProps;
+
+const CoursesView: FC<Props> = (props: Props): ReactElement => {
+  const { id, setDateFrom, setDateTo, setCourse, setInstitution } = props;
+  const { course, institution, } = props.items[id];
   return (
     <ErrorBoundary>
       <Wrapper>
@@ -31,6 +37,7 @@ const CoursesView: FC<Props> = ({ id, setDateFrom, setDateTo, setCourse, setInst
           type="text"
           label="Course"
           onChange={e => setCourse(id, e.target.value)}
+          value={course}
         />
       </Wrapper>
       <Wrapper>
@@ -38,6 +45,7 @@ const CoursesView: FC<Props> = ({ id, setDateFrom, setDateTo, setCourse, setInst
           type="text"
           label="Institution"
           onChange={e => setInstitution(id, e.target.value)}
+          value={institution}
         />
       </Wrapper>
       <Wrapper>
@@ -66,4 +74,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(CoursesView);
+const mapStateToProps = (state: any) => ({
+  items: state.courses
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesView);

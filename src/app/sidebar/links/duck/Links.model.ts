@@ -2,8 +2,8 @@ import { SET_LINK, SET_LABEL, ADD_LINK } from './Links.types';
 
 export type LinksState = [
   {
-    label: string | null;
-    link: string | null;
+    label: string;
+    link: string;
   },
 ];
 

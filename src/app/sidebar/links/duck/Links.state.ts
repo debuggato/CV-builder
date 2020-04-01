@@ -2,8 +2,8 @@ import { LinksState } from './Links.model';
 
 const initialState: LinksState = [
   {
-    label: null,
-    link: null,
+    label: '',
+    link: '',
   },
 ];
 

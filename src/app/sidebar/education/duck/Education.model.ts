@@ -2,10 +2,10 @@ import * as types from './Education.types';
 
 export type EducationState = [
   {
-    school: string | null;
-    degree: string | null;
-    city: string | null;
-    description: string | null;
+    school: string;
+    degree: string;
+    city: string;
+    description: string;
     dateFrom: string | Date;
     dateTo: string | Date;
   },
@@ -36,7 +36,7 @@ interface SetCityAction {
 }
 
 interface SetDescriptionAction {
-  type: typeof types.SET_DESCRIPTION;
+  type: typeof types.SET_EDUCATION_DESCRIPTION;
   id: number;
   value: string;
 }
