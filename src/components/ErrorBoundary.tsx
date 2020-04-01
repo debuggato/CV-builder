@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-class ErrorBoundary extends Component {
-  state = { hasError: false }
+interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<{}, State> {
+  readonly state = { hasError: false }
 
   componentDidCatch(error: any, errorInfo: any) {
     this.setState({
@@ -11,7 +15,9 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    if (this.state.hasError) return <h1>Something went wrong.</h1>;
+    const { hasError } = this.state;
+
+    if (hasError) return <h3>Something went wrong.</h3>;
 
     return this.props.children;
   }
