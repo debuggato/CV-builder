@@ -11,7 +11,7 @@ import Accordion from 'components/accordion/Accordion.view';
 import ErrorBoundary from 'components/ErrorBoundary';
 
 import { Container } from './Education.style';
-import EducationView from '../education/Education.view';
+import EducationView from './Education.view';
 import { addEducation } from './duck/Education.actions';
 
 interface OwnProps {

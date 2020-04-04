@@ -3,7 +3,7 @@ import { Editor, EditorState, RichUtils, convertToRaw } from "draft-js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faItalic, faBold, faUnderline } from '@fortawesome/free-solid-svg-icons';
 
-import Button from 'components/buttons/Button.view';
+import Button from '@components/buttons/Button.view';
 import { ActionsWrapper, EditorStyled } from './TextEditor.style';
 
 interface Props {

@@ -1,12 +1,8 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,19 +12,23 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
-    "jsx": "preserve",
+    "noEmit": false,
+    "jsx": "react",
+    "sourceMap": true,
     "isolatedModules": true,
-    "baseUrl": "./src",
-    "types": [
-      "react",
-      "node"
-    ]
+    "downlevelIteration": false,
+    "rootDir": "./",
+    "outDir": "./dist",
+    "baseUrl": "./src/client",
+    "watch": true,
+    "types": ["react", "node", "jest"],
+    "paths": {
+      "@components/*": ["components/*"],
+      "@styles/*": ["styles/*"],
+      "@app/*": ["app/*"],
+      "@genericState/*": ["genericState/*"]
+    },
+    "pretty": true
   },
-  "include": [
-    "src"
-  ],
-  "esclude": [
-    "node_modules"
-  ]
+  "esclude": ["node_modules", "public", "./src/server"]
 }

@@ -8,7 +8,7 @@ import AddLinkLabel from 'components/AddLinkLabel.view';
 import Accordion from 'components/accordion/Accordion.view';
 
 import { Container } from './Skills.style';
-import SkillsView from '../skills/Skills.view';
+import SkillsView from './Skills.view';
 
 import mapDispatchToProps from './duck/Skills.dispatch';
 

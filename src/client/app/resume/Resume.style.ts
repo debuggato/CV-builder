@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import colors from '../../styles/color.style';
+import colors from '@styles/color.style';
 
 export const Container = styled.section`
   display: flex;

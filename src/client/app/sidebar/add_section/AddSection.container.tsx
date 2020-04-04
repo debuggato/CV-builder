@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 
 import i18n from '../../../i18n';
 
-import Title from '../../../components/Title.view';
+import Title from '@components/Title.view';
 import Courses from '../courses/Courses.container';
 
 import { Container, Body, Wrapper } from './AddSection.style';

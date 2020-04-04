@@ -13,7 +13,7 @@ import Education from './education/Education.container';
 import Employment from './employment/Employment.container';
 import Skills from './skills/Skills.container';
 import Links from './links/Links.container';
-import Header from '../sidebar/header/Header.container';
+import Header from './header/Header.container';
 import AddSection from './add_section/AddSection.container';
 
 interface State {
