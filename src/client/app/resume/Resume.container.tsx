@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 import i18n from '../../i18n';
 import { showModalAction, selectTemplateAction } from '../../genericState/Generic.actions';
@@ -27,7 +28,12 @@ type Props = StateProps & DispatchProps;
 
 class ResumeContainer extends PureComponent<Props, {}> {
 
-  renderPdf = () => { }
+  renderPdf = () => {
+    axios.get('http://localhost:4000').then(resp => {
+
+      console.log(resp);
+    });
+  }
 
   render(): ReactNode {
     const { showModal, items, selectTemplate, templateSelected } = this.props;

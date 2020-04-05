@@ -7,12 +7,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --mode development --open --hot",
+    "server": "nodemon src/server/index.js",
     "build": "webpack --mode production"
   },
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@types/axios": "^0.14.0",
     "@types/draft-js": "^0.10.35",
     "@types/i18next": "^13.0.0",
     "@types/jest": "^25.1.5",
@@ -35,7 +38,6 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.9.4",
@@ -43,15 +45,19 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.4.2",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",
+    "nodemon": "^2.0.2",
     "source-map-loader": "^0.2.4",
+    "source-map-support": "^0.5.16",
     "style-loader": "^1.1.3",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-node-externals": "^1.7.2"
   }
 }

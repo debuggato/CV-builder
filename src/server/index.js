@@ -1,21 +1,15 @@
-import Express from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+const express = require('express');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const path = require('path');
 
-const app = Express();
+const app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 
-// To call client.js. Something just like environment variables.
-app.use(Express.static('public')); // Wait for request to index page.
 app.get('/', (req, res) => {
-  res.send(
-    ReactDOMServer.renderToString(
-      <div>
-        <div id="app" /> // Main.jsx is rendered in here.
-        <script src="client.js" />
-      </div>,
-    ),
-  );
-}); // Launch server
-app.listen(3000, () => {
-  console.log('listening on port 3000!');
+  res.send('HEllo');
+});
+
+app.listen(4000, () => {
+  console.log('listening on port 4000!');
 });
