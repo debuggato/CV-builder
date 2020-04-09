@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import * as action from './duck/Courses.actions';
-import Input from 'components/input/Input.view';
-import RangePicker from 'components/datepicker/RangePicker.view';
-import ErrorBoundary from 'components/ErrorBoundary';
+import Input from '@components/input/Input.view';
+import RangePicker from '@components/datepicker/RangePicker.view';
+import ErrorBoundary from '@components/ErrorBoundary';
 
-import { Wrapper } from 'components/accordion/Accordion.style';
+import { Wrapper } from '@components/accordion/Accordion.style';
 import { setDateFrom, setDateTo } from '../education/duck/Education.actions';
 
 interface OwnProps {

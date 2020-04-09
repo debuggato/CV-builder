@@ -4,8 +4,8 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 import i18n from '../../../i18n';
 
-import Button from 'components/buttons/Button.view';
-import Title from 'components/Title.view';
+import Button from '@components/buttons/Button.view';
+import Title from '@components/Title.view';
 
 import AdditionalDetails from './AdditionalDetails.view';
 import MainDetails from './MainDetails.view';

@@ -5,7 +5,7 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import i18n from '../../i18n';
 
-import Button from 'components/buttons/Button.view';
+import Button from '@components/buttons/Button.view';
 import { Container, ActionBar, SectionWrapper } from './Sidebar.style';
 import Details from './details/Details.container';
 import ProfessionalSummary from './summary/Summary.container';

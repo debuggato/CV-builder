@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import i18n from '../../../i18n';
 
-import Title from 'components/Title.view';
-import Subtitle from 'components/Subtitle.view';
-import AddLinkLabel from 'components/AddLinkLabel.view';
-import Accordion from 'components/accordion/Accordion.view';
+import Title from '@components/Title.view';
+import Subtitle from '@components/Subtitle.view';
+import AddLinkLabel from '@components/AddLinkLabel.view';
+import Accordion from '@components/accordion/Accordion.view';
 
 import { Container } from './Links.style';
 import LinksView from './Links.view';

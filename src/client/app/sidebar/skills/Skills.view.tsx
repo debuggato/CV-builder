@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 
-import Input from 'components/input/Input.view';
+import Input from '@components/input/Input.view';
 import { Wrapper } from './Skills.style';
 import mapDispatchToProps from './duck/Skills.dispatch';
 

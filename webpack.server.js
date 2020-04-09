@@ -1,41 +1,24 @@
 const path = require('path');
-const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-const server = {
+module.exports = {
   entry: path.resolve(__dirname, './src/server/index.js'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: '[name].js',
+  },
   target: 'node',
-  externals: [nodeExternals()],
   devtool: 'source-map',
+  devServer: {
+    port: '5000',
+  },
   node: {
     __dirname: false,
     __filename: false,
   },
-  devServer: {
-    port: 5000,
+  resolve: {
+    extensions: ['.js', '.tsx', '.ts'],
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-es2015'],
-            plugins: ['transform-class-properties'],
-          },
-        },
-      },
-    ],
-  },
-  plugins: [
-    new webpack.BannerPlugin({
-      banner: 'require("source-map-support").install();',
-      raw: true,
-      entryOnly: false,
-    }),
-  ],
+  externals: [nodeExternals()], // Need this to avoid error when working with Express
 };
-
-module.exports = server;

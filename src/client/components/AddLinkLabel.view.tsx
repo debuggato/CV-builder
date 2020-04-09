@@ -2,7 +2,7 @@ import React, { ReactElement, FC, ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import Button from 'components/buttons/Button.view';
+import Button from '@components/buttons/Button.view';
 
 interface Props {
   onClick: () => void;

@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 
-import Photo from 'components/photo/Photo.view';
-import Input from 'components/input/Input.view';
+import Photo from '@components/photo/Photo.view';
+import Input from '@components/input/Input.view';
 
 import { Wrapper } from './Details.style';
 import mapDispatchToProps from './duck/Details.dispatch';

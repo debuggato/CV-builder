@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
 import styled from 'styled-components';
 
-import colors from 'styles/color.style';
+import colors from '@styles/color.style';
 
 interface Props {
   children: ReactNode;

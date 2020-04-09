@@ -6,8 +6,8 @@ import * as action from './duck/Summary.actions';
 import i18n from '../../../i18n';
 
 import { Container } from './Summary.style';
-import TextEditor from 'components/text_editor/TextEditor.container';
-import Title from 'components/Title.view';
+import TextEditor from '@components/text_editor/TextEditor.container';
+import Title from '@components/Title.view';
 
 interface OwnProps {
   currentStep: number;

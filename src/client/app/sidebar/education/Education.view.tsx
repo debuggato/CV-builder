@@ -2,9 +2,9 @@ import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import Input from 'components/input/Input.view';
-import RangePicker from 'components/datepicker/RangePicker.view';
-import { Wrapper } from 'components/accordion/Accordion.style';
+import Input from '@components/input/Input.view';
+import RangePicker from '@components/datepicker/RangePicker.view';
+import { Wrapper } from '@components/accordion/Accordion.style';
 import * as action from './duck/Education.actions';
 
 interface OwnProps {

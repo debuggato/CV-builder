@@ -5,11 +5,11 @@ import { Dispatch } from 'redux';
 import i18n from '../../../i18n';
 import { addEmploymentAction } from './duck/Employment.actions';
 
-import Title from 'components/Title.view';
-import Subtitle from 'components/Subtitle.view';
-import AddLinkLabel from 'components/AddLinkLabel.view';
-import Accordion from 'components/accordion/Accordion.view';
-import ErrorBoundary from 'components/ErrorBoundary';
+import Title from '@components/Title.view';
+import Subtitle from '@components/Subtitle.view';
+import AddLinkLabel from '@components/AddLinkLabel.view';
+import Accordion from '@components/accordion/Accordion.view';
+import ErrorBoundary from '@components/ErrorBoundary';
 
 import EmploymentView from './Employment.view';
 

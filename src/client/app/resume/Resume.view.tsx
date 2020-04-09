@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
 import { connect } from 'react-redux';
 
-import DaVinci from '../templates/davinci/DaVinci.view';
+import DaVinci from '../../../server/davinci/DaVinci.view';
 import Michelangelo from '../templates/michelangelo/Michelangelo.view';
 import Raffaello from '../templates/raffaello/Raffaello.view';
 import Donatello from '../templates/donatello/Donatello.view';

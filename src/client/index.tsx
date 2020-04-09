@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { logger } from 'redux-logger';
 
-import store from './store';
+import reducer from './store';
 import App from './App';
 import './i18n';
 
-ReactDOM.render(
+const store = createStore(reducer, applyMiddleware(logger));
+
+ReactDOM.hydrate(
   <Provider store={store}>
     <App />
   </Provider>,

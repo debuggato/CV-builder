@@ -1,12 +1,12 @@
-import React, { PureComponent, ReactNode } from 'react';
+import React, { PureComponent, ReactNode, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { changeLangAction, updateDocumentTitleAction } from '../../../genericState/Generic.actions';
+import { changeLangAction, updateDocumentTitleAction } from '@genericState/Generic.actions';
 import i18n from '../../../i18n';
 
 import { InputTitle, Wrapper } from './Header.style';
-import Select from 'components/select/Select.view';
+import Select from '@components/select/Select.view';
 
 interface DispatchProps {
   changeLang: (arg0: string) => void;
@@ -35,7 +35,7 @@ class Header extends PureComponent<DispatchProps, State> {
       <Wrapper>
         <InputTitle
           type="text"
-          onChange={e => updateDocumentTitle(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => updateDocumentTitle(e.target.value)}
           placeholder="Untitled"
         />
         <Select list={langs} onChange={e => i18n.changeLanguage(e.target.value)} />

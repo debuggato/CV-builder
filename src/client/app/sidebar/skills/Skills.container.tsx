@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import i18n from '../../../i18n';
 
-import Title from 'components/Title.view';
-import AddLinkLabel from 'components/AddLinkLabel.view';
-import Accordion from 'components/accordion/Accordion.view';
+import Title from '@components/Title.view';
+import AddLinkLabel from '@components/AddLinkLabel.view';
+import Accordion from '@components/accordion/Accordion.view';
 
 import { Container } from './Skills.style';
 import SkillsView from './Skills.view';

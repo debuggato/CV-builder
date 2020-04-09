@@ -6,11 +6,11 @@ import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import i18n from '../../i18n';
-import { showModalAction, selectTemplateAction } from '../../genericState/Generic.actions';
+import { showModalAction, selectTemplateAction } from '@genericState/Generic.actions';
 
-import Button from 'components/buttons/Button.view';
-import Modal from 'components/modal/Modal.view';
-import TemplateMiniature from 'components/TemplateMiniature';
+import Button from '@components/buttons/Button.view';
+import Modal from '@components/modal/Modal.view';
+import TemplateMiniature from '@components/TemplateMiniature';
 import { Container, ActionsWrapper } from './Resume.style';
 import ResumeView from './Resume.view';
 
@@ -29,7 +29,7 @@ type Props = StateProps & DispatchProps;
 class ResumeContainer extends PureComponent<Props, {}> {
 
   renderPdf = () => {
-    axios.get('http://localhost:4000').then(resp => {
+    axios.get('http://localhost:5000/render').then(resp => {
 
       console.log(resp);
     });

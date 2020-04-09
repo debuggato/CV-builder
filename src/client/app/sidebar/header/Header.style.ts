@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Input from 'components/input/Input.view';
+import Input from '@components/input/Input.view';
 
 
 export const Wrapper = styled.div`

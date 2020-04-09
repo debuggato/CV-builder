@@ -4,11 +4,11 @@ import { Dispatch } from 'redux';
 
 import i18n from '../../../i18n';
 
-import AddLinkLabel from 'components/AddLinkLabel.view';
-import Title from 'components/Title.view';
-import Subtitle from 'components/Subtitle.view';
-import Accordion from 'components/accordion/Accordion.view';
-import ErrorBoundary from 'components/ErrorBoundary';
+import AddLinkLabel from '@components/AddLinkLabel.view';
+import Title from '@components/Title.view';
+import Subtitle from '@components/Subtitle.view';
+import Accordion from '@components/accordion/Accordion.view';
+import ErrorBoundary from '@components/ErrorBoundary';
 
 import { Container } from './Education.style';
 import EducationView from './Education.view';

@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 
 import details from './app/sidebar/details/duck/Details.reducers';
 import summary from './app/sidebar/summary/duck/Summary.reducers';
@@ -20,9 +20,4 @@ const rootReducer = combineReducers({
   generic,
 });
 
-const store = createStore(
-  rootReducer,
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-);
-
-export default store;
+export default rootReducer;
