@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
 import details from './app/sidebar/details/duck/Details.reducers';
 import summary from './app/sidebar/summary/duck/Summary.reducers';

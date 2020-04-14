@@ -11,12 +11,30 @@ import { showModalAction, selectTemplateAction } from '@genericState/Generic.act
 import Button from '@components/buttons/Button.view';
 import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
-import { Container, ActionsWrapper } from './Resume.style';
-import ResumeView from './Resume.view';
+import { Container, ActionsWrapper, Page } from './Resume.style';
+import DaVinci from '../../../server/davinci/DaVinci.view';
+import Michelangelo from '../templates/michelangelo/Michelangelo.view';
+import Raffaello from '../templates/raffaello/Raffaello.view';
+import Donatello from '../templates/donatello/Donatello.view';
+import Caravaggio from '../templates/caravaggio/Caravaggio.view';
 
 interface StateProps {
   items: any;
   templateSelected: string | null;
+  jobTitle: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: number;
+  city: string;
+  country: string;
+  postalCode: number;
+  address: string;
+  drivingLicense: string;
+  nationality: string;
+  placeOfBirth: string;
+  dateOfBirth: Date;
+  summary: string;
 }
 
 interface DispatchProps {
@@ -29,8 +47,9 @@ type Props = StateProps & DispatchProps;
 class ResumeContainer extends PureComponent<Props, {}> {
 
   renderPdf = () => {
-    axios.get('http://localhost:5000/render').then(resp => {
-
+    axios.post('http://localhost:5000/render', null, {
+      data: this.props
+    }).then(resp => {
       console.log(resp);
     });
   }
@@ -42,11 +61,26 @@ class ResumeContainer extends PureComponent<Props, {}> {
       return <TemplateMiniature key={el[0]} id={el[0]} onClick={e => selectTemplate(e.currentTarget.id)}>{el[1]}</TemplateMiniature>
     });
 
+    const getTemplate = (): ReactNode => {
+      switch (templateSelected) {
+        case '0':
+          return <DaVinci {...this.props} />
+        case '1':
+          return <Michelangelo />
+        case '2':
+          return <Donatello />
+        case '3':
+          return <Raffaello />
+        case '4':
+          return <Caravaggio />
+      }
+    }
+
     return (
       <Container>
         {
           templateSelected &&
-          <ResumeView />
+          <Page>{getTemplate()}</Page>
         }
         <ActionsWrapper>
           <Button type="button" linkStyle onClick={() => showModal(true)}>
@@ -80,9 +114,41 @@ const mapStateToProps = (state: any) => {
   const templatesObject = Object.entries(state.generic.templatesAvailable);
   const templateSelected = state.generic.templateSelected;
 
+  const {
+    jobTitle,
+    firstName,
+    lastName,
+    email,
+    phone,
+    city,
+    country,
+    postalCode,
+    address,
+    drivingLicense,
+    nationality,
+    placeOfBirth,
+    dateOfBirth,
+  } = state.details;
+
+  const { summary } = state.summary;
+
   return {
     items: templatesObject,
-    templateSelected
+    templateSelected,
+    jobTitle,
+    firstName,
+    lastName,
+    email,
+    phone,
+    city,
+    country,
+    postalCode,
+    address,
+    drivingLicense,
+    nationality,
+    placeOfBirth,
+    dateOfBirth,
+    summary,
   }
 }
 

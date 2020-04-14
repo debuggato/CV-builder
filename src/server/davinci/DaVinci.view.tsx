@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from 'react';
-import { connect } from 'react-redux';
 
 import i18n from '../../client/i18n';
 
@@ -56,7 +55,6 @@ const DaVinci: FC<Props> = ({ address, postalCode, city, country, phone, firstNa
 
   return (
     <Container>
-      DA VINCI
       <Header border={jobTitle}>
         {getFullName() && <FullName>{getFullName()}</FullName>}
         {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
@@ -89,41 +87,4 @@ const DaVinci: FC<Props> = ({ address, postalCode, city, country, phone, firstNa
   );
 };
 
-const mapStateToProps = (state: any) => {
-  const {
-    jobTitle,
-    firstName,
-    lastName,
-    email,
-    phone,
-    city,
-    country,
-    postalCode,
-    address,
-    drivingLicense,
-    nationality,
-    placeOfBirth,
-    dateOfBirth,
-  } = state.details;
-
-  const { summary } = state.summary;
-
-  return {
-    jobTitle,
-    firstName,
-    lastName,
-    email,
-    phone,
-    city,
-    country,
-    postalCode,
-    address,
-    drivingLicense,
-    nationality,
-    placeOfBirth,
-    dateOfBirth,
-    summary,
-  };
-};
-
-export default connect(mapStateToProps)(DaVinci);
+export default DaVinci;
