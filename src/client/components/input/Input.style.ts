@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import colors from '../../styles/color.style';
+import colors from '@styles/color.style';
 
 const InputStyled = styled.input`
   display: block;

@@ -1,7 +1,6 @@
 import React, { ReactNode, PureComponent } from 'react';
-import { connect } from 'react-redux';
 
-import i18n from '../../../i18n';
+import i18n from '../../../client/i18n';
 
 import {
   Container,
@@ -15,7 +14,7 @@ import {
   Description,
   Header,
   Title,
-} from './Raffaello.style';
+} from './Caravaggio.style';
 
 interface OwnProps { }
 
@@ -38,7 +37,7 @@ interface StateProps {
 
 type Props = OwnProps & StateProps;
 
-class Raffaello extends PureComponent<Props, {}> {
+class Caravaggio extends PureComponent<Props, {}> {
   render(): ReactNode {
     const { address, postalCode, city, country, phone, firstName, lastName, jobTitle, summary, email } = this.props;
 
@@ -58,7 +57,6 @@ class Raffaello extends PureComponent<Props, {}> {
 
     return (
       <Container>
-        RAFFAELLO
         <Header border={jobTitle}>
           {getFullName() && <FullName>{getFullName()}</FullName>}
           {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
@@ -92,41 +90,4 @@ class Raffaello extends PureComponent<Props, {}> {
   }
 };
 
-const mapStateToProps = (state: any) => {
-  const {
-    jobTitle,
-    firstName,
-    lastName,
-    email,
-    phone,
-    city,
-    country,
-    postalCode,
-    address,
-    drivingLicense,
-    nationality,
-    placeOfBirth,
-    dateOfBirth,
-  } = state.details;
-
-  const { summary } = state.summary;
-
-  return {
-    jobTitle,
-    firstName,
-    lastName,
-    email,
-    phone,
-    city,
-    country,
-    postalCode,
-    address,
-    drivingLicense,
-    nationality,
-    placeOfBirth,
-    dateOfBirth,
-    summary,
-  };
-};
-
-export default connect(mapStateToProps)(Raffaello);
+export default Caravaggio;

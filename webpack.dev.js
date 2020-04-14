@@ -3,10 +3,10 @@ const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: {
     entry: path.resolve(__dirname, './src/client/index.tsx'),
   },
-  mode: 'development',
   devtool: 'source-map',
   devServer: {
     port: '3000',

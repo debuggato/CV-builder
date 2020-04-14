@@ -8,10 +8,6 @@ export interface LangState {
   lang: string;
 }
 
-export interface PreviewPdfState {
-  previewPdf: boolean;
-}
-
 export interface UpdateDocumentTitleState {
   documentTitle: string;
 }
@@ -23,10 +19,11 @@ export interface TemplateState {
 export interface GenericState {
   showModal: boolean;
   lang: string;
-  previewPdf: boolean;
   documentTitle: string;
-  templateSelected: number | null;
-  templatesAvailable: Object;
+  template: {
+    selected: number | null;
+    available: Object;
+  }
 }
 
 export interface ShowModalAction {
@@ -37,11 +34,6 @@ export interface ShowModalAction {
 export interface ChangeLangAction {
   type: typeof types.CHANGE_LANGUAGE;
   value: string;
-}
-
-export interface PreviewPdfAction {
-  type: typeof types.PREVIEW_PDF;
-  value: boolean;
 }
 
 export interface UpdateDocumentTitleAction {
@@ -56,6 +48,5 @@ export interface TemplateAction {
 
 export type ActionType = ShowModalAction &
   ChangeLangAction &
-  PreviewPdfAction &
   UpdateDocumentTitleAction &
   TemplateAction;

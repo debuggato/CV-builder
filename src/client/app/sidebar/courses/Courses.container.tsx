@@ -2,7 +2,7 @@ import React, { ReactNode, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import i18n from '../../../i18n';
+import i18n from '@client/i18n';
 import { addCourse } from './duck/Courses.actions';
 
 import Title from '@components/Title.view';

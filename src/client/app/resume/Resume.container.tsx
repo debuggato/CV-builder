@@ -5,18 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-import i18n from '../../i18n';
+import i18n from '@client/i18n';
 import { showModalAction, selectTemplateAction } from '@genericState/Generic.actions';
+import { RENDER_PDF_URL } from '../../../utils/endpoints';
 
 import Button from '@components/buttons/Button.view';
 import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
-import { Container, ActionsWrapper, Page } from './Resume.style';
-import DaVinci from '../../../server/davinci/DaVinci.view';
-import Michelangelo from '../templates/michelangelo/Michelangelo.view';
-import Raffaello from '../templates/raffaello/Raffaello.view';
-import Donatello from '../templates/donatello/Donatello.view';
-import Caravaggio from '../templates/caravaggio/Caravaggio.view';
+import { Container, ActionsWrapper, Page, Title } from './Resume.style';
+import DaVinci from '@server/templates/davinci/DaVinci.view';
+import Michelangelo from '@server/templates/michelangelo/Michelangelo.view';
+import Raffaello from '@server/templates/raffaello/Raffaello.view';
+import Donatello from '@server/templates/donatello/Donatello.view';
+import Caravaggio from '@server/templates/caravaggio/Caravaggio.view';
 
 interface StateProps {
   items: any;
@@ -47,7 +48,7 @@ type Props = StateProps & DispatchProps;
 class ResumeContainer extends PureComponent<Props, {}> {
 
   renderPdf = () => {
-    axios.post('http://localhost:5000/render', null, {
+    axios.post(RENDER_PDF_URL, null, {
       data: this.props
     }).then(resp => {
       console.log(resp);
@@ -66,18 +67,23 @@ class ResumeContainer extends PureComponent<Props, {}> {
         case '0':
           return <DaVinci {...this.props} />
         case '1':
-          return <Michelangelo />
+          return <Michelangelo {...this.props} />
         case '2':
-          return <Donatello />
+          return <Donatello {...this.props} />
         case '3':
-          return <Raffaello />
+          return <Raffaello {...this.props} />
         case '4':
-          return <Caravaggio />
+          return <Caravaggio {...this.props} />
       }
+    }
+
+    const getTemplateTitle = (): string => {
+      return templateSelected !== null ? items[templateSelected][1] : '';
     }
 
     return (
       <Container>
+        <Title>{getTemplateTitle()}</Title>
         {
           templateSelected &&
           <Page>{getTemplate()}</Page>
@@ -96,7 +102,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
         <Modal title={i18n.t('choose_template')} >
           {item}
         </Modal>
-      </Container>
+      </Container >
     );
   }
 }
@@ -111,8 +117,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 const mapStateToProps = (state: any) => {
-  const templatesObject = Object.entries(state.generic.templatesAvailable);
-  const templateSelected = state.generic.templateSelected;
+  const templatesObject = Object.entries(state.generic.template.available);
+  const templateSelected = state.generic.template.selected;
 
   const {
     jobTitle,

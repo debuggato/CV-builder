@@ -11,11 +11,6 @@ export const changeLangAction = (value: string): model.ChangeLangAction => ({
   value,
 });
 
-export const previewPdfAction = (value: boolean): model.PreviewPdfAction => ({
-  type: type.PREVIEW_PDF,
-  value,
-});
-
 export const updateDocumentTitleAction = (value: string): model.UpdateDocumentTitleAction => ({
   type: type.UPDATE_DOCUMENT_TITLE,
   value,

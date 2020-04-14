@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 import Input from '../input/Input.view';
-import i18n from '../../i18n';
+import i18n from '@client/i18n';
 
 import { Container, Wrapper, IconContainer, UploadLabel } from './Photo.style';
 

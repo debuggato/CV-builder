@@ -29,3 +29,7 @@ export const ActionsWrapper = styled.div`
   margin-top: 30px;
   width: 100%;
 `;
+
+export const Title = styled.h3`
+  
+`;

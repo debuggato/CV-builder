@@ -2,7 +2,7 @@ import React, { FC, useState, ReactNode, ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '../../i18n';
+import i18n from '@client/i18n';
 
 import { Container, Header, Title, Dates } from './Accordion.style';
 

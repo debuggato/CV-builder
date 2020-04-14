@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 
-import i18n from '../../client/i18n';
+import i18n from '../../../client/i18n';
 
 import {
   Container,

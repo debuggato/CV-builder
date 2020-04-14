@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 
-import i18n from '../../i18n';
+import i18n from '@client/i18n';
 
 import Props from './Loader.model';
 import { Container } from './Loader.style';

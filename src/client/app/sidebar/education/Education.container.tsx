@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import i18n from '../../../i18n';
+import i18n from '@client/i18n';
 
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Title from '@components/Title.view';

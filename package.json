@@ -1,14 +1,15 @@
 {
   "name": "CV-builder",
-  "version": "1.0.0",
+  "version": "0.5.0",
   "main": "",
   "repository": "https://github.com/ivanlori/CV-builder.git",
   "author": "Ivan Lori <ivan.lori@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --config webpack.dev.js --hot --open",
-    "prod": "rm -rf dist && webpack --mode production --config webpack.server.js && webpack --mode production --config webpack.prod.js",
-    "server": "nodemon"
+    "client": "webpack-dev-server --mode development --config webpack.dev.js --hot --open",
+    "server": "nodemon",
+    "dev": "pkill node && yarn client & yarn server",
+    "prod": "rm -rf dist && webpack --mode production --config webpack.server.js && webpack --mode production --config webpack.prod.js"
   },
   "proxy": "http://localhost:5000",
   "dependencies": {
@@ -29,6 +30,7 @@
     "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.7",
     "@types/styled-components": "^5.0.1",
+    "cors": "^2.8.5",
     "draft-js": "^0.11.5",
     "express": "^4.17.1",
     "puppeteer": "^2.1.1",
@@ -36,7 +38,6 @@
     "react-datepicker": "^2.14.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
-    "redux-logger": "^3.0.6",
     "styled-components": "^5.0.1",
     "styled-normalize": "^8.0.7"
   },

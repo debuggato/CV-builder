@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '../../../i18n';
+import i18n from '@client/i18n';
 
 import Button from '@components/buttons/Button.view';
 import Title from '@components/Title.view';

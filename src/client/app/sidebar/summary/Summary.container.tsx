@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import * as action from './duck/Summary.actions';
-import i18n from '../../../i18n';
+import i18n from '@client/i18n';
 
 import { Container } from './Summary.style';
 import TextEditor from '@components/text_editor/TextEditor.container';

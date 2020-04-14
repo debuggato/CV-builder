@@ -7,22 +7,14 @@ import Sidebar from '@app/sidebar/Sidebar.container';
 import { GlobalStyle } from './styles/global.style';
 import { Main } from './App.style';
 
-interface StateProps {
-  isPreview: boolean;
-}
-
-class App extends PureComponent<StateProps, {}> {
+class App extends PureComponent {
   render(): ReactNode {
-    const { isPreview } = this.props;
-
     return (
       <>
         <Normalize />
         <GlobalStyle />
         <Main>
-          {!isPreview &&
-            <Sidebar />
-          }
+          <Sidebar />
           <Resume />
         </Main>
       </>
@@ -30,8 +22,4 @@ class App extends PureComponent<StateProps, {}> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
-  isPreview: state.generic.previewPdf
-});
-
-export default connect(mapStateToProps)(App);
+export default App;

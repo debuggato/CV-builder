@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 
-import i18n from '../../../i18n';
+import i18n from '@client/i18n';
 
 import Title from '@components/Title.view';
 import Courses from '../courses/Courses.container';

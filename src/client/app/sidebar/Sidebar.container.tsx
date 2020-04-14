@@ -3,7 +3,7 @@ import { CSSProperties } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '../../i18n';
+import i18n from '@client/i18n';
 
 import Button from '@components/buttons/Button.view';
 import { Container, ActionBar, SectionWrapper } from './Sidebar.style';

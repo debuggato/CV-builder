@@ -1,29 +1,46 @@
 import puppeteer from 'puppeteer';
 import express from 'express';
+import bodyParser from 'body-parser';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import DaVinci from './davinci/DaVinci.view';
-import bodyParser from 'body-parser';
+import cors from 'cors';
+
+import { SERVER_PORT } from '../utils/endpoints';
+import DaVinci from './templates/davinci/DaVinci.view';
+import Caravaggio from './templates/caravaggio/Caravaggio.view';
+import Donatello from './templates/donatello/Donatello.view';
+import Michelangelo from './templates/michelangelo/Michelangelo.view';
+import Raffaello from './templates/raffaello/Raffaello.view';
 
 const app = express();
 const sheet = new ServerStyleSheet();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
-// Add headers
-app.use(function (req, res, next) {
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+function getTemplate(selected, props) {
+  switch (selected) {
+    case '0':
+      return <DaVinci {...props} />;
+    case '1':
+      return <Michelangelo {...props} />;
+    case '2':
+      return <Donatello {...props} />;
+    case '3':
+      return <Raffaello {...props} />;
+    case '4':
+      return <Caravaggio {...props} />;
+  }
+}
 
 app.post('/render', async (req, res, next) => {
+  const data = req.body;
+
   const component = renderToString(
     <StyleSheetManager sheet={sheet.instance}>
-      <DaVinci {...req.body} />
+      {getTemplate(data.templateSelected, data)}
     </StyleSheetManager>,
   );
 
@@ -56,6 +73,6 @@ app.post('/render', async (req, res, next) => {
   return pdf;
 });
 
-app.listen(5000, function () {
-  console.log('listening on port 5000!');
+app.listen(SERVER_PORT, function () {
+  console.log(`listening on port ${SERVER_PORT}`);
 });

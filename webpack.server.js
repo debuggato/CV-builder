@@ -8,6 +8,26 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: 'awesome-typescript-loader',
+        options: {
+          presets: ['@babel/preset-typescript', '@babel/preset-react'],
+        },
+      },
+      {
+        test: /\.js?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-typescript', '@babel/preset-react'],
+        },
+      },
+    ],
+  },
   target: 'node',
   devtool: 'source-map',
   devServer: {

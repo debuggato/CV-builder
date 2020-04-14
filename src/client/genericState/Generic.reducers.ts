@@ -14,11 +14,6 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         lang: action.value,
       };
-    case type.PREVIEW_PDF:
-      return {
-        ...state,
-        previewPdf: action.value,
-      };
     case type.UPDATE_DOCUMENT_TITLE:
       return {
         ...state,
@@ -27,7 +22,10 @@ const reducer = (state = initialState, action: ActionType) => {
     case type.CHOOSE_TEMPLATE:
       return {
         ...state,
-        templateSelected: action.value,
+        template: {
+          ...state.template,
+          selected: action.value
+        },
       };
     default:
       return state;
