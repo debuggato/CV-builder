@@ -9,15 +9,17 @@ interface Props {
 export const Container = styled.div`
   display: grid;
   grid-template:
-    'header header'
-    'aside main';
+    'header header header header'
+    'aside main main main';
 `;
 
 export const Email = styled.div``;
 
 export const Header = styled.header<Props>`
-  border-bottom: ${({ border }) => (border ? `1px solid ${colors.black}` : 'none')};
+  border-bottom: ${({ border }) => (border ? `5px solid #f1f1f1` : 'none')};
   grid-area: header;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Address = styled.div`
@@ -26,10 +28,11 @@ export const Address = styled.div`
 
 export const Phone = styled.div``;
 
-export const Description = styled.p``;
+export const WhoIam = styled.div``;
 
-export const Title = styled.h4`
-  border-bottom: 1px solid ${colors.black};
+export const ContactDetails = styled.div`
+  max-width: 225px;
+  text-align: right;
 `;
 
 export const Main = styled.main`
@@ -40,16 +43,17 @@ export const Main = styled.main`
 export const Sidebar = styled.aside`
   grid-area: aside;
   padding: 5px;
+  background: #f1f1f1;
+  min-height: 465px;
+  max-width: 180px;
 `;
 
 export const FullName = styled.h1`
-  margin-left: 10px;
   text-transform: capitalize;
-  margin-bottom: 0;
+  margin: 0;
 `;
 
 export const JobTitle = styled.h3`
-  margin-left: 10px;
   text-transform: capitalize;
   font-size: 15px;
   margin-top: 5px;

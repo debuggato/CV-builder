@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import Props from './Loader.model';
 import { Container } from './Loader.style';
@@ -11,11 +11,11 @@ const LoaderView: FC<Props> = ({ error, loading, success }: Props): ReactElement
 
   if (label) {
     if (success) {
-      label = i18n.t('saved');
+      label = trans.t('saved');
     } else if (error) {
-      label = i18n.t('error_save');
+      label = trans.t('error_save');
     } else if (loading) {
-      label = i18n.t('saving');
+      label = trans.t('saving');
     }
   }
 

@@ -1,11 +1,11 @@
 import React, { Component, ReactNode } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import Button from '@components/buttons/Button.view';
 import Title from '@components/Title.view';
+import IconView from '@components/Icon.view';
 
 import AdditionalDetails from './AdditionalDetails.view';
 import MainDetails from './MainDetails.view';
@@ -39,7 +39,7 @@ class Details extends Component<OwnProps, State> {
 
     return (
       <Container>
-        <Title>{i18n.t('personal_details')}</Title>
+        <Title>{trans.t('personal_details')}</Title>
         <MainDetails />
         <ButtonWrapper onClick={this.showAdditionalDetails}>
           <Button
@@ -47,9 +47,9 @@ class Details extends Component<OwnProps, State> {
             linkStyle
             primary
           >
-            {i18n.t('edit_additional_details')}
+            {trans.t('edit_additional_details')}
           </Button>
-          <FontAwesomeIcon icon={isOpen ? faChevronUp : faChevronDown} />
+          <IconView icon={isOpen ? faChevronUp : faChevronDown} />
         </ButtonWrapper>
         {isOpen &&
           <AdditionalDetails />

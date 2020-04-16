@@ -2,7 +2,7 @@ import React, { ReactNode, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 import { addCourse } from './duck/Courses.actions';
 
 import Title from '@components/Title.view';
@@ -58,10 +58,10 @@ class Courses extends PureComponent<Props, State> {
 
     return (
       <Container>
-        <Title>{i18n.t('courses_title')}</Title>
+        <Title>{trans.t('courses_title')}</Title>
         {item}
         <AddLinkLabel onClick={this.addCourseItem}>
-          {i18n.t('add_course')}
+          {trans.t('add_course')}
         </AddLinkLabel>
       </Container>
     );

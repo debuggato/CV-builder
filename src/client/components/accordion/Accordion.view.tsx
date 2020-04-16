@@ -1,8 +1,8 @@
 import React, { FC, useState, ReactNode, ReactElement } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
+import IconView from '@components/Icon.view';
 
 import { Container, Header, Title, Dates } from './Accordion.style';
 
@@ -18,10 +18,10 @@ const Accordion: FC<Props> = ({ title, children }: Props): ReactElement => {
     <Container>
       <Header onClick={() => setCollapsed(!collapsed)}>
         <Title>
-          {title ? title : i18n.t('not_specified')}
+          {title ? title : trans.t('not_specified')}
         </Title>
         <Dates></Dates>
-        <FontAwesomeIcon icon={collapsed ? faChevronDown : faChevronUp} />
+        <IconView icon={collapsed ? faChevronDown : faChevronUp} />
       </Header>
       {!collapsed &&
         <div>{children}</div>

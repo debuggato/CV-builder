@@ -1,87 +1,86 @@
 import React, { FC, ReactElement } from 'react';
+import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '../../../client/i18n';
+import { DetailsState } from '@sidebar/details/duck/Details.model';
+import { SummaryState } from '@sidebar/summary/duck/Summary.model';
+import { EmploymentState } from '@sidebar/employment/duck/Employment.model';
+import AddressView from '@components/template/Address.view';
+import ContactType from '@components/template/ContactType.view';
+import Description from '@components/template/Description.view';
+import StoryItem from '@components/template/StoryItem.view';
 
 import {
   Container,
   FullName,
   JobTitle,
   Sidebar,
-  Email,
-  Address,
-  Phone,
   Main,
-  Description,
   Header,
-  Title,
+  WhoIam,
+  ContactDetails
 } from './DaVinci.style';
 
-interface OwnProps { }
-
-interface StateProps {
-  jobTitle: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: number;
-  city: string;
-  country: string;
-  postalCode: number;
-  address: string;
-  drivingLicense: string;
-  nationality: string;
-  placeOfBirth: string;
-  dateOfBirth: Date;
-  summary: string;
+interface Props extends DetailsState, SummaryState {
+  employments: any;
 }
 
-type Props = OwnProps & StateProps;
+const DaVinci: FC<Props> = (props: Props): ReactElement => {
 
-const DaVinci: FC<Props> = ({ address, postalCode, city, country, phone, firstName, lastName, jobTitle, summary, email }: Props): ReactElement => {
+  const {
+    address,
+    postalCode,
+    city,
+    country,
+    phone,
+    firstName,
+    lastName,
+    jobTitle,
+    summary,
+    email,
+    employments
+  } = props;
 
-  const getFormattedAddress = (): string => {
-    return address
-      ? `${address} - ${postalCode} ${city}, ${country}`
-      : '';
-  };
-
-  const getPhone = (): string => {
-    return phone ? `${phone}` : '';
-  };
-
-  const getFullName = (): string => {
-    return `${firstName} ${lastName}`;
-  };
+  const employment = employments.map((el: any) => {
+    return <StoryItem
+      key={el[0]}
+      title={el[1].jobTitle}
+      entity={el[1].employer}
+      city={el[1].city}
+      dateFrom={el[1].dateFrom}
+      dateTo={el[1].dateTo}
+      description={el[1].description} />;
+  });
 
   return (
     <Container>
       <Header border={jobTitle}>
-        {getFullName() && <FullName>{getFullName()}</FullName>}
-        {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
+        <WhoIam>
+          <FullName>{firstName + ' ' + lastName}</FullName>
+          {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
+        </WhoIam>
+        <ContactDetails>
+          <ContactType
+            icon={faPhone}
+            bold={false}
+            contact={phone}
+          />
+          <ContactType
+            icon={faEnvelope}
+            bold={false}
+            contact={email}
+          />
+          <ContactType
+            icon={faMapMarkerAlt}
+            bold={false}
+            contact={address + ', ' + postalCode + ' ' + city + ' ' + country}
+          />
+        </ContactDetails>
       </Header>
       <Sidebar>
-        {email && getFormattedAddress() && getPhone() &&
-          <h3>{i18n.t('contact_information')}</h3>
-        }
-        {email && <Email>{i18n.t('email')}: <strong>{email}</strong></Email>}
-        {getFormattedAddress() &&
-          <Address>
-            {i18n.t('address')}: <strong>{getFormattedAddress()}</strong>
-          </Address>
-        }
-        {getPhone() &&
-          <Phone>
-            {i18n.t('phone')}: <strong>{getPhone()}</strong>
-          </Phone>
-        }
       </Sidebar>
       <Main>
-        {summary &&
-          <div>
-            <Title>{i18n.t('about_me')}</Title>
-            <Description dangerouslySetInnerHTML={{ __html: summary }} />
-          </div>
-        }
+        <Description label="about_me" summary={summary} />
+        {employment}
       </Main>
     </Container>
   );

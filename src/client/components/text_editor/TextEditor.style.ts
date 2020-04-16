@@ -3,6 +3,10 @@ import colors from '@styles/color.style';
 
 export const ActionsWrapper = styled.div`
   margin-bottom: 10px;
+  
+  button {
+    color: ${colors.black};
+  }
 `;
 
 export const EditorStyled = styled.div`

@@ -5,8 +5,8 @@ export type EmploymentState = [
     jobTitle: string;
     employer: string;
     city: string;
-    dateFrom: Date | string;
-    dateTo: Date | string;
+    dateFrom: string;
+    dateTo: string;
     description: string;
   },
 ];

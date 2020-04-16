@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
@@ -62,11 +62,11 @@ class Links extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{i18n.t('websites_social_links')}</Title>
-        <Subtitle>{i18n.t('website_social_links_subtitle')}</Subtitle>
+        <Title>{trans.t('websites_social_links')}</Title>
+        <Subtitle>{trans.t('website_social_links_subtitle')}</Subtitle>
         {item}
         <AddLinkLabel onClick={this.addItem}>
-          {i18n.t('add_link')}
+          {trans.t('add_link')}
         </AddLinkLabel>
       </Container>
     );

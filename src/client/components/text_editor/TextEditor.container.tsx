@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Editor, EditorState, RichUtils, convertToRaw } from "draft-js";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faItalic, faBold, faUnderline } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '@components/buttons/Button.view';
+import IconView from '@components/Icon.view';
 import { ActionsWrapper, EditorStyled } from './TextEditor.style';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 class TextEditor extends Component<Props, {}> {
 
   state = {
-    editorState: EditorState.createEmpty()
+    editorState: EditorState.createEmpty(),
   };
 
   onChange = (editorState: EditorState) => {
@@ -66,13 +66,13 @@ class TextEditor extends Component<Props, {}> {
       <div>
         <ActionsWrapper>
           <Button type="button" onClick={this.onUnderlineClick}>
-            <FontAwesomeIcon icon={faUnderline} />
+            <IconView icon={faUnderline} />
           </Button>
           <Button type="button" onClick={this.onBoldClick}>
-            <FontAwesomeIcon icon={faBold} />
+            <IconView icon={faBold} />
           </Button>
           <Button type="button" onClick={this.onItalicClick}>
-            <FontAwesomeIcon icon={faItalic} />
+            <IconView icon={faItalic} />
           </Button>
         </ActionsWrapper>
         <EditorStyled>
@@ -81,6 +81,7 @@ class TextEditor extends Component<Props, {}> {
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
             placeholder="Type here..."
+            ref="editor"
           />
         </EditorStyled>
       </div>

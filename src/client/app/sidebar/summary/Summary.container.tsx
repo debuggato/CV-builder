@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import * as action from './duck/Summary.actions';
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import { Container } from './Summary.style';
 import TextEditor from '@components/text_editor/TextEditor.container';
@@ -32,7 +32,7 @@ class Summary extends Component<Props, {}> {
 
     return (
       <Container>
-        <Title>{i18n.t('summary_title')}</Title>
+        <Title>{trans.t('summary_title')}</Title>
         <TextEditor
           onChange={this.onChange}
         />
@@ -41,12 +41,10 @@ class Summary extends Component<Props, {}> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
-  return {
-    setSummary: (value: string) => {
-      dispatch(action.setSummary(value));
-    },
-  };
-};
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  setSummary: (value: string) => {
+    dispatch(action.setSummary(value));
+  },
+});
 
 export default connect(null, mapDispatchToProps)(Summary);

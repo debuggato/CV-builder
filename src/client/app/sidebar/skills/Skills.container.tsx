@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
@@ -55,10 +55,10 @@ class Skills extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{i18n.t('skills')}</Title>
+        <Title>{trans.t('skills')}</Title>
         {item}
         <AddLinkLabel onClick={this.addItem}>
-          {i18n.t('add_skill')}
+          {trans.t('add_skill')}
         </AddLinkLabel>
       </Container>
     );

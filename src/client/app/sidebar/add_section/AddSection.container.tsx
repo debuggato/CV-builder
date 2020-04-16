@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import Title from '@components/Title.view';
 import Courses from '../courses/Courses.container';
@@ -83,29 +83,29 @@ class AddSection extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{i18n.t('add_section')}</Title>
+        <Title>{trans.t('add_section')}</Title>
         {showCourses && <Courses />}
         <Body>
           <Wrapper>
-            <label onClick={this.customSectionHandler}>{i18n.t('custom_section')}</label>
+            <label onClick={this.customSectionHandler}>{trans.t('custom_section')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.coursesHandler}>{i18n.t('courses')}</label>
+            <label onClick={this.coursesHandler}>{trans.t('courses')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.internshipsHandler}>{i18n.t('internships')}</label>
+            <label onClick={this.internshipsHandler}>{trans.t('internships')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.extraActivitiesHandler}>{i18n.t('extra_activities')}</label>
+            <label onClick={this.extraActivitiesHandler}>{trans.t('extra_activities')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.hobbiesHandler}>{i18n.t('hobbies')}</label>
+            <label onClick={this.hobbiesHandler}>{trans.t('hobbies')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.languagesHandler}>{i18n.t('languages')}</label>
+            <label onClick={this.languagesHandler}>{trans.t('languages')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.referencesHandler}>{i18n.t('references')}</label>
+            <label onClick={this.referencesHandler}>{trans.t('references')}</label>
           </Wrapper>
         </Body>
       </Container>

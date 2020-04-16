@@ -1,10 +1,10 @@
 import React, { Component, ReactNode } from 'react';
 import { CSSProperties } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
+import IconView from '@components/Icon.view';
 import Button from '@components/buttons/Button.view';
 import { Container, ActionBar, SectionWrapper } from './Sidebar.style';
 import Details from './details/Details.container';
@@ -76,15 +76,15 @@ class Sidebar extends Component<{}, State> {
         <ActionBar>
           {currentStep !== 1 &&
             <Button onClick={this.onPrev} type="button" secondary>
-              <FontAwesomeIcon icon={faArrowLeft} style={arrowPrev} />
-              {i18n.t('prev')}
+              <IconView icon={faArrowLeft} style={arrowPrev} />
+              {trans.t('prev')}
             </Button>
           }
 
           {currentStep !== sectionToShow &&
             <Button onClick={this.onNext} type="button" primary>
-              {i18n.t('next')}
-              <FontAwesomeIcon icon={faArrowRight} style={arrowNext} />
+              {trans.t('next')}
+              <IconView icon={faArrowRight} style={arrowNext} />
             </Button>
           }
         </ActionBar>

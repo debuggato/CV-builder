@@ -1,10 +1,10 @@
 import React, { FC, ReactElement } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 import Input from '../input/Input.view';
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
+import IconView from '@components/Icon.view';
 import { Container, Wrapper, IconContainer, UploadLabel } from './Photo.style';
 
 const iconStyle = {
@@ -17,13 +17,13 @@ const Photo: FC = (): ReactElement => {
       <Wrapper>
         <img src="" alt="" />
         <IconContainer>
-          <FontAwesomeIcon icon={faUser} />
+          <IconView icon={faUser} />
         </IconContainer>
 
         <label htmlFor="upload">
           <UploadLabel>
-            <FontAwesomeIcon icon={faUpload} style={iconStyle} />
-            {i18n.t('upload_photo')}
+            <IconView icon={faUpload} style={iconStyle} />
+            {trans.t('upload_photo')}
           </UploadLabel>
           <Input type="file" id="upload" />
         </label>

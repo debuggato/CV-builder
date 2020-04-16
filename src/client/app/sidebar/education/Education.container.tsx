@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Title from '@components/Title.view';
@@ -67,11 +67,11 @@ class Education extends Component<Props, State> {
     return (
       <ErrorBoundary>
         <Container>
-          <Title>{i18n.t('add_education')}</Title>
-          <Subtitle>{i18n.t('education_subtitle')}</Subtitle>
+          <Title>{trans.t('add_education')}</Title>
+          <Subtitle>{trans.t('education_subtitle')}</Subtitle>
           {item}
           <AddLinkLabel onClick={this.addEducationItem}>
-            {i18n.t('add_education')}
+            {trans.t('add_education')}
           </AddLinkLabel>
         </Container>
       </ErrorBoundary>

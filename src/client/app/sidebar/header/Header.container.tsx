@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { changeLangAction, updateDocumentTitleAction } from '@genericState/Generic.actions';
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 
 import { InputTitle, Wrapper } from './Header.style';
 import Select from '@components/select/Select.view';
@@ -38,7 +38,7 @@ class Header extends PureComponent<DispatchProps, State> {
           onChange={(e: ChangeEvent<HTMLInputElement>) => updateDocumentTitle(e.target.value)}
           placeholder="Untitled"
         />
-        <Select list={langs} onChange={e => i18n.changeLanguage(e.target.value)} />
+        <Select list={langs} onChange={e => trans.changeLanguage(e.target.value)} />
       </Wrapper>
     );
   }

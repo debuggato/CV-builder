@@ -29,7 +29,8 @@
       "@genericState/*": ["client/genericState/*"],
       "@client/*": ["client/*"],
       "@sidebar/*": ["client/app/sidebar/*"],
-      "@server/*": ["server/*"]
+      "@server/*": ["server/*"],
+      "@utils/*": ["utils/*"]
     },
     "pretty": true
   },

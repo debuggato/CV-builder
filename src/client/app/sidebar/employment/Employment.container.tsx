@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 import { addEmploymentAction } from './duck/Employment.actions';
 
 import Title from '@components/Title.view';
@@ -70,11 +70,11 @@ class Employment extends Component<Props, State> {
     return (
       <ErrorBoundary>
         <div>
-          <Title>{i18n.t('employment_history')}</Title>
-          <Subtitle>{i18n.t('employment_history_subtitle')}</Subtitle>
+          <Title>{trans.t('employment_history')}</Title>
+          <Subtitle>{trans.t('employment_history_subtitle')}</Subtitle>
           {item}
           <AddLinkLabel onClick={this.addEmploymentItem}>
-            {i18n.t('add_employment')}
+            {trans.t('add_employment')}
           </AddLinkLabel>
         </div>
       </ErrorBoundary>

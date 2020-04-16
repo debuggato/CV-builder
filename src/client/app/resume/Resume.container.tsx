@@ -1,14 +1,17 @@
 import React, { PureComponent, ReactNode } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-import i18n from '@client/i18n';
+import trans from '@client/i18n';
 import { showModalAction, selectTemplateAction } from '@genericState/Generic.actions';
-import { RENDER_PDF_URL } from '../../../utils/endpoints';
+import { RENDER_PDF_URL } from '@utils/endpoints';
 
+import IconView from '@components/Icon.view';
+import { DetailsState } from '@sidebar/details/duck/Details.model';
+import { SummaryState } from '@sidebar/summary/duck/Summary.model';
+import { EmploymentState } from '@sidebar/employment/duck/Employment.model';
 import Button from '@components/buttons/Button.view';
 import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
@@ -19,23 +22,10 @@ import Raffaello from '@server/templates/raffaello/Raffaello.view';
 import Donatello from '@server/templates/donatello/Donatello.view';
 import Caravaggio from '@server/templates/caravaggio/Caravaggio.view';
 
-interface StateProps {
+interface StateProps extends DetailsState, SummaryState {
   items: any;
-  templateSelected: string | null;
-  jobTitle: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: number;
-  city: string;
-  country: string;
-  postalCode: number;
-  address: string;
-  drivingLicense: string;
-  nationality: string;
-  placeOfBirth: string;
-  dateOfBirth: Date;
-  summary: string;
+  selected: string | null;
+  employments: any;
 }
 
 interface DispatchProps {
@@ -56,53 +46,53 @@ class ResumeContainer extends PureComponent<Props, {}> {
   }
 
   render(): ReactNode {
-    const { showModal, items, selectTemplate, templateSelected } = this.props;
+    const { showModal, items, selectTemplate, selected, employments, ...rest } = this.props;
 
     const item = items.map((el: any) => {
       return <TemplateMiniature key={el[0]} id={el[0]} onClick={e => selectTemplate(e.currentTarget.id)}>{el[1]}</TemplateMiniature>
     });
 
     const getTemplate = (): ReactNode => {
-      switch (templateSelected) {
+      switch (selected) {
         case '0':
-          return <DaVinci {...this.props} />
-        case '1':
-          return <Michelangelo {...this.props} />
+          return <DaVinci {...rest} employments={employments} />
+        /* case '1':
+          return <Michelangelo data={this.props} />
         case '2':
-          return <Donatello {...this.props} />
+          return <Donatello data={this.props} />
         case '3':
           return <Raffaello {...this.props} />
         case '4':
-          return <Caravaggio {...this.props} />
+          return <Caravaggio {...this.props} /> */
       }
     }
 
     const getTemplateTitle = (): string => {
-      return templateSelected !== null ? items[templateSelected][1] : '';
+      return selected !== null ? items[selected][1] : '';
     }
 
     return (
       <Container>
         <Title>{getTemplateTitle()}</Title>
         {
-          templateSelected &&
+          selected &&
           <Page>{getTemplate()}</Page>
         }
         <ActionsWrapper>
           <Button type="button" linkStyle onClick={() => showModal(true)}>
-            <FontAwesomeIcon icon={faThLarge} /> {i18n.t('choose_template')}
+            <IconView icon={faThLarge} /> {trans.t('choose_template')}
           </Button>
 
-          {templateSelected &&
+          {selected &&
             <Button type="button" primary onClick={this.renderPdf}>
-              {i18n.t('generate_pdf')}
+              {trans.t('generate_pdf')}
             </Button>
           }
         </ActionsWrapper>
-        <Modal title={i18n.t('choose_template')} >
+        <Modal title={trans.t('choose_template')} >
           {item}
         </Modal>
-      </Container >
+      </Container>
     );
   }
 }
@@ -117,8 +107,12 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 const mapStateToProps = (state: any) => {
-  const templatesObject = Object.entries(state.generic.template.available);
-  const templateSelected = state.generic.template.selected;
+  const templateState = state.generic.template;
+
+  const items = Object.entries(templateState.available);
+  const selected = templateState.selected;
+
+  const employments = Object.entries(state.employment);
 
   const {
     jobTitle,
@@ -139,8 +133,8 @@ const mapStateToProps = (state: any) => {
   const { summary } = state.summary;
 
   return {
-    items: templatesObject,
-    templateSelected,
+    items,
+    selected,
     jobTitle,
     firstName,
     lastName,
@@ -155,6 +149,7 @@ const mapStateToProps = (state: any) => {
     placeOfBirth,
     dateOfBirth,
     summary,
+    employments
   }
 }
 
