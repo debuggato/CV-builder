@@ -52,10 +52,10 @@ class Links extends Component<Props, State> {
 
     if (currentStep !== 6) return null;
 
-    const item = items.map((index: any) => {
+    const item = items.map((el: any) => {
       return (
-        <Accordion key={index}>
-          <LinksView id={index} />
+        <Accordion key={el[0]} title={el[1].label}>
+          <LinksView id={el[0]} />
         </Accordion>
       )
     });
@@ -73,12 +73,8 @@ class Links extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  let keys = Object.keys(state.links);
-
-  return {
-    items: keys
-  }
-};
+const mapStateToProps = (state: any) => ({
+  items: Object.entries(state.links)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Links);

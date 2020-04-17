@@ -11,17 +11,22 @@ import { Container } from './Skills.style';
 import SkillsView from './Skills.view';
 
 import mapDispatchToProps from './duck/Skills.dispatch';
+import { JsxSelfClosingElement } from 'typescript';
 
 interface OwnProps {
   currentStep: number;
   addSkill: (arg0: number, arg1: any) => void;
 }
 
+interface StateProps {
+  items: any;
+}
+
 interface State {
   id: number;
 };
 
-type Props = OwnProps & ReduxState;
+type Props = OwnProps & StateProps;
 
 class Skills extends Component<Props, State> {
   state = {
@@ -45,10 +50,10 @@ class Skills extends Component<Props, State> {
 
     if (currentStep !== 5) return null;
 
-    const item = items.map((index: any) => {
+    const item = items.map((el: any) => {
       return (
-        <Accordion key={index}>
-          <SkillsView id={index} />
+        <Accordion key={el[0]} title={el[1].name}>
+          <SkillsView id={el[0]} />
         </Accordion>
       )
     });
@@ -65,19 +70,8 @@ class Skills extends Component<Props, State> {
   }
 }
 
-interface ReduxState {
-  items: any;
-  title: string;
-}
-
-const mapStateToProps = (state: any) => {
-  let keys = Object.keys(state.skills);
-
-  const { name } = state.skills;
-  return {
-    items: keys,
-    title: name
-  }
-};
+const mapStateToProps = (state: any) => ({
+  items: Object.entries(state.skills)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Skills);

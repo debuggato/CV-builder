@@ -15,7 +15,6 @@ import EmploymentView from './Employment.view';
 
 interface OwnProps {
   currentStep: number;
-  title: string;
 };
 
 interface DispatchProps {
@@ -24,7 +23,6 @@ interface DispatchProps {
 
 interface StateProps {
   items: any;
-  title: string;
 }
 
 type Props = OwnProps & DispatchProps & StateProps;
@@ -59,10 +57,10 @@ class Employment extends Component<Props, State> {
 
     if (currentStep !== 3) return null;
 
-    const item = items.map((index: any) => {
+    const item = items.map((el: any) => {
       return (
-        <Accordion key={index}>
-          <EmploymentView id={index} />
+        <Accordion key={el[0]} title={el[1].jobTitle}>
+          <EmploymentView id={el[0]} />
         </Accordion>
       )
     });
@@ -82,15 +80,9 @@ class Employment extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  let keys = Object.keys(state.employment);
-  const { jobTitle } = state.employment;
-
-  return {
-    items: keys,
-    title: jobTitle
-  }
-};
+const mapStateToProps = (state: any) => ({
+  items: Object.entries(state.employment)
+});
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addEmployment: (id, value) => {

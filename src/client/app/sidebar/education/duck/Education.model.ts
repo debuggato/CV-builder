@@ -6,8 +6,8 @@ export type EducationState = [
     degree: string;
     city: string;
     description: string;
-    dateFrom: string | Date;
-    dateTo: string | Date;
+    dateFrom: string;
+    dateTo: string;
   },
 ];
 
@@ -37,6 +37,18 @@ interface SetCityAction {
 
 interface SetDescriptionAction {
   type: typeof types.SET_EDUCATION_DESCRIPTION;
+  id: number;
+  value: string;
+}
+
+interface SetDateFromAction {
+  type: typeof types.SET_EDUCATION_DATE_FROM;
+  id: number;
+  value: string;
+}
+
+interface SetDateToAction {
+  type: typeof types.SET_EDUCATION_DATE_TO;
   id: number;
   value: string;
 }

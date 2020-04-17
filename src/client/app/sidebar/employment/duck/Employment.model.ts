@@ -42,13 +42,13 @@ interface SetDescriptionAction {
 }
 
 interface SetDateFromAction {
-  type: typeof types.SET_DATE_FROM;
+  type: typeof types.SET_EMPLOYMENT_DATE_FROM;
   id: number;
   value: string;
 }
 
 interface SetDateToAction {
-  type: typeof types.SET_DATE_TO;
+  type: typeof types.SET_EMPLOYMENT_DATE_TO;
   id: number;
   value: string;
 }

@@ -56,10 +56,10 @@ class Education extends Component<Props, State> {
 
     if (currentStep !== 4) return null;
 
-    const item = items.map((index: any) => {
+    const item = items.map((el: any) => {
       return (
-        <Accordion key={index}>
-          <EducationView id={index} />
+        <Accordion key={el[0]} title={el[1].degree}>
+          <EducationView id={el[0]} />
         </Accordion>
       )
     });
@@ -79,13 +79,9 @@ class Education extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  let keys = Object.keys(state.education);
-
-  return {
-    items: keys
-  }
-};
+const mapStateToProps = (state: any) => ({
+  items: Object.entries(state.education),
+});
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addEducation: (id, value) => {

@@ -25,13 +25,13 @@ export const setCityAction = (id: number, value: string) => ({
 });
 
 export const setDateFromAction = (id: number, value: Date) => ({
-  type: type.SET_DATE_FROM,
+  type: type.SET_EMPLOYMENT_DATE_FROM,
   id,
   value,
 });
 
 export const setDateToAction = (id: number, value: Date) => ({
-  type: type.SET_DATE_TO,
+  type: type.SET_EMPLOYMENT_DATE_TO,
   id,
   value,
 });

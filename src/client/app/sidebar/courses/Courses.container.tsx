@@ -48,10 +48,10 @@ class Courses extends PureComponent<Props, State> {
   public render(): ReactNode {
     const { items } = this.props;
 
-    const item = items.map((index: any) => {
+    const item = items.map((el: any) => {
       return (
-        <Accordion key={index}>
-          <CoursesView id={index} />
+        <Accordion key={el[0]} title={el[1].course}>
+          <CoursesView id={el[0]} />
         </Accordion>
       )
     });
@@ -68,13 +68,9 @@ class Courses extends PureComponent<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  let keys = Object.keys(state.courses);
-
-  return {
-    items: keys
-  }
-};
+const mapStateToProps = (state: any) => ({
+  items: Object.entries(state.courses)
+});
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addCourse: (id, value) => {
