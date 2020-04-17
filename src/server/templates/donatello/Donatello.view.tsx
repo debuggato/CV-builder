@@ -1,6 +1,6 @@
 import React, { ReactNode, PureComponent } from 'react';
 
-import i18n from '../../../client/i18n';
+import trans from '../../../client/i18n';
 
 import {
   Container,
@@ -63,24 +63,24 @@ class Donatello extends PureComponent<Props, {}> {
         </Header>
         <Sidebar>
           {email && getFormattedAddress() && getPhone() &&
-            <h3>{i18n.t('contact_information')}</h3>
+            <h3>{trans.t('contact_information')}</h3>
           }
-          {email && <Email>{i18n.t('email')}: <strong>{email}</strong></Email>}
+          {email && <Email>{trans.t('email')}: <strong>{email}</strong></Email>}
           {getFormattedAddress() &&
             <Address>
-              {i18n.t('address')}: <strong>{getFormattedAddress()}</strong>
+              {trans.t('address')}: <strong>{getFormattedAddress()}</strong>
             </Address>
           }
           {getPhone() &&
             <Phone>
-              {i18n.t('phone')}: <strong>{getPhone()}</strong>
+              {trans.t('phone')}: <strong>{getPhone()}</strong>
             </Phone>
           }
         </Sidebar>
         <Main>
           {summary &&
             <div>
-              <Title>{i18n.t('about_me')}</Title>
+              <Title>{trans.t('about_me')}</Title>
               <Description dangerouslySetInnerHTML={{ __html: summary }} />
             </div>
           }
