@@ -57,6 +57,7 @@
     "css-loader": "^3.4.2",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",
+    "module-alias": "^2.2.2",
     "nodemon": "^2.0.2",
     "source-map-loader": "^0.2.4",
     "source-map-support": "^0.5.16",
@@ -68,5 +69,15 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-node-externals": "^1.7.2"
+  },
+  "_moduleAliases": {
+    "@components": "src/client/components",
+    "@app": "src/client/app",
+    "@styles": "src/client/styles",
+    "@genericState": "src/client/genericState",
+    "@client": "src/client",
+    "@sidebar": "src/client/app/sidebar",
+    "@server": "src/server",
+    "@utils": "src/utils"
   }
 }
