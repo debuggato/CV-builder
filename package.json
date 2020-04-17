@@ -8,10 +8,8 @@
   "scripts": {
     "client": "webpack-dev-server --mode development --config webpack.dev.js --hot --open",
     "server": "nodemon",
-    "dev": "pkill node && yarn client & yarn server",
     "prod": "rm -rf dist && webpack --mode production --config webpack.server.js && webpack --mode production --config webpack.prod.js"
   },
-  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
