@@ -1,6 +1,18 @@
 # CV builder
 
-📝 The idea is to create Resumes with export in .pdf and .doc. A project written in React.js and Typescript
+📝 An application to create Resumes with export in PDF.
+
+## Getting started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+You need to have these versions of software installed on your machine in order to have better experience while installing the project.
+
+- Node.js -v: 13.x.x
+- Yarn -v: 1.21.x
+- Nodemon -v: 2.x.x
 
 ### Installing
 
@@ -11,14 +23,28 @@ git clone https://github.com/ivanlori/CV-builder.git
 # install dependencies
 yarn install
 
-# serve with hot reload at localhost:3000
-yarn dev
+# run client with hot reload at localhost:3000
+yarn client
+
+# run node.js server with hot reload at localhost:5000
+yarn server
 ```
+
+## Built with:
+
+- [React.js](https://reactjs.org/) - JS Library
+- [Redux.js](https://redux.js.org/) - State container
+- [Typescript](https://www.typescriptlang.org/) - JavaScript typed superset
+- [Styled Components](https://styled-components.com/) - JS Library for CSS-in-JS
+- [Puppeteer](https://github.com/puppeteer/puppeteer) - Headless Chrome
+- [Express.js](https://expressjs.com) - Node.js framework
+- [Webpack](https://webpack.js.org/) - Module bundler
+- [Yarn](https://yarnpkg.com/) - Package manager
 
 ## Contributing
 
-We can build something awesome!
-Please, if you are interested in this project, feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).
+Thanks for your interest in this project, it is really appreciated your support!
+In [CONTRIBUTING](CONTRIBUTING) file you can see the guidelines of the project. If you need support feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).
 
 ## Authors
 
