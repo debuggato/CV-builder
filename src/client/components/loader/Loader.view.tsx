@@ -1,17 +1,18 @@
 import React, { FC, ReactElement } from 'react';
+import trans from '@client/i18n';
 
 import { Wrapper, Content } from './Loader.style';
 
 interface Props {
-  text?: string;
+  keyLabel: string;
 }
 
-const Loader: FC<Props> = ({ text }: Props): ReactElement => {
+const Loader: FC<Props> = ({ keyLabel }: Props): ReactElement => {
   return (
     <Wrapper>
       <Content>
-        <div className="lds-facebook"><div></div><div></div><div></div></div>
-        <p>{text}</p>
+        <div className="loader-fb-style"><div></div><div></div><div></div></div>
+        <p>{trans.t(keyLabel)}</p>
       </Content>
     </Wrapper>
   );

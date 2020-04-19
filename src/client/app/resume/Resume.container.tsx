@@ -101,7 +101,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
         <Modal title={trans.t('choose_template')} >
           {item}
         </Modal>
-        {loader && <Loader text="Generazione in corso..." />}
+        {loader && <Loader keyLabel="loading_generation_pdf" />}
       </Container>
     );
   }

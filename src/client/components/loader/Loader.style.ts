@@ -15,33 +15,33 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  .lds-facebook {
+  .loader-fb-style {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
   }
-  .lds-facebook div {
+  .loader-fb-style div {
     display: inline-block;
     position: absolute;
     left: 8px;
     width: 16px;
     background: ${colors.greyDark};
-    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    animation: loader-fb-style 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   }
-  .lds-facebook div:nth-child(1) {
+  .loader-fb-style div:nth-child(1) {
     left: 8px;
     animation-delay: -0.24s;
   }
-  .lds-facebook div:nth-child(2) {
+  .loader-fb-style div:nth-child(2) {
     left: 32px;
     animation-delay: -0.12s;
   }
-  .lds-facebook div:nth-child(3) {
+  .loader-fb-style div:nth-child(3) {
     left: 56px;
     animation-delay: 0;
   }
-  @keyframes lds-facebook {
+  @keyframes loader-fb-style {
     0% {
       top: 8px;
       height: 64px;
