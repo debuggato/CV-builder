@@ -40,6 +40,7 @@ yarn server
 - [Express.js](https://expressjs.com) - Node.js framework
 - [Webpack](https://webpack.js.org/) - Module bundler
 - [Yarn](https://yarnpkg.com/) - Package manager
+- [Jest](https://jestjs.io/) - JS Testing Framework
 
 ## Contributing
 
