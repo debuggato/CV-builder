@@ -90,6 +90,7 @@ app.post('/render', async (req, res, next) => {
     });
 
     await browser.close();
+    res.status(200).end();
     return pdf;
   } catch (error) {
     res.status(500);
