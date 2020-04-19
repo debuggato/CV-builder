@@ -53,5 +53,5 @@ export const JobTitle = styled.h3`
   text-transform: capitalize;
   font-size: 15px;
   margin-top: 5px;
-  color: ${colors.lightGrey};
+  color: ${colors.greyLight};
 `;

@@ -4,7 +4,7 @@ import colors from '@styles/color.style';
 
 export const Container = styled.div`
   padding: 10px;
-  border: 1px solid ${colors.lightGrey};
+  border: 1px solid ${colors.greyLight};
   height: auto;
   margin-bottom: 10px;
 `;
@@ -25,6 +25,6 @@ export const Title = styled.div`
 `;
 
 export const Dates = styled.div`
-  color: ${colors.lightGrey};
+  color: ${colors.greyLight};
   font-weight: 500;
 `;

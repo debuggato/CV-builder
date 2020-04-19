@@ -11,7 +11,7 @@ export const Container = styled.section`
   position: fixed;
   right: 0;
   height: 100vh;
-  background-color: ${colors.lightGrey};
+  background-color: ${colors.greyLight};
 `;
 
 export const Page = styled.div`

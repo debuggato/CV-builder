@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import colors from '@styles/color.style';
 
 const Label = styled.label`
-  color: ${colors.lightGrey};
+  color: ${colors.greyLight};
   display: inline-block;
   margin-bottom: 0.5rem;
   font-size: 14px;

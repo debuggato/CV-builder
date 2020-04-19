@@ -23,6 +23,6 @@ export const ActionBar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-top: 1px solid ${colors.lightGrey};
+  border-top: 1px solid ${colors.greyLight};
   width: 50%;
 `;

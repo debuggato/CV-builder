@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   width: 215px;
   height: 240px;
   margin: 10px;
-  border: 1px solid ${colors.lightGrey};
+  border: 1px solid ${colors.greyLight};
   border-radius: 5px;
   float: left;
   cursor: pointer;

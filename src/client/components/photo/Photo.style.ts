@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   label {
     height: 40px;
     margin: 22px 0;
-    color: ${colors.lightGrey};
+    color: ${colors.greyLight};
   }
 `;
 
@@ -29,7 +29,7 @@ export const UploadLabel = styled.span`
 `;
 
 export const IconContainer = styled.div`
-  border: 1px dashed ${colors.lightGrey};
+  border: 1px dashed ${colors.greyLight};
   display: flex;
   align-items: center;
   justify-content: center;
