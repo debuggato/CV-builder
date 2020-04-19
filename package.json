@@ -76,6 +76,7 @@
     "@client": "src/client",
     "@sidebar": "src/client/app/sidebar",
     "@server": "src/server",
-    "@utils": "src/utils"
+    "@utils": "src/utils",
+    "@config": "src/config"
   }
 }

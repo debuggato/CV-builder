@@ -7,7 +7,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import cors from 'cors';
 
-import { SERVER_PORT, CLIENT_URL } from '@utils/endpoints';
+import config from '@config/config';
 import DaVinci from '@server/templates/davinci/DaVinci.view';
 import Caravaggio from '@server/templates/caravaggio/Caravaggio.view';
 import Donatello from '@server/templates/donatello/Donatello.view';
@@ -18,7 +18,7 @@ const app = express();
 const sheet = new ServerStyleSheet();
 
 const corsOptions = {
-  origin: CLIENT_URL,
+  origin: config.client_url,
   optionsSuccessStatus: 200,
   methods: 'POST',
 };
@@ -95,8 +95,4 @@ app.post('/render', async (req, res, next) => {
     res.status(500);
     console.log(error);
   }
-});
-
-app.listen(SERVER_PORT, function () {
-  console.log(`listening on port ${SERVER_PORT}`);
 });

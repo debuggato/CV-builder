@@ -30,7 +30,8 @@
       "@client/*": ["client/*"],
       "@sidebar/*": ["client/app/sidebar/*"],
       "@server/*": ["server/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@config/*": ["config/*"]
     },
     "pretty": true
   },

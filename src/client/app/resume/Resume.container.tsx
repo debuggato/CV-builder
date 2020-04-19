@@ -6,12 +6,11 @@ import axios from 'axios';
 
 import trans from '@client/i18n';
 import { showModalAction, selectTemplateAction } from '@genericState/Generic.actions';
-import { RENDER_PDF_URL } from '@utils/endpoints';
+import config from '@config/config';
 
 import IconView from '@components/Icon.view';
 import { DetailsState } from '@sidebar/details/duck/Details.model';
 import { SummaryState } from '@sidebar/summary/duck/Summary.model';
-import { EmploymentState } from '@sidebar/employment/duck/Employment.model';
 import Button from '@components/buttons/Button.view';
 import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
@@ -38,10 +37,9 @@ type Props = StateProps & DispatchProps;
 class ResumeContainer extends PureComponent<Props, {}> {
 
   renderPdf = () => {
-    axios.post(RENDER_PDF_URL, null, {
+    axios.post(config.render_pdf_url, null, {
       data: this.props
-    }).then(resp => {
-      console.log(resp);
+    }).then(result => {
     });
   }
 
