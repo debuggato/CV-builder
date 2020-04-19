@@ -1,48 +1,65 @@
 import styled from 'styled-components';
 
-import Props from './Loader.model';
+import colors from '@styles/color.style';
 
-export const Loader = styled.div`
-  display: ${(props: Props) => (props.show ? 'block' : 'none')};
-  border-radius: 50%;
-  width: 10em;
-  height: 10em;
-  margin: 60px auto;
-  font-size: 10px;
-  position: relative;
-  text-indent: -9999em;
-  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-left: 1.1em solid #ffffff;
-  transform: translateZ(0);
-  animation: load8 1.1s infinite linear;
+export const Wrapper = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &:after {
-    border-radius: 50%;
-    width: 10em;
-    height: 10em;
+  .lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
   }
-
-  @-webkit-keyframes load8 {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: ${colors.greyDark};
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   }
-
-  @keyframes load8 {
+  .lds-facebook div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 56px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
     0% {
-      transform: rotate(0deg);
+      top: 8px;
+      height: 64px;
     }
-    100% {
-      transform: rotate(360deg);
+    50%, 100% {
+      top: 24px;
+      height: 32px;
     }
   }
 `;
 
-export const Container = styled.div`
+export const Content = styled.div`
+  background: ${colors.white};
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 30%;
+  height: 20%;
 `;

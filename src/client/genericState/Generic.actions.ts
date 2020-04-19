@@ -16,7 +16,12 @@ export const updateDocumentTitleAction = (value: string): model.UpdateDocumentTi
   value,
 });
 
-export const selectTemplateAction = (value: string): model.TemplateAction => ({
+export const chooseTemplateAction = (value: string): model.ChooseTemplateAction => ({
   type: type.CHOOSE_TEMPLATE,
+  value,
+});
+
+export const showLoaderAction = (value: boolean): model.ShowLoaderAction => ({
+  type: type.SHOW_LOADER,
   value,
 });

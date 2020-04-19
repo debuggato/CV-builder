@@ -20,6 +20,7 @@ export interface GenericState {
   showModal: boolean;
   lang: string;
   documentTitle: string;
+  showLoader: boolean;
   template: {
     selected: number | null;
     available: Object;
@@ -41,12 +42,18 @@ export interface UpdateDocumentTitleAction {
   value: string;
 }
 
-export interface TemplateAction {
+export interface ChooseTemplateAction {
   type: typeof types.CHOOSE_TEMPLATE;
   value: string;
+}
+
+export interface ShowLoaderAction {
+  type: typeof types.SHOW_LOADER;
+  value: boolean;
 }
 
 export type ActionType = ShowModalAction &
   ChangeLangAction &
   UpdateDocumentTitleAction &
-  TemplateAction;
+  ChooseTemplateAction &
+  ShowLoaderAction;

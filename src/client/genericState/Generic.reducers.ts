@@ -27,6 +27,11 @@ const reducer = (state = initialState, action: ActionType) => {
           selected: action.value
         },
       };
+    case type.SHOW_LOADER:
+      return {
+        ...state,
+        showLoader: action.value
+      };
     default:
       return state;
   }

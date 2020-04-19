@@ -1,25 +1,20 @@
 import React, { FC, ReactElement } from 'react';
 
-import trans from '@client/i18n';
+import { Wrapper, Content } from './Loader.style';
 
-import Props from './Loader.model';
-import { Container } from './Loader.style';
+interface Props {
+  text?: string;
+}
 
-//TODO refactoring
-const LoaderView: FC<Props> = ({ error, loading, success }: Props): ReactElement => {
-  let label: string = '';
+const Loader: FC<Props> = ({ text }: Props): ReactElement => {
+  return (
+    <Wrapper>
+      <Content>
+        <div className="lds-facebook"><div></div><div></div><div></div></div>
+        <p>{text}</p>
+      </Content>
+    </Wrapper>
+  );
+}
 
-  if (label) {
-    if (success) {
-      label = trans.t('saved');
-    } else if (error) {
-      label = trans.t('error_save');
-    } else if (loading) {
-      label = trans.t('saving');
-    }
-  }
-
-  return <Container>{label ? <label>{label}</label> : null}</Container>;
-};
-
-export default LoaderView;
+export default Loader;

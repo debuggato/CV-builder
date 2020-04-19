@@ -5,9 +5,10 @@ import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import trans from '@client/i18n';
-import { showModalAction, selectTemplateAction } from '@genericState/Generic.actions';
+import { showModalAction, chooseTemplateAction, showLoaderAction } from '@genericState/Generic.actions';
 import config from '@config/config';
 
+import Loader from '@components/loader/Loader.view';
 import IconView from '@components/Icon.view';
 import { DetailsState } from '@sidebar/details/duck/Details.model';
 import { SummaryState } from '@sidebar/summary/duck/Summary.model';
@@ -21,11 +22,13 @@ interface StateProps extends DetailsState, SummaryState {
   items: any;
   selected: string | null;
   employments: any;
+  loader: boolean;
 }
 
 interface DispatchProps {
   showModal: (arg0: boolean) => void;
   selectTemplate: (arg0: string) => void;
+  showLoader: (arg0: boolean) => void;
 }
 
 type Props = StateProps & DispatchProps;
@@ -33,14 +36,26 @@ type Props = StateProps & DispatchProps;
 class ResumeContainer extends PureComponent<Props, {}> {
 
   renderPdf = () => {
+
+    this.props.showLoader(true);
+
     axios.post(config.render_pdf_url, null, {
       data: this.props
     }).then(result => {
+      this.props.showLoader(false);
     });
   }
 
   render(): ReactNode {
-    const { showModal, items, selectTemplate, selected, employments, ...rest } = this.props;
+    const {
+      showModal,
+      items,
+      selectTemplate,
+      selected,
+      employments,
+      loader,
+      ...rest
+    } = this.props;
 
     const item = items.map((el: any) => {
       return <TemplateMiniature key={el[0]} id={el[0]} onClick={e => selectTemplate(e.currentTarget.id)}>{el[1]}</TemplateMiniature>
@@ -86,6 +101,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
         <Modal title={trans.t('choose_template')} >
           {item}
         </Modal>
+        {loader && <Loader text="Generazione in corso..." />}
       </Container>
     );
   }
@@ -96,16 +112,20 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(showModalAction(value));
   },
   selectTemplate: (value: string) => {
-    dispatch(selectTemplateAction(value));
-  }
+    dispatch(chooseTemplateAction(value));
+  },
+  showLoader: (value: boolean) => {
+    dispatch(showLoaderAction(value));
+  },
 });
 
 const mapStateToProps = (state: any) => {
-  const templateState = state.generic.template;
+  const genericState = state.generic;
+  const templateState = genericState.template;
 
   const items = Object.entries(templateState.available);
   const selected = templateState.selected;
-
+  const loader = genericState.showLoader;
   const employments = Object.entries(state.employment);
 
   const {
@@ -129,6 +149,7 @@ const mapStateToProps = (state: any) => {
   return {
     items,
     selected,
+    loader,
     jobTitle,
     firstName,
     lastName,

@@ -97,3 +97,5 @@ app.post('/render', async (req, res, next) => {
     console.log(error);
   }
 });
+
+app.listen(config.server_port);

@@ -4,6 +4,7 @@ const initialState: GenericState = {
   showModal: false,
   lang: 'en',
   documentTitle: '',
+  showLoader: false,
   template: {
     selected: null,
     available: {
