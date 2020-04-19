@@ -11,7 +11,6 @@ import { Container } from './Skills.style';
 import SkillsView from './Skills.view';
 
 import mapDispatchToProps from './duck/Skills.dispatch';
-import { JsxSelfClosingElement } from 'typescript';
 
 interface OwnProps {
   currentStep: number;

@@ -21,6 +21,7 @@
     "outDir": "dist/",
     "baseUrl": "src/",
     "watch": true,
+    "noUnusedLocals": true,
     "types": ["react", "node", "jest"],
     "paths": {
       "@components/*": ["client/components/*"],

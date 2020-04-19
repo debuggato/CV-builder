@@ -16,10 +16,6 @@ import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
 import { Container, ActionsWrapper, Page, Title } from './Resume.style';
 import DaVinci from '@server/templates/davinci/DaVinci.view';
-import Michelangelo from '@server/templates/michelangelo/Michelangelo.view';
-import Raffaello from '@server/templates/raffaello/Raffaello.view';
-import Donatello from '@server/templates/donatello/Donatello.view';
-import Caravaggio from '@server/templates/caravaggio/Caravaggio.view';
 
 interface StateProps extends DetailsState, SummaryState {
   items: any;

@@ -57,4 +57,6 @@ export type ActionType = AddEducation &
   SetSchoolAction &
   SetDegreeAction &
   SetCityAction &
-  SetDescriptionAction;
+  SetDescriptionAction &
+  SetDateFromAction &
+  SetDateToAction;
