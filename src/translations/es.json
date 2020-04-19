@@ -1,5 +1,5 @@
 {
-  "en": {
+  "es": {
     "translation": {
       "personal_details": "Personal Details",
       "employment_history": "Employment History",
@@ -37,7 +37,9 @@
       "download_pdf": "Download PDF",
       "choose_template": "Choose template",
       "next": "Next",
-      "prev": "Prev"
+      "prev": "Prev",
+      "generate_pdf": "Generate PDF",
+      "loading_generation_pdf": "Loading while PDF is been created"
     }
   }
 }
