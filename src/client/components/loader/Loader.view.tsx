@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import trans from '@client/i18n';
 
-import { Wrapper, Content } from './Loader.style';
+import { Content } from './Loader.style';
 
 interface Props {
   keyLabel: string;
@@ -9,12 +9,10 @@ interface Props {
 
 const Loader: FC<Props> = ({ keyLabel }: Props): ReactElement => {
   return (
-    <Wrapper>
-      <Content>
-        <div className="loader-fb-style"><div></div><div></div><div></div></div>
-        <p>{trans.t(keyLabel)}</p>
-      </Content>
-    </Wrapper>
+    <Content>
+      <div className="loader-fb-style"><div></div><div></div><div></div></div>
+      <p>{trans.t(keyLabel)}</p>
+    </Content>
   );
 }
 

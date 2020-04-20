@@ -4,10 +4,10 @@ import { ActionType } from './Generic.model';
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
-    case type.SHOW_MODAL:
+    case type.SHOW_TEMPLATE_GALLERY:
       return {
         ...state,
-        showModal: action.value,
+        templateGallery: action.value,
       };
     case type.CHANGE_LANGUAGE:
       return {
@@ -30,7 +30,7 @@ const reducer = (state = initialState, action: ActionType) => {
     case type.SHOW_LOADER:
       return {
         ...state,
-        showLoader: action.value
+        loader: action.value
       };
     default:
       return state;

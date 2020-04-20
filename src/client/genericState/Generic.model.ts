@@ -1,7 +1,7 @@
 import * as types from './Generic.types';
 
-export interface ShowModalState {
-  showModal: boolean;
+export interface ChooseTemplateState {
+  chooseTemplate: boolean;
 }
 
 export interface LangState {
@@ -17,18 +17,18 @@ export interface TemplateState {
 }
 
 export interface GenericState {
-  showModal: boolean;
+  templateGallery: boolean;
   lang: string;
   documentTitle: string;
-  showLoader: boolean;
+  loader: boolean;
   template: {
     selected: number | null;
     available: Object;
   }
 }
 
-export interface ShowModalAction {
-  type: typeof types.SHOW_MODAL;
+export interface ShowTemplateGalleryAction {
+  type: typeof types.SHOW_TEMPLATE_GALLERY;
   value: boolean;
 }
 
@@ -52,7 +52,7 @@ export interface ShowLoaderAction {
   value: boolean;
 }
 
-export type ActionType = ShowModalAction &
+export type ActionType = ShowTemplateGalleryAction &
   ChangeLangAction &
   UpdateDocumentTitleAction &
   ChooseTemplateAction &

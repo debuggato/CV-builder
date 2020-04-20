@@ -5,7 +5,11 @@ import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import trans from '@client/i18n';
-import { showModalAction, chooseTemplateAction, showLoaderAction } from '@genericState/Generic.actions';
+import {
+  chooseTemplateAction,
+  showTemplateGalleryAction,
+  showLoaderAction,
+} from '@genericState/Generic.actions';
 import config from '@config/config';
 
 import Loader from '@components/loader/Loader.view';
@@ -23,10 +27,11 @@ interface StateProps extends DetailsState, SummaryState {
   selected: string | null;
   employments: any;
   loader: boolean;
+  templateGallery: boolean;
 }
 
 interface DispatchProps {
-  showModal: (arg0: boolean) => void;
+  showTemplateGallery: (arg0: boolean) => void;
   selectTemplate: (arg0: string) => void;
   showLoader: (arg0: boolean) => void;
 }
@@ -48,9 +53,10 @@ class ResumeContainer extends PureComponent<Props, {}> {
 
   render(): ReactNode {
     const {
-      showModal,
+      showTemplateGallery,
       items,
       selectTemplate,
+      templateGallery,
       selected,
       employments,
       loader,
@@ -88,7 +94,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
           <Page>{getTemplate()}</Page>
         }
         <ActionsWrapper>
-          <Button type="button" linkStyle onClick={() => showModal(true)}>
+          <Button type="button" linkStyle onClick={() => showTemplateGallery(true)}>
             <IconView icon={faThLarge} /> {trans.t('choose_template')}
           </Button>
 
@@ -98,18 +104,24 @@ class ResumeContainer extends PureComponent<Props, {}> {
             </Button>
           }
         </ActionsWrapper>
-        <Modal title={trans.t('choose_template')} >
-          {item}
-        </Modal>
-        {loader && <Loader keyLabel="loading_generation_pdf" />}
+        {templateGallery &&
+          <Modal title={trans.t('choose_template')} header onClick={() => showTemplateGallery(false)}>
+            {item}
+          </Modal>
+        }
+        {loader &&
+          <Modal>
+            <Loader keyLabel="loading_generation_pdf" />
+          </Modal>
+        }
       </Container>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  showModal: (value: boolean) => {
-    dispatch(showModalAction(value));
+  showTemplateGallery: (value: boolean) => {
+    dispatch(showTemplateGalleryAction(value));
   },
   selectTemplate: (value: string) => {
     dispatch(chooseTemplateAction(value));
@@ -125,7 +137,8 @@ const mapStateToProps = (state: any) => {
 
   const items = Object.entries(templateState.available);
   const selected = templateState.selected;
-  const loader = genericState.showLoader;
+  const loader = genericState.loader;
+  const templateGallery = genericState.templateGallery;
   const employments = Object.entries(state.employment);
 
   const {
@@ -150,6 +163,7 @@ const mapStateToProps = (state: any) => {
     items,
     selected,
     loader,
+    templateGallery,
     jobTitle,
     firstName,
     lastName,

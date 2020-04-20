@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 import colors from '@styles/color.style';
 
-interface Props {
-  isOpened: boolean;
-}
-
-export const Wrapper = styled.div<Props>`
+export const Wrapper = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
@@ -18,10 +14,6 @@ export const Wrapper = styled.div<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  ${({ isOpened }) => !isOpened && `
-    display: none;
-  `}
 `;
 
 export const Title = styled.span`
@@ -36,8 +28,8 @@ export const Close = styled.div`
 `;
 
 export const Card = styled.div`
-  width: 65%;
-  height: 80%;
+  max-width: 65%;
+  max-height: 75%;
   background-color: ${ colors.white};
   opacity: 1;
   margin: 0 auto;

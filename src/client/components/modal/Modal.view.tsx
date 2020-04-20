@@ -1,33 +1,24 @@
-import React, { FC, ReactElement, ReactNode } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import React, { FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
 
 import { Wrapper, Card, Header, Close, Title, Body } from './Modal.style';
-import { showModalAction } from '../../genericState/Generic.actions';
 
-interface OwnProps {
-  children?: ReactNode;
-  title: string;
+interface Props {
+  children: ReactNode;
+  title?: string;
+  header?: boolean;
+  onClick?: (arg0: SyntheticEvent) => void;
 }
 
-interface StateProps {
-  isOpened: boolean;
-}
-
-interface DispatchProps {
-  setShowModal: (arg0: boolean) => void;
-}
-
-type Props = OwnProps & StateProps & DispatchProps;
-
-const Modal: FC<Props> = ({ isOpened, children, setShowModal, title }: Props): ReactElement => {
+const Modal: FC<Props> = ({ children, title, header, onClick }: Props): ReactElement => {
   return (
-    <Wrapper isOpened={isOpened}>
+    <Wrapper>
       <Card>
-        <Header>
-          <Title>{title}</Title>
-          <Close onClick={() => setShowModal(false)}>✕</Close>
-        </Header>
+        {header &&
+          <Header>
+            {title && <Title>{title}</Title>}
+            <Close onClick={onClick}>✕</Close>
+          </Header>
+        }
         <Body>
           {children}
         </Body>
@@ -36,14 +27,4 @@ const Modal: FC<Props> = ({ isOpened, children, setShowModal, title }: Props): R
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setShowModal(value: boolean) {
-    dispatch(showModalAction(value));
-  }
-})
-
-const mapStateToProps = (state: any) => ({
-  isOpened: state.generic.showModal
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default Modal;

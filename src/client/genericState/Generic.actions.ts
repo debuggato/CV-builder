@@ -1,8 +1,8 @@
 import * as type from './Generic.types';
 import * as model from './Generic.model';
 
-export const showModalAction = (value: boolean): model.ShowModalAction => ({
-  type: type.SHOW_MODAL,
+export const showTemplateGalleryAction = (value: boolean): model.ShowTemplateGalleryAction => ({
+  type: type.SHOW_TEMPLATE_GALLERY,
   value,
 });
 

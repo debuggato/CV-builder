@@ -1,10 +1,10 @@
 import { GenericState } from './Generic.model';
 
 const initialState: GenericState = {
-  showModal: false,
+  templateGallery: false,
   lang: 'en',
   documentTitle: '',
-  showLoader: false,
+  loader: false,
   template: {
     selected: null,
     available: {
