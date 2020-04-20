@@ -26,6 +26,7 @@ const corsOptions = {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+app.use(express.static('public'));
 
 app.post('/render', async (req, res, next) => {
   try {
@@ -82,15 +83,18 @@ app.post('/render', async (req, res, next) => {
     await page.setContent(html, { waitUntil: ['domcontentloaded', 'networkidle0'] });
     await page.emulateMedia('screen');
 
+    const pdfUrl = `pdf/${data.firstName}_${data.lastName}_CV.pdf`;
+
     const pdf = await page.pdf({
-      path: `${data.firstName}_${data.lastName}_CV.pdf`,
+      path: `public/${pdfUrl}`,
       format: 'A4',
       scale: 0.75,
       printBackground: true,
     });
 
     await browser.close();
-    res.status(200).end();
+
+    res.status(200).send({ url: pdfUrl }).end();
     return pdf;
   } catch (error) {
     res.status(500);
