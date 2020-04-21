@@ -39,7 +39,10 @@
       "next": "Next",
       "prev": "Prev",
       "generate_pdf": "Generate PDF",
-      "loading_generation_pdf": "Loading while PDF is been created"
+      "loading_generation_pdf": "Loading PDF...",
+      "pdf_created": "PDF is ready to download!",
+      "pdf_not_created": "Something went wrong with PDF creation",
+      "close": "Close"
     }
   }
 }
