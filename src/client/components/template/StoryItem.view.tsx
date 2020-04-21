@@ -12,16 +12,24 @@ interface Props {
   city: string;
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  h5 {
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 13px;
+    margin: 5px 0;
+  }
+`;
 
 const StoryItem: FC<Props> = ({ title, entity, dateFrom, dateTo, description, city }: Props): ReactElement => {
+  const start = dateFrom && getFormattedDateWithoutDays(dateFrom);
+  const end = dateTo && getFormattedDateWithoutDays(dateTo);
   return (
     <Wrapper>
-      <h2>{title}</h2>
-      <p>{entity}</p>
-      <p>{dateFrom && getFormattedDateWithoutDays(dateFrom)}</p>
-      <p>{dateTo && getFormattedDateWithoutDays(dateTo)}</p>
-      <p>{city}</p>
+      <h5>{title}</h5>
+      <p>{`${entity} - ${city} - ${start}/${end}`}</p>
       <p>{description}</p>
     </Wrapper>
   );

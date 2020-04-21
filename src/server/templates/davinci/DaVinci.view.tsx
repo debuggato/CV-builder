@@ -3,8 +3,6 @@ import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg
 
 import { DetailsState } from '@sidebar/details/duck/Details.model';
 import { SummaryState } from '@sidebar/summary/duck/Summary.model';
-import { EmploymentState } from '@sidebar/employment/duck/Employment.model';
-import AddressView from '@components/template/Address.view';
 import ContactType from '@components/template/ContactType.view';
 import Description from '@components/template/Description.view';
 import StoryItem from '@components/template/StoryItem.view';
@@ -21,7 +19,7 @@ import {
 } from './DaVinci.style';
 
 interface Props extends DetailsState, SummaryState {
-  employments: any;
+  employments?: any;
 }
 
 const DaVinci: FC<Props> = (props: Props): ReactElement => {

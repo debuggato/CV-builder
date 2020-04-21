@@ -46,6 +46,7 @@ export const Sidebar = styled.aside`
   background: #f1f1f1;
   min-height: 465px;
   max-width: 180px;
+  min-width: 100px;
 `;
 
 export const FullName = styled.h1`
@@ -57,5 +58,5 @@ export const JobTitle = styled.h3`
   text-transform: capitalize;
   font-size: 15px;
   margin-top: 5px;
-  color: ${colors.lightGrey};
+  color: ${colors.greyLight};
 `;
