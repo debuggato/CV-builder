@@ -7,6 +7,7 @@ const basic = {
   red: '#d60d0d',
   primary: '#3498eb',
   secondary: '#93acc1',
+  green: '#11de21'
 };
 
 const colors = {

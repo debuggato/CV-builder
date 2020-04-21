@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
 
-import { Wrapper, Card, Header, Close, Title, Body } from './Modal.style';
+import { Wrapper, Card, Header, Close, Title } from './Modal.style';
 
 interface Props {
   children: ReactNode;
@@ -19,9 +19,7 @@ const Modal: FC<Props> = ({ children, title, header, onClick }: Props): ReactEle
             <Close onClick={onClick}>✕</Close>
           </Header>
         }
-        <Body>
-          {children}
-        </Body>
+        {children}
       </Card>
     </Wrapper>
   );

@@ -22,14 +22,3 @@ export const Page = styled.div`
   height: 600px;
   padding: 15px;
 `;
-
-export const ActionsWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-  width: 100%;
-`;
-
-export const Title = styled.h3`
-  
-`;

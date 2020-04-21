@@ -1,56 +1,35 @@
-import React, { PureComponent, ReactNode } from 'react';
+import React, { PureComponent, ReactNode, CSSProperties } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { faThLarge } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
 
 import trans from '@client/i18n';
 import {
   chooseTemplateAction,
   showTemplateGalleryAction,
-  showLoaderAction,
 } from '@genericState/Generic.actions';
-import config from '@config/config';
-
-import Loader from '@components/loader/Loader.view';
-import IconView from '@components/Icon.view';
 import { DetailsState } from '@sidebar/details/duck/Details.model';
 import { SummaryState } from '@sidebar/summary/duck/Summary.model';
-import Button from '@components/buttons/Button.view';
 import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
-import { Container, ActionsWrapper, Page, Title } from './Resume.style';
+import { Container, Page } from './Resume.style';
+import ResumeActions from './actions/ResumeActions.view';
 import DaVinci from '@server/templates/davinci/DaVinci.view';
 
 interface StateProps extends DetailsState, SummaryState {
   items: any;
   selected: string | null;
   employments: any;
-  loader: boolean;
   templateGallery: boolean;
 }
 
 interface DispatchProps {
   showTemplateGallery: (arg0: boolean) => void;
   selectTemplate: (arg0: string) => void;
-  showLoader: (arg0: boolean) => void;
 }
 
 type Props = StateProps & DispatchProps;
 
 class ResumeContainer extends PureComponent<Props, {}> {
-
-  renderPdf = () => {
-
-    this.props.showLoader(true);
-
-    axios.post(config.render_pdf_url, null, {
-      data: this.props
-    }).then(result => {
-      this.props.showLoader(false);
-    });
-  }
-
   render(): ReactNode {
     const {
       showTemplateGallery,
@@ -59,7 +38,6 @@ class ResumeContainer extends PureComponent<Props, {}> {
       templateGallery,
       selected,
       employments,
-      loader,
       ...rest
     } = this.props;
 
@@ -86,32 +64,34 @@ class ResumeContainer extends PureComponent<Props, {}> {
       return selected !== null ? items[selected][1] : '';
     }
 
+    const TemplateGalleryStyle: CSSProperties = {
+      overflowY: 'scroll',
+      width: '100%',
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    }
+
     return (
       <Container>
-        <Title>{getTemplateTitle()}</Title>
+        <h3>{getTemplateTitle()}</h3>
         {
           selected &&
           <Page>{getTemplate()}</Page>
         }
-        <ActionsWrapper>
-          <Button type="button" linkStyle onClick={() => showTemplateGallery(true)}>
-            <IconView icon={faThLarge} /> {trans.t('choose_template')}
-          </Button>
+        <ResumeActions
+          selected={selected}
+          onClick={() => showTemplateGallery(true)}
+          {...this.props}
+        />
 
-          {selected &&
-            <Button type="button" primary onClick={this.renderPdf}>
-              {trans.t('generate_pdf')}
-            </Button>
-          }
-        </ActionsWrapper>
         {templateGallery &&
-          <Modal title={trans.t('choose_template')} header onClick={() => showTemplateGallery(false)}>
-            {item}
-          </Modal>
-        }
-        {loader &&
-          <Modal>
-            <Loader keyLabel="loading_generation_pdf" />
+          <Modal
+            title={trans.t('choose_template')}
+            header
+            onClick={() => showTemplateGallery(false)}
+          >
+            <div style={TemplateGalleryStyle}>{item}</div>
           </Modal>
         }
       </Container>
@@ -126,9 +106,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   selectTemplate: (value: string) => {
     dispatch(chooseTemplateAction(value));
   },
-  showLoader: (value: boolean) => {
-    dispatch(showLoaderAction(value));
-  },
 });
 
 const mapStateToProps = (state: any) => {
@@ -137,7 +114,6 @@ const mapStateToProps = (state: any) => {
 
   const items = Object.entries(templateState.available);
   const selected = templateState.selected;
-  const loader = genericState.loader;
   const templateGallery = genericState.templateGallery;
   const employments = Object.entries(state.employment);
 
@@ -162,7 +138,6 @@ const mapStateToProps = (state: any) => {
   return {
     items,
     selected,
-    loader,
     templateGallery,
     jobTitle,
     firstName,

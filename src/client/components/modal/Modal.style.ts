@@ -49,11 +49,3 @@ export const Header = styled.div`
   padding: 0 10px;
   box-sizing: border-box;
 `;
-
-export const Body = styled.div`
-  overflow-y: scroll;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;

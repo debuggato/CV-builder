@@ -6,12 +6,9 @@ export const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 30px;
 
   .loader-fb-style {
-    display: inline-block;
-    position: relative;
+    position: absolute;
     width: 80px;
     height: 80px;
 
@@ -20,7 +17,7 @@ export const Content = styled.div`
       position: absolute;
       left: 8px;
       width: 16px;
-      background: ${colors.greyDark};
+      background: ${colors.primary};
       animation: loader-fb-style 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 
       &:nth-child(1) {
