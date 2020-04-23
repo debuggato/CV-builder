@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
+import TextEditor from '@components/text_editor/TextEditor.view';
 import Input from '@components/input/Input.view';
 import RangePicker from '@components/datepicker/RangePicker.view';
 import { Wrapper } from '@components/accordion/Accordion.style';
@@ -71,10 +72,8 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
         onChangeDateTo={date => setDateTo(id, new Date(date))}
       />
       <Wrapper>
-        <Input
-          type="textarea"
-          label="Description"
-          onChange={e => setDescription(id, e.target.value)}
+        <TextEditor
+          onChange={e => setDescription(id, e)}
           value={description}
         />
       </Wrapper>

@@ -30,7 +30,7 @@ const StoryItem: FC<Props> = ({ title, entity, dateFrom, dateTo, description, ci
     <Wrapper>
       <h5>{title}</h5>
       <p>{`${entity} - ${city} - ${start}/${end}`}</p>
-      <p>{description}</p>
+      <p dangerouslySetInnerHTML={{ __html: description }} ></p>
     </Wrapper>
   );
 }

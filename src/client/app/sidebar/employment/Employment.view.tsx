@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { Wrapper } from '@components/accordion/Accordion.style';
-
+import TextEditor from '@components/text_editor/TextEditor.view';
 import Input from '@components/input/Input.view';
 import RangePicker from '@components/datepicker/RangePicker.view';
 import * as action from './duck/Employment.actions';
@@ -72,10 +72,8 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
         onChangeDateTo={date => setDateTo(id, new Date(date))}
       />
       <Wrapper>
-        <Input
-          type="textarea"
-          label="Description"
-          onChange={e => setDescription(id, e.target.value)}
+        <TextEditor
+          onChange={e => setDescription(id, e)}
           value={description}
         />
       </Wrapper>
