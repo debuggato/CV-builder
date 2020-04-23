@@ -1,4 +1,5 @@
 export const SET_MAIN_JOB_TITLE: string = 'SET_MAIN_JOB_TITLE';
+export const SET_PHOTO: string = 'SET_PHOTO';
 export const SET_FIRST_NAME: string = 'SET_FIRST_NAME';
 export const SET_LAST_NAME: string = 'SET_LAST_NAME';
 export const SET_EMAIL: string = 'SET_EMAIL';

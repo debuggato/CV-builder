@@ -1,6 +1,7 @@
 import * as types from './Details.types';
 
 export type DetailsState = {
+  photo: string;
   jobTitle: string;
   firstName: string;
   lastName: string;

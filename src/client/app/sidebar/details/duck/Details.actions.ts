@@ -5,6 +5,11 @@ export const setJobTitle = (value: string) => ({
   value,
 });
 
+export const setPhotoAction = (value: string) => ({
+  type: type.SET_PHOTO,
+  value,
+});
+
 export const setFirstname = (value: string) => ({
   type: type.SET_FIRST_NAME,
   value,

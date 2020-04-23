@@ -4,6 +4,11 @@ import { ActionType } from './Details.model';
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
+    case type.SET_PHOTO:
+      return {
+        ...state,
+        photo: `${action.value}?=${Math.random()}`,
+      };
     case type.SET_MAIN_JOB_TITLE:
       return {
         ...state,

@@ -118,6 +118,7 @@ const mapStateToProps = (state: any) => {
   const employments = Object.entries(state.employment);
 
   const {
+    photo,
     jobTitle,
     firstName,
     lastName,
@@ -139,6 +140,7 @@ const mapStateToProps = (state: any) => {
     items,
     selected,
     templateGallery,
+    photo,
     jobTitle,
     firstName,
     lastName,

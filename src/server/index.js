@@ -6,6 +6,8 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import cors from 'cors';
+import multer from 'multer';
+import fs from 'fs';
 
 import config from '@config/config';
 import DaVinci from '@server/templates/davinci/DaVinci.view';
@@ -23,14 +25,45 @@ const corsOptions = {
   methods: 'POST',
 };
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/assets/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, 'photo_profile.jpg');
+  },
+});
+
+// function to encode file data to base64 encoded string
+const base64_encode = file => {
+  // read binary data
+  var bitmap = fs.readFileSync(file);
+  // convert binary data to base64 encoded string
+  return `data://text/plain;base64,${Buffer(bitmap).toString('base64')}`;
+};
+
+const upload = multer({ storage: storage }).single('file');
+
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
 app.use(cors(corsOptions));
 app.use(express.static('public'));
+
+app.post('/upload', async (req, res, next) => {
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return res.status(500).json(err);
+    } else if (err) {
+      return res.status(500).json(err);
+    }
+    return res.status(200).send(req.file);
+  });
+});
 
 app.post('/render', async (req, res, next) => {
   try {
     const data = req.body;
+    data.photo = base64_encode('public/assets/photo_profile.jpg');
 
     let component;
     if (data.selected === '0') {
@@ -98,7 +131,7 @@ app.post('/render', async (req, res, next) => {
     return pdf;
   } catch (error) {
     res.status(500);
-    console.log(error);
+    console.error(error);
   }
 });
 

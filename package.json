@@ -1,6 +1,6 @@
 {
   "name": "CV-builder",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "",
   "repository": "https://github.com/ivanlori/CV-builder.git",
   "author": "Ivan Lori <ivan.lori@protonmail.com>",
@@ -31,6 +31,7 @@
     "cors": "^2.8.5",
     "draft-js": "^0.11.5",
     "express": "^4.17.1",
+    "multer": "^1.4.2",
     "puppeteer": "^2.1.1",
     "react": "^16.13.1",
     "react-datepicker": "^2.14.1",
@@ -53,6 +54,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",
     "module-alias": "^2.2.2",

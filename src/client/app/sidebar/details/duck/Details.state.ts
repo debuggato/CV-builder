@@ -1,6 +1,7 @@
 import { DetailsState } from './Details.model';
 
 const initialState: DetailsState = {
+  photo: '',
   jobTitle: '',
   firstName: '',
   lastName: '',

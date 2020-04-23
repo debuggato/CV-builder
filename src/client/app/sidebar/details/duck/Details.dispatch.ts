@@ -2,6 +2,9 @@ import { Dispatch } from 'redux';
 import * as action from './Details.actions';
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setPhoto: (value: string) => {
+    dispatch(action.setPhotoAction(value));
+  },
   setJobTitle: (value: string) => {
     dispatch(action.setJobTitle(value));
   },

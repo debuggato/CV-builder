@@ -35,7 +35,8 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
     jobTitle,
     summary,
     email,
-    employments
+    employments,
+    photo,
   } = props;
 
   const employment = employments.map((el: any) => {
@@ -56,6 +57,7 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
           <FullName>{firstName + ' ' + lastName}</FullName>
           {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
         </WhoIam>
+        {photo && <img src={photo} width="100" height="80" />}
         <ContactDetails>
           <ContactType
             icon={faPhone}
