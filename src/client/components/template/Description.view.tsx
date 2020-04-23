@@ -1,22 +1,17 @@
 import React, { FC, ReactElement } from 'react';
-import styled from 'styled-components';
 
 import trans from '@client/i18n';
 
 interface Props {
   label: string;
-  summary: string;
+  text: string;
 }
 
-const Text = styled.p``;
-
-const Title = styled.h4``;
-
-const Description: FC<Props> = ({ label, summary }: Props): ReactElement => {
+const Description: FC<Props> = ({ label, text }: Props): ReactElement => {
   return (
     <>
-      <Title>{trans.t(label)}</Title>
-      <Text dangerouslySetInnerHTML={{ __html: summary }} />
+      <h4>{trans.t(label)}</h4>
+      <p dangerouslySetInnerHTML={{ __html: text }} ></p>
     </>
   );
 }

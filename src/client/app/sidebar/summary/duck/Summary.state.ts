@@ -1,7 +1,7 @@
 import { SummaryState } from './Summary.model';
 
 const initialState: SummaryState = {
-  summary: '',
+  description: '',
 };
 
 export default initialState;

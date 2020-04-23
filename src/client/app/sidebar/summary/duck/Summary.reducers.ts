@@ -7,7 +7,7 @@ const reducer = (state = initialState, action: ActionType) => {
     case type.SET_SUMMARY:
       return {
         ...state,
-        summary: action.value,
+        description: action.value,
       };
     default:
       break;

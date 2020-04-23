@@ -33,7 +33,7 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
     firstName,
     lastName,
     jobTitle,
-    summary,
+    description,
     email,
     employments,
     photo,
@@ -79,7 +79,7 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
       <Sidebar>
       </Sidebar>
       <Main>
-        <Description label="about_me" summary={summary} />
+        <Description label="about_me" text={description} />
         {employment}
       </Main>
     </Container>

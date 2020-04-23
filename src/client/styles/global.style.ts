@@ -7,4 +7,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif;
     color: #333;
   }
+
+  .quill .ql-container {
+    min-height: 100px;
+  }
 `;

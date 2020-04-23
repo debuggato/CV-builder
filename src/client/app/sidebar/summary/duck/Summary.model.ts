@@ -1,7 +1,7 @@
 import { SET_SUMMARY } from './Summary.types';
 
 export type SummaryState = {
-  summary: string;
+  description: string;
 };
 
 interface SetSummaryAction {

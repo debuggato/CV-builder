@@ -134,7 +134,7 @@ const mapStateToProps = (state: any) => {
     dateOfBirth,
   } = state.details;
 
-  const { summary } = state.summary;
+  const { description } = state.summary;
 
   return {
     items,
@@ -154,7 +154,7 @@ const mapStateToProps = (state: any) => {
     nationality,
     placeOfBirth,
     dateOfBirth,
-    summary,
+    description,
     employments
   }
 }
