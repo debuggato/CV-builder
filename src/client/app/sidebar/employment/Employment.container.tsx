@@ -1,21 +1,18 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import trans from '@client/i18n';
 import { addEmploymentAction } from './duck/Employment.actions';
-
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
 import ErrorBoundary from '@components/ErrorBoundary';
-
 import EmploymentView from './Employment.view';
 
 interface OwnProps {
   currentStep: number;
-};
+}
 
 interface DispatchProps {
   addEmployment: (arg0: number, arg1: any) => void;
@@ -29,7 +26,7 @@ type Props = OwnProps & DispatchProps & StateProps;
 
 interface State {
   id: number;
-};
+}
 
 const employmentInitialData = {
   jobTitle: null,

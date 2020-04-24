@@ -1,6 +1,5 @@
 import React, { ReactElement, FC, ReactNode } from 'react';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-
 import Button from '@components/buttons/Button.view';
 import IconView from '@components/Icon.view';
 

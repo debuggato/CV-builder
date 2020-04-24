@@ -1,10 +1,8 @@
 import React, { PureComponent, ReactNode, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import { changeLangAction, updateDocumentTitleAction } from '@genericState/Generic.actions';
 import trans from '@client/i18n';
-
 import { InputTitle, Wrapper } from './Header.style';
 import Select from '@components/select/Select.view';
 
@@ -31,6 +29,7 @@ class Header extends PureComponent<DispatchProps, State> {
   render(): ReactNode {
     const { updateDocumentTitle } = this.props;
     const { langs } = this.state;
+
     return (
       <Wrapper>
         <InputTitle

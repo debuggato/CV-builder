@@ -1,7 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import TextEditor from '@components/text_editor/TextEditor.view';
 import Input from '@components/input/Input.view';
 import RangePicker from '@components/datepicker/RangePicker.view';
@@ -10,7 +9,7 @@ import * as action from './duck/Education.actions';
 
 interface OwnProps {
   id: number;
-};
+}
 
 interface DispatchProps {
   setSchool: (arg0: number, arg1: string) => void;
@@ -19,7 +18,7 @@ interface DispatchProps {
   setDescription: (arg0: number, arg1: string) => void;
   setDateFrom: (arg0: number, arg1: Date) => void;
   setDateTo: (arg0: number, arg1: Date) => void;
-};
+}
 
 interface StateProps {
   items: any;

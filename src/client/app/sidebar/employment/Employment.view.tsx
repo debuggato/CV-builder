@@ -1,7 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import { Wrapper } from '@components/accordion/Accordion.style';
 import TextEditor from '@components/text_editor/TextEditor.view';
 import Input from '@components/input/Input.view';
@@ -10,7 +9,7 @@ import * as action from './duck/Employment.actions';
 
 interface OwnProps {
   id: number;
-};
+}
 
 interface DispatchProps {
   setJobTitle: (arg0: number, arg1: string) => void;

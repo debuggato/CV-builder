@@ -1,5 +1,5 @@
 {
-  "name": "CV-builder",
+  "name": "cv-builder",
   "version": "0.6.5",
   "main": "",
   "repository": "https://github.com/ivanlori/CV-builder.git",
@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "client": "webpack-dev-server --mode development --config webpack.dev.js --hot --open",
-    "server": "nodemon"
+    "server": "nodemon",
+    "eslint": "eslint --ext .js,.ts,.tsx ./src"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -28,6 +29,7 @@
     "@types/styled-components": "^5.0.1",
     "cors": "^2.8.5",
     "draft-js": "^0.11.5",
+    "eslint": "^6.8.0",
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "puppeteer": "^2.1.1",
@@ -50,9 +52,12 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
     "@babel/register": "^7.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.4.2",
+    "eslint-plugin-react": "^7.19.0",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",

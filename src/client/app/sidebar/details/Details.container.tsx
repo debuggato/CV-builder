@@ -1,19 +1,16 @@
 import React, { Component, ReactNode } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-
 import trans from '@client/i18n';
-
 import Button from '@components/buttons/Button.view';
 import Title from '@components/Title.view';
 import IconView from '@components/Icon.view';
-
 import AdditionalDetails from './AdditionalDetails.view';
 import MainDetails from './MainDetails.view';
 import { Container, ButtonWrapper } from './Details.style';
 
 interface State {
   isOpen: boolean;
-};
+}
 
 interface OwnProps {
   currentStep: number;

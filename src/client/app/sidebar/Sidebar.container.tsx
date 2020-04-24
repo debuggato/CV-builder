@@ -1,9 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { CSSProperties } from 'styled-components';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-
 import trans from '@client/i18n';
-
 import IconView from '@components/Icon.view';
 import Button from '@components/buttons/Button.view';
 import { Container, ActionBar, SectionWrapper } from './Sidebar.style';
@@ -19,7 +17,7 @@ import AddSection from './add_section/AddSection.container';
 interface State {
   currentStep: number;
   sectionToShow: number;
-};
+}
 
 class Sidebar extends Component<{}, State> {
   state = {

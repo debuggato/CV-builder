@@ -1,7 +1,6 @@
 import React, { PureComponent, ReactNode, CSSProperties } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-
 import trans from '@client/i18n';
 import {
   chooseTemplateAction,
@@ -42,7 +41,12 @@ class ResumeContainer extends PureComponent<Props, {}> {
     } = this.props;
 
     const item = items.map((el: any) => {
-      return <TemplateMiniature key={el[0]} id={el[0]} onClick={e => selectTemplate(e.currentTarget.id)}>{el[1]}</TemplateMiniature>
+      return <TemplateMiniature
+        key={el[0]}
+        id={el[0]}
+        onClick={e => selectTemplate(e.currentTarget.id)}>
+        {el[1]}
+      </TemplateMiniature>
     });
 
     const getTemplate = (): ReactNode => {

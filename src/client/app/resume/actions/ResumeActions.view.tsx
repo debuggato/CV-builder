@@ -2,7 +2,6 @@ import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-
 import trans from '@client/i18n';
 import config from '@config/config';
 import Button from '@components/buttons/Button.view';

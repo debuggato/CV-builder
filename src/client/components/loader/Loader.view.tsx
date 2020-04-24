@@ -1,6 +1,5 @@
 import React, { FC, ReactElement } from 'react';
 import trans from '@client/i18n';
-
 import { Content } from './Loader.style';
 
 interface Props {

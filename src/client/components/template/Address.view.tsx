@@ -14,7 +14,7 @@ const Address: FC<Props> = ({ address, postalCode, city, country }: Props): Reac
       {
         address &&
         <p>
-          {trans.t('address')}: <strong>`${address} - ${postalCode} ${city}, ${country}`</strong>}
+          {trans.t('address')}: {<strong>`${address} - ${postalCode} ${city}, ${country}`</strong>}
         </p>
       }
     </>

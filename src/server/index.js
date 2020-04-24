@@ -2,13 +2,12 @@ import 'module-alias/register';
 import puppeteer from 'puppeteer';
 import express from 'express';
 import bodyParser from 'body-parser';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import React from 'react';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { renderToStaticMarkup } from 'react-dom/server';
 import cors from 'cors';
 import multer from 'multer';
 import fs from 'fs';
-
 import config from '@config/config';
 import DaVinci from '@server/templates/davinci/DaVinci.view';
 import Caravaggio from '@server/templates/caravaggio/Caravaggio.view';
@@ -38,7 +37,9 @@ const storage = multer.diskStorage({
 const base64_encode = file => {
   // read binary data
   var bitmap = fs.readFileSync(file);
+
   // convert binary data to base64 encoded string
+
   return `data://text/plain;base64,${Buffer(bitmap).toString('base64')}`;
 };
 
@@ -49,23 +50,26 @@ app.use(bodyParser.json({ limit: '50mb', extended: true }));
 app.use(cors(corsOptions));
 app.use(express.static('public'));
 
-app.post('/upload', async (req, res, next) => {
+app.post('/upload', async (req, res) => {
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {
       return res.status(500).json(err);
     } else if (err) {
       return res.status(500).json(err);
     }
+
     return res.status(200).send(req.file);
   });
 });
 
-app.post('/render', async (req, res, next) => {
+app.post('/render', async (req, res) => {
   try {
     const data = req.body;
+
     data.photo = base64_encode('public/assets/photo_profile.jpg');
 
     let component;
+
     if (data.selected === '0') {
       component = renderToStaticMarkup(
         <StyleSheetManager sheet={sheet.instance}>
@@ -128,6 +132,7 @@ app.post('/render', async (req, res, next) => {
     await browser.close();
 
     res.status(200).send({ url: pdfUrl }).end();
+
     return pdf;
   } catch (error) {
     res.status(500);

@@ -1,8 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-
 import Input from '@components/input/Input.view';
-
 import { Wrapper } from './Links.style';
 import mapDispatchToProps from './duck/Links.dispatch';
 
@@ -23,6 +21,7 @@ type Props = OwnProps & DispatchProps & StateProps;
 
 const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactElement => {
   const { label, link } = items[id];
+
   return (
     <>
       <Wrapper>

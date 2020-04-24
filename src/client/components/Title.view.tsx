@@ -1,6 +1,5 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
-
 import colors from '@styles/color.style';
 
 interface Props {

@@ -1,14 +1,11 @@
 import React, { ReactNode, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import trans from '@client/i18n';
 import { addCourse } from './duck/Courses.actions';
-
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
-
 import { Container } from './Courses.style';
 import CoursesView from './Courses.view';
 
@@ -24,7 +21,7 @@ type Props = StateProps & DispatchProps;
 
 interface State {
   id: number;
-};
+}
 
 class Courses extends PureComponent<Props, State> {
   state = {

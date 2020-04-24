@@ -1,5 +1,4 @@
 import { combineReducers, createStore } from 'redux';
-
 import details from '@sidebar/details/duck/Details.reducers';
 import summary from '@sidebar/summary/duck/Summary.reducers';
 import employment from '@sidebar/employment/duck/Employment.reducers';

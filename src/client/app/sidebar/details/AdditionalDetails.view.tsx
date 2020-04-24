@@ -1,9 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-
 import Input from '@components/input/Input.view';
 import Datepicker from '@components/datepicker/Datepicker.view';
-
 import { Wrapper } from './Details.style';
 import mapDispatchToProps from './duck/Details.dispatch';
 

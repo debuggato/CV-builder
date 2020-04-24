@@ -1,9 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { faUser, faUpload } from '@fortawesome/free-solid-svg-icons';
-
 import Input from '@components/input/Input.view';
 import trans from '@client/i18n';
-
 import IconView from '@components/Icon.view';
 import { Container, Wrapper, IconContainer, UploadLabel } from './Photo.style';
 

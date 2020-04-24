@@ -1,12 +1,10 @@
 import React, { FC, ReactElement } from 'react';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-
 import { DetailsState } from '@sidebar/details/duck/Details.model';
 import { SummaryState } from '@sidebar/summary/duck/Summary.model';
 import ContactType from '@components/template/ContactType.view';
 import Description from '@components/template/Description.view';
 import StoryItem from '@components/template/StoryItem.view';
-
 import {
   Container,
   FullName,

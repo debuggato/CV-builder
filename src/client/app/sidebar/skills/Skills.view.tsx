@@ -1,6 +1,5 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-
 import Input from '@components/input/Input.view';
 import { Wrapper } from './Skills.style';
 import mapDispatchToProps from './duck/Skills.dispatch';
@@ -22,6 +21,7 @@ type Props = OwnProps & DispatchProps & StateProps;
 
 const SkillsView: FC<Props> = ({ id, setName, setLevel, items }: Props): ReactElement => {
   const { skill, level } = items[id];
+
   return (
     <>
       <Wrapper>

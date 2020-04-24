@@ -1,7 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import * as action from './duck/Summary.actions';
 import trans from '@client/i18n';
 import { Container } from './Summary.style';
@@ -10,7 +9,7 @@ import Title from '@components/Title.view';
 
 interface OwnProps {
   currentStep: number;
-};
+}
 
 interface StateProps {
   description: string;

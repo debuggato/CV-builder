@@ -1,5 +1,4 @@
 import React, { FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
-
 import { Wrapper, Card, Header, Close, Title } from './Modal.style';
 
 interface Props {

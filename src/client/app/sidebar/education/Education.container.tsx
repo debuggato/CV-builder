@@ -1,15 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
 import trans from '@client/i18n';
-
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
 import Accordion from '@components/accordion/Accordion.view';
 import ErrorBoundary from '@components/ErrorBoundary';
-
 import { Container } from './Education.style';
 import EducationView from './Education.view';
 import { addEducation } from './duck/Education.actions';
@@ -30,7 +27,7 @@ type Props = OwnProps & DispatchProps & StateProps;
 
 interface State {
   id: number;
-};
+}
 
 class Education extends Component<Props, State> {
   state = {

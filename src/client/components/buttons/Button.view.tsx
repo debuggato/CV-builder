@@ -1,5 +1,4 @@
 import React, { FC, ReactNode, ReactElement } from 'react';
-
 import Btn from './Button.style';
 
 export interface Props {

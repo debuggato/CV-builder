@@ -1,7 +1,6 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-
 import colors from '@styles/color.style';
 import trans from '@client/i18n';
 import IconView from '@components/Icon.view';

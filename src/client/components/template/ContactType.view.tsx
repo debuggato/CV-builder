@@ -1,7 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-
 import IconView from '@components/Icon.view';
 import trans from '@client/i18n';
 

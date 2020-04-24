@@ -1,7 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
 import config from '@config/config';
 import Photo from '@components/photo/Photo.view';
 import Input from '@components/input/Input.view';
@@ -30,6 +29,7 @@ type Props = StateProps & DispatchProps;
 
 const onUploadPhoto = (e: any, setPhoto: any) => {
   const data = new FormData()
+
   data.append('file', e.target.files[0]);
 
   axios.post(config.upload, data)

@@ -1,11 +1,8 @@
 import React, { FC, useState, ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
-
 import FieldLabel from '../FieldLabel.view';
 import InputStyle from '../input/Input.style';
-
 import { Wrapper, Container } from './Datepicker.style';
 
 interface Props {

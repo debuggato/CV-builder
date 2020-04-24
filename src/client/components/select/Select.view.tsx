@@ -1,5 +1,4 @@
 import React, { FC, ChangeEvent, ReactElement } from 'react';
-
 import { Select } from './Select.style';
 
 interface Props {

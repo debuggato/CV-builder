@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import Input from '@components/input/Input.view';
 
 

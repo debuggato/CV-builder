@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux';
-
 import * as action from './Skills.actions';
 
 const mapDispatchToProps = (dispatch: Dispatch) => {

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import colors from '@styles/color.style';
 import { Props } from './Button.view';
 

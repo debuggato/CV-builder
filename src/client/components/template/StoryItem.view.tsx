@@ -1,6 +1,5 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
-
 import { getFormattedDateWithoutDays } from '@utils/helpers';
 
 interface Props {
@@ -23,9 +22,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const StoryItem: FC<Props> = ({ title, entity, dateFrom, dateTo, description, city }: Props): ReactElement => {
+const StoryItem: FC<Props> = (props: Props): ReactElement => {
+  const { title, entity, dateFrom, dateTo, description, city } = props;
   const start = dateFrom && getFormattedDateWithoutDays(dateFrom);
   const end = dateTo && getFormattedDateWithoutDays(dateTo);
+
   return (
     <Wrapper>
       <h5>{title}</h5>

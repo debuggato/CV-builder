@@ -1,5 +1,4 @@
 import React, { FC, CSSProperties, ChangeEvent, ReactElement } from 'react';
-
 import InputStyled from './Input.style';
 import FieldLabel from '../FieldLabel.view';
 

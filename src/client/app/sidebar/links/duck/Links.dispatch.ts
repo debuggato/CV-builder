@@ -1,5 +1,4 @@
 import { Dispatch } from 'redux';
-
 import * as action from './Links.actions';
 
 const mapDispatchToProps = (dispatch: Dispatch) => {

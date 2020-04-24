@@ -1,7 +1,5 @@
 import React, { ReactNode, PureComponent } from 'react';
-
 import trans from '../../../client/i18n';
-
 import {
   Container,
   FullName,
@@ -88,6 +86,6 @@ class Caravaggio extends PureComponent<Props, {}> {
       </Container>
     );
   }
-};
+}
 
 export default Caravaggio;

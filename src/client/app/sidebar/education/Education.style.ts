@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 interface Props {
   isVisible: boolean;
-};
+}
 
 export const Container = styled.section``;
 

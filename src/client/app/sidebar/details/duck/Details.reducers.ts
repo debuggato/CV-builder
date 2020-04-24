@@ -77,6 +77,7 @@ const reducer = (state = initialState, action: ActionType) => {
     default:
       break;
   }
+
   return state;
 };
 

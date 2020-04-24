@@ -1,15 +1,11 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
-
 import trans from '@client/i18n';
-
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
-
 import { Container } from './Skills.style';
 import SkillsView from './Skills.view';
-
 import mapDispatchToProps from './duck/Skills.dispatch';
 
 interface OwnProps {
@@ -23,7 +19,7 @@ interface StateProps {
 
 interface State {
   id: number;
-};
+}
 
 type Props = OwnProps & StateProps;
 

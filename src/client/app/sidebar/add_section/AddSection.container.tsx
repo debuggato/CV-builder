@@ -1,15 +1,12 @@
 import React, { Component, ReactNode } from 'react';
-
 import trans from '@client/i18n';
-
 import Title from '@components/Title.view';
 import Courses from '../courses/Courses.container';
-
 import { Container, Body, Wrapper } from './AddSection.style';
 
 interface Props {
   currentStep: number;
-};
+}
 
 interface State {
   showCourses: boolean;
@@ -19,7 +16,7 @@ interface State {
   showLanguages: boolean;
   showInternships: boolean;
   showReferences: boolean;
-};
+}
 
 class AddSection extends Component<Props, State> {
   state = {
