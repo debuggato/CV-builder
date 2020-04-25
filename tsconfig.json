@@ -36,5 +36,5 @@
     },
     "pretty": true
   },
-  "esclude": ["node_modules"]
+  "esclude": ["node_modules", "src/**/.test.tsx"]
 }
