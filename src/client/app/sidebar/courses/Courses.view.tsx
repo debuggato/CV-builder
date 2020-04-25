@@ -1,12 +1,16 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import * as action from './duck/Courses.actions';
 import Input from '@components/input/Input.view';
 import RangePicker from '@components/datepicker/RangePicker.view';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { Wrapper } from '@components/accordion/Accordion.style';
-import { setDateFrom, setDateTo } from '../education/duck/Education.actions';
+import {
+  setDateFromAction,
+  setDateToAction,
+  setInstitutionAction,
+  setCourseAction
+} from './duck/Courses.actions';
 
 interface OwnProps {
   id: number;
@@ -61,16 +65,16 @@ const CoursesView: FC<Props> = (props: Props): ReactElement => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setCourse: (id, value) => {
-    dispatch(action.setCourse(id, value));
+    dispatch(setCourseAction(id, value));
   },
   setInstitution: (id, value) => {
-    dispatch(action.setInstitution(id, value));
+    dispatch(setInstitutionAction(id, value));
   },
   setDateFrom: (id, value) => {
-    dispatch(setDateFrom(id, value));
+    dispatch(setDateFromAction(id, value));
   },
   setDateTo: (id, value) => {
-    dispatch(setDateTo(id, value));
+    dispatch(setDateToAction(id, value));
   },
 });
 

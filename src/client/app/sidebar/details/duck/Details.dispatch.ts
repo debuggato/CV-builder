@@ -6,44 +6,44 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(action.setPhotoAction(value));
   },
   setJobTitle: (value: string) => {
-    dispatch(action.setJobTitle(value));
+    dispatch(action.setJobTitleAction(value));
   },
   setFirstName: (value: string) => {
-    dispatch(action.setFirstname(value));
+    dispatch(action.setFirstnameAction(value));
   },
   setLastName: (value: string) => {
-    dispatch(action.setLastname(value));
+    dispatch(action.setLastnameAction(value));
   },
   setCity: (value: string) => {
-    dispatch(action.setCity(value));
+    dispatch(action.setCityAction(value));
   },
   setEmail: (value: string) => {
-    dispatch(action.setEmail(value));
+    dispatch(action.setEmailAction(value));
   },
   setPhone: (value: string) => {
-    dispatch(action.setPhone(value));
+    dispatch(action.setPhoneAction(value));
   },
   setCountry: (value: string) => {
-    dispatch(action.setCountry(value));
+    dispatch(action.setCountryAction(value));
   },
   setAddress: (value: string) => {
-    dispatch(action.setAddress(value));
+    dispatch(action.setAddressAction(value));
   },
   setPostalCode: (value: string) => {
-    dispatch(action.setPostalCode(value));
+    dispatch(action.setPostalCodeAction(value));
   },
   setDrivingLicense: (value: string) => {
-    dispatch(action.setDrivingLicense(value));
+    dispatch(action.setDrivingLicenseAction(value));
   },
   setNationality: (value: string) => {
-    dispatch(action.setNationality(value));
+    dispatch(action.setNationalityAction(value));
   },
   setPlaceOfBirth: (value: string) => {
-    dispatch(action.setPlaceOfBirth(value));
+    dispatch(action.setPlaceOfBirthAction(value));
   },
   setDateOfBirth: (value: Date) => {
     console.log(value);
-    dispatch(action.setDateOfBirth(value));
+    dispatch(action.setDateOfBirthAction(value));
   },
 });
 

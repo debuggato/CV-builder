@@ -2,7 +2,7 @@ import React, { ReactNode, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import trans from '@client/i18n';
-import { addCourse } from './duck/Courses.actions';
+import { addCourseAction } from './duck/Courses.actions';
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
@@ -71,7 +71,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addCourse: (id, value) => {
-    dispatch(addCourse(id, value));
+    dispatch(addCourseAction(id, value));
   },
 });
 

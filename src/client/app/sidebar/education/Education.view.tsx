@@ -82,22 +82,22 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setSchool: (id, value) => {
-    dispatch(action.setSchool(id, value));
+    dispatch(action.setSchoolAction(id, value));
   },
   setDegree: (id, value) => {
-    dispatch(action.setDegree(id, value));
+    dispatch(action.setDegreeAction(id, value));
   },
   setCity: (id, value) => {
-    dispatch(action.setCity(id, value));
+    dispatch(action.setCityAction(id, value));
   },
   setDescription: (id, value) => {
-    dispatch(action.setDescription(id, value));
+    dispatch(action.setDescriptionAction(id, value));
   },
   setDateFrom: (id, value) => {
-    dispatch(action.setDateFrom(id, value));
+    dispatch(action.setDateFromAction(id, value));
   },
   setDateTo: (id, value) => {
-    dispatch(action.setDateTo(id, value));
+    dispatch(action.setDateToAction(id, value));
   },
 });
 

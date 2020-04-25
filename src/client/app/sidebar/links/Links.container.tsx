@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import trans from '@client/i18n';
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
@@ -7,7 +8,7 @@ import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
 import { Container } from './Links.style';
 import LinksView from './Links.view';
-import mapDispatchToProps from './duck/Links.dispatch';
+import { addLinkAction } from './duck/Links.actions';
 
 interface OwnProps {
   currentStep: number;
@@ -73,5 +74,11 @@ class Links extends Component<Props, State> {
 const mapStateToProps = (state: any) => ({
   items: Object.entries(state.links)
 });
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addLink: (id: number, value: any) => {
+    dispatch(addLinkAction(id, value));
+  },
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Links);

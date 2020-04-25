@@ -9,7 +9,7 @@ import Accordion from '@components/accordion/Accordion.view';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { Container } from './Education.style';
 import EducationView from './Education.view';
-import { addEducation } from './duck/Education.actions';
+import { addEducationAction } from './duck/Education.actions';
 
 interface OwnProps {
   currentStep: number;
@@ -82,7 +82,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addEducation: (id, value) => {
-    dispatch(addEducation(id, value));
+    dispatch(addEducationAction(id, value));
   },
 });
 

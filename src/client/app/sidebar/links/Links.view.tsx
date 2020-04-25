@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import Input from '@components/input/Input.view';
 import { Wrapper } from './Links.style';
-import mapDispatchToProps from './duck/Links.dispatch';
+import { setLabelAction, setLinkAction } from './duck/Links.actions';
 
 interface OwnProps {
   id: number;
@@ -47,5 +48,14 @@ const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactEle
 const mapStateToProps = (state: any) => ({
   items: state.links
 });
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setLabel: (id: number, value: string) => {
+    dispatch(setLabelAction(id, value));
+  },
+  setLink: (id: number, value: string) => {
+    dispatch(setLinkAction(id, value));
+  },
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinksView);

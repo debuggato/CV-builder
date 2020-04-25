@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import * as action from './duck/Summary.actions';
+import { setSummaryAction } from './duck/Summary.actions';
 import trans from '@client/i18n';
 import { Container } from './Summary.style';
 import TextEditor from '@components/text_editor/TextEditor.view';
@@ -46,7 +46,7 @@ class Summary extends Component<Props, {}> {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setSummary: (value: string) => {
-    dispatch(action.setSummary(value));
+    dispatch(setSummaryAction(value));
   },
 });
 

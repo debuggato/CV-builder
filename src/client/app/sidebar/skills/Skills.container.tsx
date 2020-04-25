@@ -1,12 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import trans from '@client/i18n';
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
 import { Container } from './Skills.style';
 import SkillsView from './Skills.view';
-import mapDispatchToProps from './duck/Skills.dispatch';
+import { addSkillAction } from './duck/Skills.actions';
 
 interface OwnProps {
   currentStep: number;
@@ -68,5 +69,11 @@ class Skills extends Component<Props, State> {
 const mapStateToProps = (state: any) => ({
   items: Object.entries(state.skills)
 });
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addSkill: (id: number, value: any) => {
+    dispatch(addSkillAction(id, value));
+  },
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Skills);

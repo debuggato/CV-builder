@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import Input from '@components/input/Input.view';
 import { Wrapper } from './Skills.style';
-import mapDispatchToProps from './duck/Skills.dispatch';
+import { setLevelAction, setNameAction } from './duck/Skills.actions';
 
 interface OwnProps {
   id: number;
@@ -46,6 +47,15 @@ const SkillsView: FC<Props> = ({ id, setName, setLevel, items }: Props): ReactEl
 
 const mapStateToProps = (state: any) => ({
   items: state.skills
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setName: (id: number, value: string) => {
+    dispatch(setNameAction(id, value));
+  },
+  setLevel: (id: number, value: string) => {
+    dispatch(setLevelAction(id, value));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SkillsView);
