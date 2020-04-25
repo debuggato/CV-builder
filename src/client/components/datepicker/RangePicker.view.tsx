@@ -28,6 +28,11 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
     onChangeDateTo(date);
   }
 
+  // Disable user manual edit
+  const handleDateChangeRaw = (e: any) => {
+    e.preventDefault();
+  }
+
   return (
     <Container>
       <FieldLabel value={label} />
@@ -38,8 +43,9 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
           selectsStart
           startDate={startDate}
           endDate={endDate}
-          dateFormat="MM/yyyy"
+          dateFormat="MM-yyyy"
           showMonthYearPicker
+          onChangeRaw={handleDateChangeRaw}
         />
         <DatepickerCustom
           selected={endDate}
@@ -47,8 +53,9 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
           selectsStart
           startDate={startDate}
           endDate={endDate}
-          dateFormat="MM/yyyy"
+          dateFormat="MM-yyyy"
           showMonthYearPicker
+          onChangeRaw={handleDateChangeRaw}
         />
       </Wrapper>
     </Container>

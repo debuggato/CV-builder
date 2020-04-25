@@ -20,7 +20,7 @@ interface DispatchProps {
   setAddress: (arg0: string) => void;
   setCity: (arg0: string) => void;
   setCountry: (arg0: string) => void;
-  setDateOfBirth: (arg0: Date | string) => void;
+  setDateOfBirth: (arg0: Date) => void;
   setDrivingLicense: (arg0: string) => void;
   setNationality: (arg0: string) => void;
   setPlaceOfBirth: (arg0: string) => void;

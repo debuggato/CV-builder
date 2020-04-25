@@ -35,7 +35,7 @@ export const setCountry = (value: string) => ({
   value,
 });
 
-export const setDateOfBirth = (value: string | Date) => ({
+export const setDateOfBirth = (value: Date) => ({
   type: type.SET_DATE_OF_BIRTH,
   value,
 });

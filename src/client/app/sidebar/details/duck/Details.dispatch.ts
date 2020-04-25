@@ -41,7 +41,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   setPlaceOfBirth: (value: string) => {
     dispatch(action.setPlaceOfBirth(value));
   },
-  setDateOfBirth: (value: string | Date) => {
+  setDateOfBirth: (value: Date) => {
+    console.log(value);
     dispatch(action.setDateOfBirth(value));
   },
 });
