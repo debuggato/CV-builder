@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import Button from '@components/buttons/Button.view';
 import Title from '@components/Title.view';
 import IconView from '@components/Icon.view';
@@ -12,7 +12,7 @@ interface State {
   isOpen: boolean;
 }
 
-interface OwnProps {
+interface OwnProps extends WithTranslation {
   currentStep: number;
 }
 
@@ -28,7 +28,7 @@ class Details extends Component<OwnProps, State> {
   };
 
   public render(): ReactNode {
-    const { currentStep } = this.props;
+    const { currentStep, t } = this.props;
 
     if (currentStep !== 1) return null;
 
@@ -36,7 +36,7 @@ class Details extends Component<OwnProps, State> {
 
     return (
       <Container>
-        <Title>{trans.t('personal_details')}</Title>
+        <Title>{t('personal.details')}</Title>
         <MainDetails />
         <ButtonWrapper onClick={this.showAdditionalDetails}>
           <Button
@@ -44,7 +44,7 @@ class Details extends Component<OwnProps, State> {
             linkStyle
             primary
           >
-            {trans.t('edit_additional_details')}
+            {t('edit.additional.details')}
           </Button>
           <IconView icon={isOpen ? faChevronUp : faChevronDown} />
         </ButtonWrapper>
@@ -56,4 +56,4 @@ class Details extends Component<OwnProps, State> {
   }
 }
 
-export default Details;
+export default withTranslation()(Details);

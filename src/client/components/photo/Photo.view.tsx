@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import { faUser, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 import Input from '@components/input/Input.view';
-import trans from '@client/i18n';
 import IconView from '@components/Icon.view';
 import { Container, Wrapper, IconContainer, UploadLabel } from './Photo.style';
 
@@ -15,6 +15,8 @@ interface Props {
 }
 
 const Photo: FC<Props> = ({ onUpload, imgUrl }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Wrapper>
@@ -28,7 +30,7 @@ const Photo: FC<Props> = ({ onUpload, imgUrl }: Props): ReactElement => {
         <label htmlFor="upload">
           <UploadLabel>
             <IconView icon={faUpload} style={iconStyle} />
-            {trans.t('upload_photo')}
+            {t('upload.photo')}
           </UploadLabel>
           <Input type="file" id="upload" onChange={e => onUpload(e)} />
         </label>

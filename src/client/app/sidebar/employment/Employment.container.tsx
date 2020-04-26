@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { addEmploymentAction } from './duck/Employment.actions';
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
@@ -10,7 +10,7 @@ import Accordion from '@components/accordion/Accordion.view';
 import ErrorBoundary from '@components/ErrorBoundary';
 import EmploymentView from './Employment.view';
 
-interface OwnProps {
+interface OwnProps extends WithTranslation {
   currentStep: number;
 }
 
@@ -50,7 +50,7 @@ class Employment extends Component<Props, State> {
   };
 
   public render(): ReactNode {
-    const { currentStep, items } = this.props;
+    const { currentStep, items, t } = this.props;
 
     if (currentStep !== 3) return null;
 
@@ -65,11 +65,11 @@ class Employment extends Component<Props, State> {
     return (
       <ErrorBoundary>
         <div>
-          <Title>{trans.t('employment_history')}</Title>
-          <Subtitle>{trans.t('employment_history_subtitle')}</Subtitle>
+          <Title>{t('employment.history')}</Title>
+          <Subtitle>{t('employment.history.subtitle')}</Subtitle>
           {item}
           <AddLinkLabel onClick={this.addEmploymentItem}>
-            {trans.t('add_employment')}
+            {t('add.employment')}
           </AddLinkLabel>
         </div>
       </ErrorBoundary>
@@ -87,4 +87,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Employment);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Employment));

@@ -6,23 +6,21 @@ import es from '../translations/es.json';
 import fr from '../translations/fr.json';
 import de from '../translations/de.json';
 
-// the translations
-const resources = {
-  ...en,
-  ...it,
-  ...es,
-  ...fr,
-  ...de
-};
-
-i18n.use(initReactI18next).init({
-  resources,
-  lng: 'en',
-  keySeparator: false,
-  fallbackLng: 'en',
-  interpolation: {
-    escapeValue: false,
-  },
-});
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en,
+      it,
+      es,
+      fr,
+      de
+    },
+    fallbackLng: 'en',
+    debug: process.env.NODE_ENV !== 'production',
+    ns: ['translations'],
+    defaultNS: 'translations',
+    keySeparator: false,
+  });
 
 export default i18n;

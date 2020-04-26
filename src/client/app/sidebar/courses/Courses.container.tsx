@@ -1,7 +1,7 @@
 import React, { ReactNode, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { addCourseAction } from './duck/Courses.actions';
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
@@ -17,7 +17,7 @@ interface StateProps {
   items: any;
 }
 
-type Props = StateProps & DispatchProps;
+type Props = StateProps & DispatchProps & WithTranslation;
 
 interface State {
   id: number;
@@ -43,7 +43,7 @@ class Courses extends PureComponent<Props, State> {
   };
 
   public render(): ReactNode {
-    const { items } = this.props;
+    const { items, t } = this.props;
 
     const item = items.map((el: any) => {
       return (
@@ -55,10 +55,10 @@ class Courses extends PureComponent<Props, State> {
 
     return (
       <Container>
-        <Title>{trans.t('courses_title')}</Title>
+        <Title>{t('courses.title')}</Title>
         {item}
         <AddLinkLabel onClick={this.addCourseItem}>
-          {trans.t('add_course')}
+          {t('add.course')}
         </AddLinkLabel>
       </Container>
     );
@@ -75,4 +75,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Courses);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Courses));

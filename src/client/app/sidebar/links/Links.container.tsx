@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
@@ -10,7 +10,7 @@ import { Container } from './Links.style';
 import LinksView from './Links.view';
 import { addLinkAction } from './duck/Links.actions';
 
-interface OwnProps {
+interface OwnProps extends WithTranslation {
   currentStep: number;
 }
 
@@ -46,7 +46,7 @@ class Links extends Component<Props, State> {
   }
 
   public render(): ReactNode {
-    const { currentStep, items } = this.props;
+    const { currentStep, items, t } = this.props;
 
     if (currentStep !== 6) return null;
 
@@ -60,11 +60,11 @@ class Links extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{trans.t('websites_social_links')}</Title>
-        <Subtitle>{trans.t('website_social_links_subtitle')}</Subtitle>
+        <Title>{t('websites.social.links')}</Title>
+        <Subtitle>{t('website.social.links.subtitle')}</Subtitle>
         {item}
         <AddLinkLabel onClick={this.addItem}>
-          {trans.t('add_link')}
+          {t('add.link')}
         </AddLinkLabel>
       </Container>
     );
@@ -81,4 +81,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Links);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Links));

@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import trans from '@client/i18n';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   address: string;
@@ -9,12 +9,14 @@ interface Props {
 }
 
 const Address: FC<Props> = ({ address, postalCode, city, country }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <>
       {
         address &&
         <p>
-          {trans.t('address')}: {<strong>`${address} - ${postalCode} ${city}, ${country}`</strong>}
+          {t('address')}: {<strong>`${address} - ${postalCode} ${city}, ${country}`</strong>}
         </p>
       }
     </>

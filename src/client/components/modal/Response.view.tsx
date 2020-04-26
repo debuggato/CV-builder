@@ -1,8 +1,8 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import colors from '@styles/color.style';
-import trans from '@client/i18n';
 import IconView from '@components/Icon.view';
 
 interface Props {
@@ -12,6 +12,8 @@ interface Props {
 }
 
 const SuccessResponse: FC<Props> = ({ children, keyLabel, positive }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Wrapper>
@@ -19,7 +21,7 @@ const SuccessResponse: FC<Props> = ({ children, keyLabel, positive }: Props): Re
           icon={positive ? faCheck : faTimes}
           style={{ fontSize: '60px', color: positive ? colors.green : colors.red }}
         />
-        {trans.t(keyLabel)}
+        {t(keyLabel)}
       </Wrapper>
       {children}
     </Container>

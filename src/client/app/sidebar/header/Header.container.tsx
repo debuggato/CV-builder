@@ -18,8 +18,8 @@ interface State {
 class Header extends PureComponent<DispatchProps, State> {
   state = {
     langs: [
-      { 'it': 'Italian' },
       { 'en': 'English' },
+      { 'it': 'Italian' },
       { 'es': 'Spanish' },
       { 'fr': 'French' },
       { 'de': 'German' }

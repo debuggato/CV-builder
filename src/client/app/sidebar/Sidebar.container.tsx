@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import { CSSProperties } from 'styled-components';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import IconView from '@components/Icon.view';
 import Button from '@components/buttons/Button.view';
 import { Container, ActionBar, SectionWrapper } from './Sidebar.style';
 import Details from './details/Details.container';
-import ProfessionalSummary from './summary/Summary.container';
+import Summary from './summary/Summary.container';
 import Education from './education/Education.container';
 import Employment from './employment/Employment.container';
 import Skills from './skills/Skills.container';
@@ -19,7 +19,7 @@ interface State {
   sectionToShow: number;
 }
 
-class Sidebar extends Component<{}, State> {
+class Sidebar extends Component<WithTranslation, State> {
   state = {
     currentStep: 1,
     sectionToShow: 7,
@@ -50,6 +50,7 @@ class Sidebar extends Component<{}, State> {
 
   public render(): ReactNode {
     const { currentStep, sectionToShow } = this.state;
+    const { t } = this.props;
 
     const arrowNext: CSSProperties = {
       marginLeft: '10px',
@@ -64,7 +65,7 @@ class Sidebar extends Component<{}, State> {
         <Header />
         <SectionWrapper>
           <Details currentStep={currentStep} />
-          <ProfessionalSummary currentStep={currentStep} />
+          <Summary currentStep={currentStep} />
           <Employment currentStep={currentStep} />
           <Education currentStep={currentStep} />
           <Skills currentStep={currentStep} />
@@ -75,13 +76,13 @@ class Sidebar extends Component<{}, State> {
           {currentStep !== 1 &&
             <Button onClick={this.onPrev} type="button" secondary>
               <IconView icon={faArrowLeft} style={arrowPrev} />
-              {trans.t('prev')}
+              {t('prev')}
             </Button>
           }
 
           {currentStep !== sectionToShow &&
             <Button onClick={this.onNext} type="button" primary>
-              {trans.t('next')}
+              {t('next')}
               <IconView icon={faArrowRight} style={arrowNext} />
             </Button>
           }
@@ -91,4 +92,4 @@ class Sidebar extends Component<{}, State> {
   }
 }
 
-export default Sidebar;
+export default withTranslation()(Sidebar);

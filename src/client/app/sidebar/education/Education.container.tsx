@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Title from '@components/Title.view';
 import Subtitle from '@components/Subtitle.view';
@@ -11,7 +11,7 @@ import { Container } from './Education.style';
 import EducationView from './Education.view';
 import { addEducationAction } from './duck/Education.actions';
 
-interface OwnProps {
+interface OwnProps extends WithTranslation {
   currentStep: number;
 }
 
@@ -49,7 +49,7 @@ class Education extends Component<Props, State> {
   };
 
   public render(): ReactNode {
-    const { currentStep, items } = this.props;
+    const { currentStep, items, t } = this.props;
 
     if (currentStep !== 4) return null;
 
@@ -64,11 +64,11 @@ class Education extends Component<Props, State> {
     return (
       <ErrorBoundary>
         <Container>
-          <Title>{trans.t('add_education')}</Title>
-          <Subtitle>{trans.t('education_subtitle')}</Subtitle>
+          <Title>{t('add.education')}</Title>
+          <Subtitle>{t('education.subtitle')}</Subtitle>
           {item}
           <AddLinkLabel onClick={this.addEducationItem}>
-            {trans.t('add_education')}
+            {t('add.education')}
           </AddLinkLabel>
         </Container>
       </ErrorBoundary>
@@ -86,4 +86,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Education);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Education));

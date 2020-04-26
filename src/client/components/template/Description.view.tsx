@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import trans from '@client/i18n';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   label: string;
@@ -7,9 +7,11 @@ interface Props {
 }
 
 const Description: FC<Props> = ({ label, text }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <h4>{trans.t(label)}</h4>
+      <h4>{t(label)}</h4>
       <p dangerouslySetInnerHTML={{ __html: text }} ></p>
     </>
   );

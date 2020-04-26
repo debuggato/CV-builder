@@ -1,7 +1,7 @@
 import React, { PureComponent, ReactNode, CSSProperties } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import {
   chooseTemplateAction,
   showTemplateGalleryAction,
@@ -26,7 +26,7 @@ interface DispatchProps {
   selectTemplate: (arg0: string) => void;
 }
 
-type Props = StateProps & DispatchProps;
+type Props = StateProps & DispatchProps & WithTranslation;
 
 class ResumeContainer extends PureComponent<Props, {}> {
   render(): ReactNode {
@@ -37,6 +37,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
       templateGallery,
       selected,
       employments,
+      t,
       ...rest
     } = this.props;
 
@@ -91,7 +92,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
 
         {templateGallery &&
           <Modal
-            title={trans.t('choose_template')}
+            title={t('choose.template')}
             header
             onClick={() => showTemplateGallery(false)}
           >
@@ -163,4 +164,4 @@ const mapStateToProps = (state: any) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResumeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ResumeContainer));

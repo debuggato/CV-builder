@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import trans from '@client/i18n';
+import { useTranslation } from 'react-i18next';
 import { Content } from './Loader.style';
 
 interface Props {
@@ -7,9 +7,11 @@ interface Props {
 }
 
 const Loader: FC<Props> = ({ keyLabel }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <Content>
-      {keyLabel && <p>{trans.t(keyLabel)}</p>}
+      {keyLabel && <p>{t(keyLabel)}</p>}
       <div className="loader-fb-style"><div></div><div></div><div></div></div>
     </Content>
   );

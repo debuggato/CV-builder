@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import Title from '@components/Title.view';
 import AddLinkLabel from '@components/AddLinkLabel.view';
 import Accordion from '@components/accordion/Accordion.view';
@@ -9,7 +9,7 @@ import { Container } from './Skills.style';
 import SkillsView from './Skills.view';
 import { addSkillAction } from './duck/Skills.actions';
 
-interface OwnProps {
+interface OwnProps extends WithTranslation {
   currentStep: number;
   addSkill: (arg0: number, arg1: any) => void;
 }
@@ -42,7 +42,7 @@ class Skills extends Component<Props, State> {
   };
 
   public render(): ReactNode {
-    const { currentStep, items } = this.props;
+    const { currentStep, items, t } = this.props;
 
     if (currentStep !== 5) return null;
 
@@ -56,10 +56,10 @@ class Skills extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{trans.t('skills')}</Title>
+        <Title>{t('skills')}</Title>
         {item}
         <AddLinkLabel onClick={this.addItem}>
-          {trans.t('add_skill')}
+          {t('add.skill')}
         </AddLinkLabel>
       </Container>
     );
@@ -76,4 +76,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Skills);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Skills));

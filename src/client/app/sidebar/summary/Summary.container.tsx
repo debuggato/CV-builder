@@ -1,13 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import { setSummaryAction } from './duck/Summary.actions';
-import trans from '@client/i18n';
 import { Container } from './Summary.style';
 import TextEditor from '@components/text_editor/TextEditor.view';
 import Title from '@components/Title.view';
 
-interface OwnProps {
+interface OwnProps extends WithTranslation {
   currentStep: number;
 }
 
@@ -28,13 +28,13 @@ class Summary extends Component<Props, {}> {
   }
 
   render(): ReactNode {
-    const { currentStep, description } = this.props;
+    const { currentStep, description, t } = this.props;
 
     if (currentStep !== 2) return null;
 
     return (
       <Container>
-        <Title>{trans.t('summary_title')}</Title>
+        <Title>{t('summary_title')}</Title>
         <TextEditor
           value={description}
           onChange={this.onChange}
@@ -58,4 +58,4 @@ const mapStateToProps = (state: any) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Summary);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Summary));

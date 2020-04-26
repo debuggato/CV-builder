@@ -77,7 +77,7 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
       <Sidebar>
       </Sidebar>
       <Main>
-        <Description label="about_me" text={description} />
+        <Description label="about.me" text={description} />
         {employment}
       </Main>
     </Container>

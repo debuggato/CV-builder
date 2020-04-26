@@ -1,8 +1,8 @@
 import React, { FC, ReactElement } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 import IconView from '@components/Icon.view';
-import trans from '@client/i18n';
 
 interface OwnProps {
   contact: string;
@@ -27,12 +27,14 @@ const iconStyle: CSSProperties = {
 }
 
 const ContactType: FC<Props> = ({ contact, bold, icon, label }: Props): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <>
       {
         contact &&
         <div>
-          {label && trans.t(label)}
+          {label && t(label)}
           <Label bold={bold}>{contact}</Label>
           {icon && <IconView icon={icon} style={iconStyle} />}
         </div>

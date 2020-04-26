@@ -1,10 +1,10 @@
 import React, { Component, ReactNode } from 'react';
-import trans from '@client/i18n';
+import { withTranslation, WithTranslation } from 'react-i18next';
 import Title from '@components/Title.view';
 import Courses from '../courses/Courses.container';
 import { Container, Body, Wrapper } from './AddSection.style';
 
-interface Props {
+interface Props extends WithTranslation {
   currentStep: number;
 }
 
@@ -72,7 +72,7 @@ class AddSection extends Component<Props, State> {
   };
 
   public render(): ReactNode {
-    const { currentStep } = this.props;
+    const { currentStep, t } = this.props;
 
     if (currentStep !== 7) return null;
 
@@ -80,29 +80,29 @@ class AddSection extends Component<Props, State> {
 
     return (
       <Container>
-        <Title>{trans.t('add_section')}</Title>
+        <Title>{t('add.section')}</Title>
         {showCourses && <Courses />}
         <Body>
           <Wrapper>
-            <label onClick={this.customSectionHandler}>{trans.t('custom_section')}</label>
+            <label onClick={this.customSectionHandler}>{t('custom.section')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.coursesHandler}>{trans.t('courses')}</label>
+            <label onClick={this.coursesHandler}>{t('courses')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.internshipsHandler}>{trans.t('internships')}</label>
+            <label onClick={this.internshipsHandler}>{t('internships')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.extraActivitiesHandler}>{trans.t('extra_activities')}</label>
+            <label onClick={this.extraActivitiesHandler}>{t('extra.activities')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.hobbiesHandler}>{trans.t('hobbies')}</label>
+            <label onClick={this.hobbiesHandler}>{t('hobbies')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.languagesHandler}>{trans.t('languages')}</label>
+            <label onClick={this.languagesHandler}>{t('languages')}</label>
           </Wrapper>
           <Wrapper>
-            <label onClick={this.referencesHandler}>{trans.t('references')}</label>
+            <label onClick={this.referencesHandler}>{t('references')}</label>
           </Wrapper>
         </Body>
       </Container>
@@ -110,4 +110,4 @@ class AddSection extends Component<Props, State> {
   }
 }
 
-export default AddSection;
+export default withTranslation()(AddSection);
