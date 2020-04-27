@@ -101,7 +101,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: state.employment
 });
 

@@ -50,12 +50,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   },
 });
 
-const mapStateToProps = (state: any) => {
-  const { description } = state.summary;
-
-  return {
-    description
-  }
-}
+const mapStateToProps = (state: any): StateProps => ({
+  description: state.summary.description
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Summary));

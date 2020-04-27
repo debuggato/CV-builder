@@ -17,7 +17,8 @@ import {
 } from './DaVinci.style';
 
 interface Props extends DetailsState, SummaryState {
-  employments?: any;
+  employments: Object;
+  education: Object;
 }
 
 const DaVinci: FC<Props> = (props: Props): ReactElement => {
@@ -34,10 +35,46 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
     description,
     email,
     employments,
+    education,
     photo,
   } = props;
 
-  const employment = employments.map((el: any) => {
+  return (
+    <Container>
+      <Header border={jobTitle}>
+        <WhoIam>
+          <FullName>{`${firstName} ${lastName}`}</FullName>
+          {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
+        </WhoIam>
+        {photo && <img src={photo} width="100" height="80" />}
+        <ContactDetails>
+          <ContactType
+            icon={faPhone}
+            contact={phone}
+          />
+          <ContactType
+            icon={faEnvelope}
+            contact={email}
+          />
+          <ContactType
+            icon={faMapMarkerAlt}
+            contact={`${address}, ${postalCode} ${city} ${country}`}
+          />
+        </ContactDetails>
+      </Header>
+      <Sidebar>
+      </Sidebar>
+      <Main>
+        <Description label="about.me" text={description} />
+        {getEmploymentHistory(employments)}
+        {getEducationHistory(education)}
+      </Main>
+    </Container>
+  );
+};
+
+const getEmploymentHistory = (employments: any) => {
+  return employments.map((el: any) => {
     return <StoryItem
       key={el[0]}
       title={el[1].jobTitle}
@@ -47,41 +84,19 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
       dateTo={el[1].dateTo}
       description={el[1].description} />;
   });
+}
 
-  return (
-    <Container>
-      <Header border={jobTitle}>
-        <WhoIam>
-          <FullName>{firstName + ' ' + lastName}</FullName>
-          {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
-        </WhoIam>
-        {photo && <img src={photo} width="100" height="80" />}
-        <ContactDetails>
-          <ContactType
-            icon={faPhone}
-            bold={false}
-            contact={phone}
-          />
-          <ContactType
-            icon={faEnvelope}
-            bold={false}
-            contact={email}
-          />
-          <ContactType
-            icon={faMapMarkerAlt}
-            bold={false}
-            contact={address + ', ' + postalCode + ' ' + city + ' ' + country}
-          />
-        </ContactDetails>
-      </Header>
-      <Sidebar>
-      </Sidebar>
-      <Main>
-        <Description label="about.me" text={description} />
-        {employment}
-      </Main>
-    </Container>
-  );
-};
+const getEducationHistory = (education: any) => {
+  return education.map((el: any) => {
+    return <StoryItem
+      key={el[0]}
+      title={el[1].degree}
+      entity={el[1].school}
+      city={el[1].city}
+      dateFrom={el[1].dateFrom}
+      dateTo={el[1].dateTo}
+      description={el[1].description} />;
+  });
+}
 
 export default DaVinci;

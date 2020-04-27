@@ -43,15 +43,13 @@ class Header extends PureComponent<DispatchProps, State> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    changeLang: (value: string) => {
-      dispatch(changeLangAction(value));
-    },
-    updateDocumentTitle: (value: string) => {
-      dispatch(updateDocumentTitleAction(value));
-    }
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  changeLang: (value: string) => {
+    dispatch(changeLangAction(value));
+  },
+  updateDocumentTitle: (value: string) => {
+    dispatch(updateDocumentTitleAction(value));
   }
-}
+});
 
 export default connect(mapDispatchToProps)(Header);

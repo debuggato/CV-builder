@@ -45,11 +45,11 @@ const SkillsView: FC<Props> = ({ id, setName, setLevel, items }: Props): ReactEl
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: state.skills
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setName: (id: number, value: string) => {
     dispatch(setNameAction(id, value));
   },

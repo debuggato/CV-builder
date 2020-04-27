@@ -28,7 +28,7 @@ class Courses extends PureComponent<Props, State> {
     id: 0
   };
 
-  coursesInitialData = {
+  coursesInitialData: Object = {
     course: '',
     institution: '',
     dateFrom: '',
@@ -42,21 +42,23 @@ class Courses extends PureComponent<Props, State> {
     this.props.addCourse(this.state.id, this.coursesInitialData);
   };
 
-  public render(): ReactNode {
-    const { items, t } = this.props;
-
-    const item = items.map((el: any) => {
+  getItems = (items: any): ReactNode => {
+    return items.map((el: any) => {
       return (
         <Accordion key={el[0]} title={el[1].course}>
           <CoursesView id={el[0]} />
         </Accordion>
       )
     });
+  }
+
+  public render(): ReactNode {
+    const { items, t } = this.props;
 
     return (
       <Container>
         <Title>{t('courses.title')}</Title>
-        {item}
+        {this.getItems(items)}
         <AddLinkLabel onClick={this.addCourseItem}>
           {t('add.course')}
         </AddLinkLabel>

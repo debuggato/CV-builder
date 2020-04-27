@@ -11,13 +11,14 @@ import { SummaryState } from '@sidebar/summary/duck/Summary.model';
 import Modal from '@components/modal/Modal.view';
 import TemplateMiniature from '@components/TemplateMiniature';
 import { Container, Page } from './Resume.style';
-import ResumeActions from './actions/ResumeActions.view';
+import ResumeActions from './ResumeActions.view';
 import DaVinci from '@server/templates/davinci/DaVinci.view';
 
 interface StateProps extends DetailsState, SummaryState {
   items: any;
   selected: string | null;
-  employments: any;
+  employments: Object;
+  education: Object;
   templateGallery: boolean;
 }
 
@@ -29,19 +30,11 @@ interface DispatchProps {
 type Props = StateProps & DispatchProps & WithTranslation;
 
 class ResumeContainer extends PureComponent<Props, {}> {
-  render(): ReactNode {
-    const {
-      showTemplateGallery,
-      items,
-      selectTemplate,
-      templateGallery,
-      selected,
-      employments,
-      t,
-      ...rest
-    } = this.props;
 
-    const item = items.map((el: any) => {
+  getTemplateMiniature = (): ReactNode => {
+    const { items, selectTemplate } = this.props;
+
+    return items.map((el: any) => {
       return <TemplateMiniature
         key={el[0]}
         id={el[0]}
@@ -49,25 +42,38 @@ class ResumeContainer extends PureComponent<Props, {}> {
         {el[1]}
       </TemplateMiniature>
     });
+  }
 
-    const getTemplate = (): ReactNode => {
-      switch (selected) {
-        case '0':
-          return <DaVinci {...rest} employments={employments} />
-        /* case '1':
-          return <Michelangelo data={this.props} />
-        case '2':
-          return <Donatello data={this.props} />
-        case '3':
-          return <Raffaello {...this.props} />
-        case '4':
-          return <Caravaggio {...this.props} /> */
-      }
-    }
+  getTemplate = (): ReactNode => {
+    const { selected, employments, education, ...rest } = this.props;
 
-    const getTemplateTitle = (): string => {
-      return selected !== null ? items[selected][1] : '';
+    switch (selected) {
+      case '0':
+        return <DaVinci {...rest} employments={employments} education={education} />
+      /* case '1':
+        return <Michelangelo data={this.props} />
+      case '2':
+        return <Donatello data={this.props} />
+      case '3':
+        return <Raffaello {...this.props} />
+      case '4':
+        return <Caravaggio {...this.props} /> */
     }
+  }
+
+  getTemplateTitle = (): string => {
+    const { selected, items } = this.props;
+
+    return selected !== null ? items[selected][1] : '';
+  }
+
+  render(): ReactNode {
+    const {
+      showTemplateGallery,
+      templateGallery,
+      selected,
+      t,
+    } = this.props;
 
     const TemplateGalleryStyle: CSSProperties = {
       overflowY: 'scroll',
@@ -79,11 +85,9 @@ class ResumeContainer extends PureComponent<Props, {}> {
 
     return (
       <Container>
-        <h3>{getTemplateTitle()}</h3>
-        {
-          selected &&
-          <Page>{getTemplate()}</Page>
-        }
+        <h3>{this.getTemplateTitle()}</h3>
+        {selected && <Page>{this.getTemplate()}</Page>}
+
         <ResumeActions
           selected={selected}
           onClick={() => showTemplateGallery(true)}
@@ -96,7 +100,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
             header
             onClick={() => showTemplateGallery(false)}
           >
-            <div style={TemplateGalleryStyle}>{item}</div>
+            <div style={TemplateGalleryStyle}>{this.getTemplateMiniature()}</div>
           </Modal>
         }
       </Container>
@@ -104,7 +108,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   showTemplateGallery: (value: boolean) => {
     dispatch(showTemplateGalleryAction(value));
   },
@@ -113,7 +117,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   },
 });
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any): StateProps => {
   const genericState = state.generic;
   const templateState = genericState.template;
 
@@ -121,6 +125,7 @@ const mapStateToProps = (state: any) => {
   const selected = templateState.selected;
   const templateGallery = genericState.templateGallery;
   const employments = Object.entries(state.employment);
+  const education = Object.entries(state.education);
 
   const {
     photo,
@@ -160,7 +165,8 @@ const mapStateToProps = (state: any) => {
     placeOfBirth,
     dateOfBirth,
     description,
-    employments
+    employments,
+    education
   }
 }
 

@@ -118,7 +118,7 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: any): StateProps => {
 
   const {
     city,

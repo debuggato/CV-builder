@@ -26,7 +26,7 @@ const iconStyle: CSSProperties = {
   fontSize: '12px'
 }
 
-const ContactType: FC<Props> = ({ contact, bold, icon, label }: Props): ReactElement => {
+const ContactType: FC<Props> = ({ contact, icon, label, bold }: Props): ReactElement => {
   const { t } = useTranslation();
 
   return (

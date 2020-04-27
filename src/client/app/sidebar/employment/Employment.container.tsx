@@ -28,13 +28,13 @@ interface State {
   id: number;
 }
 
-const employmentInitialData = {
-  jobTitle: null,
-  employer: null,
-  city: null,
+const employmentInitialData: Object = {
+  jobTitle: '',
+  employer: '',
+  city: '',
   startDate: new Date(),
   endDate: new Date(),
-  description: null
+  description: ''
 };
 
 class Employment extends Component<Props, State> {
@@ -49,25 +49,27 @@ class Employment extends Component<Props, State> {
     this.props.addEmployment(this.state.id, employmentInitialData);
   };
 
-  public render(): ReactNode {
-    const { currentStep, items, t } = this.props;
-
-    if (currentStep !== 3) return null;
-
-    const item = items.map((el: any) => {
+  getItems = (items: any): ReactNode => {
+    return items.map((el: any) => {
       return (
         <Accordion key={el[0]} title={el[1].jobTitle}>
           <EmploymentView id={el[0]} />
         </Accordion>
       )
     });
+  }
+
+  public render(): ReactNode {
+    const { currentStep, items, t } = this.props;
+
+    if (currentStep !== 3) return null;
 
     return (
       <ErrorBoundary>
         <div>
           <Title>{t('employment.history')}</Title>
           <Subtitle>{t('employment.history.subtitle')}</Subtitle>
-          {item}
+          {this.getItems(items)}
           <AddLinkLabel onClick={this.addEmploymentItem}>
             {t('add.employment')}
           </AddLinkLabel>
@@ -77,7 +79,7 @@ class Employment extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: Object.entries(state.employment)
 });
 

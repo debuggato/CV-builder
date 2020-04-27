@@ -33,9 +33,9 @@ class Links extends Component<Props, State> {
     id: 0
   };
 
-  linksInitialData = {
-    label: null,
-    link: null
+  linksInitialData: Object = {
+    label: '',
+    link: ''
   }
 
   addItem = () => {
@@ -45,24 +45,26 @@ class Links extends Component<Props, State> {
     this.props.addLink(this.state.id, this.linksInitialData);
   }
 
-  public render(): ReactNode {
-    const { currentStep, items, t } = this.props;
-
-    if (currentStep !== 6) return null;
-
-    const item = items.map((el: any) => {
+  getItems = (items: any): ReactNode => {
+    return items.map((el: any) => {
       return (
         <Accordion key={el[0]} title={el[1].label}>
           <LinksView id={el[0]} />
         </Accordion>
       )
     });
+  }
+
+  public render(): ReactNode {
+    const { currentStep, items, t } = this.props;
+
+    if (currentStep !== 6) return null;
 
     return (
       <Container>
         <Title>{t('websites.social.links')}</Title>
         <Subtitle>{t('website.social.links.subtitle')}</Subtitle>
-        {item}
+        {this.getItems(items)}
         <AddLinkLabel onClick={this.addItem}>
           {t('add.link')}
         </AddLinkLabel>
@@ -71,11 +73,11 @@ class Links extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: Object.entries(state.links)
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addLink: (id: number, value: any) => {
     dispatch(addLinkAction(id, value));
   },

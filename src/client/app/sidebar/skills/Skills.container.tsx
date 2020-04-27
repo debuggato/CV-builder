@@ -11,6 +11,9 @@ import { addSkillAction } from './duck/Skills.actions';
 
 interface OwnProps extends WithTranslation {
   currentStep: number;
+}
+
+interface DispatchProps {
   addSkill: (arg0: number, arg1: any) => void;
 }
 
@@ -22,16 +25,16 @@ interface State {
   id: number;
 }
 
-type Props = OwnProps & StateProps;
+type Props = OwnProps & StateProps & DispatchProps;
 
 class Skills extends Component<Props, State> {
   state = {
     id: 0
   };
 
-  skillInitialData = {
-    name: null,
-    level: null
+  skillInitialData: Object = {
+    name: '',
+    level: ''
   }
 
   addItem = (): void => {
@@ -41,23 +44,25 @@ class Skills extends Component<Props, State> {
     this.props.addSkill(this.state.id, this.skillInitialData);
   };
 
-  public render(): ReactNode {
-    const { currentStep, items, t } = this.props;
-
-    if (currentStep !== 5) return null;
-
-    const item = items.map((el: any) => {
+  getItems = (items: any) => {
+    return items.map((el: any) => {
       return (
         <Accordion key={el[0]} title={el[1].name}>
           <SkillsView id={el[0]} />
         </Accordion>
       )
     });
+  }
+
+  public render(): ReactNode {
+    const { currentStep, items, t } = this.props;
+
+    if (currentStep !== 5) return null;
 
     return (
       <Container>
         <Title>{t('skills')}</Title>
-        {item}
+        {this.getItems(items)}
         <AddLinkLabel onClick={this.addItem}>
           {t('add.skill')}
         </AddLinkLabel>
@@ -66,11 +71,11 @@ class Skills extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: Object.entries(state.skills)
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   addSkill: (id: number, value: any) => {
     dispatch(addSkillAction(id, value));
   },

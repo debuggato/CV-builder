@@ -34,11 +34,11 @@ class Education extends Component<Props, State> {
     id: 0
   };
 
-  educationInitialData = {
-    school: null,
-    degree: null,
-    city: null,
-    description: null
+  educationInitialData: Object = {
+    school: '',
+    degree: '',
+    city: '',
+    description: ''
   }
 
   addEducationItem = (): void => {
@@ -48,25 +48,27 @@ class Education extends Component<Props, State> {
     this.props.addEducation(this.state.id, this.educationInitialData);
   };
 
-  public render(): ReactNode {
-    const { currentStep, items, t } = this.props;
-
-    if (currentStep !== 4) return null;
-
-    const item = items.map((el: any) => {
+  getItems = (items: any): ReactNode => {
+    return items.map((el: any) => {
       return (
         <Accordion key={el[0]} title={el[1].degree}>
           <EducationView id={el[0]} />
         </Accordion>
       )
     });
+  }
+
+  public render(): ReactNode {
+    const { currentStep, items, t } = this.props;
+
+    if (currentStep !== 4) return null;
 
     return (
       <ErrorBoundary>
         <Container>
           <Title>{t('add.education')}</Title>
           <Subtitle>{t('education.subtitle')}</Subtitle>
-          {item}
+          {this.getItems(items)}
           <AddLinkLabel onClick={this.addEducationItem}>
             {t('add.education')}
           </AddLinkLabel>
@@ -76,7 +78,7 @@ class Education extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: Object.entries(state.education),
 });
 

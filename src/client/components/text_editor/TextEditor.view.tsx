@@ -8,7 +8,7 @@ interface Props {
 }
 
 const TextEditor: FC<Props> = ({ onChange, value }: Props): ReactElement => {
-  return <ReactQuill theme="snow" value={value} onChange={onChange} />;
+  return <ReactQuill theme="snow" value={value || ''} onChange={onChange} />;
 }
 
 export default TextEditor;

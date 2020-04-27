@@ -45,11 +45,11 @@ const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactEle
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateProps => ({
   items: state.links
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setLabel: (id: number, value: string) => {
     dispatch(setLabelAction(id, value));
   },
