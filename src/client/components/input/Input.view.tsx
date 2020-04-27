@@ -19,11 +19,11 @@ interface Props {
   className?: string;
 }
 
-const Input: FC<Props> = ({ label, ...props }: Props): ReactElement => {
+const Input: FC<Props> = ({ label, value, ...props }: Props): ReactElement => {
   return (
     <>
       {label ? <FieldLabel value={label} /> : null}
-      <InputStyled {...props} />
+      <InputStyled {...props} value={value || ''} />
     </>
   );
 };

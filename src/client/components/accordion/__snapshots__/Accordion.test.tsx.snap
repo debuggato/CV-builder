@@ -8,7 +8,6 @@ exports[`[Components]: Accordion expects to render correctly 1`] = `
     <styled.div>
       Title
     </styled.div>
-    <styled.div />
     <Icon
       icon={
         Object {
