@@ -9,6 +9,9 @@ export const Container = styled.div`
   display: grid;
   grid-template:
     'header header header header'
+    'aside main main main'
+    'aside main main main'
+    'aside main main main'
     'aside main main main';
 `;
 
@@ -19,6 +22,7 @@ export const Header = styled.header<Props>`
   grid-area: header;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 `;
 
 export const Address = styled.div`
@@ -41,7 +45,7 @@ export const Main = styled.main`
 
 export const Sidebar = styled.aside`
   grid-area: aside;
-  padding: 5px;
+  padding: 5px 10px;
   background: #f1f1f1;
   min-height: 465px;
   max-width: 180px;

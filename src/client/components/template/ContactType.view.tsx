@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import IconView from '@components/Icon.view';
 
 interface OwnProps {
-  contact: string;
+  value: string;
   label?: string;
   icon?: IconDefinition;
 }
@@ -26,20 +26,15 @@ const iconStyle: CSSProperties = {
   fontSize: '12px'
 }
 
-const ContactType: FC<Props> = ({ contact, icon, label, bold }: Props): ReactElement => {
+const ContactType: FC<Props> = ({ value, icon, label, bold }: Props): ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <>
-      {
-        contact &&
-        <div>
-          {label && t(label)}
-          <Label bold={bold}>{contact}</Label>
-          {icon && <IconView icon={icon} style={iconStyle} />}
-        </div>
-      }
-    </>
+    <div>
+      {label && t(label)}
+      {value && <Label bold={bold}>{value}</Label>}
+      {value && icon && <IconView icon={icon} style={iconStyle} />}
+    </div>
   );
 }
 

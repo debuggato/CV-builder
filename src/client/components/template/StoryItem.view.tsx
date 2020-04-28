@@ -13,6 +13,7 @@ interface Props {
 
 const Wrapper = styled.div`
   h5 {
+    margin-top: 0;
     margin-bottom: 8px;
   }
 
@@ -30,7 +31,7 @@ const StoryItem: FC<Props> = (props: Props): ReactElement => {
   return (
     <Wrapper>
       <h5>{title}</h5>
-      <p>{`${entity} - ${city} - ${start}/${end}`}</p>
+      <p>{`${entity ? '-' + city + '-' + start + '-' + end : ''} `}</p>
       <p dangerouslySetInnerHTML={{ __html: description }} ></p>
     </Wrapper>
   );

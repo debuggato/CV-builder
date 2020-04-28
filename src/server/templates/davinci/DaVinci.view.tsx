@@ -50,24 +50,24 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
         <ContactDetails>
           <ContactType
             icon={faPhone}
-            contact={phone}
+            value={phone}
           />
           <ContactType
             icon={faEnvelope}
-            contact={email}
+            value={email}
           />
           <ContactType
             icon={faMapMarkerAlt}
-            contact={`${address}, ${postalCode} ${city} ${country}`}
+            value={`${address ? address + ', ' + postalCode + ' ' + city + ' ' + country : ''}`}
           />
         </ContactDetails>
       </Header>
       <Sidebar>
+        {getEducationHistory(education)}
       </Sidebar>
       <Main>
-        <Description label="about.me" text={description} />
+        {description && <Description label="about.me" text={description} />}
         {getEmploymentHistory(employments)}
-        {getEducationHistory(education)}
       </Main>
     </Container>
   );

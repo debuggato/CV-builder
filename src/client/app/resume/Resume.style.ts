@@ -19,5 +19,4 @@ export const Page = styled.div`
   border-radius: 5px;
   width: 500px;
   height: 600px;
-  padding: 15px;
 `;
