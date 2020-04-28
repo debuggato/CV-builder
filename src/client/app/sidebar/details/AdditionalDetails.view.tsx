@@ -54,9 +54,9 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       <Wrapper>
         <Input
           type="text"
-          label="Country"
-          onChange={e => setCountry(e.target.value)}
-          value={country}
+          label="Address"
+          onChange={e => setAddress(e.target.value)}
+          value={address}
         />
       </Wrapper>
       <Wrapper>
@@ -70,17 +70,17 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       <Wrapper>
         <Input
           type="text"
-          label="Address"
-          onChange={e => setAddress(e.target.value)}
-          value={address}
+          label="Postal code"
+          onChange={e => setPostalCode(e.target.value)}
+          value={postalCode + ''}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
-          label="Postal code"
-          onChange={e => setPostalCode(e.target.value)}
-          value={postalCode + ''}
+          label="Country"
+          onChange={e => setCountry(e.target.value)}
+          value={country}
         />
       </Wrapper>
       <Wrapper>
