@@ -34,7 +34,7 @@ class Summary extends Component<Props, {}> {
 
     return (
       <Container>
-        <Title>{t('summary_title')}</Title>
+        <Title>{t('summary.title')}</Title>
         <TextEditor
           value={description}
           onChange={this.onChange}
