@@ -2,13 +2,13 @@ import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { withTranslation, WithTranslation } from 'react-i18next';
 import config from '@config/config';
+import i18n from '@client/i18n';
 import Button from '@components/buttons/Button.view';
 import IconView from '@components/Icon.view';
 import Loader from '@components/loader/Loader.view';
 
-interface Props extends WithTranslation {
+interface Props {
   selected: string | null;
   onClick: () => void;
 }
@@ -28,7 +28,6 @@ class ResumeActions extends Component<Props, State> {
   }
 
   renderPdf = () => {
-
     this.setState({
       loader: true
     });
@@ -45,18 +44,18 @@ class ResumeActions extends Component<Props, State> {
   }
 
   render(): ReactNode {
-    const { selected, onClick, t } = this.props;
+    const { selected, onClick } = this.props;
     const { loader, pdfUrl, responsePdf } = this.state;
 
     return (
       <ActionsWrapper>
         <Button type="button" linkStyle onClick={onClick}>
-          <IconView icon={faThLarge} /> {t('choose.template')}
+          <IconView icon={faThLarge} /> {i18n.t('choose.template')}
         </Button>
 
         {selected && !loader && responsePdf !== 200 &&
           <Button type="button" primary onClick={this.renderPdf}>
-            {t('generate.pdf')}
+            {i18n.t('generate.pdf')}
           </Button>
         }
 
@@ -67,7 +66,7 @@ class ResumeActions extends Component<Props, State> {
         {
           responsePdf === 200 &&
           <a type="button" href={pdfUrl} download>
-            {t("download.pdf")}
+            {i18n.t("download.pdf")}
           </a>
         }
       </ActionsWrapper>
@@ -82,4 +81,4 @@ const ActionsWrapper = styled.div`
   width: 100%;
 `;
 
-export default withTranslation()(ResumeActions);
+export default ResumeActions;

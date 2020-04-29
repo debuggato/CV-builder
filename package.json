@@ -32,6 +32,7 @@
     "draft-js": "^0.11.5",
     "eslint": "^6.8.0",
     "express": "^4.17.1",
+    "i18next-http-middleware": "^1.0.0",
     "moment": "^2.24.0",
     "multer": "^1.4.2",
     "puppeteer": "^2.1.1",
@@ -97,6 +98,7 @@
     "@sidebar": "src/client/app/sidebar",
     "@server": "src/server",
     "@utils": "src/utils",
-    "@config": "src/config"
+    "@config": "src/config",
+    "@public": "public/"
   }
 }

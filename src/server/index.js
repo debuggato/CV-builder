@@ -3,6 +3,8 @@ import puppeteer from 'puppeteer';
 import express from 'express';
 import bodyParser from 'body-parser';
 import React from 'react';
+import i18next from 'i18next';
+import middleware from 'i18next-http-middleware';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { renderToStaticMarkup } from 'react-dom/server';
 import cors from 'cors';
@@ -39,7 +41,6 @@ const base64_encode = file => {
   var bitmap = fs.readFileSync(file);
 
   // convert binary data to base64 encoded string
-
   return `data://text/plain;base64,${Buffer(bitmap).toString('base64')}`;
 };
 
@@ -67,6 +68,11 @@ app.post('/render', async (req, res) => {
     const data = req.body;
 
     data.photo = base64_encode('public/assets/photo_profile.jpg');
+
+    i18next.use(middleware.LanguageDetector).init({
+      preload: ['en', 'de', 'it', 'es', 'fr'],
+      fallbackLng: data.lang, //TODO this is a workaround, should be a better way to do it
+    });
 
     let component;
 

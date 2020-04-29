@@ -26,6 +26,13 @@ class Header extends PureComponent<DispatchProps, State> {
     ]
   }
 
+  onSwitchLang = (e: any) => {
+    const { changeLang } = this.props;
+
+    trans.changeLanguage(e.target.value);
+    changeLang(e.target.value);
+  }
+
   render(): ReactNode {
     const { updateDocumentTitle } = this.props;
     const { langs } = this.state;
@@ -37,7 +44,7 @@ class Header extends PureComponent<DispatchProps, State> {
           onChange={(e: ChangeEvent<HTMLInputElement>) => updateDocumentTitle(e.target.value)}
           placeholder="Untitled"
         />
-        <Select list={langs} onChange={e => trans.changeLanguage(e.target.value)} />
+        <Select list={langs} onChange={e => this.onSwitchLang(e)} />
       </Wrapper>
     );
   }
@@ -52,4 +59,4 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   }
 });
 
-export default connect(mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(Header);

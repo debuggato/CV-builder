@@ -1,7 +1,7 @@
 import React, { PureComponent, ReactNode, CSSProperties } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import i18n from '@client/i18n';
 import {
   chooseTemplateAction,
   showTemplateGalleryAction,
@@ -20,6 +20,7 @@ interface StateProps extends DetailsState, SummaryState {
   employments: Object;
   education: Object;
   templateGallery: boolean;
+  lang: string;
 }
 
 interface DispatchProps {
@@ -27,7 +28,7 @@ interface DispatchProps {
   selectTemplate: (arg0: string) => void;
 }
 
-type Props = StateProps & DispatchProps & WithTranslation;
+type Props = StateProps & DispatchProps;
 
 class ResumeContainer extends PureComponent<Props, {}> {
 
@@ -72,7 +73,6 @@ class ResumeContainer extends PureComponent<Props, {}> {
       showTemplateGallery,
       templateGallery,
       selected,
-      t,
     } = this.props;
 
     const TemplateGalleryStyle: CSSProperties = {
@@ -96,7 +96,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
 
         {templateGallery &&
           <Modal
-            title={t('choose.template')}
+            title={i18n.t('choose.template')}
             header
             onClick={() => showTemplateGallery(false)}
           >
@@ -119,10 +119,10 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
 
 const mapStateToProps = (state: any): StateProps => {
   const genericState = state.generic;
-  const templateState = genericState.template;
+  const { template, lang } = genericState;
 
-  const items = Object.entries(templateState.available);
-  const selected = templateState.selected;
+  const items = Object.entries(template.available);
+  const selected = template.selected;
   const templateGallery = genericState.templateGallery;
   const employments = Object.entries(state.employment);
   const education = Object.entries(state.education);
@@ -166,8 +166,9 @@ const mapStateToProps = (state: any): StateProps => {
     dateOfBirth,
     description,
     employments,
-    education
+    education,
+    lang
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ResumeContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(ResumeContainer);

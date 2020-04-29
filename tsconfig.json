@@ -32,7 +32,8 @@
       "@sidebar/*": ["client/app/sidebar/*"],
       "@server/*": ["server/*"],
       "@utils/*": ["utils/*"],
-      "@config/*": ["config/*"]
+      "@config/*": ["config/*"],
+      "@public/*": ["../public/*"]
     },
     "pretty": true
   },
