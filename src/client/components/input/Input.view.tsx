@@ -3,7 +3,7 @@ import InputStyled from './Input.style';
 import FieldLabel from '../FieldLabel.view';
 
 interface Props {
-  type: string;
+  type?: string;
   label?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -19,11 +19,15 @@ interface Props {
   className?: string;
 }
 
-const Input: FC<Props> = ({ label, value, ...props }: Props): ReactElement => {
+const Input: FC<Props> = ({ label, value, type, ...props }: Props): ReactElement => {
   return (
     <>
       {label ? <FieldLabel value={label} /> : null}
-      <InputStyled {...props} value={value || ''} />
+      <InputStyled
+        {...props}
+        type={type || 'text'}
+        value={value || ''}
+      />
     </>
   );
 };
