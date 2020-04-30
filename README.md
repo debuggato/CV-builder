@@ -1,6 +1,8 @@
-# CV builder
+# 📝 CV builder
 
-📝 An application to create Resumes with export in PDF.
+An application to create Resumes with export in PDF.
+
+[![GitHub license](https://img.shields.io/github/license/ivanlori/CV-builder)](https://github.com/ivanlori/CV-builder/blob/master/LICENSE)
 
 ## Getting started
 
@@ -34,6 +36,7 @@ yarn server
 
 - [React.js](https://reactjs.org/) - JS Library
 - [Redux.js](https://redux.js.org/) - State container
+- [Redux Saga](https://redux-saga.js.org/) - Middleware for Redux
 - [Typescript](https://www.typescriptlang.org/) - JavaScript typed superset
 - [Styled Components](https://styled-components.com/) - JS Library for CSS-in-JS
 - [Puppeteer](https://github.com/puppeteer/puppeteer) - Headless Chrome
@@ -45,7 +48,7 @@ yarn server
 ## Contributing
 
 Thanks for your interest in this project, it is really appreciated your support!
-In [CONTRIBUTING](CONTRIBUTING) file you can see the guidelines of the project. If you need support feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).
+In [CONTRIBUTING](CONTRIBUTING.md) file you can see the guidelines of the project. If you need support feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).
 
 ## Authors
 
