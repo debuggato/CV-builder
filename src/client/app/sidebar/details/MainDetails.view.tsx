@@ -1,11 +1,10 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, SyntheticEvent, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import config from '@config/config';
+import { Dispatch } from 'redux';
+import * as action from './duck/Details.actions';
 import Photo from '@components/photo/Photo.view';
 import Input from '@components/input/Input.view';
 import { Wrapper } from './Details.style';
-import mapDispatchToProps from './duck/Details.dispatch';
 
 interface StateProps {
   jobTitle: string;
@@ -22,21 +21,10 @@ interface DispatchProps {
   setLastName: (arg0: string) => void;
   setPhone: (arg0: string) => void;
   setEmail: (arg0: string) => void;
-  setPhoto: (arg0: string) => void;
+  setPhoto: (e: ChangeEvent<SyntheticEvent>) => void;
 }
 
 type Props = StateProps & DispatchProps;
-
-const onUploadPhoto = (e: any, setPhoto: any) => {
-  const data = new FormData()
-
-  data.append('file', e.target.files[0]);
-
-  axios.post(config.upload, data)
-    .then(result => {
-      setPhoto(`/assets/photo_profile.jpg`);
-    });
-}
 
 const MainDetails: FC<Props> = (props: Props): ReactElement => {
   const {
@@ -57,12 +45,11 @@ const MainDetails: FC<Props> = (props: Props): ReactElement => {
   return (
     <>
       <Photo
-        onUpload={e => onUploadPhoto(e, setPhoto)}
+        onUpload={e => setPhoto(e)}
         imgUrl={photo}
       />
       <Wrapper>
         <Input
-          type="text"
           label="Job Title"
           onChange={e => setJobTitle(e.target.value)}
           value={jobTitle}
@@ -70,7 +57,6 @@ const MainDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="First Name"
           onChange={e => setFirstName(e.target.value)}
           value={firstName}
@@ -78,7 +64,6 @@ const MainDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Last Name"
           onChange={e => setLastName(e.target.value)}
           value={lastName}
@@ -86,7 +71,6 @@ const MainDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Phone"
           onChange={e => setPhone(e.target.value)}
           value={phone + ''}
@@ -117,5 +101,26 @@ const mapStateToProps = (state: any) => {
     photo
   }
 };
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  setPhoto: (value: any) => {
+    dispatch(action.onPhotoStartAction(value));
+  },
+  setJobTitle: (value: string) => {
+    dispatch(action.setJobTitleAction(value));
+  },
+  setFirstName: (value: string) => {
+    dispatch(action.setFirstnameAction(value));
+  },
+  setLastName: (value: string) => {
+    dispatch(action.setLastnameAction(value));
+  },
+  setEmail: (value: string) => {
+    dispatch(action.setEmailAction(value));
+  },
+  setPhone: (value: string) => {
+    dispatch(action.setPhoneAction(value));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainDetails);

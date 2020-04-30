@@ -1,6 +1,10 @@
 export const SET_MAIN_JOB_TITLE: string = 'SET_MAIN_JOB_TITLE';
 
-export const SET_PHOTO: string = 'SET_PHOTO';
+export const PHOTO_START: string = 'PHOTO_START';
+
+export const PHOTO_SUCCESS: string = 'PHOTO_SUCCESS';
+
+export const PHOTO_FAILURE: string = 'PHOTO_FAILURE';
 
 export const SET_FIRST_NAME: string = 'SET_FIRST_NAME';
 

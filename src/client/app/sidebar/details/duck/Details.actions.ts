@@ -5,9 +5,19 @@ export const setJobTitleAction = (value: string) => ({
   value,
 });
 
-export const setPhotoAction = (value: string) => ({
-  type: type.SET_PHOTO,
-  value,
+export const onPhotoStartAction = (value: any) => ({
+  type: type.PHOTO_START,
+  value
+});
+
+export const onPhotoSuccessAction = (value: string) => ({
+  type: type.PHOTO_SUCCESS,
+  value
+});
+
+export const onPhotoFailureAction = (error: string) => ({
+  type: type.PHOTO_FAILURE,
+  error
 });
 
 export const setFirstnameAction = (value: string) => ({

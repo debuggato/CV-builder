@@ -1,9 +1,10 @@
 import React, { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import * as action from './duck/Details.actions';
 import Input from '@components/input/Input.view';
 import Datepicker from '@components/datepicker/Datepicker.view';
 import { Wrapper } from './Details.style';
-import mapDispatchToProps from './duck/Details.dispatch';
 
 interface StateProps {
   city: string;
@@ -53,7 +54,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
     <>
       <Wrapper>
         <Input
-          type="text"
           label="Address"
           onChange={e => setAddress(e.target.value)}
           value={address}
@@ -61,7 +61,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="City"
           onChange={e => setCity(e.target.value)}
           value={city}
@@ -69,7 +68,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Postal code"
           onChange={e => setPostalCode(e.target.value)}
           value={postalCode + ''}
@@ -77,7 +75,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Country"
           onChange={e => setCountry(e.target.value)}
           value={country}
@@ -85,7 +82,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Driving License"
           onChange={e => setDrivingLicense(e.target.value)}
           value={drivingLicense}
@@ -93,7 +89,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Nationality"
           onChange={e => setNationality(e.target.value)}
           value={nationality}
@@ -101,7 +96,6 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
       </Wrapper>
       <Wrapper>
         <Input
-          type="text"
           label="Place of birth"
           onChange={e => setPlaceOfBirth(e.target.value)}
           value={placeOfBirth}
@@ -142,5 +136,32 @@ const mapStateToProps = (state: any): StateProps => {
     dateOfBirth
   }
 };
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  setCity: (value: string) => {
+    dispatch(action.setCityAction(value));
+  },
+  setCountry: (value: string) => {
+    dispatch(action.setCountryAction(value));
+  },
+  setAddress: (value: string) => {
+    dispatch(action.setAddressAction(value));
+  },
+  setPostalCode: (value: string) => {
+    dispatch(action.setPostalCodeAction(value));
+  },
+  setDrivingLicense: (value: string) => {
+    dispatch(action.setDrivingLicenseAction(value));
+  },
+  setNationality: (value: string) => {
+    dispatch(action.setNationalityAction(value));
+  },
+  setPlaceOfBirth: (value: string) => {
+    dispatch(action.setPlaceOfBirthAction(value));
+  },
+  setDateOfBirth: (value: Date) => {
+    dispatch(action.setDateOfBirthAction(value));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdditionalDetails);
