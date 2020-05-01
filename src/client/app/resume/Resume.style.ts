@@ -17,6 +17,6 @@ export const Page = styled.div`
   background: ${colors.white};
   box-sizing: border-box;
   border-radius: 5px;
-  width: 500px;
-  height: 600px;
+  width: 595px;
+  height: 842px;
 `;

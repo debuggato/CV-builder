@@ -19,6 +19,13 @@ interface State {
   loader: boolean;
 }
 
+const ActionsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+  width: 100%;
+`;
+
 class ResumeActions extends Component<Props, State> {
 
   state = {
@@ -73,12 +80,5 @@ class ResumeActions extends Component<Props, State> {
     );
   }
 }
-
-const ActionsWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-  width: 100%;
-`;
 
 export default ResumeActions;

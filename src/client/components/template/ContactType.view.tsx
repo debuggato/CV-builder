@@ -18,12 +18,11 @@ type Props = OwnProps & StyleProps;
 
 const Label = styled.span<StyleProps>`
   ${({ bold }) => (bold ? 'font-weight: bold' : '')};
-  font-size: 12px;
+  font-size: 15px;
 `;
 
 const iconStyle: CSSProperties = {
-  marginLeft: '5px',
-  fontSize: '12px'
+  marginLeft: '5px'
 }
 
 const ContactType: FC<Props> = ({ value, icon, label, bold }: Props): ReactElement => {

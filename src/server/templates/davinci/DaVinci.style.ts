@@ -31,11 +31,15 @@ export const Address = styled.div`
 
 export const Phone = styled.div``;
 
-export const WhoIam = styled.div``;
+export const WhoIam = styled.div`
+  margin-left: 10px;
+`;
 
 export const ContactDetails = styled.div`
   max-width: 225px;
   text-align: right;
+  line-height: 25px;
+  margin-right: 10px;
 `;
 
 export const Main = styled.main`
