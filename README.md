@@ -4,6 +4,10 @@ An application to create Resumes with export in PDF.
 
 [![GitHub license](https://img.shields.io/github/license/ivanlori/CV-builder)](https://github.com/ivanlori/CV-builder/blob/master/LICENSE)
 
+## Demo
+
+![](demo.gif)
+
 ## Getting started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
