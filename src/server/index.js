@@ -112,7 +112,21 @@ app.post('/render', async (req, res) => {
 
     const html = `
     <html>
-      <head>${css}</head>
+      <head>
+      <style>
+        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+
+        body {
+          font-family: 'Noto Sans KR', sans-serif;
+          color: #333;
+        }
+        svg {
+          width: 0.8em;
+          height: 0.8em;
+        }
+      </style>
+      ${css}
+      </head>
       <body>${component}</body>
     </html>
   `;
