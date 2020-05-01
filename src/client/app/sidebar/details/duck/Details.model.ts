@@ -17,81 +17,81 @@ export type DetailsState = {
   dateOfBirth: string | Date;
 };
 
-interface SetJobTitleAction {
-  type: typeof types.SET_MAIN_JOB_TITLE;
+export interface jobTitleModelAction {
+  type: typeof types.DETAILS_JOB_TITLE;
   value: string;
 }
 
-interface SetFirstNameAction {
-  type: typeof types.SET_FIRST_NAME;
+export interface firstNameModelAction {
+  type: typeof types.DETAILS_FIRST_NAME;
   value: string;
 }
 
-interface SetLastNameAction {
-  type: typeof types.SET_LAST_NAME;
+export interface lastNameModelAction {
+  type: typeof types.DETAILS_LAST_NAME;
   value: string;
 }
 
-interface SetCityAction {
-  type: typeof types.SET_CITY;
+export interface cityModelAction {
+  type: typeof types.DETAILS_CITY;
   value: string;
 }
 
-interface SetPostalCodeAction {
-  type: typeof types.SET_POSTAL_CODE;
-  value: number;
-}
-
-interface SetPhoneAction {
-  type: typeof types.SET_PHONE;
-  value: number;
-}
-
-interface SetEmailAction {
-  type: typeof types.SET_EMAIL;
+export interface postalCodeModelAction {
+  type: typeof types.DETAILS_POSTAL_CODE;
   value: string;
 }
 
-interface SetCountryAction {
-  type: typeof types.SET_COUNTRY;
+export interface phoneModelAction {
+  type: typeof types.DETAILS_PHONE;
   value: string;
 }
 
-interface SetAddressAction {
-  type: typeof types.SET_ADDRESS;
+export interface emailModelAction {
+  type: typeof types.DETAILS_EMAIL;
   value: string;
 }
 
-interface SetDrivingLicenseAction {
-  type: typeof types.SET_DRIVING_LICENSE;
+export interface countryModelAction {
+  type: typeof types.DETAILS_COUNTRY;
   value: string;
 }
 
-interface SetNationalityAction {
-  type: typeof types.SET_NATIONALITY;
+export interface addressModelAction {
+  type: typeof types.DETAILS_ADDRESS;
   value: string;
 }
 
-interface SetPlaceOfBirthAction {
-  type: typeof types.SET_PLACE_OF_BIRTH;
+export interface drivingLicenseModelAction {
+  type: typeof types.DETAILS_DRIVING_LICENSE;
   value: string;
 }
 
-interface SetDateOfBirthAction {
-  type: typeof types.SET_DATE_OF_BIRTH;
+export interface nationalityModelAction {
+  type: typeof types.DETAILS_NATIONALITY;
+  value: string;
+}
+
+export interface placeOfBirthModelAction {
+  type: typeof types.DETAILS_PLACE_OF_BIRTH;
+  value: string;
+}
+
+export interface dateOfBirthModelAction {
+  type: typeof types.DETAILS_DATE_OF_BIRTH;
   value: Date;
 }
 
-export type ActionType = SetJobTitleAction &
-  SetFirstNameAction &
-  SetLastNameAction &
-  SetCityAction &
-  SetPostalCodeAction &
-  SetPhoneAction &
-  SetEmailAction &
-  SetCountryAction &
-  SetAddressAction &
-  SetDrivingLicenseAction &
-  SetNationalityAction &
-  SetPlaceOfBirthAction &
-  SetDateOfBirthAction;
+export type ActionType = jobTitleModelAction &
+  firstNameModelAction &
+  lastNameModelAction &
+  cityModelAction &
+  postalCodeModelAction &
+  phoneModelAction &
+  emailModelAction &
+  countryModelAction &
+  addressModelAction &
+  drivingLicenseModelAction &
+  nationalityModelAction &
+  placeOfBirthModelAction &
+  dateOfBirthModelAction;

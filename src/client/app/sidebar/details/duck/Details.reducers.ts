@@ -9,67 +9,67 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         photo: `${action.value}?=${Math.random()}`,
       };
-    case type.SET_MAIN_JOB_TITLE:
+    case type.DETAILS_JOB_TITLE:
       return {
         ...state,
         jobTitle: action.value,
       };
-    case type.SET_FIRST_NAME:
+    case type.DETAILS_FIRST_NAME:
       return {
         ...state,
         firstName: action.value,
       };
-    case type.SET_LAST_NAME:
+    case type.DETAILS_LAST_NAME:
       return {
         ...state,
         lastName: action.value,
       };
-    case type.SET_ADDRESS:
+    case type.DETAILS_ADDRESS:
       return {
         ...state,
         address: action.value,
       };
-    case type.SET_CITY:
+    case type.DETAILS_CITY:
       return {
         ...state,
         city: action.value,
       };
-    case type.SET_COUNTRY:
+    case type.DETAILS_COUNTRY:
       return {
         ...state,
         country: action.value,
       };
-    case type.SET_DATE_OF_BIRTH:
+    case type.DETAILS_DATE_OF_BIRTH:
       return {
         ...state,
         dateOfBirth: action.value,
       };
-    case type.SET_DRIVING_LICENSE:
+    case type.DETAILS_DRIVING_LICENSE:
       return {
         ...state,
         drivingLicense: action.value,
       };
-    case type.SET_EMAIL:
+    case type.DETAILS_EMAIL:
       return {
         ...state,
         email: action.value,
       };
-    case type.SET_PHONE:
+    case type.DETAILS_PHONE:
       return {
         ...state,
         phone: action.value,
       };
-    case type.SET_POSTAL_CODE:
+    case type.DETAILS_POSTAL_CODE:
       return {
         ...state,
         postalCode: action.value,
       };
-    case type.SET_NATIONALITY:
+    case type.DETAILS_NATIONALITY:
       return {
         ...state,
         nationality: action.value,
       };
-    case type.SET_PLACE_OF_BIRTH:
+    case type.DETAILS_PLACE_OF_BIRTH:
       return {
         ...state,
         placeOfBirth: action.value,

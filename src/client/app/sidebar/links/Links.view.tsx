@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import Input from '@components/input/Input.view';
 import { Wrapper } from './Links.style';
-import { setLabelAction, setLinkAction } from './duck/Links.actions';
+import * as action from './duck/Links.actions';
 
 interface OwnProps {
   id: number;
@@ -51,10 +51,10 @@ const mapStateToProps = (state: any): StateProps => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setLabel: (id: number, value: string) => {
-    dispatch(setLabelAction(id, value));
+    dispatch(action.labelAction(id, value));
   },
   setLink: (id: number, value: string) => {
-    dispatch(setLinkAction(id, value));
+    dispatch(action.linkAction(id, value));
   },
 })
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import Input from '@components/input/Input.view';
 import { Wrapper } from './Skills.style';
-import { setLevelAction, setNameAction } from './duck/Skills.actions';
+import * as action from './duck/Skills.actions';
 
 interface OwnProps {
   id: number;
@@ -51,10 +51,10 @@ const mapStateToProps = (state: any): StateProps => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setName: (id: number, value: string) => {
-    dispatch(setNameAction(id, value));
+    dispatch(action.nameAction(id, value));
   },
   setLevel: (id: number, value: string) => {
-    dispatch(setLevelAction(id, value));
+    dispatch(action.levelAction(id, value));
   },
 });
 

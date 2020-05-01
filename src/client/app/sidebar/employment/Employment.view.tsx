@@ -82,22 +82,22 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setJobTitle: (id, value) => {
-    dispatch(action.setJobTitleAction(id, value));
+    dispatch(action.jobTitleAction(id, value));
   },
   setEmployer: (id, value) => {
-    dispatch(action.setEmployerAction(id, value));
+    dispatch(action.employerAction(id, value));
   },
   setCity: (id, value) => {
-    dispatch(action.setCityAction(id, value));
+    dispatch(action.cityAction(id, value));
   },
   setDateFrom: (id, value) => {
-    dispatch(action.setDateFromAction(id, value));
+    dispatch(action.dateFromAction(id, value));
   },
   setDateTo: (id, value) => {
-    dispatch(action.setDateToAction(id, value));
+    dispatch(action.dateToAction(id, value));
   },
   setDescription: (id, value) => {
-    dispatch(action.setDescriptionAction(id, value));
+    dispatch(action.descriptionAction(id, value));
   },
 });
 

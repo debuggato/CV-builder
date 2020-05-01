@@ -1,13 +1,13 @@
-export const SET_SCHOOL: string = 'SET_SCHOOL';
+export const EDUCATION_SCHOOL: string = 'EDUCATION_SCHOOL';
 
-export const SET_DEGREE: string = 'SET_DEGREE';
+export const EDUCATION_DEGREE: string = 'EDUCATION_DEGREE';
 
-export const SET_CITY: string = 'SET_CITY';
+export const EDUCATION_CITY: string = 'EDUCATION_CITY';
 
-export const SET_EDUCATION_DESCRIPTION: string = 'SET_EDUCATION_DESCRIPTION';
+export const EDUCATION_DESCRIPTION: string = 'EDUCATION_DESCRIPTION';
 
-export const SET_EDUCATION_DATE_FROM: string = 'SET_EDUCATION_DATE_FROM';
+export const EDUCATION_DATE_FROM: string = 'EDUCATION_DATE_FROM';
 
-export const SET_EDUCATION_DATE_TO: string = 'SET_EDUCATION_DATE_TO';
+export const EDUCATION_DATE_TO: string = 'EDUCATION_DATE_TO';
 
 export const ADD_EDUCATION: string = 'ADD_EDUCATION';

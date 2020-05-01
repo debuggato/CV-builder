@@ -9,7 +9,7 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         [action.id]: action.value,
       };
-    case type.SET_NAME:
+    case type.SKILL_NAME:
       return {
         ...state,
         [action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
           name: action.value,
         },
       };
-    case type.SET_LEVEL:
+    case type.SKILL_LEVEL:
       return {
         ...state,
         [action.id]: {

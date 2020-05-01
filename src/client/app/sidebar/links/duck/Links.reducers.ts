@@ -9,7 +9,7 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         [action.id]: action.value,
       };
-    case type.SET_LABEL:
+    case type.LINK_LABEL:
       return {
         ...state,
         [action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
           label: action.value,
         },
       };
-    case type.SET_LINK:
+    case type.LINK_TITLE:
       return {
         ...state,
         [action.id]: {

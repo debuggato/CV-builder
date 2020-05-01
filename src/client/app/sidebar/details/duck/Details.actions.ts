@@ -1,7 +1,8 @@
 import * as type from './Details.types';
+import * as model from './Details.model';
 
-export const setJobTitleAction = (value: string) => ({
-  type: type.SET_MAIN_JOB_TITLE,
+export const jobTitleAction = (value: string): model.jobTitleModelAction => ({
+  type: type.DETAILS_JOB_TITLE,
   value,
 });
 
@@ -20,62 +21,62 @@ export const onPhotoFailureAction = (error: string) => ({
   error
 });
 
-export const setFirstnameAction = (value: string) => ({
-  type: type.SET_FIRST_NAME,
+export const firstnameAction = (value: string): model.firstNameModelAction => ({
+  type: type.DETAILS_FIRST_NAME,
   value,
 });
 
-export const setLastnameAction = (value: string) => ({
-  type: type.SET_LAST_NAME,
+export const lastnameAction = (value: string): model.lastNameModelAction => ({
+  type: type.DETAILS_LAST_NAME,
   value,
 });
 
-export const setCityAction = (value: string) => ({
-  type: type.SET_CITY,
+export const cityAction = (value: string): model.cityModelAction => ({
+  type: type.DETAILS_CITY,
   value,
 });
 
-export const setAddressAction = (value: string) => ({
-  type: type.SET_ADDRESS,
+export const addressAction = (value: string): model.addressModelAction => ({
+  type: type.DETAILS_ADDRESS,
   value,
 });
 
-export const setCountryAction = (value: string) => ({
-  type: type.SET_COUNTRY,
+export const countryAction = (value: string): model.countryModelAction => ({
+  type: type.DETAILS_COUNTRY,
   value,
 });
 
-export const setDateOfBirthAction = (value: Date) => ({
-  type: type.SET_DATE_OF_BIRTH,
+export const dateOfBirthAction = (value: Date): model.dateOfBirthModelAction => ({
+  type: type.DETAILS_DATE_OF_BIRTH,
   value,
 });
 
-export const setDrivingLicenseAction = (value: string) => ({
-  type: type.SET_DRIVING_LICENSE,
+export const drivingLicenseAction = (value: string): model.drivingLicenseModelAction => ({
+  type: type.DETAILS_DRIVING_LICENSE,
   value,
 });
 
-export const setEmailAction = (value: string) => ({
-  type: type.SET_EMAIL,
+export const emailAction = (value: string): model.emailModelAction => ({
+  type: type.DETAILS_EMAIL,
   value,
 });
 
-export const setNationalityAction = (value: string) => ({
-  type: type.SET_NATIONALITY,
+export const nationalityAction = (value: string): model.nationalityModelAction => ({
+  type: type.DETAILS_NATIONALITY,
   value,
 });
 
-export const setPlaceOfBirthAction = (value: string) => ({
-  type: type.SET_PLACE_OF_BIRTH,
+export const placeOfBirthAction = (value: string): model.placeOfBirthModelAction => ({
+  type: type.DETAILS_PLACE_OF_BIRTH,
   value,
 });
 
-export const setPostalCodeAction = (value: string) => ({
-  type: type.SET_POSTAL_CODE,
+export const postalCodeAction = (value: string): model.postalCodeModelAction => ({
+  type: type.DETAILS_POSTAL_CODE,
   value,
 });
 
-export const setPhoneAction = (value: string) => ({
-  type: type.SET_PHONE,
+export const phoneAction = (value: string): model.phoneModelAction => ({
+  type: type.DETAILS_PHONE,
   value,
 });

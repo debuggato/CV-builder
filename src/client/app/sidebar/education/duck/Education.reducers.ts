@@ -9,7 +9,7 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         [action.id]: action.value,
       };
-    case type.SET_SCHOOL:
+    case type.EDUCATION_SCHOOL:
       return {
         ...state,
         [action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
           school: action.value,
         },
       };
-    case type.SET_DEGREE:
+    case type.EDUCATION_DEGREE:
       return {
         ...state,
         [action.id]: {
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action: ActionType) => {
           degree: action.value,
         },
       };
-    case type.SET_CITY:
+    case type.EDUCATION_CITY:
       return {
         ...state,
         [action.id]: {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action: ActionType) => {
           city: action.value,
         },
       };
-    case type.SET_EDUCATION_DESCRIPTION:
+    case type.EDUCATION_DESCRIPTION:
       return {
         ...state,
         [action.id]: {
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action: ActionType) => {
           description: action.value,
         },
       };
-    case type.SET_EDUCATION_DATE_FROM:
+    case type.EDUCATION_DATE_FROM:
       return {
         ...state,
         [action.id]: {
@@ -49,7 +49,7 @@ const reducer = (state = initialState, action: ActionType) => {
           dateFrom: action.value,
         },
       };
-    case type.SET_EDUCATION_DATE_TO:
+    case type.EDUCATION_DATE_TO:
       return {
         ...state,
         [action.id]: {

@@ -1,9 +1,9 @@
-export const SET_COURSE: string = 'SET_COURSE';
+export const COURSE_TITLE: string = 'COURSE_TITLE';
 
-export const SET_INSTITUTION: string = 'SET_INSTITUTION';
+export const COURSE_INSTITUTION: string = 'COURSE_INSTITUTION';
 
-export const SET_DATE_FROM: string = 'SET_DATE_FROM';
+export const COURSE_DATE_FROM: string = 'COURSE_DATE_FROM';
 
-export const SET_DATE_TO: string = 'SET_DATE_TO';
+export const COURSE_DATE_TO: string = 'COURSE_DATE_TO';
 
 export const ADD_COURSE: string = 'ADD_COURSE';

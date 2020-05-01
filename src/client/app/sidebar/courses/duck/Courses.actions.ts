@@ -1,31 +1,32 @@
 import * as type from './Courses.types';
+import * as model from './Courses.model';
 
-export const addCourseAction = (id: number, value: any) => ({
+export const addCourseAction = (id: number, value: any): model.AddCourseModelAction => ({
   type: type.ADD_COURSE,
   id: id + 1,
   value,
 });
 
-export const setCourseAction = (id: number, value: string) => ({
-  type: type.SET_COURSE,
+export const courseAction = (id: number, value: string): model.courseModelAction => ({
+  type: type.COURSE_TITLE,
   id,
   value,
 });
 
-export const setInstitutionAction = (id: number, value: string) => ({
-  type: type.SET_INSTITUTION,
+export const institutionAction = (id: number, value: string): model.institutionModelAction => ({
+  type: type.COURSE_INSTITUTION,
   id,
   value,
 });
 
-export const setDateFromAction = (id: number, value: Date) => ({
-  type: type.SET_DATE_FROM,
+export const dateFromAction = (id: number, value: Date): model.dateFromModelAction => ({
+  type: type.COURSE_DATE_FROM,
   id,
   value,
 });
 
-export const setDateToAction = (id: number, value: Date) => ({
-  type: type.SET_DATE_TO,
+export const dateToAction = (id: number, value: Date): model.dateToModelAction => ({
+  type: type.COURSE_DATE_TO,
   id,
   value,
 });

@@ -11,52 +11,52 @@ export type EducationState = [
   },
 ];
 
-interface AddEducation {
+export interface addEducationModelAction {
   type: typeof types.ADD_EDUCATION;
   id: number;
   value: any;
 }
 
-interface SetSchoolAction {
-  type: typeof types.SET_SCHOOL;
+export interface schoolModelAction {
+  type: typeof types.EDUCATION_SCHOOL;
   id: number;
   value: string;
 }
 
-interface SetDegreeAction {
-  type: typeof types.SET_DEGREE;
+export interface degreeModelAction {
+  type: typeof types.EDUCATION_DEGREE;
   id: number;
   value: string;
 }
 
-interface SetCityAction {
-  type: typeof types.SET_CITY;
+export interface cityModelAction {
+  type: typeof types.EDUCATION_CITY;
   id: number;
   value: string;
 }
 
-interface SetDescriptionAction {
-  type: typeof types.SET_EDUCATION_DESCRIPTION;
+export interface descriptionModelAction {
+  type: typeof types.EDUCATION_DESCRIPTION;
   id: number;
   value: string;
 }
 
-interface SetDateFromAction {
-  type: typeof types.SET_EDUCATION_DATE_FROM;
+export interface dateFromModelAction {
+  type: typeof types.EDUCATION_DATE_FROM;
   id: number;
-  value: string;
+  value: Date;
 }
 
-interface SetDateToAction {
-  type: typeof types.SET_EDUCATION_DATE_TO;
+export interface dateToModelAction {
+  type: typeof types.EDUCATION_DATE_TO;
   id: number;
-  value: string;
+  value: Date;
 }
 
-export type ActionType = AddEducation &
-  SetSchoolAction &
-  SetDegreeAction &
-  SetCityAction &
-  SetDescriptionAction &
-  SetDateFromAction &
-  SetDateToAction;
+export type ActionType = addEducationModelAction &
+  schoolModelAction &
+  degreeModelAction &
+  cityModelAction &
+  descriptionModelAction &
+  dateFromModelAction &
+  dateToModelAction;

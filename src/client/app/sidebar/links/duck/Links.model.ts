@@ -1,4 +1,4 @@
-import { SET_LINK, SET_LABEL, ADD_LINK } from './Links.types';
+import * as type from './Links.types';
 
 export type LinksState = [
   {
@@ -7,22 +7,22 @@ export type LinksState = [
   },
 ];
 
-interface AddLinkAction {
-  type: typeof ADD_LINK;
+export interface addLinkModelAction {
+  type: typeof type.ADD_LINK;
   id: number;
   value: any;
 }
 
-interface SetLinkAction {
-  type: typeof SET_LINK;
+export interface linkModelAction {
+  type: typeof type.LINK_TITLE;
   id: number;
   value: string;
 }
 
-interface SetLabelAction {
-  type: typeof SET_LABEL;
+export interface labelModelAction {
+  type: typeof type.LINK_LABEL;
   id: number;
   value: string;
 }
 
-export type ActionType = SetLinkAction & SetLabelAction & AddLinkAction;
+export type ActionType = linkModelAction & labelModelAction & addLinkModelAction;

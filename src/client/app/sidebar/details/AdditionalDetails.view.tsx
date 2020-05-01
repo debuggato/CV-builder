@@ -139,28 +139,28 @@ const mapStateToProps = (state: any): StateProps => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   setCity: (value: string) => {
-    dispatch(action.setCityAction(value));
+    dispatch(action.cityAction(value));
   },
   setCountry: (value: string) => {
-    dispatch(action.setCountryAction(value));
+    dispatch(action.countryAction(value));
   },
   setAddress: (value: string) => {
-    dispatch(action.setAddressAction(value));
+    dispatch(action.addressAction(value));
   },
   setPostalCode: (value: string) => {
-    dispatch(action.setPostalCodeAction(value));
+    dispatch(action.postalCodeAction(value));
   },
   setDrivingLicense: (value: string) => {
-    dispatch(action.setDrivingLicenseAction(value));
+    dispatch(action.drivingLicenseAction(value));
   },
   setNationality: (value: string) => {
-    dispatch(action.setNationalityAction(value));
+    dispatch(action.nationalityAction(value));
   },
   setPlaceOfBirth: (value: string) => {
-    dispatch(action.setPlaceOfBirthAction(value));
+    dispatch(action.placeOfBirthAction(value));
   },
   setDateOfBirth: (value: Date) => {
-    dispatch(action.setDateOfBirthAction(value));
+    dispatch(action.dateOfBirthAction(value));
   },
 });
 

@@ -1,12 +1,12 @@
-import { SET_SUMMARY } from './Summary.types';
+import { SUMMARY } from './Summary.types';
 
 export type SummaryState = {
   description: string;
 };
 
-interface SetSummaryAction {
-  type: typeof SET_SUMMARY;
+export interface summaryModelAction {
+  type: typeof SUMMARY;
   value: string;
 }
 
-export type ActionType = SetSummaryAction;
+export type ActionType = summaryModelAction;

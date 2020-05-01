@@ -107,19 +107,19 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
     dispatch(action.onPhotoStartAction(value));
   },
   setJobTitle: (value: string) => {
-    dispatch(action.setJobTitleAction(value));
+    dispatch(action.jobTitleAction(value));
   },
   setFirstName: (value: string) => {
-    dispatch(action.setFirstnameAction(value));
+    dispatch(action.firstnameAction(value));
   },
   setLastName: (value: string) => {
-    dispatch(action.setLastnameAction(value));
+    dispatch(action.lastnameAction(value));
   },
   setEmail: (value: string) => {
-    dispatch(action.setEmailAction(value));
+    dispatch(action.emailAction(value));
   },
   setPhone: (value: string) => {
-    dispatch(action.setPhoneAction(value));
+    dispatch(action.phoneAction(value));
   },
 });
 

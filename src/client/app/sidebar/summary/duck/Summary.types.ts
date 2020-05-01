@@ -1,1 +1,1 @@
-export const SET_SUMMARY: string = 'SET_SUMMARY';
+export const SUMMARY: string = 'SUMMARY';

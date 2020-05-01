@@ -9,38 +9,38 @@ export type CoursesState = [
   },
 ];
 
-interface AddCourse {
+export interface AddCourseModelAction {
   type: typeof types.ADD_COURSE;
   id: number;
   value: any;
 }
 
-interface SetCourseAction {
-  type: typeof types.SET_COURSE;
+export interface courseModelAction {
+  type: typeof types.COURSE_TITLE;
   id: number;
   value: string;
 }
 
-interface SetInstitutionAction {
-  type: typeof types.SET_INSTITUTION;
+export interface institutionModelAction {
+  type: typeof types.COURSE_INSTITUTION;
   id: number;
   value: string;
 }
 
-interface SetDateFromAction {
-  type: typeof types.SET_DATE_FROM;
+export interface dateFromModelAction {
+  type: typeof types.COURSE_DATE_FROM;
   id: number;
-  value: string;
+  value: Date;
 }
 
-interface SetDateToAction {
-  type: typeof types.SET_DATE_TO;
+export interface dateToModelAction {
+  type: typeof types.COURSE_DATE_TO;
   id: number;
-  value: string;
+  value: Date;
 }
 
-export type ActionType = AddCourse &
-  SetCourseAction &
-  SetInstitutionAction &
-  SetDateFromAction &
-  SetDateToAction;
+export type ActionType = AddCourseModelAction &
+  courseModelAction &
+  institutionModelAction &
+  dateFromModelAction &
+  dateToModelAction;

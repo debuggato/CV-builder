@@ -6,38 +6,38 @@ export const addEmploymentAction = (id: number, value: any) => ({
   value,
 });
 
-export const setJobTitleAction = (id: number, value: string) => ({
-  type: type.SET_JOB_TITLE,
+export const jobTitleAction = (id: number, value: string) => ({
+  type: type.EMPLOYMENT_JOB_TITLE,
   id,
   value,
 });
 
-export const setEmployerAction = (id: number, value: string) => ({
-  type: type.SET_EMPLOYER,
+export const employerAction = (id: number, value: string) => ({
+  type: type.EMPLOYMENT_EMPLOYER,
   id,
   value,
 });
 
-export const setCityAction = (id: number, value: string) => ({
-  type: type.SET_EMPLOYMENT_CITY,
+export const cityAction = (id: number, value: string) => ({
+  type: type.EMPLOYMENT_CITY,
   id,
   value,
 });
 
-export const setDateFromAction = (id: number, value: Date) => ({
-  type: type.SET_EMPLOYMENT_DATE_FROM,
+export const dateFromAction = (id: number, value: Date) => ({
+  type: type.EMPLOYMENT_DATE_FROM,
   id,
   value,
 });
 
-export const setDateToAction = (id: number, value: Date) => ({
-  type: type.SET_EMPLOYMENT_DATE_TO,
+export const dateToAction = (id: number, value: Date) => ({
+  type: type.EMPLOYMENT_DATE_TO,
   id,
   value,
 });
 
-export const setDescriptionAction = (id: number, value: string) => ({
-  type: type.SET_EMPLOYMENT_DESCRIPTION,
+export const descriptionAction = (id: number, value: string) => ({
+  type: type.EMPLOYMENT_DESCRIPTION,
   id,
   value,
 });

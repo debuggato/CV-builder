@@ -4,7 +4,7 @@ import { ActionType } from './Summary.model';
 
 const reducer = (state = initialState, action: ActionType) => {
   switch (action.type) {
-    case type.SET_SUMMARY:
+    case type.SUMMARY:
       return {
         ...state,
         description: action.value,

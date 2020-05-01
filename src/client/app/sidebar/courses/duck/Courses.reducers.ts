@@ -9,7 +9,7 @@ const reducer = (state = initialState, action: ActionType) => {
         ...state,
         [action.id]: action.value,
       };
-    case type.SET_COURSE:
+    case type.COURSE_TITLE:
       return {
         ...state,
         [action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
           course: action.value,
         },
       };
-    case type.SET_INSTITUTION:
+    case type.COURSE_INSTITUTION:
       return {
         ...state,
         [action.id]: {
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action: ActionType) => {
           institution: action.value,
         },
       };
-    case type.SET_DATE_FROM:
+    case type.COURSE_DATE_FROM:
       return {
         ...state,
         [action.id]: {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action: ActionType) => {
           dateFrom: action.value,
         },
       };
-    case type.SET_DATE_TO:
+    case type.COURSE_DATE_TO:
       return {
         ...state,
         [action.id]: {

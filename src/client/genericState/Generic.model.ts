@@ -27,33 +27,33 @@ export interface GenericState {
   }
 }
 
-export interface ShowTemplateGalleryAction {
+export interface showGalleryModelAction {
   type: typeof types.SHOW_TEMPLATE_GALLERY;
   value: boolean;
 }
 
-export interface ChangeLangAction {
+export interface changeLangModelAction {
   type: typeof types.CHANGE_LANGUAGE;
   value: string;
 }
 
-export interface UpdateDocumentTitleAction {
+export interface updateDocumentTitleModelAction {
   type: typeof types.UPDATE_DOCUMENT_TITLE;
   value: string;
 }
 
-export interface ChooseTemplateAction {
+export interface chooseTemplateModelAction {
   type: typeof types.CHOOSE_TEMPLATE;
   value: string;
 }
 
-export interface ShowLoaderAction {
+export interface showLoaderModelAction {
   type: typeof types.SHOW_LOADER;
   value: boolean;
 }
 
-export type ActionType = ShowTemplateGalleryAction &
-  ChangeLangAction &
-  UpdateDocumentTitleAction &
-  ChooseTemplateAction &
-  ShowLoaderAction;
+export type ActionType = showGalleryModelAction &
+  changeLangModelAction &
+  updateDocumentTitleModelAction &
+  chooseTemplateModelAction &
+  showLoaderModelAction;

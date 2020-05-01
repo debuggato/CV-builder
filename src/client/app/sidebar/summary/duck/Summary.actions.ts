@@ -1,6 +1,7 @@
 import * as type from './Summary.types';
+import { summaryModelAction } from './Summary.model';
 
-export const setSummaryAction = (value: string) => ({
-  type: type.SET_SUMMARY,
+export const summaryAction = (value: string): summaryModelAction => ({
+  type: type.SUMMARY,
   value,
 });

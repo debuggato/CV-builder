@@ -11,52 +11,52 @@ export type EmploymentState = [
   },
 ];
 
-interface AddEmploymentAction {
+interface addEmploymentModelAction {
   type: typeof types.ADD_EMPLOYMENT;
   id: number;
   value: any;
 }
 
-interface SetJobTitleAction {
-  type: typeof types.SET_JOB_TITLE;
+interface jobTitleModelAction {
+  type: typeof types.EMPLOYMENT_JOB_TITLE;
   id: number;
   value: string;
 }
 
-interface SetEmployerAction {
-  type: typeof types.SET_EMPLOYER;
+interface employerModelAction {
+  type: typeof types.EMPLOYMENT_EMPLOYER;
   id: number;
   value: string;
 }
 
-interface SetCityAction {
-  type: typeof types.SET_EMPLOYMENT_CITY;
+interface cityModelAction {
+  type: typeof types.EMPLOYMENT_CITY;
   id: number;
   value: string;
 }
 
-interface SetDescriptionAction {
-  type: typeof types.SET_EMPLOYMENT_DESCRIPTION;
+interface descriptionModelAction {
+  type: typeof types.EMPLOYMENT_DESCRIPTION;
   id: number;
   value: string;
 }
 
-interface SetDateFromAction {
-  type: typeof types.SET_EMPLOYMENT_DATE_FROM;
+interface dateFromModelAction {
+  type: typeof types.EMPLOYMENT_DATE_FROM;
   id: number;
   value: string;
 }
 
-interface SetDateToAction {
-  type: typeof types.SET_EMPLOYMENT_DATE_TO;
+interface dateToModelAction {
+  type: typeof types.EMPLOYMENT_DATE_TO;
   id: number;
   value: string;
 }
 
-export type ActionType = AddEmploymentAction &
-  SetJobTitleAction &
-  SetEmployerAction &
-  SetCityAction &
-  SetDescriptionAction &
-  SetDateFromAction &
-  SetDateToAction;
+export type ActionType = addEmploymentModelAction &
+  jobTitleModelAction &
+  employerModelAction &
+  cityModelAction &
+  descriptionModelAction &
+  dateFromModelAction &
+  dateToModelAction;

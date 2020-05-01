@@ -1,13 +1,13 @@
-export const SET_JOB_TITLE: string = 'SET_JOB_TITLE';
+export const EMPLOYMENT_JOB_TITLE: string = 'EMPLOYMENT_JOB_TITLE';
 
-export const SET_EMPLOYER: string = 'SET_EMPLOYER';
+export const EMPLOYMENT_EMPLOYER: string = 'EMPLOYMENT_EMPLOYER';
 
-export const SET_EMPLOYMENT_CITY: string = 'SET_EMPLOYMENT_CITY';
+export const EMPLOYMENT_CITY: string = 'EMPLOYMENT_CITY';
 
-export const SET_EMPLOYMENT_DATE_FROM: string = 'SET_DATE_FROM';
+export const EMPLOYMENT_DATE_FROM: string = 'EMPLOYMENT_DATE_FROM';
 
-export const SET_EMPLOYMENT_DATE_TO: string = 'SET_DATE_TO';
+export const EMPLOYMENT_DATE_TO: string = 'EMPLOYMENT_DATE_TO';
 
-export const SET_EMPLOYMENT_DESCRIPTION: string = 'SET_EMPLOYMENT_DESCRIPTION';
+export const EMPLOYMENT_DESCRIPTION: string = 'EMPLOYMENT_DESCRIPTION';
 
 export const ADD_EMPLOYMENT: string = 'ADD_EMPLOYMENT';
