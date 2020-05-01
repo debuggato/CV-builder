@@ -67,7 +67,9 @@ app.post('/render', async (req, res) => {
   try {
     const data = req.body;
 
-    data.photo = base64_encode('public/assets/photo_profile.jpg');
+    if (data.photo) {
+      data.photo = base64_encode('public/assets/photo_profile.jpg');
+    }
 
     i18next.use(middleware.LanguageDetector).init({
       preload: ['en', 'de', 'it', 'es', 'fr'],
