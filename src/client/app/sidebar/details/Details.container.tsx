@@ -40,7 +40,6 @@ class Details extends Component<OwnProps, State> {
         <MainDetails />
         <ButtonWrapper onClick={this.showAdditionalDetails}>
           <Button
-            type="button"
             linkStyle
             primary
           >

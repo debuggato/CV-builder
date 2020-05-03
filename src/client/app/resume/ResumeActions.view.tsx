@@ -56,12 +56,12 @@ class ResumeActions extends Component<Props, State> {
 
     return (
       <ActionsWrapper>
-        <Button type="button" linkStyle onClick={onClick}>
+        <Button linkStyle onClick={onClick}>
           <IconView icon={faThLarge} /> {i18n.t('choose.template')}
         </Button>
 
         {selected && !loader && responsePdf !== 200 &&
-          <Button type="button" primary onClick={this.renderPdf}>
+          <Button primary onClick={this.renderPdf}>
             {i18n.t('generate.pdf')}
           </Button>
         }

@@ -10,7 +10,7 @@ interface Props {
 
 const AddLinkLabelView: FC<Props> = ({ onClick, children }: Props): ReactElement => {
   return (
-    <Button type="button" linkStyle onClick={onClick} primary>
+    <Button linkStyle onClick={onClick} primary>
       <IconView icon={faPlus} /> {children}
     </Button>
   );
