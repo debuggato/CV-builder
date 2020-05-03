@@ -1,5 +1,6 @@
-import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import sagas from '@client/sagas';
 import details from '@sidebar/details/duck/Details.reducers';
 import summary from '@sidebar/summary/duck/Summary.reducers';
@@ -25,9 +26,8 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(sagaMiddleware),
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(
+    applyMiddleware(sagaMiddleware)
   ));
 
 sagaMiddleware.run(sagas);
