@@ -1,9 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
-  setupFilesAfterEnv: ['<rootDir>/setupTest.ts'],
   testEnvironment: 'jsdom',
   clearMocks: true,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: ['<rootDir>/node_modules/(?!@foo)'],
   globals: {
@@ -24,6 +22,7 @@ module.exports = {
     '^@genericState/(.*)': '<rootDir>/src/client/genericState/$1',
     '^@styles/(.*)': '<rootDir>/src/client/styles/$1',
     '^@client/(.*)': '<rootDir>/src/client/$1',
+    '^@public/(.*)': '<rootDir>/public/$1',
   },
   testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   transform: {

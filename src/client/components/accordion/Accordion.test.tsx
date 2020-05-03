@@ -1,10 +1,12 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import AccordionView from './Accordion.view';
-import { shallow } from 'enzyme';
 
 describe('[Components]: Accordion', () => {
   it('expects to render correctly', () => {
-    const wrapper = shallow(<AccordionView title="Title"><p>{'Something here...'}</p></AccordionView>);
+    const wrapper = renderer
+      .create(<AccordionView title="Title"><p>{'Something here...'}</p></AccordionView>)
+      .toJSON();
 
     expect(wrapper).toMatchSnapshot();
   });
