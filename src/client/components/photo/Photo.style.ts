@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import colors from '@styles/color.style';
 
-export const Container = styled.div`
-  margin: 10px;
-`;
-
 export const Wrapper = styled.div`
   display: flex;
+  margin: 10px;
 
   input {
     visibility: hidden;
