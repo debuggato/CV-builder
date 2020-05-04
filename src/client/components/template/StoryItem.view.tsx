@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
+import sizes from '@styles/sizes';
 import { getFormattedDateWithoutDays } from '@utils/helpers';
 
 interface Props {
@@ -12,15 +13,22 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-  h5 {
-    margin-top: 0;
-    margin-bottom: 8px;
-  }
 
-  p {
-    font-size: 13px;
-    margin: 5px 0;
-  }
+`;
+
+const Title = styled.h5`
+  margin: 10px 0;
+  font-size: ${sizes.h5};
+`;
+
+const Description = styled.p`
+  font-size: ${sizes.paragraph};
+  line-height: ${sizes.lineHeight};
+  margin: 5px 0;
+`;
+
+const Details = styled.p`
+  font-size: ${sizes.paragraph};
 `;
 
 const StoryItem: FC<Props> = (props: Props): ReactElement => {
@@ -30,9 +38,9 @@ const StoryItem: FC<Props> = (props: Props): ReactElement => {
 
   return (
     <Wrapper>
-      <h5>{title}</h5>
-      <p>{`${entity ? '-' + city + '-' + start + '-' + end : ''} `}</p>
-      <p dangerouslySetInnerHTML={{ __html: description }} ></p>
+      <Title>{title} {entity ? `@ ${entity}` : ''}</Title>
+      <Details>{city ? `${city} ${start} / ${end}` : ''}</Details>
+      <Description dangerouslySetInnerHTML={{ __html: description }} ></Description>
     </Wrapper>
   );
 }

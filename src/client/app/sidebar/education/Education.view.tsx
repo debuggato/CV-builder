@@ -44,17 +44,17 @@ const EducationView: FC<Props> = (props: Props): ReactElement => {
       <Wrapper>
         <Input
           type="text"
-          label="School"
-          onChange={e => setSchool(id, e.target.value)}
-          value={school}
+          label="Degree"
+          onChange={e => setDegree(id, e.target.value)}
+          value={degree}
         />
       </Wrapper>
       <Wrapper>
         <Input
           type="text"
-          label="Degree"
-          onChange={e => setDegree(id, e.target.value)}
-          value={degree}
+          label="School"
+          onChange={e => setSchool(id, e.target.value)}
+          value={school}
         />
       </Wrapper>
       <Wrapper>

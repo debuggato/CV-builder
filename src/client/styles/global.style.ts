@@ -11,4 +11,8 @@ export const GlobalStyle = createGlobalStyle`
   .quill .ql-container {
     min-height: 100px;
   }
+
+  h1, h2, h3, h4, p {
+    font-weight: normal;
+  }
 `;

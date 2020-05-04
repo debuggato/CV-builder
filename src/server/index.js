@@ -121,6 +121,7 @@ app.post('/render', async (req, res) => {
         body {
           font-family: 'Noto Sans KR', sans-serif;
           color: #333;
+          font-weight: normal;
         }
         svg {
           width: 0.8em;
@@ -147,7 +148,6 @@ app.post('/render', async (req, res) => {
     const pdf = await page.pdf({
       path: `public/${pdfUrl}`,
       format: 'A4',
-      scale: 0.75,
       printBackground: true,
     });
 

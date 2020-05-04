@@ -3,6 +3,7 @@ import styled, { CSSProperties } from 'styled-components';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import IconView from '@components/Icon.view';
+import sizes from '@styles/sizes';
 
 interface OwnProps {
   value: string;
@@ -18,7 +19,7 @@ type Props = OwnProps & StyleProps;
 
 const Label = styled.span<StyleProps>`
   ${({ bold }) => (bold ? 'font-weight: bold' : '')};
-  font-size: 15px;
+  font-size: ${sizes.paragraph};
 `;
 
 const iconStyle: CSSProperties = {

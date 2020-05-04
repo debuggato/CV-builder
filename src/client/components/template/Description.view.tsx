@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
+import sizes from '@styles/sizes';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
@@ -8,7 +9,13 @@ interface Props {
 }
 
 const Paragraph = styled.p`
-  font-size: 13px;
+  font-size: ${sizes.paragraph};
+  line-height: ${sizes.lineHeight};
+`;
+
+const Title = styled.h4`
+  font-size: ${sizes.h4};
+  margin: 10px 0;
 `;
 
 const Description: FC<Props> = ({ label, text }: Props): ReactElement => {
@@ -16,7 +23,7 @@ const Description: FC<Props> = ({ label, text }: Props): ReactElement => {
 
   return (
     <>
-      <h4>{t(label)}</h4>
+      <Title>{t(label)}</Title>
       <Paragraph dangerouslySetInnerHTML={{ __html: text }} ></Paragraph>
     </>
   );

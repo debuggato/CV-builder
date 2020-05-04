@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import colors from '../../../client/styles/color.style';
+import colors from '@styles/color.style';
+import sizes from '@styles/sizes';
 
 interface Props {
   border: string;
@@ -59,11 +60,12 @@ export const Sidebar = styled.aside`
 export const FullName = styled.h1`
   text-transform: capitalize;
   margin: 0;
+  font-size: ${sizes.h1};
 `;
 
 export const JobTitle = styled.h3`
   text-transform: capitalize;
-  font-size: 15px;
+  font-size: ${sizes.h3};
   margin-top: 5px;
   color: ${colors.greyLight};
 `;
