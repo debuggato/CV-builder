@@ -26,7 +26,7 @@ const Input: FC<Props> = ({ label, value, type, ...props }: Props): ReactElement
       <InputStyled
         {...props}
         type={type || 'text'}
-        value={value || ''}
+        value={value}
       />
     </>
   );
