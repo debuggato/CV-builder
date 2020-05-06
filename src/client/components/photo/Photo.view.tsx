@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, ChangeEvent } from 'react';
 import { faUser, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import Input from '@components/input/Input.view';
@@ -11,7 +11,7 @@ const iconStyle = {
 };
 
 interface Props {
-  onUpload: (e: any) => void;
+  onUpload: (e: ChangeEvent<HTMLInputElement>) => void;
   imgUrl?: string;
 }
 

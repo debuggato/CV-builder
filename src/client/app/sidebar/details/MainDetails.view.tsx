@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, SyntheticEvent, ChangeEvent } from 'react';
+import React, { FC, ReactElement, ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import * as action from './duck/Details.actions';
@@ -21,7 +21,7 @@ interface DispatchProps {
   setLastName: (arg0: string) => void;
   setPhone: (arg0: string) => void;
   setEmail: (arg0: string) => void;
-  setPhoto: (e: ChangeEvent<SyntheticEvent>) => void;
+  setPhoto: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 type Props = StateProps & DispatchProps;

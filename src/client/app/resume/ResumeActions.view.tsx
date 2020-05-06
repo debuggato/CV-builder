@@ -39,7 +39,7 @@ class ResumeActions extends Component<Props, State> {
       loader: true
     });
 
-    axios.post(config.render_pdf_url, null, {
+    axios.post(config.render_url, null, {
       data: this.props
     }).then(result => {
       this.setState({
