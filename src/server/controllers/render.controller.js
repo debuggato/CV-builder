@@ -62,9 +62,11 @@ const renderHTML = (style, component) => {
   return `
     <html>
       <head>
+        <link
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
+          type="text/css"
+        />
       <style>
-        @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
-
         body {
           font-family: 'Noto Sans KR', sans-serif;
           color: #333;
@@ -95,6 +97,7 @@ renderController.post('/', async (req, res) => {
     i18next.use(middleware.LanguageDetector).init({
       preload: ['en', 'de', 'it', 'es', 'fr'],
       fallbackLng: data.lang, //TODO this is a workaround, should be a better way to do it
+      lng: 'en',
     });
 
     const css = sheet.getStyleTags();

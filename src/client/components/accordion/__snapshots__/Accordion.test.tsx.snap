@@ -2,10 +2,10 @@
 
 exports[`[Components]: Accordion expects to render correctly 1`] = `
 <div
-  className="sc-AxjAm gKaSMC"
+  className="sc-AxjAm gSJBjL"
 >
   <div
-    className="sc-AxiKw ezkWGq"
+    className="sc-AxiKw lnkQki"
     onClick={[Function]}
   >
     <div

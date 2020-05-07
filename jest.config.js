@@ -24,7 +24,7 @@ module.exports = {
     '^@client/(.*)': '<rootDir>/src/client/$1',
     '^@public/(.*)': '<rootDir>/public/$1',
   },
-  testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
+  testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.(ts?|tsx?)$',
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },

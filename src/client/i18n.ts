@@ -16,6 +16,7 @@ i18n
       fr,
       de
     },
+    lng: 'en',
     fallbackLng: 'en',
     debug: process.env.NODE_ENV !== 'production',
     ns: ['translations'],

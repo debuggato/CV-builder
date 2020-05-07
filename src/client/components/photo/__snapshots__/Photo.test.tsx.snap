@@ -2,7 +2,7 @@
 
 exports[`expects to render photo component WITH photo url set 1`] = `
 <div
-  className="sc-AxiKw euOuXO"
+  className="sc-AxiKw hwFSgf"
 >
   <img
     src="/assets/photo_profile.jpg"
@@ -43,7 +43,7 @@ exports[`expects to render photo component WITH photo url set 1`] = `
       upload.photo
     </span>
     <input
-      className="sc-AxjAm cyFqcy"
+      className="sc-AxjAm bSkJNt"
       id="upload"
       onChange={[Function]}
       type="file"
