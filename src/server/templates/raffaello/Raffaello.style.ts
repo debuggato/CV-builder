@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import colors from '../../../client/styles/color.style';
+import colors from '@styles/colors';
 
 interface Props {
   border: string;

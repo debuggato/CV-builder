@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import colors from '../../../client/styles/color.style';
+import colors from '@styles/colors';
 
 interface Props {
   border: string;
@@ -16,7 +15,7 @@ export const Container = styled.div`
 export const Email = styled.div``;
 
 export const Header = styled.header<Props>`
-  border-bottom: ${({ border }) => (border ? `1px solid ${colors.black}` : 'none')};
+  border-bottom: ${({ border }) => (border ? `1px solid ${colors.border}` : 'none')};
   grid-area: header;
 `;
 
@@ -29,7 +28,7 @@ export const Phone = styled.div``;
 export const Description = styled.p``;
 
 export const Title = styled.h4`
-  border-bottom: 1px solid ${colors.black};
+  border-bottom: 1px solid ${colors.border};
 `;
 
 export const Main = styled.main`

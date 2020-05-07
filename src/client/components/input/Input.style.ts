@@ -10,6 +10,7 @@ const InputStyled = styled.input`
   background-clip: border-box;
   border: 1px solid ${colors.border};
   font-size: ${sizes.paragraph};
+  border-radius: .5rem;
   box-sizing: border-box;
   width: 100%;
 
