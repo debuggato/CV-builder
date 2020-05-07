@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Input from '@components/input/Input.view';
-
+import sizes from '@styles/sizes';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const InputTitle = styled(Input)`
   border: 0;
-  font-size: 20px;
+  font-size: ${sizes.paragraph};
   font-weight: 700;
   text-align: center;
   text-transform: capitalize;

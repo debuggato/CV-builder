@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 
 interface Props {
   children: string;
@@ -9,7 +9,7 @@ interface Props {
 export const Title = styled.h3`
   margin: 0;
   margin-bottom: 15px;
-  border-bottom: 1px solid ${colors.grey};
+  border-bottom: 1px solid ${colors.border};
   padding-bottom: 3px;
 `;
 

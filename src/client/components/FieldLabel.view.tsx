@@ -1,12 +1,13 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
+import sizes from '@styles/sizes';
 
 const Label = styled.label`
-  color: ${colors.greyLight};
+  color: ${colors.label};
   display: inline-block;
   margin-bottom: 0.5rem;
-  font-size: 14px;
+  font-size: ${sizes.paragraph};
 `;
 
 interface Props {

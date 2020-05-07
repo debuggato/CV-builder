@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 
 export const Container = styled.section`
   display: flex;
@@ -19,4 +19,5 @@ export const Page = styled.div`
   border-radius: 5px;
   width: 595px;
   height: 842px;
+  border: 1px solid ${colors.border};
 `;

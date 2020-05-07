@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 import sizes from '@styles/sizes';
 
 interface Props {
@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const Email = styled.div``;
 
 export const Header = styled.header<Props>`
-  border-bottom: ${({ border }) => (border ? `5px solid #f1f1f1` : 'none')};
+  border-bottom: ${({ border }) => (border ? `5px solid ${colors.border}` : 'none')};
   grid-area: header;
   display: flex;
   justify-content: space-between;
@@ -67,5 +67,5 @@ export const JobTitle = styled.h3`
   text-transform: capitalize;
   font-size: ${sizes.h3};
   margin-top: 5px;
-  color: ${colors.greyLight};
+  color: ${colors.paragraph};
 `;

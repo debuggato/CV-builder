@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -41,7 +41,7 @@ export const Header = styled.div`
   width: 100%;
   height: 50px;
   background: ${ colors.primary};
-  border-bottom: 1px solid ${ colors.grey};
+  border-bottom: 1px solid ${ colors.border};
   display: flex;
   justify-content: space-between;
   align-items: center;

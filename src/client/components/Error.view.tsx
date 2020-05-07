@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 
 const Label = styled.span`
   color: ${colors.red};

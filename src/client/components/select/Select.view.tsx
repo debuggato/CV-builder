@@ -1,9 +1,16 @@
 import React, { FC, ChangeEvent, ReactElement } from 'react';
-import { Select } from './Select.style';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { Select, Wrapper } from './Select.style';
+import IconView from '@components/Icon.view';
 
 interface Props {
   list: Object;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+}
+
+const iconStyle = {
+  position: 'absolute',
+  right: '5px'
 }
 
 const SelectView: FC<Props> = ({ list, onChange }: Props): ReactElement => {
@@ -11,7 +18,12 @@ const SelectView: FC<Props> = ({ list, onChange }: Props): ReactElement => {
     return <option key={index} value={Object.keys(obj)}>{Object.values(obj)}</option>
   });
 
-  return <Select onChange={onChange}>{items}</Select>;
+  return (
+    <Wrapper>
+      <Select onChange={onChange}>{items}</Select>
+      <IconView icon={faChevronDown} style={iconStyle} />
+    </Wrapper>
+  );
 };
 
 export default SelectView;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 
 export const Container = styled.aside`
   background-color: ${colors.white};
@@ -22,6 +22,6 @@ export const ActionBar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-top: 1px solid ${colors.greyLight};
+  border-top: 1px solid ${colors.border};
   width: 50%;
 `;

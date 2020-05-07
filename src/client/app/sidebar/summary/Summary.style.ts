@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import sizes from '@styles/sizes';
 
 export const Container = styled.section`
   p {
-    font-size: 13px;
+    font-size: ${sizes.paragraph};
   }
 
   h4 {

@@ -2,7 +2,7 @@ import React, { FC, ReactElement, ReactNode } from 'react';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 import IconView from '@components/Icon.view';
 
 interface Props {

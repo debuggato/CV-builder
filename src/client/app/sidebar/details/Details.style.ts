@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   cursor: pointer;
 `;

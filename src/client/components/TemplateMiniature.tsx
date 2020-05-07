@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/color.style';
+import colors from '@styles/colors';
 
 interface Props {
   children: ReactNode;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   width: 215px;
   height: 240px;
   margin: 10px;
-  border: 1px solid ${colors.greyLight};
+  border: 1px solid ${colors.border};
   border-radius: 5px;
   float: left;
   cursor: pointer;
