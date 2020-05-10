@@ -17,8 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h5`
-  margin: 10px 0;
-  font-size: ${sizes.h5};
+  margin: 10px 0 0 0;
 `;
 
 const Description = styled.p`
@@ -29,6 +28,7 @@ const Description = styled.p`
 
 const Details = styled.p`
   font-size: ${sizes.paragraph};
+  margin: 0;
 `;
 
 const StoryItem: FC<Props> = (props: Props): ReactElement => {

@@ -41,6 +41,7 @@
     "loading.generation.pdf": "Loading PDF...",
     "pdf.created": "PDF is ready to download!",
     "pdf.not.created": "Something went wrong with PDF creation",
-    "close": "Close"
+    "close": "Close",
+    "experience": "Experience"
   }
 }

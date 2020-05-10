@@ -7,7 +7,7 @@ const Label = styled.label`
   color: ${colors.label};
   display: inline-block;
   margin-bottom: 0.5rem;
-  font-size: ${sizes.paragraph};
+  font-size: ${sizes.label};
 `;
 
 interface Props {

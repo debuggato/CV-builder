@@ -85,7 +85,7 @@ class ResumeContainer extends PureComponent<Props, {}> {
 
     return (
       <Container>
-        <h3><strong>{this.getTemplateTitle()}</strong></h3>
+        <h4><strong>{this.getTemplateTitle()}</strong></h4>
         {selected && <Page>{this.getTemplate()}</Page>}
 
         <ResumeActions

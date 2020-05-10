@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import colors from './colors';
+import colors from '@styles/colors';
+import sizes from '@styles/sizes'
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -20,7 +21,32 @@ export const GlobalStyle = createGlobalStyle`
     color: ${colors.headers};
   }
 
+  h1 {
+    font-size: ${sizes.h1};
+  }
+
+  h2 {
+    font-size: ${sizes.h2};
+  }
+
+  h3 {
+    font-size: ${sizes.h3};
+  }
+
+  h4 {
+    font-size: ${sizes.h4};
+  }
+
+  h5 {
+    font-size: ${sizes.h5};
+  }
+
+  h6 {
+    font-size: ${sizes.h6};
+  }
+
   p {
+    font-size: ${sizes.paragraph};
     color: ${colors.paragraph};
   }
 `;

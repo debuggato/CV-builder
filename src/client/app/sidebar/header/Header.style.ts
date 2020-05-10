@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const InputTitle = styled(Input)`
   border: 0;
-  font-size: ${sizes.paragraph};
+  font-size: ${sizes.h3};
   font-weight: 700;
   text-align: center;
   text-transform: capitalize;

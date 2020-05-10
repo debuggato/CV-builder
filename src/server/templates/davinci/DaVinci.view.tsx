@@ -5,6 +5,7 @@ import { SummaryState } from '@sidebar/summary/duck/Summary.model';
 import ContactType from '@components/template/ContactType.view';
 import Description from '@components/template/Description.view';
 import StoryItem from '@components/template/StoryItem.view';
+import TitleView from '@components/Title.view';
 import {
   Container,
   FullName,
@@ -15,6 +16,7 @@ import {
   WhoIam,
   ContactDetails
 } from './DaVinci.style';
+import { useTranslation } from 'react-i18next';
 
 interface Props extends DetailsState, SummaryState {
   employments: Object;
@@ -38,6 +40,11 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
     education,
     photo,
   } = props;
+
+  const { t } = useTranslation();
+
+
+  console.log(employments)
 
   return (
     <Container>
@@ -67,6 +74,7 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
       </Sidebar>
       <Main>
         {description && <Description label="about.me" text={description} />}
+        <TitleView>{t('experience')}</TitleView>
         {getEmploymentHistory(employments)}
       </Main>
     </Container>

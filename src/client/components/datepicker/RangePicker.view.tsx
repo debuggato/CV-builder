@@ -1,8 +1,8 @@
 import React, { FC, useState, ReactElement } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import FieldLabel from '../FieldLabel.view';
-import InputStyle from '../input/Input.style';
+import FieldLabel from '@components/FieldLabel.view';
+import InputStyle from '@components/input/Input.style';
 import { Wrapper, Container } from './Datepicker.style';
 
 interface Props {
@@ -55,6 +55,7 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
           endDate={endDate}
           dateFormat="MM-yyyy"
           showMonthYearPicker
+          popperPlacement="bottom-end"
           onChangeRaw={handleDateChangeRaw}
         />
       </Wrapper>

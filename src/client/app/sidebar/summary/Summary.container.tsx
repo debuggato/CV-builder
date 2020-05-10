@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { withTranslation, WithTranslation } from 'react-i18next';
 import { summaryAction } from './duck/Summary.actions';
-import { Container } from './Summary.style';
 import TextEditor from '@components/text_editor/TextEditor.view';
 import Title from '@components/Title.view';
 
@@ -33,13 +32,13 @@ class Summary extends Component<Props, {}> {
     if (currentStep !== 2) return null;
 
     return (
-      <Container>
+      <div>
         <Title>{t('summary.title')}</Title>
         <TextEditor
           value={description}
           onChange={this.onChange}
         />
-      </Container>
+      </div>
     );
   }
 }

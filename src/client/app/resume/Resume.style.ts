@@ -19,5 +19,6 @@ export const Page = styled.div`
   border-radius: 5px;
   width: 595px;
   height: 842px;
+  padding: 0 15px;
   border: 1px solid ${colors.border};
 `;
