@@ -17,6 +17,7 @@ import {
   ContactDetails
 } from './DaVinci.style';
 import { useTranslation } from 'react-i18next';
+import ErrorBoundary from '@components/ErrorBoundary';
 
 interface Props extends DetailsState, SummaryState {
   employments: Object;
@@ -43,43 +44,51 @@ const DaVinci: FC<Props> = (props: Props): ReactElement => {
 
   const { t } = useTranslation();
 
-
-  console.log(employments)
-
   return (
-    <Container>
-      <Header border={jobTitle}>
-        <WhoIam>
-          <FullName>{`${firstName} ${lastName}`}</FullName>
-          {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
-        </WhoIam>
-        {photo && <img src={photo} width="100" height="80" />}
-        <ContactDetails>
-          <ContactType
-            icon={faPhone}
-            value={phone}
-          />
-          <ContactType
-            icon={faEnvelope}
-            value={email}
-          />
-          <ContactType
-            icon={faMapMarkerAlt}
-            value={`${address ? address + ', ' + postalCode + ' ' + city + ' ' + country : ''}`}
-          />
-        </ContactDetails>
-      </Header>
-      <Sidebar>
-        {getEducationHistory(education)}
-      </Sidebar>
-      <Main>
-        {description && <Description label="about.me" text={description} />}
-        <TitleView>{t('experience')}</TitleView>
-        {getEmploymentHistory(employments)}
-      </Main>
-    </Container>
+    <ErrorBoundary>
+      <Container>
+        <Header border={jobTitle}>
+          <WhoIam>
+            <FullName>{`${firstName} ${lastName}`}</FullName>
+            {jobTitle && <JobTitle>{jobTitle}</JobTitle>}
+          </WhoIam>
+          {photo && <img src={photo} width="100" height="80" />}
+          <ContactDetails>
+            <ContactType
+              icon={faPhone}
+              value={phone}
+            />
+            <ContactType
+              icon={faEnvelope}
+              value={email}
+            />
+            <ContactType
+              icon={faMapMarkerAlt}
+              value={`${address ? address + ', ' + postalCode + ' ' + city + ' ' + country : ''}`}
+            />
+          </ContactDetails>
+        </Header>
+        <Sidebar>
+          {isAtLeastOneDegreeFilled(education) && <TitleView>{t('education')}</TitleView>}
+          {getEducationHistory(education)}
+        </Sidebar>
+        <Main>
+          {description && <Description label="about.me" text={description} />}
+          {isAtLeastOneJobTitleFilled(employments) && <TitleView>{t('experience')}</TitleView>}
+          {getEmploymentHistory(employments)}
+        </Main>
+      </Container>
+    </ErrorBoundary>
   );
 };
+
+const isAtLeastOneJobTitleFilled = (items: any) => {
+  return [items].some((val: any) => val[0][1].jobTitle);
+}
+
+const isAtLeastOneDegreeFilled = (items: any) => {
+  return [items].some((val: any) => val[0][1].degree);
+}
 
 const getEmploymentHistory = (employments: any) => {
   return employments.map((el: any) => {
