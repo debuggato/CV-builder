@@ -23,7 +23,7 @@ export const Header = styled.header<Props>`
   grid-area: header;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 0;
 `;
 
 export const Address = styled.div`
@@ -33,7 +33,7 @@ export const Address = styled.div`
 export const Phone = styled.div``;
 
 export const WhoIam = styled.div`
-  margin-left: 10px;
+
 `;
 
 export const ContactDetails = styled.div`

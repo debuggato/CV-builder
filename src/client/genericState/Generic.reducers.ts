@@ -1,8 +1,8 @@
 import initialState from './Generic.state';
 import * as type from './Generic.types';
-import { ActionType, GenericState } from './Generic.model';
+import { GenericState } from './Generic.model';
 
-const reducer = (state = initialState, action: ActionType): GenericState => {
+const reducer = (state = initialState, action: any): GenericState => {
   switch (action.type) {
     case type.SHOW_TEMPLATE_GALLERY:
       return {
