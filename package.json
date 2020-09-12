@@ -1,6 +1,6 @@
 {
   "name": "cv-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "",
   "repository": "https://github.com/ivanlori/CV-builder.git",
   "author": "Ivan Lori <ivan.lori@protonmail.com>",
@@ -11,7 +11,7 @@
     "eslint": "eslint --ext .js,.ts,.tsx ./src",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "build": "webpack --config webpack.prod.js"
+    "build": "rm -rf dist && webpack --config webpack.prod.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -72,7 +72,7 @@
     "eslint-plugin-react": "^7.19.0",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
-    "html-webpack-plugin": "^4.0.4",
+    "html-webpack-plugin": "^4.4.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.4.0",
     "mini-css-extract-plugin": "^0.11.1",
