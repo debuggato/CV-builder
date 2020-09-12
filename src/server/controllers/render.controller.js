@@ -1,5 +1,6 @@
 import express from 'express';
 import puppeteer from 'puppeteer';
+import homedir from 'os';
 import fs from 'fs';
 import React from 'react';
 import i18next from 'i18next';
@@ -86,7 +87,7 @@ const renderHTML = (style, component) => {
 
 renderController.post('/', async (req, res) => {
   try {
-    const data = req.body;
+    const data = req.body.data;
 
     if (data.photo) {
       data.photo = base64_encode('public/assets/photo_profile.jpg');
@@ -98,6 +99,7 @@ renderController.post('/', async (req, res) => {
       preload: ['en', 'de', 'it', 'es', 'fr'],
       fallbackLng: data.lang, //TODO this is a workaround, should be a better way to do it
       lng: 'en',
+      debug: false,
     });
 
     const css = sheet.getStyleTags();
@@ -111,21 +113,21 @@ renderController.post('/', async (req, res) => {
     await page.setContent(renderHTML(css, component), {
       waitUntil: ['domcontentloaded', 'networkidle0'],
     });
-    await page.emulateMedia('screen');
+    await page.emulateMediaType('screen');
 
-    const pdfUrl = `pdf/${data.firstName}_${data.lastName}_CV.pdf`;
+    const pdfName = `${data.firstName}_${data.lastName}_CV.pdf`;
 
-    const pdf = await page.pdf({
-      path: `public/${pdfUrl}`,
+    await page.pdf({
+      path: `${homedir.homedir()}/${pdfName}`,
       format: 'A4',
       printBackground: true,
     });
-
+    await page.goto(`file:///${homedir.homedir()}/${pdfName}`);
     await browser.close();
 
-    res.status(200).send({ url: pdfUrl }).end();
+    res.status(200).end();
 
-    return pdf;
+    return page;
   } catch (error) {
     res.status(500);
     console.error(error);

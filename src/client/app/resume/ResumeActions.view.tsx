@@ -38,8 +38,8 @@ class ResumeActions extends Component<Props, State> {
     this.setState({
       loader: true
     });
-
-    axios.post(config.render_url, null, {
+    console.log(this.props)
+    axios.post(config.render_url, {
       data: this.props
     }).then(result => {
       this.setState({
