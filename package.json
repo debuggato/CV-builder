@@ -1,16 +1,17 @@
 {
   "name": "cv-builder",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "main": "",
   "repository": "https://github.com/ivanlori/CV-builder.git",
   "author": "Ivan Lori <ivan.lori@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "client": "webpack-dev-server --mode development --config webpack.dev.js --hot --open",
+    "dev": "webpack-dev-server --mode development --config webpack.dev.js --hot --open",
     "server": "nodemon",
     "eslint": "eslint --ext .js,.ts,.tsx ./src",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "build": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -35,7 +36,7 @@
     "i18next-http-middleware": "^1.0.0",
     "moment": "^2.24.0",
     "multer": "^1.4.2",
-    "puppeteer": "^2.1.1",
+    "puppeteer": "^5.2.1",
     "react": "^16.13.1",
     "react-datepicker": "^2.14.1",
     "react-dom": "^16.13.1",
@@ -74,6 +75,7 @@
     "html-webpack-plugin": "^4.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.4.0",
+    "mini-css-extract-plugin": "^0.11.1",
     "module-alias": "^2.2.2",
     "nodemon": "^2.0.2",
     "react-test-renderer": "^16.13.1",
@@ -85,8 +87,10 @@
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-blocks": "^2.0.1",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^5.1.4",
     "webpack-node-externals": "^1.7.2"
   },
   "_moduleAliases": {

@@ -1,13 +1,10 @@
 const path = require('path');
-const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'development',
-  entry: {
-    entry: path.resolve(__dirname, './src/client/index.tsx'),
-  },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   devServer: {
     port: '3000',
     proxy: {
@@ -19,39 +16,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          presets: ['@babel/preset-typescript', '@babel/preset-react'],
-        },
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
-      },
-      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-    plugins: [new TsConfigPathsPlugin({ configFile: path.resolve(__dirname, './tsconfig.json') })],
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    }),
-  ],
-};
+});

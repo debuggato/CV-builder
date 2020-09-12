@@ -30,10 +30,13 @@ git clone https://github.com/ivanlori/CV-builder.git
 yarn install
 
 # run client with hot reload at localhost:3000
-yarn client
+yarn dev
 
 # run node.js server with hot reload at localhost:5000
 yarn server
+
+# Build the project
+yarn build
 ```
 
 ## Built with:
