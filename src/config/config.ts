@@ -1,7 +1,7 @@
 const SERVER_PORT: number = 5000;
 const CLIENT_PORT: number = 3000;
-const SERVER_URL: string = `http://localhost:${SERVER_PORT}`;
-const CLIENT_URL: string = `http://localhost:${CLIENT_PORT}`;
+const SERVER_URL: string = `https://spikepurple-e5syev.stormkit.dev/`;
+const CLIENT_URL: string = `https://spikepurple-e5syev.stormkit.dev/`;
 const RENDER_ENDPOINT: string = '/render';
 const UPLOAD_ENDPOINT: string = '/upload';
 const RENDER_URL: string = `${SERVER_URL + RENDER_ENDPOINT}`;

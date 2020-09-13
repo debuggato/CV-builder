@@ -7,11 +7,11 @@ import i18next from 'i18next';
 import middleware from 'i18next-http-middleware';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { renderToStaticMarkup } from 'react-dom/server';
-import DaVinci from '@server/templates/davinci/DaVinci.view';
-import Caravaggio from '@server/templates/caravaggio/Caravaggio.view';
-import Donatello from '@server/templates/donatello/Donatello.view';
-import Michelangelo from '@server/templates/michelangelo/Michelangelo.view';
-import Raffaello from '@server/templates/raffaello/Raffaello.view';
+import DaVinci from '../../server/templates/davinci/DaVinci.view';
+import Caravaggio from '../../server/templates/caravaggio/Caravaggio.view';
+import Donatello from '../../server/templates/donatello/Donatello.view';
+import Michelangelo from '../../server/templates/michelangelo/Michelangelo.view';
+import Raffaello from '../../server/templates/raffaello/Raffaello.view';
 
 const renderController = express.Router();
 const sheet = new ServerStyleSheet();

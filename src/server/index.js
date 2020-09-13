@@ -2,7 +2,7 @@ import 'module-alias/register';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import config from '@config/config';
+import config from '../config/config';
 import photoController from './controllers/photo.controller';
 import renderController from './controllers/render.controller';
 
@@ -23,4 +23,4 @@ app.use(config.upload_endpoint, photoController);
 
 app.use(config.render_endpoint, renderController);
 
-app.listen(config.server_port);
+app.listen(process.env.PORT || config.server_port);
