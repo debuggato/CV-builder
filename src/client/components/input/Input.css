@@ -1,0 +1,17 @@
+.input {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  color: #495057;
+  background-clip: border-box;
+  @apply border;
+  /*font-size: ${sizes.paragraph};*/
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.input:focus {
+  color: #495057;
+  outline: 0;
+}

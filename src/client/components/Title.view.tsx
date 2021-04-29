@@ -1,9 +1,9 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/colors';
+import colors from '../styles/colors';
 
 interface Props {
-  children: string;
+	children: string;
 }
 
 export const Title = styled.h4`
@@ -14,7 +14,7 @@ export const Title = styled.h4`
 `;
 
 const TitleView: FC<Props> = ({ children }: Props): ReactElement => {
-  return <Title>{children}</Title>;
+	return <Title>{children}</Title>;
 };
 
 export default TitleView;

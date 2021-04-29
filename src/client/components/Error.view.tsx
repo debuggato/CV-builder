@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/colors';
+import colors from '../../styles/colors';
 
 const Label = styled.span`
   color: ${colors.red};
@@ -11,7 +11,7 @@ const Label = styled.span`
 `;
 
 const ErrorLabel: FC = props => {
-  return <Label></Label>;
+	return <Label></Label>;
 };
 
 export default ErrorLabel;

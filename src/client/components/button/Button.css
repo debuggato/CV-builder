@@ -1,0 +1,20 @@
+.btn {
+  @apply bg-blue-400;
+  @apply border;
+  @apply text-white;
+  @apply rounded-md;
+  @apply px-4;
+  @apply py-2;
+  @apply m-2;
+  @apply transition;
+  @apply duration-500;
+  @apply select-none;
+}
+
+.btn:hover {
+  @apply bg-blue-600;
+}
+
+.btn:focus {
+  @apply outline-none;
+}

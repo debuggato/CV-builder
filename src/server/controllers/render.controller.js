@@ -7,11 +7,7 @@ import i18next from 'i18next';
 import middleware from 'i18next-http-middleware';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { renderToStaticMarkup } from 'react-dom/server';
-import DaVinci from '../../server/templates/davinci/DaVinci.view';
-import Caravaggio from '../../server/templates/caravaggio/Caravaggio.view';
-import Donatello from '../../server/templates/donatello/Donatello.view';
-import Michelangelo from '../../server/templates/michelangelo/Michelangelo.view';
-import Raffaello from '../../server/templates/raffaello/Raffaello.view';
+import DaVinci from '../../client/templates/davinci/DaVinci.view';
 
 const renderController = express.Router();
 const sheet = new ServerStyleSheet();
@@ -30,30 +26,6 @@ const renderComponent = data => {
     return renderToStaticMarkup(
       <StyleSheetManager sheet={sheet.instance}>
         <DaVinci {...data} />
-      </StyleSheetManager>,
-    );
-  } else if (data.selected === '1') {
-    return renderToStaticMarkup(
-      <StyleSheetManager sheet={sheet.instance}>
-        <Michelangelo {...data} />
-      </StyleSheetManager>,
-    );
-  } else if (data.selected === '2') {
-    return renderToStaticMarkup(
-      <StyleSheetManager sheet={sheet.instance}>
-        <Donatello {...data} />
-      </StyleSheetManager>,
-    );
-  } else if (data.selected === '3') {
-    return renderToStaticMarkup(
-      <StyleSheetManager sheet={sheet.instance}>
-        <Raffaello {...data} />
-      </StyleSheetManager>,
-    );
-  } else {
-    return renderToStaticMarkup(
-      <StyleSheetManager sheet={sheet.instance}>
-        <Caravaggio {...data} />
       </StyleSheetManager>,
     );
   }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import colors from '@styles/colors';
-import sizes from '@styles/sizes';
+import colors from '../../styles/colors';
+import sizes from '../../styles/sizes';
 
 export const Wrapper = styled.div`
   display: flex;

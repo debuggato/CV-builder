@@ -2,7 +2,7 @@ import 'module-alias/register';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import config from '../config/config';
+import config from '../client/config';
 import photoController from './controllers/photo.controller';
 import renderController from './controllers/render.controller';
 

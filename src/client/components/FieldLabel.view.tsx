@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import styled from 'styled-components';
-import colors from '@styles/colors';
-import sizes from '@styles/sizes';
+import colors from '../styles/colors';
+import sizes from '../styles/sizes';
 
 const Label = styled.label`
   color: ${colors.label};
@@ -11,11 +11,11 @@ const Label = styled.label`
 `;
 
 interface Props {
-  value: string | undefined;
+	value: string | undefined;
 }
 
 const FieldLabel: FC<Props> = ({ value }: Props): ReactElement => {
-  return <Label>{value}</Label>;
+	return <Label>{value}</Label>;
 };
 
 export default FieldLabel;

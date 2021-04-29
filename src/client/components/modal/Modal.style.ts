@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '@styles/colors';
+import colors from '../../styles/colors';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -16,12 +16,12 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.span`
-  color: ${ colors.white};
+  color: ${colors.white};
   font-size: 25px;
 `;
 
 export const Close = styled.div`
-  color: ${ colors.white};
+  color: ${colors.white};
   font-size: 30px;
   cursor: pointer;
 `;
@@ -29,7 +29,7 @@ export const Close = styled.div`
 export const Card = styled.div`
   max-width: 65%;
   max-height: 75%;
-  background-color: ${ colors.white};
+  background-color: ${colors.white};
   opacity: 1;
   margin: 0 auto;
   display: flex;
@@ -40,8 +40,8 @@ export const Card = styled.div`
 export const Header = styled.div`
   width: 100%;
   height: 50px;
-  background: ${ colors.primary};
-  border-bottom: 1px solid ${ colors.border};
+  background: ${colors.primary};
+  border-bottom: 1px solid ${colors.border};
   display: flex;
   justify-content: space-between;
   align-items: center;
