@@ -11,7 +11,7 @@
     "eslint": "eslint --ext .js,.ts,.tsx ./src",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "build": "rm -rf dist && webpack --config webpack.prod.js"
+    "build": "rm -rf dist && parcel build public/index.html"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "~1.2.27",

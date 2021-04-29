@@ -26,3 +26,5 @@ yarn.lock
 
 public/pdf/*.pdf
 public/assets/photo_profile.jpg
+
+.cache

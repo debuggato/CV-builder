@@ -1,7 +1,7 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "es6"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": false,
@@ -17,24 +17,12 @@
     "sourceMap": true,
     "isolatedModules": true,
     "downlevelIteration": false,
-    "rootDir": "./",
+    "rootDir": ".",
     "outDir": "dist/",
-    "baseUrl": "src/",
+    "baseUrl": "./",
     "watch": true,
     "noUnusedLocals": true,
     "types": ["react", "node", "jest"],
-    "paths": {
-      "@components/*": ["client/components/*"],
-      "@styles/*": ["client/styles/*"],
-      "@app/*": ["client/app/*"],
-      "@genericState/*": ["client/genericState/*"],
-      "@client/*": ["client/*"],
-      "@sidebar/*": ["client/app/sidebar/*"],
-      "@server/*": ["server/*"],
-      "@utils/*": ["utils/*"],
-      "@config/*": ["config/*"],
-      "@public/*": ["../public/*"]
-    },
     "pretty": true
   },
   "esclude": ["node_modules", "src/**/.test.tsx"]
