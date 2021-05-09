@@ -1,7 +1,7 @@
 import React, { FC, useState, ReactNode, ReactElement } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
-import IconView from '../../components/Icon.view';
+import Icon from '../Icon';
 
 type Props = {
 	title?: string;
@@ -24,7 +24,7 @@ const Accordion: FC<Props> = ({
 				<div className="mb-5 font-bold">
 					{title || t('not.specified')}
 				</div>
-				<IconView icon={collapsed ? faChevronDown : faChevronUp} />
+				<Icon icon={collapsed ? faChevronDown : faChevronUp} />
 			</div>
 			{!collapsed && children}
 		</div>

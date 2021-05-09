@@ -1,1 +1,1 @@
-export { default } from './Accordion.view';
+export { default } from './Accordion';
