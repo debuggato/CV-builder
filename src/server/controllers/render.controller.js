@@ -1,37 +1,77 @@
 import express from 'express';
+import qs from 'qs';
 import puppeteer from 'puppeteer';
 import homedir from 'os';
 import fs from 'fs';
+import { createStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 import React from 'react';
 import i18next from 'i18next';
 import middleware from 'i18next-http-middleware';
-import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import rootReducer from '../../client/store/store';
 import { renderToStaticMarkup } from 'react-dom/server';
-import DaVinci from '../../client/templates/davinci/DaVinci.view';
+import DaVinci from '../../client/templates/davinci/DaVinci';
 
 const renderController = express.Router();
-const sheet = new ServerStyleSheet();
 
-// function to encode file data to base64 encoded string
-const base64_encode = file => {
-  // read binary data
-  var bitmap = fs.readFileSync(file);
+async function handleRender(req, res) {
+  const parsedBody = qs.parse(req.body);
+  const detailsData = parsedBody.details;
+  const templateSelected = parsedBody.templateSelected;
 
-  // convert binary data to base64 encoded string
-  return `data://text/plain;base64,${Buffer(bitmap).toString('base64')}`;
-};
+  let preloadedState = {
+    details: detailsData,
+  };
 
-const renderComponent = data => {
-  if (data.selected === '0') {
-    return renderToStaticMarkup(
-      <StyleSheetManager sheet={sheet.instance}>
-        <DaVinci {...data} />
-      </StyleSheetManager>,
-    );
+  const store = createStore(rootReducer, preloadedState);
+
+  const component = renderToStaticMarkup(
+    <Provider store={store}>
+      <DaVinci />
+    </Provider>,
+  );
+
+  const finalState = store.getState();
+
+  try {
+    i18next.use(middleware.LanguageDetector).init({
+      preload: ['en', 'de', 'it', 'es', 'fr'],
+      lng: 'en',
+      debug: false,
+    });
+
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+
+    const page = await browser.newPage();
+
+    const html = renderFullPage(component, finalState);
+
+    await page.setContent(html, {
+      waitUntil: ['domcontentloaded', 'networkidle0'],
+    });
+
+    await page.emulateMediaType('screen');
+
+    const pdf = await page.pdf({
+      format: 'A4',
+      printBackground: false,
+    });
+
+    await browser.close();
+
+    res.contentType('application/pdf');
+    res.status(200).send({
+      pdf: Buffer.from(pdf).toString('base64'),
+    });
+  } catch (error) {
+    res.status(500);
+    console.error(error);
   }
-};
+}
 
-const renderHTML = (style, component) => {
+function renderFullPage(html, preloadedState) {
   return `
     <html>
       <head>
@@ -50,60 +90,19 @@ const renderHTML = (style, component) => {
           height: 0.8em;
         }
       </style>
-      ${style}
       </head>
-      <body>${component}</body>
+      <body>${html}</body>
+			<script>
+				// WARNING: See the following for security issues around embedding JSON in HTML:
+				// https://redux.js.org/recipes/server-rendering/#security-considerations
+				window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+			</script>
     </html>
   `;
-};
+}
 
-renderController.post('/', async (req, res) => {
-  try {
-    const data = req.body.data;
-
-    if (data.photo) {
-      data.photo = base64_encode('public/assets/photo_profile.jpg');
-    }
-
-    const component = renderComponent(data);
-
-    i18next.use(middleware.LanguageDetector).init({
-      preload: ['en', 'de', 'it', 'es', 'fr'],
-      fallbackLng: data.lang, //TODO this is a workaround, should be a better way to do it
-      lng: 'en',
-      debug: false,
-    });
-
-    const css = sheet.getStyleTags();
-
-    const browser = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    });
-
-    const page = await browser.newPage();
-
-    await page.setContent(renderHTML(css, component), {
-      waitUntil: ['domcontentloaded', 'networkidle0'],
-    });
-    await page.emulateMediaType('screen');
-
-    const pdfName = `${data.firstName}_${data.lastName}_CV.pdf`;
-
-    await page.pdf({
-      path: `${homedir.homedir()}/${pdfName}`,
-      format: 'A4',
-      printBackground: true,
-    });
-    await page.goto(`file:///${homedir.homedir()}/${pdfName}`);
-    await browser.close();
-
-    res.status(200).end();
-
-    return page;
-  } catch (error) {
-    res.status(500);
-    console.error(error);
-  }
+renderController.post('/', (req, res) => {
+  handleRender(req, res);
 });
 
 export default renderController;
