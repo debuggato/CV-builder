@@ -18,80 +18,80 @@ export type DetailsState = {
 };
 
 export interface jobTitleModelAction {
-	type: typeof types.DETAILS_JOB_TITLE;
+	type: typeof types.JOB_TITLE_SET;
 	value: string;
 }
 
 export interface firstNameModelAction {
-	type: typeof types.DETAILS_FIRST_NAME;
+	type: typeof types.FIRST_NAME_SET;
 	value: string;
 }
 
 export interface lastNameModelAction {
-	type: typeof types.DETAILS_LAST_NAME;
+	type: typeof types.LAST_NAME_SET;
 	value: string;
 }
 
 export interface cityModelAction {
-	type: typeof types.DETAILS_CITY;
+	type: typeof types.CITY_SET;
 	value: string;
 }
 
 export interface postalCodeModelAction {
-	type: typeof types.DETAILS_POSTAL_CODE;
+	type: typeof types.POSTAL_CODE_SET;
 	value: string;
 }
 
 export interface phoneModelAction {
-	type: typeof types.DETAILS_PHONE;
+	type: typeof types.PHONE_SET;
 	value: string;
 }
 
 export interface emailModelAction {
-	type: typeof types.DETAILS_EMAIL;
+	type: typeof types.EMAIL_SET;
 	value: string;
 }
 
 export interface countryModelAction {
-	type: typeof types.DETAILS_COUNTRY;
+	type: typeof types.COUNTRY_SET;
 	value: string;
 }
 
 export interface addressModelAction {
-	type: typeof types.DETAILS_ADDRESS;
+	type: typeof types.ADDRESS_SET;
 	value: string;
 }
 
 export interface drivingLicenseModelAction {
-	type: typeof types.DETAILS_DRIVING_LICENSE;
+	type: typeof types.DRIVING_LICENSE_SET;
 	value: string;
 }
 
 export interface nationalityModelAction {
-	type: typeof types.DETAILS_NATIONALITY;
+	type: typeof types.NATIONALITY_SET;
 	value: string;
 }
 
 export interface placeOfBirthModelAction {
-	type: typeof types.DETAILS_PLACE_OF_BIRTH;
+	type: typeof types.PLACE_OF_BIRTH_SET;
 	value: string;
 }
 
 export interface dateOfBirthModelAction {
-	type: typeof types.DETAILS_DATE_OF_BIRTH;
+	type: typeof types.DATE_OF_BIRTH_SET;
 	value: Date;
 }
 
-export type ActionType = jobTitleModelAction &
-	firstNameModelAction &
-	lastNameModelAction &
-	cityModelAction &
-	postalCodeModelAction &
-	phoneModelAction &
-	emailModelAction &
-	countryModelAction &
-	addressModelAction &
-	drivingLicenseModelAction &
-	nationalityModelAction &
-	placeOfBirthModelAction &
+export type ActionType = jobTitleModelAction |
+	firstNameModelAction |
+	lastNameModelAction |
+	cityModelAction |
+	postalCodeModelAction |
+	phoneModelAction |
+	emailModelAction |
+	countryModelAction |
+	addressModelAction |
+	drivingLicenseModelAction |
+	nationalityModelAction |
+	placeOfBirthModelAction |
 	dateOfBirthModelAction;

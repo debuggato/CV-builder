@@ -1,82 +1,82 @@
 import * as type from '../../store/types/Details.type';
 import * as model from '../../store/models/Details.model';
 
-export const jobTitleAction = (value: string): model.jobTitleModelAction => ({
-	type: type.DETAILS_JOB_TITLE,
+export const jobTitleAction = (value: string) => ({
+	type: type.JOB_TITLE_SET,
 	value,
 });
 
 export const onPhotoStartAction = (value: any) => ({
-	type: type.PHOTO_START,
+	type: type.PHOTO_UPLOAD_STARTED,
 	value
 });
 
 export const onPhotoSuccessAction = (value: string) => ({
-	type: type.PHOTO_SUCCESS,
+	type: type.PHOTO_UPLOADED,
 	value
 });
 
 export const onPhotoFailureAction = (error: string) => ({
-	type: type.PHOTO_FAILURE,
+	type: type.PHOTO_NOT_UPLOADED,
 	error
 });
 
 export const firstnameAction = (value: string): model.firstNameModelAction => ({
-	type: type.DETAILS_FIRST_NAME,
+	type: type.FIRST_NAME_SET,
 	value,
 });
 
 export const lastnameAction = (value: string): model.lastNameModelAction => ({
-	type: type.DETAILS_LAST_NAME,
+	type: type.LAST_NAME_SET,
 	value,
 });
 
 export const cityAction = (value: string): model.cityModelAction => ({
-	type: type.DETAILS_CITY,
+	type: type.CITY_SET,
 	value,
 });
 
 export const addressAction = (value: string): model.addressModelAction => ({
-	type: type.DETAILS_ADDRESS,
+	type: type.ADDRESS_SET,
 	value,
 });
 
 export const countryAction = (value: string): model.countryModelAction => ({
-	type: type.DETAILS_COUNTRY,
+	type: type.COUNTRY_SET,
 	value,
 });
 
 export const dateOfBirthAction = (value: Date): model.dateOfBirthModelAction => ({
-	type: type.DETAILS_DATE_OF_BIRTH,
+	type: type.DATE_OF_BIRTH_SET,
 	value,
 });
 
 export const drivingLicenseAction = (value: string): model.drivingLicenseModelAction => ({
-	type: type.DETAILS_DRIVING_LICENSE,
+	type: type.DRIVING_LICENSE_SET,
 	value,
 });
 
 export const emailAction = (value: string): model.emailModelAction => ({
-	type: type.DETAILS_EMAIL,
+	type: type.EMAIL_SET,
 	value,
 });
 
 export const nationalityAction = (value: string): model.nationalityModelAction => ({
-	type: type.DETAILS_NATIONALITY,
+	type: type.NATIONALITY_SET,
 	value,
 });
 
 export const placeOfBirthAction = (value: string): model.placeOfBirthModelAction => ({
-	type: type.DETAILS_PLACE_OF_BIRTH,
+	type: type.PLACE_OF_BIRTH_SET,
 	value,
 });
 
 export const postalCodeAction = (value: string): model.postalCodeModelAction => ({
-	type: type.DETAILS_POSTAL_CODE,
+	type: type.POSTAL_CODE_SET,
 	value,
 });
 
 export const phoneAction = (value: string): model.phoneModelAction => ({
-	type: type.DETAILS_PHONE,
+	type: type.PHONE_SET,
 	value,
 });

@@ -1,75 +1,75 @@
 import * as type from '../../store/types/Details.type';
-import initialState from '../../store/states//Details.state';
+import initialState from '../../store/states/Details.state';
 import { ActionType } from '../../store/models/Details.model';
 
 const reducer = (state = initialState, action: ActionType) => {
 	switch (action.type) {
-		case type.PHOTO_SUCCESS:
+		case type.PHOTO_UPLOADED:
 			return {
 				...state,
 				photo: `${action.value}?=${Math.random()}`,
 			};
-		case type.DETAILS_JOB_TITLE:
+		case type.JOB_TITLE_SET:
 			return {
 				...state,
 				jobTitle: action.value,
 			};
-		case type.DETAILS_FIRST_NAME:
+		case type.FIRST_NAME_SET:
 			return {
 				...state,
 				firstName: action.value,
 			};
-		case type.DETAILS_LAST_NAME:
+		case type.LAST_NAME_SET:
 			return {
 				...state,
 				lastName: action.value,
 			};
-		case type.DETAILS_ADDRESS:
+		case type.ADDRESS_SET:
 			return {
 				...state,
 				address: action.value,
 			};
-		case type.DETAILS_CITY:
+		case type.CITY_SET:
 			return {
 				...state,
 				city: action.value,
 			};
-		case type.DETAILS_COUNTRY:
+		case type.COUNTRY_SET:
 			return {
 				...state,
 				country: action.value,
 			};
-		case type.DETAILS_DATE_OF_BIRTH:
+		case type.DATE_OF_BIRTH_SET:
 			return {
 				...state,
 				dateOfBirth: action.value,
 			};
-		case type.DETAILS_DRIVING_LICENSE:
+		case type.DRIVING_LICENSE_SET:
 			return {
 				...state,
 				drivingLicense: action.value,
 			};
-		case type.DETAILS_EMAIL:
+		case type.EMAIL_SET:
 			return {
 				...state,
 				email: action.value,
 			};
-		case type.DETAILS_PHONE:
+		case type.PHONE_SET:
 			return {
 				...state,
 				phone: action.value,
 			};
-		case type.DETAILS_POSTAL_CODE:
+		case type.POSTAL_CODE_SET:
 			return {
 				...state,
 				postalCode: action.value,
 			};
-		case type.DETAILS_NATIONALITY:
+		case type.NATIONALITY_SET:
 			return {
 				...state,
 				nationality: action.value,
 			};
-		case type.DETAILS_PLACE_OF_BIRTH:
+		case type.PLACE_OF_BIRTH_SET:
 			return {
 				...state,
 				placeOfBirth: action.value,

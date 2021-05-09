@@ -1,31 +1,31 @@
-export const DETAILS_JOB_TITLE: string = 'DETAILS_JOB_TITLE';
+export const JOB_TITLE_SET: string = 'JOB_TITLE_SET';
 
-export const PHOTO_START: string = 'PHOTO_START';
+export const PHOTO_UPLOAD_STARTED: string = 'PHOTO_UPLOAD_STARTED';
 
-export const PHOTO_SUCCESS: string = 'PHOTO_SUCCESS';
+export const PHOTO_UPLOADED: string = 'PHOTO_UPLOADED';
 
-export const PHOTO_FAILURE: string = 'PHOTO_FAILURE';
+export const PHOTO_NOT_UPLOADED: string = 'PHOTO_NOT_UPLOADED';
 
-export const DETAILS_FIRST_NAME: string = 'DETAILS_FIRST_NAME';
+export const FIRST_NAME_SET: string = 'FIRST_NAME_SET';
 
-export const DETAILS_LAST_NAME: string = 'DETAILS_LAST_NAME';
+export const LAST_NAME_SET: string = 'LAST_NAME_SET';
 
-export const DETAILS_EMAIL: string = 'DETAILS_EMAIL';
+export const EMAIL_SET: string = 'EMAIL_SET';
 
-export const DETAILS_PHONE: string = 'DETAILS_PHONE';
+export const PHONE_SET: string = 'PHONE_SET';
 
-export const DETAILS_COUNTRY: string = 'DETAILS_COUNTRY';
+export const COUNTRY_SET: string = 'COUNTRY_SET';
 
-export const DETAILS_CITY: string = 'DETAILS_CITY';
+export const CITY_SET: string = 'CITY_SET';
 
-export const DETAILS_ADDRESS: string = 'DETAILS_ADDRESS';
+export const ADDRESS_SET: string = 'ADDRESS_SET';
 
-export const DETAILS_POSTAL_CODE: string = 'DETAILS_POSTAL_CODE';
+export const POSTAL_CODE_SET: string = 'POSTAL_CODE_SET';
 
-export const DETAILS_DRIVING_LICENSE: string = 'DETAILS_DRIVING_LICENSE';
+export const DRIVING_LICENSE_SET: string = 'DRIVING_LICENSE_SET';
 
-export const DETAILS_NATIONALITY: string = 'DETAILS_NATIONALITY';
+export const NATIONALITY_SET: string = 'NATIONALITY_SET';
 
-export const DETAILS_PLACE_OF_BIRTH: string = 'DETAILS_PLACE_OF_BIRTH';
+export const PLACE_OF_BIRTH_SET: string = 'PLACE_OF_BIRTH_SET';
 
-export const DETAILS_DATE_OF_BIRTH: string = 'DETAILS_DATE_OF_BIRTH';
+export const DATE_OF_BIRTH_SET: string = 'DATE_OF_BIRTH_SET';

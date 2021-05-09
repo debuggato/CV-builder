@@ -4,10 +4,10 @@ import { GenericState } from '../../store/models/Root.model';
 
 const reducer = (state = initialState, action: any): GenericState => {
 	switch (action.type) {
-		case type.SHOW_TEMPLATE_GALLERY:
+		case type.MODAL_DISPLAYED:
 			return {
 				...state,
-				templateGallery: action.value,
+				modalDisplayed: action.value,
 			};
 		case type.CHANGE_LANGUAGE:
 			return {
@@ -18,14 +18,6 @@ const reducer = (state = initialState, action: any): GenericState => {
 			return {
 				...state,
 				documentTitle: action.value,
-			};
-		case type.CHOOSE_TEMPLATE:
-			return {
-				...state,
-				template: {
-					...state.template,
-					selected: action.value
-				},
 			};
 		case type.SHOW_LOADER:
 			return {

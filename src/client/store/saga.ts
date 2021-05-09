@@ -1,7 +1,7 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
-import config from '../config';
-import { PHOTO_START } from '../store/types/Details.type';
+import config from '../../config';
+import { PHOTO_UPLOAD_STARTED } from '../store/types/Details.type';
 import { onPhotoSuccessAction, onPhotoFailureAction } from '../store/actions/Details.action';
 
 const sendImgToServer = (data: any) => {
@@ -22,5 +22,5 @@ function* uploadPhotoCall(action: any) {
 }
 
 export default function* rootSaga() {
-	yield takeEvery(PHOTO_START, uploadPhotoCall);
+	yield takeEvery(PHOTO_UPLOAD_STARTED, uploadPhotoCall);
 }

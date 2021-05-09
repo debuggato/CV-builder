@@ -1,4 +1,4 @@
-export const SHOW_TEMPLATE_GALLERY: string = 'SHOW_TEMPLATE_GALLERY';
+export const MODAL_DISPLAYED: string = 'MODAL_DISPLAYED';
 
 export const CHANGE_LANGUAGE: string = 'CHANGE_LANGUAGE';
 

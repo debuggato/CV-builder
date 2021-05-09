@@ -1,8 +1,8 @@
 import * as type from '../../store/types/Root.type';
 import * as model from '../../store/models/Root.model';
 
-export const showTemplateGalleryAction = (value: boolean): model.showGalleryModelAction => ({
-	type: type.SHOW_TEMPLATE_GALLERY,
+export const modalDisplayedAction = (value: boolean): model.modalDisplayedModelAction => ({
+	type: type.MODAL_DISPLAYED,
 	value,
 });
 

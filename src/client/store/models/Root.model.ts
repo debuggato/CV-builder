@@ -17,18 +17,14 @@ export interface TemplateState {
 }
 
 export interface GenericState {
-	templateGallery: boolean;
+	modalDisplayed: boolean;
 	lang: string;
 	documentTitle: string;
 	loader: boolean;
-	template: {
-		selected: number | null;
-		available: Object;
-	}
 }
 
-export interface showGalleryModelAction {
-	type: typeof types.SHOW_TEMPLATE_GALLERY;
+export interface modalDisplayedModelAction {
+	type: typeof types.MODAL_DISPLAYED;
 	value: boolean;
 }
 
@@ -52,7 +48,7 @@ export interface showLoaderModelAction {
 	value: boolean;
 }
 
-export type ActionType = showGalleryModelAction &
+export type ActionType = modalDisplayedModelAction &
 	changeLangModelAction &
 	updateDocumentTitleModelAction &
 	chooseTemplateModelAction &
