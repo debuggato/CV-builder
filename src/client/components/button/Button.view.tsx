@@ -1,28 +1,54 @@
 import React, { FC, ReactNode, ReactElement } from 'react';
+import cn from 'classnames';
 import './Button.css';
 
-export interface Props {
+const PRIMARY = 'primary';
+const SECONDARY = 'secondary';
+
+type styleProps = typeof PRIMARY | typeof SECONDARY;
+
+type Props = {
 	onClick?: () => void;
-	primary?: boolean;
+	style?: styleProps;
 	secondary?: boolean;
 	type?: 'submit' | 'button' | 'reset';
-	linkStyle?: boolean;
 	disabled?: boolean;
 	children?: ReactNode;
 }
 
-const Button: FC<Props> = ({
+const Button: FC<Props> & {
+	PRIMARY: any,
+	SECONDARY: any
+} = ({
 	type,
 	children,
+	style,
 	...rest
-}: Props): ReactElement => (
-	<button
-		className="btn"
-		type={type || 'button'}
-		{...rest}
-	>
-		{children}
-	</button>
-);
+}: Props): ReactElement => {
+
+		const css = cn({
+			btn: true,
+			btn__primary: style === PRIMARY,
+			btn__secondary: style === SECONDARY,
+		});
+
+		return (
+			<button
+				className={`btn ${css}`}
+				type={type}
+				{...rest}
+			>
+				{children}
+			</button>
+		)
+	};
+
+Button.PRIMARY = PRIMARY;
+Button.SECONDARY = SECONDARY;
+
+Button.defaultProps = {
+	type: "button",
+	style: SECONDARY
+}
 
 export default Button;
