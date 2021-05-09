@@ -2,27 +2,32 @@ import React, { FC, useState, ReactNode, ReactElement } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
 import IconView from '../../components/Icon.view';
-import { Container, Header, Title } from './Accordion.style';
 
 type Props = {
 	title?: string;
 	children: ReactNode;
 }
 
-const Accordion: FC<Props> = ({ title, children }: Props): ReactElement => {
+const Accordion: FC<Props> = ({
+	title,
+	children
+}: Props): ReactElement => {
 	const [collapsed, setCollapsed] = useState<boolean>(true);
 	const { t } = useTranslation();
 
 	return (
-		<Container>
-			<Header onClick={() => setCollapsed(!collapsed)}>
-				<Title>
+		<div className="p-5 h-auto mb-3">
+			<div
+				className="cursor-pointer flex justify-between"
+				onClick={() => setCollapsed(!collapsed)}
+			>
+				<div className="mb-5 font-bold">
 					{title || t('not.specified')}
-				</Title>
+				</div>
 				<IconView icon={collapsed ? faChevronDown : faChevronUp} />
-			</Header>
+			</div>
 			{!collapsed && children}
-		</Container>
+		</div>
 	);
 }
 
