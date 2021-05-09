@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { withTranslation, useTranslation } from 'react-i18next';
 import { summaryAction } from '../../store/actions/Summary.action';
-import TextEditor from '../../components/text_editor';
-import Title from '../../components/Title.view';
+import Editor from '../../components/editor';
+import SectionTitle from '../../components/SectionTitle';
 import useDataFromState from '../../utils/useDataFromState';
 
 type Props = {
@@ -24,8 +24,8 @@ const Summary: FC<Props> = ({ currentStep }: Props): ReactElement => {
 
 	return (
 		<div>
-			<Title>{t('summary.title')}</Title>
-			<TextEditor
+			<SectionTitle>{t('summary.title')}</SectionTitle>
+			<Editor
 				value={description}
 				onChange={onChange}
 			/>
