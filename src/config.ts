@@ -1,7 +1,9 @@
+
+const isDev = process.env.NODE_ENV === 'development';
+const CLIENT_PORT = 8080;
 const SERVER_PORT = 5000;
-const CLIENT_PORT = 3000;
-const SERVER_URL = 'https://cv-builder.stormkit.dev';
-const CLIENT_URL = 'https://cv-builder.stormkit.dev';
+const SERVER_URL = isDev ? `http://localhost:${SERVER_PORT}` : 'https://cv-builder.stormkit.dev';
+const CLIENT_URL = isDev ? `http://localhost:${CLIENT_PORT}` : 'https://cv-builder.stormkit.dev';
 const RENDER_ENDPOINT = '/render';
 const UPLOAD_ENDPOINT = '/upload';
 const RENDER_URL = `${SERVER_URL + RENDER_ENDPOINT}`;
@@ -15,7 +17,6 @@ interface ConfigModel {
 	render_endpoint: string;
 	upload_endpoint: string;
 	client_port: number;
-	server_port: number;
 }
 
 const config: ConfigModel = {
@@ -25,8 +26,7 @@ const config: ConfigModel = {
 	upload_url: UPLOAD_URL,
 	render_endpoint: RENDER_ENDPOINT,
 	upload_endpoint: UPLOAD_ENDPOINT,
-	client_port: CLIENT_PORT,
-	server_port: SERVER_PORT,
+	client_port: CLIENT_PORT
 };
 
 export default config;
