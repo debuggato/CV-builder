@@ -1,31 +1,18 @@
-import React, { Component, ReactNode } from 'react';
-import { connect } from 'react-redux';
+import React, { FC, ReactElement, useState, ReactNode } from 'react';
 import { Dispatch } from 'redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { addEmploymentAction } from '../../store/actions/Employment.action';
-import Title from '../../components/Title.view';
-import Subtitle from '../../components/Subtitle.view';
-import AddLinkLabel from '../../components/AddLinkLabel.view';
+import SectionTitle from '../../components/SectionTitle';
+import Subtitle from '../../components/Subtitle';
+import AddLink from '../../components/AddLink';
 import Accordion from '../../components/accordion';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import EmploymentView from './Employment.view';
+import useDataFromState from '../../utils/useDataFromState';
 
-interface OwnProps extends WithTranslation {
+type Props = {
 	currentStep: number;
-}
-
-interface DispatchProps {
-	addEmployment: (arg0: number, arg1: any) => void;
-}
-
-interface StateProps {
-	items: any;
-}
-
-type Props = OwnProps & DispatchProps & StateProps;
-
-interface State {
-	id: number;
 }
 
 const employmentInitialData: Object = {
@@ -35,58 +22,41 @@ const employmentInitialData: Object = {
 	startDate: new Date(),
 	endDate: new Date(),
 	description: ''
-};
-
-class Employment extends Component<Props, State> {
-	state = {
-		id: 0,
-	};
-
-	addEmploymentItem = (): void => {
-		this.setState({
-			id: this.state.id + 1
-		});
-		this.props.addEmployment(this.state.id, employmentInitialData);
-	};
-
-	getItems = (items: any): ReactNode => {
-		return items.map((el: any) => {
-			return (
-				<Accordion key={el[0]} title={el[1].jobTitle}>
-					<EmploymentView id={el[0]} />
-				</Accordion>
-			)
-		});
-	}
-
-	public render(): ReactNode {
-		const { currentStep, items, t } = this.props;
-
-		if (currentStep !== 3) return null;
-
-		return (
-			<ErrorBoundary>
-				<div>
-					<Title>{t('employment.history')}</Title>
-					<Subtitle>{t('employment.history.subtitle')}</Subtitle>
-					{this.getItems(items)}
-					<AddLinkLabel onClick={this.addEmploymentItem}>
-						{t('add.employment')}
-					</AddLinkLabel>
-				</div>
-			</ErrorBoundary>
-		);
-	}
 }
 
-const mapStateToProps = (state: any): StateProps => ({
-	items: Object.entries(state.employment)
-});
+const Employment: FC<Props> = ({ currentStep }: Props): ReactElement => {
+	const [id, setId] = useState(0);
+	const addEmployment = useDispatch<Dispatch>();
+	const { t } = useTranslation();
+	const items = useDataFromState('employment');
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-	addEmployment: (id, value) => {
-		dispatch(addEmploymentAction(id, value));
+	const addEmploymentItem = (): void => {
+		setId(id + 1);
+		addEmployment(addEmploymentAction(id, employmentInitialData));
+	};
+
+	const getItems = (items: any): ReactNode => {
+		return items.map((el: any) => (
+			<Accordion key={el[0]} title={el[1].jobTitle}>
+				<EmploymentView id={el[0]} />
+			</Accordion>
+		));
 	}
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Employment));
+	if (currentStep !== 3) return <></>;
+
+	return (
+		<ErrorBoundary>
+			<div>
+				<SectionTitle>{t('employment.history')}</SectionTitle>
+				<Subtitle>{t('employment.history.subtitle')}</Subtitle>
+				{getItems(items)}
+				<AddLink onClick={() => addEmploymentItem}>
+					{t('add.employment')}
+				</AddLink>
+			</div>
+		</ErrorBoundary>
+	)
+}
+
+export default Employment;

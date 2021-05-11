@@ -1,43 +1,26 @@
 import React, { FC, ReactElement } from 'react';
-import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { useDispatch } from 'react-redux';
 import Accordion from '../../components/accordion';
-import TextEditor from '../../components/text_editor';
+import Editor from '../../components/editor';
 import Input from '../../components/input';
+import useDataFromState from '../../utils/useDataFromState';
 import RangePicker from '../../components/datepicker/RangePicker.view';
 import * as action from '../../store/actions/Employment.action';
 
-interface OwnProps {
+type Props = {
 	id: number;
 }
 
-interface DispatchProps {
-	setJobTitle: (arg0: number, arg1: string) => void;
-	setEmployer: (arg0: number, arg1: string) => void;
-	setCity: (arg0: number, arg1: string) => void;
-	setDescription: (arg0: number, arg1: string) => void;
-	setDateFrom: (arg0: number, arg1: Date) => void;
-	setDateTo: (arg0: number, arg1: Date) => void;
-}
+const EmploymentView: FC<Props> = ({ id }: Props): ReactElement => {
+	const setJobTitle = useDispatch<Dispatch>();
+	const setEmployer = useDispatch<Dispatch>();
+	const setCity = useDispatch<Dispatch>();
+	const setDescription = useDispatch<Dispatch>();
+	const setDateFrom = useDispatch<Dispatch>();
+	const setDateTo = useDispatch<Dispatch>();
 
-interface StateProps {
-	items: any;
-}
-
-type Props = OwnProps & DispatchProps & StateProps;
-
-const EmploymentView: FC<Props> = (props: Props): ReactElement => {
-	const {
-		id,
-		setJobTitle,
-		setEmployer,
-		setCity,
-		setDescription,
-		setDateFrom,
-		setDateTo
-	} = props;
-
-	const { jobTitle, employer, city, description } = props.items[id];
+	const { jobTitle, employer, city, description } = useDataFromState('employment')[id];
 
 	return (
 		<>
@@ -45,7 +28,7 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
 				<Input
 					type="text"
 					label="Job Title"
-					onChange={e => setJobTitle(id, e.target.value)}
+					onChange={e => setJobTitle(action.jobTitleAction(id, e.target.value))}
 					value={jobTitle}
 				/>
 			</Accordion>
@@ -53,7 +36,7 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
 				<Input
 					type="text"
 					label="Employer"
-					onChange={e => setEmployer(id, e.target.value)}
+					onChange={e => setEmployer(action.employerAction(id, e.target.value))}
 					value={employer}
 				/>
 			</Accordion>
@@ -61,48 +44,23 @@ const EmploymentView: FC<Props> = (props: Props): ReactElement => {
 				<Input
 					type="text"
 					label="City"
-					onChange={e => setCity(id, e.target.value)}
+					onChange={e => setCity(action.cityAction(id, e.target.value))}
 					value={city}
 				/>
 			</Accordion>
 			<RangePicker
 				label="From to date"
-				onChangeDateFrom={date => setDateFrom(id, new Date(date))}
-				onChangeDateTo={date => setDateTo(id, new Date(date))}
+				onChangeDateFrom={date => setDateFrom(action.dateFromAction(id, new Date(date)))}
+				onChangeDateTo={date => setDateTo(action.dateToAction(id, new Date(date)))}
 			/>
 			<Accordion>
-				<TextEditor
-					onChange={e => setDescription(id, e)}
+				<Editor
+					onChange={e => setDescription(action.descriptionAction(id, e))}
 					value={description}
 				/>
 			</Accordion>
 		</>
-	);
-};
+	)
+}
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-	setJobTitle: (id, value) => {
-		dispatch(action.jobTitleAction(id, value));
-	},
-	setEmployer: (id, value) => {
-		dispatch(action.employerAction(id, value));
-	},
-	setCity: (id, value) => {
-		dispatch(action.cityAction(id, value));
-	},
-	setDateFrom: (id, value) => {
-		dispatch(action.dateFromAction(id, value));
-	},
-	setDateTo: (id, value) => {
-		dispatch(action.dateToAction(id, value));
-	},
-	setDescription: (id, value) => {
-		dispatch(action.descriptionAction(id, value));
-	},
-});
-
-const mapStateToProps = (state: any): StateProps => ({
-	items: state.employment
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(EmploymentView);
+export default EmploymentView;
