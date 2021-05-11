@@ -1,80 +1,50 @@
-import React, { ReactNode, PureComponent } from 'react';
-import { connect } from 'react-redux';
+import React, { ReactNode, useState } from 'react';
 import { Dispatch } from 'redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { addCourseAction } from '../../store/actions/Courses.action';
-import Title from '../../components/Title.view';
-import AddLinkLabel from '../../components/AddLinkLabel.view';
+import SectionTitle from '../../components/SectionTitle';
+import AddLink from '../../components/AddLink';
 import Accordion from '../../components/accordion';
-import { Container } from './Courses.style';
 import CoursesView from './Courses.view';
+import { useDispatch } from 'react-redux';
+import useDataFromState from '../../utils/useDataFromState';
 
-interface DispatchProps {
-	addCourse: (arg0: number, arg1: any) => void;
+const coursesInitialData: Object = {
+	course: '',
+	institution: '',
+	dateFrom: '',
+	dateTo: ''
 }
 
-interface StateProps {
-	items: any;
-}
+const Courses = () => {
+	const [id, setId] = useState(0);
+	const addCourse = useDispatch<Dispatch>();
+	const items = useDataFromState('courses');
+	const { t } = useTranslation();
 
-type Props = StateProps & DispatchProps & WithTranslation;
+	const addCourseItem = (): void => {
+		setId(id + 1)
 
-interface State {
-	id: number;
-}
-
-class Courses extends PureComponent<Props, State> {
-	state = {
-		id: 0
+		addCourse(addCourseAction(id, coursesInitialData));
 	};
 
-	coursesInitialData: Object = {
-		course: '',
-		institution: '',
-		dateFrom: '',
-		dateTo: ''
-	}
+	const getItems = (items: any): ReactNode => (
+		items.map((el: any) => (
+			<Accordion key={el[0]} title={el[1].course}>
+				<CoursesView id={el[0]} />
+			</Accordion>
+		))
+	)
 
-	addCourseItem = (): void => {
-		this.setState({
-			id: this.state.id + 1
-		});
-		this.props.addCourse(this.state.id, this.coursesInitialData);
-	};
-
-	getItems = (items: any): ReactNode => {
-		return items.map((el: any) => {
-			return (
-				<Accordion key={el[0]} title={el[1].course}>
-					<CoursesView id={el[0]} />
-				</Accordion>
-			)
-		});
-	}
-
-	public render(): ReactNode {
-		const { items, t } = this.props;
-
-		return (
-			<Container>
-				<Title>{t('courses.title')}</Title>
-				{this.getItems(items)}
-				<AddLinkLabel onClick={this.addCourseItem}>
-					{t('add.course')}
-				</AddLinkLabel>
-			</Container>
-		);
-	}
+	return (
+		<div>
+			<SectionTitle>{t('courses.title')}</SectionTitle>
+			{getItems(items)}
+			<AddLink onClick={() => addCourseItem}>
+				{t('add.course')}
+			</AddLink>
+		</div>
+	);
 }
 
-const mapStateToProps = (state: any) => ({
-	items: Object.entries(state.courses)
-});
-
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-	addCourse: (id, value) => {
-		dispatch(addCourseAction(id, value));
-	},
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Courses));
+export default Courses;
