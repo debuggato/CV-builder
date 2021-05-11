@@ -1,26 +1,26 @@
-import 'module-alias/register';
 import express from 'express';
-import bodyParser from 'body-parser';
 import cors from 'cors';
-import config from '../client/config';
-import photoController from './controllers/photo.controller';
-import renderController from './controllers/render.controller';
+import photoController from '../src/server/controllers/photo.controller';
+import renderController from '../src/server/controllers/render.controller';
 
 const app = express();
 
 const corsOptions = {
-  origin: config.client_url,
+  //origin: 'https://cv-builder.stormkit.dev',
+  origin: 'http://localhost:8080',
   optionsSuccessStatus: 200,
   methods: 'POST',
 };
 
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(bodyParser.json({ limit: '50mb', extended: true }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: '50mb', extended: true }));
 app.use(cors(corsOptions));
 app.use(express.static('public'));
 
-app.use(config.upload_endpoint, photoController);
+app.use('/upload', photoController);
 
-app.use(config.render_endpoint, renderController);
+app.use('/render', renderController);
 
-app.listen(process.env.PORT || config.server_port);
+app.listen(process.env.PORT || 5000);
+
+module.exports = app;
