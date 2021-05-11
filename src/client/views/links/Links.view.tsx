@@ -1,27 +1,19 @@
 import React, { FC, ReactElement } from 'react';
-import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import Input from '../../components/input';
+import useDataFromState from '../../utils/useDataFromState';
 import { Wrapper } from './Links.style';
 import * as action from '../../store/actions/Links.action';
+import { useDispatch } from 'react-redux';
 
-interface OwnProps {
+type Props = {
 	id: number;
 }
 
-interface DispatchProps {
-	setLink: (arg0: number, arg1: string) => void;
-	setLabel: (arg0: number, arg1: string) => void;
-}
-
-interface StateProps {
-	items: any;
-}
-
-type Props = OwnProps & DispatchProps & StateProps;
-
-const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactElement => {
-	const { label, link } = items[id];
+const LinksView: FC<Props> = ({ id }: Props): ReactElement => {
+	const setLink = useDispatch<Dispatch>();
+	const setLabel = useDispatch<Dispatch>();
+	const { label, link } = useDataFromState('links')[id];
 
 	return (
 		<>
@@ -29,7 +21,7 @@ const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactEle
 				<Input
 					type="text"
 					label="Label"
-					onChange={e => setLabel(id, e.target.value)}
+					onChange={e => setLabel(action.labelAction(id, e.target.value))}
 					value={label}
 				/>
 			</Wrapper>
@@ -37,25 +29,12 @@ const LinksView: FC<Props> = ({ id, setLabel, setLink, items }: Props): ReactEle
 				<Input
 					type="text"
 					label="Link"
-					onChange={e => setLink(id, e.target.value)}
+					onChange={e => setLink(action.linkAction(id, e.target.value))}
 					value={link}
 				/>
 			</Wrapper>
 		</>
-	);
-};
+	)
+}
 
-const mapStateToProps = (state: any): StateProps => ({
-	items: state.links
-});
-
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-	setLabel: (id: number, value: string) => {
-		dispatch(action.labelAction(id, value));
-	},
-	setLink: (id: number, value: string) => {
-		dispatch(action.linkAction(id, value));
-	},
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LinksView);
+export default LinksView;
