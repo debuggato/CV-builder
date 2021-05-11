@@ -2,19 +2,21 @@ import React, { FC, ReactElement, ReactNode, SyntheticEvent } from 'react';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 
-interface Props {
+type Props = {
 	children: ReactNode;
 	onClick: (e: SyntheticEvent) => void;
-	id: string;
+	id: number;
 }
 
-const TemplateMiniature: FC<Props> = ({ children, onClick, id }: Props): ReactElement => {
-	return (
-		<Wrapper id={id} onClick={onClick}>
-			{children}
-		</Wrapper>
-	);
-}
+const TemplateMiniature: FC<Props> = ({
+	children,
+	onClick,
+	id
+}: Props): ReactElement => (
+	<Wrapper id={String(id)} onClick={onClick}>
+		{children}
+	</Wrapper>
+)
 
 const Wrapper = styled.div`
   width: 215px;
