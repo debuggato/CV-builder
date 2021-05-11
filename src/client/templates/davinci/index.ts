@@ -1,1 +1,1 @@
-export { default } from './DaVinci.view';
+export { default } from './DaVinci';
