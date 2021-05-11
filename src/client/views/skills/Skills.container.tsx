@@ -1,84 +1,53 @@
-import React, { Component, ReactNode } from 'react';
-import { connect } from 'react-redux';
+import React, { FC, ReactElement, useState } from 'react';
 import { Dispatch } from 'redux';
-import { withTranslation, WithTranslation } from 'react-i18next';
-import Title from '../../components/Title.view';
-import AddLinkLabel from '../../components/AddLinkLabel.view';
+import { useTranslation } from 'react-i18next';
+import SectionTitle from '../../components/SectionTitle';
+import AddLink from '../../components/AddLink';
 import Accordion from '../../components/accordion';
-import { Container } from './Skills.style';
+import useDataFromState from '../../utils/useDataFromState';
 import SkillsView from './Skills.view';
 import { addSkillAction } from '../../store/actions/Skills.action';
+import { useDispatch } from 'react-redux';
 
-interface OwnProps extends WithTranslation {
+type Props = {
 	currentStep: number;
 }
 
-interface DispatchProps {
-	addSkill: (arg0: number, arg1: any) => void;
+const skillInitialData: Object = {
+	name: '',
+	level: ''
 }
 
-interface StateProps {
-	items: any;
-}
+const Skills: FC<Props> = ({ currentStep }: Props): ReactElement => {
+	const [id, setId] = useState(0);
+	const addSkill = useDispatch<Dispatch>();
+	const { t } = useTranslation();
+	const items = useDataFromState('skills');
 
-interface State {
-	id: number;
-}
-
-type Props = OwnProps & StateProps & DispatchProps;
-
-class Skills extends Component<Props, State> {
-	state = {
-		id: 0
-	};
-
-	skillInitialData: Object = {
-		name: '',
-		level: ''
+	const addItem = (): void => {
+		setId(id + 1);
+		addSkill(addSkillAction(id, skillInitialData));
 	}
 
-	addItem = (): void => {
-		this.setState({
-			id: this.state.id + 1
-		});
-		this.props.addSkill(this.state.id, this.skillInitialData);
-	};
-
-	getItems = (items: any) => {
-		return items.map((el: any) => {
-			return (
-				<Accordion key={el[0]} title={el[1].name}>
-					<SkillsView id={el[0]} />
-				</Accordion>
-			)
-		});
+	const getItems = (items: any) => {
+		return items.map((el: any) => (
+			<Accordion key={el[0]} title={el[1].name}>
+				<SkillsView id={el[0]} />
+			</Accordion>
+		));
 	}
 
-	public render(): ReactNode {
-		const { currentStep, items, t } = this.props;
+	if (currentStep !== 5) return <></>;
 
-		if (currentStep !== 5) return null;
-
-		return (
-			<Container>
-				<Title>{t('skills')}</Title>
-				{this.getItems(items)}
-				<AddLinkLabel onClick={this.addItem}>
-					{t('add.skill')}
-				</AddLinkLabel>
-			</Container>
-		);
-	}
+	return (
+		<div>
+			<SectionTitle>{t('skills')}</SectionTitle>
+			{getItems(items)}
+			<AddLink onClick={() => addItem}>
+				{t('add.skill')}
+			</AddLink>
+		</div>
+	);
 }
 
-const mapStateToProps = (state: any): StateProps => ({
-	items: Object.entries(state.skills)
-});
-
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-	addSkill: (id: number, value: any) => {
-		dispatch(addSkillAction(id, value));
-	},
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Skills));
+export default Skills;
