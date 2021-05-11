@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
 interface Props {
-  isVisible: boolean;
+	isVisible: boolean;
 }
-
-export const Container = styled.section``;
-
-export const Subtitle = styled.p``;
 
 export const Wrapper = styled.div`
   margin: 10px;

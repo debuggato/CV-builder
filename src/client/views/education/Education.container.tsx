@@ -2,9 +2,9 @@ import React, { Component, ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { withTranslation, WithTranslation } from 'react-i18next';
-import AddLinkLabel from '../../components/AddLinkLabel.view';
-import Title from '../../components/Title.view';
-import Subtitle from '../../components/Subtitle.view';
+import AddLink from '../../components/AddLink';
+import SectionTitle from '../../components/SectionTitle';
+import Subtitle from '../../components/Subtitle';
 import Accordion from '../../components/accordion';
 import ErrorBoundary from '../../components/ErrorBoundary';
 import { Container } from './Education.style';
@@ -66,12 +66,12 @@ class Education extends Component<Props, State> {
 		return (
 			<ErrorBoundary>
 				<Container>
-					<Title>{t('add.education')}</Title>
+					<SectionTitle>{t('add.education')}</SectionTitle>
 					<Subtitle>{t('education.subtitle')}</Subtitle>
 					{this.getItems(items)}
-					<AddLinkLabel onClick={this.addEducationItem}>
+					<AddLink onClick={this.addEducationItem}>
 						{t('add.education')}
-					</AddLinkLabel>
+					</AddLink>
 				</Container>
 			</ErrorBoundary>
 		);
