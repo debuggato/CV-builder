@@ -6,6 +6,7 @@ import Icon from '../Icon';
 type Props = {
 	list: Object;
 	onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+	customClass?: string;
 }
 
 const iconStyle = {
@@ -15,7 +16,8 @@ const iconStyle = {
 
 const Select: FC<Props> = ({
 	list,
-	onChange
+	onChange,
+	customClass
 }: Props): ReactElement => {
 
 	const items = Object.values(list).map((obj, index) => (
@@ -23,7 +25,7 @@ const Select: FC<Props> = ({
 	));
 
 	return (
-		<div className="wrapper">
+		<div className={`select__wrapper ${customClass}`}>
 			<select
 				onChange={onChange}
 			>

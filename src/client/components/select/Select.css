@@ -1,9 +1,10 @@
-.wrapper {
-  position: relative;
+.select__wrapper {
+  @apply relative;
   width: 100px;
-  display: flex;
-  align-items: center;
-  border: 1px solid;
+  @apply flex;
+  @apply items-center;
+  @apply border;
+  @apply border-gray-400;
 }
 
 select {

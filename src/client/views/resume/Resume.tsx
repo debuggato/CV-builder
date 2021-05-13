@@ -44,7 +44,7 @@ const Resume: FC = (): ReactElement => {
 	}
 
 	return (
-		<div className="resume-wrapper">
+		<div className="resume-wrapper w-2/3">
 			<h4><strong>{getTemplateTitle()}</strong></h4>
 			{templateSelected === '0' && <div className="page"><DaVinci /></div>}
 

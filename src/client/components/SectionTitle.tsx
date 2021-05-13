@@ -7,7 +7,7 @@ type Props = {
 const SectionTitle: FC<Props> = ({
 	children
 }: Props): ReactElement => (
-	<h4 className="pb-2 mb-5 border">{children}</h4>
+	<h4 className="pb-2 mb-5 border-b">{children}</h4>
 )
 
 export default SectionTitle;

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { useTranslation } from 'react-i18next';
 import { changeLangAction, updateDocumentTitleAction } from '../../store/actions/Root.action';
-import { InputTitle, Wrapper } from './Header.style';
+import { InputTitle } from './Header.style';
 import Select from '../../components/select';
 
 const langs = [
@@ -26,15 +26,19 @@ const Header: FC = (): ReactElement => {
 	}
 
 	return (
-		<Wrapper>
+		<div className="flex items-center flex-col mb-5">
 			<InputTitle
 				type="text"
 				onChange={(e: ChangeEvent<HTMLInputElement>) => {
 					setDocumentTitle(updateDocumentTitleAction(e.target.value))
 				}}
 			/>
-			<Select list={langs} onChange={e => onSwitchLang(e)} />
-		</Wrapper>
+			<Select
+				customClass="mt-4"
+				list={langs}
+				onChange={e => onSwitchLang(e)}
+			/>
+		</div>
 	);
 }
 
