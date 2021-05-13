@@ -22,6 +22,7 @@ const Button: FC<Props> & {
 } = ({
 	type,
 	children,
+	onClick,
 	style,
 	...rest
 }: Props): ReactElement => {
@@ -34,6 +35,7 @@ const Button: FC<Props> & {
 
 		return (
 			<button
+				onClick={onClick}
 				className={`btn ${css}`}
 				type={type}
 				{...rest}

@@ -16,55 +16,48 @@ import './Sidebar.css';
 
 const arrowNext: CSSProperties = {
 	marginLeft: '10px',
-};
+}
 
 const arrowPrev: CSSProperties = {
 	marginRight: '10px',
-};
+}
+
+const lastSection = 7;
 
 const Sidebar: FC = (): ReactElement => {
-	const [currentStep, setCurrentStep] = useState<number>(1);
-	const sectionToShow = 7;
 	const { t } = useTranslation();
+	const [currentStep, setCurrentStep] = useState(1);
 
-	const onNext = (): void => {
-		let step: number = currentStep;
+	function onNext() {
+		if (currentStep !== lastSection) setCurrentStep(currentStep + 1);
+	}
 
-		step = currentStep === sectionToShow ? sectionToShow : currentStep + 1;
-
-		setCurrentStep(step)
-	};
-
-	const onPrev = (): void => {
-		let step: number = currentStep;
-
-		step = currentStep <= 1 ? step = 1 : step - 1;
-
-		setCurrentStep(step);
-	};
+	function onPrev() {
+		if (currentStep > 1) setCurrentStep(currentStep - 1);
+	}
 
 	return (
-		<div className="container">
+		<div className="container w-1/3">
 			<Header />
 			<div className="wrapper">
-				<Details currentStep={currentStep} />
-				<Summary currentStep={currentStep} />
-				<Employment currentStep={currentStep} />
-				<Education currentStep={currentStep} />
-				<Skills currentStep={currentStep} />
-				<Links currentStep={currentStep} />
-				<AddSection currentStep={currentStep} />
+				{currentStep === 1 && <Details />}
+				{currentStep === 2 && <Summary />}
+				{currentStep === 3 && <Employment />}
+				{currentStep === 4 && <Education />}
+				{currentStep === 5 && <Skills />}
+				{currentStep === 6 && <Links />}
+				{currentStep === 7 && <AddSection />}
 			</div>
-			<div className="action-bar">
-				{currentStep !== 1 &&
-					<Button onClick={() => onPrev} style={Button.SECONDARY}>
+			<div className="action-bar w-1/3">
+				{currentStep > 1 &&
+					<Button onClick={onPrev} style={Button.SECONDARY}>
 						<Icon icon={faArrowLeft} style={arrowPrev} />
 						{t('prev')}
 					</Button>
 				}
 
-				{currentStep !== sectionToShow &&
-					<Button onClick={() => onNext} style={Button.PRIMARY}>
+				{currentStep < lastSection &&
+					<Button onClick={onNext} style={Button.PRIMARY}>
 						{t('next')}
 						<Icon icon={faArrowRight} style={arrowNext} />
 					</Button>
