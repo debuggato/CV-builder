@@ -8,15 +8,9 @@ import AdditionalDetails from './AdditionalDetails.view';
 import MainDetails from './MainDetails';
 import { Container, ButtonWrapper } from './Details.style';
 
-type Props = {
-	currentStep: number;
-}
-
-const Details: FC<Props> = ({ currentStep }: Props): ReactElement => {
+const Details: FC = (): ReactElement => {
 	const [open, setOpen] = useState(false);
 	const { t } = useTranslation();
-
-	if (currentStep !== 1) return <></>;
 
 	return (
 		<Container>

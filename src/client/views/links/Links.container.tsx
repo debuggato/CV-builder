@@ -10,16 +10,12 @@ import Accordion from '../../components/accordion';
 import LinksView from './Links.view';
 import { addLinkAction } from '../../store/actions/Links.action';
 
-type Props = {
-	currentStep: number;
-}
-
 const linksInitialData: Object = {
 	label: '',
 	link: ''
 }
 
-const Links: FC<Props> = ({ currentStep }: Props): ReactElement => {
+const Links: FC = (): ReactElement => {
 	const [id, setId] = useState<number>(0);
 	const { t } = useTranslation();
 	const addLink = useDispatch<Dispatch>();
@@ -30,13 +26,13 @@ const Links: FC<Props> = ({ currentStep }: Props): ReactElement => {
 		addLink(addLinkAction(id, linksInitialData));
 	}
 
-	const getItems = (items: any): ReactNode => items.map((el: any) => (
-		<Accordion key={el[0]} title={el[1].label}>
-			<LinksView id={el[0]} />
-		</Accordion>
-	))
-
-	if (currentStep !== 6) return <></>;
+	const getItems = (items: any): ReactNode => {
+		return items.map((el: any, index: number) => (
+			<Accordion key={index} title={el.label}>
+				<LinksView id={index} />
+			</Accordion>
+		))
+	}
 
 	return (
 		<div>

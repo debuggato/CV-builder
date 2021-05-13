@@ -9,16 +9,12 @@ import SkillsView from './Skills.view';
 import { addSkillAction } from '../../store/actions/Skills.action';
 import { useDispatch } from 'react-redux';
 
-type Props = {
-	currentStep: number;
-}
-
 const skillInitialData: Object = {
 	name: '',
 	level: ''
 }
 
-const Skills: FC<Props> = ({ currentStep }: Props): ReactElement => {
+const Skills: FC = (): ReactElement => {
 	const [id, setId] = useState(0);
 	const addSkill = useDispatch<Dispatch>();
 	const { t } = useTranslation();
@@ -30,14 +26,12 @@ const Skills: FC<Props> = ({ currentStep }: Props): ReactElement => {
 	}
 
 	const getItems = (items: any) => {
-		return items.map((el: any) => (
-			<Accordion key={el[0]} title={el[1].name}>
-				<SkillsView id={el[0]} />
+		return items.map((el: any, index: number) => (
+			<Accordion key={index} title={el.name}>
+				<SkillsView id={index} />
 			</Accordion>
 		));
 	}
-
-	if (currentStep !== 5) return <></>;
 
 	return (
 		<div>

@@ -4,13 +4,7 @@ import SectionTitle from '../../components/SectionTitle';
 import Courses from '../courses/Courses.container';
 import { Container, Body, Wrapper } from './AddSection.style';
 
-type Props = {
-	currentStep: number;
-}
-
-const AddSection: FC<Props> = ({
-	currentStep
-}: Props) => {
+const AddSection: FC = () => {
 	const [courses, setCourses] = useState(false);
 	const [customSection, setCustomSection] = useState(false);
 	const [hobbies, setHobbies] = useState(false);
@@ -19,8 +13,6 @@ const AddSection: FC<Props> = ({
 	const [internship, setInternship] = useState(false);
 	const [references, setReferences] = useState(false);
 	const { t } = useTranslation();
-
-	if (currentStep !== 7) return <></>;
 
 	return (
 		<Container>

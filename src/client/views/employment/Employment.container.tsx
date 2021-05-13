@@ -11,10 +11,6 @@ import ErrorBoundary from '../../components/ErrorBoundary';
 import EmploymentView from './Employment.view';
 import useDataFromState from '../../utils/useDataFromState';
 
-type Props = {
-	currentStep: number;
-}
-
 const employmentInitialData: Object = {
 	jobTitle: '',
 	employer: '',
@@ -24,7 +20,7 @@ const employmentInitialData: Object = {
 	description: ''
 }
 
-const Employment: FC<Props> = ({ currentStep }: Props): ReactElement => {
+const Employment: FC = (): ReactElement => {
 	const [id, setId] = useState(0);
 	const addEmployment = useDispatch<Dispatch>();
 	const { t } = useTranslation();
@@ -33,17 +29,15 @@ const Employment: FC<Props> = ({ currentStep }: Props): ReactElement => {
 	const addEmploymentItem = (): void => {
 		setId(id + 1);
 		addEmployment(addEmploymentAction(id, employmentInitialData));
-	};
+	}
 
 	const getItems = (items: any): ReactNode => {
-		return items.map((el: any) => (
-			<Accordion key={el[0]} title={el[1].jobTitle}>
-				<EmploymentView id={el[0]} />
+		return items.map((el: any, index: number) => (
+			<Accordion key={index} title={el.jobTitle}>
+				<EmploymentView id={index} />
 			</Accordion>
 		));
 	}
-
-	if (currentStep !== 3) return <></>;
 
 	return (
 		<ErrorBoundary>

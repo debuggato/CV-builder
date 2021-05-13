@@ -26,12 +26,12 @@ const Courses = () => {
 		setId(id + 1)
 
 		addCourse(addCourseAction(id, coursesInitialData));
-	};
+	}
 
 	const getItems = (items: any): ReactNode => (
-		items.map((el: any) => (
-			<Accordion key={el[0]} title={el[1].course}>
-				<CoursesView id={el[0]} />
+		items.map((el: any, index: number) => (
+			<Accordion key={index} title={el.course}>
+				<CoursesView id={index} />
 			</Accordion>
 		))
 	)
