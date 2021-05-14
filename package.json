@@ -11,7 +11,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "build:all": "rm -rf dist && yarn build:client && yarn build:server && babel dist/index.js",
-    "build:client": "parcel build public/index.html",
+    "build:client": "parcel build --public-url '.' public/index.html",
     "build:server": "babel src/server/index.js -d dist"
   },
   "dependencies": {
@@ -48,7 +48,8 @@
     "react-i18next": "^11.8.3",
     "react-quill": "~1.3.5",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0",
+    "redux": "^3.1.0 || ^4.0.0",
+    "redux-devtools-extension": "^2.13.9",
     "redux-saga": "~1.1.3",
     "styled-components": "~5.0.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
