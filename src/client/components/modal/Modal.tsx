@@ -1,10 +1,13 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
+import { createPortal } from "react-dom";
 import { Dispatch } from 'redux';
 import {
 	modalDisplayedAction,
 } from '../../store/actions/Root.action';
 import './Modal.css';
+
+const _modalRoot = document.getElementById('modal') as Element;
 
 type Props = {
 	children: ReactNode;
@@ -20,7 +23,7 @@ const Modal: FC<Props> = ({
 
 	const closeModal = useDispatch<Dispatch>();
 
-	return (
+	return createPortal(
 		<div className="modal__wrapper">
 			<div className="modal__card">
 				{header &&
@@ -34,7 +37,8 @@ const Modal: FC<Props> = ({
 				}
 				{children}
 			</div>
-		</div>
+		</div>,
+		_modalRoot
 	)
 }
 

@@ -1,5 +1,8 @@
 .modal__wrapper {
-  position: fixed;
+  @apply fixed;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
   top: 0;
   bottom: 0;
   left: 0;
@@ -7,40 +10,38 @@
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 999;
   overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .modal__title {
   font-size: 25px;
-  color: white;
+  @apply text-white;
 }
 
 .modal__close {
-  color: white;
+  @apply text-white;
+  @apply cursor-pointer;
   font-size: 30px;
-  cursor: pointer;
 }
 
 .modal__card {
   max-width: 65%;
   max-height: 75%;
-  background-color: white;
+  @apply bg-white;
+  @apply items-center;
+  @apply flex;
+  @apply flex-col;
   opacity: 1;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
   flex-direction: column;
 }
 
 .modal__header {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @apply bg-blue-500;
+  @apply flex;
+  @apply justify-between;
+  @apply items-center;
   padding: 0 10px;
   box-sizing: border-box;
 }
