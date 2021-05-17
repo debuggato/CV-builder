@@ -1,21 +1,22 @@
 .resume-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply justify-center;
   width: 50%;
-  position: fixed;
+  @apply fixed;
   right: 0;
   height: 100vh;
-  background-color: grey;
+  @apply bg-gray-300;
 }
 
 .page {
-  background: white;
+  @apply bg-white;
   box-sizing: border-box;
   border-radius: 5px;
   width: 595px;
   height: 842px;
   padding: 0 15px;
-  border: 1px solid;
+  @apply border;
+  @apply border-gray-400;
 }
