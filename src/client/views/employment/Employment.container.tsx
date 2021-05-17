@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useState, ReactNode } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -31,24 +31,20 @@ const Employment: FC = (): ReactElement => {
 		addEmployment(addEmploymentAction(id, employmentInitialData));
 	}
 
-	const getItems = (items: any): ReactNode => {
-		return items.map((el: any, index: number) => (
-			<Accordion key={index} title={el.jobTitle}>
-				<EmploymentView id={index} />
-			</Accordion>
-		));
-	}
-
 	return (
 		<ErrorBoundary>
-			<div>
-				<SectionTitle>{t('employment.history')}</SectionTitle>
-				<Subtitle>{t('employment.history.subtitle')}</Subtitle>
-				{getItems(items)}
-				<AddLink onClick={() => addEmploymentItem}>
-					{t('add.employment')}
-				</AddLink>
-			</div>
+			<SectionTitle>{t('employment.history')}</SectionTitle>
+			<Subtitle>{t('employment.history.subtitle')}</Subtitle>
+			{
+				Object.entries(items).map((el: any, index: number) => (
+					<Accordion key={index} title={el.jobTitle}>
+						<EmploymentView id={index} />
+					</Accordion>
+				))
+			}
+			<AddLink onClick={addEmploymentItem}>
+				{t('add.employment')}
+			</AddLink>
 		</ErrorBoundary>
 	)
 }

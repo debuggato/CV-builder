@@ -25,19 +25,17 @@ const Skills: FC = (): ReactElement => {
 		addSkill(addSkillAction(id, skillInitialData));
 	}
 
-	const getItems = (items: any) => {
-		return items.map((el: any, index: number) => (
-			<Accordion key={index} title={el.name}>
-				<SkillsView id={index} />
-			</Accordion>
-		));
-	}
-
 	return (
 		<div>
 			<SectionTitle>{t('skills')}</SectionTitle>
-			{getItems(items)}
-			<AddLink onClick={() => addItem}>
+			{
+				Object.entries(items).map((el: any, index: number) => (
+					<Accordion key={index} title={el.name}>
+						<SkillsView id={index} />
+					</Accordion>
+				))
+			}
+			<AddLink onClick={addItem}>
 				{t('add.skill')}
 			</AddLink>
 		</div>

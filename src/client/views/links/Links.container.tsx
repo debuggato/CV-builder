@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ReactNode, useState } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { useTranslation } from 'react-i18next';
@@ -26,19 +26,15 @@ const Links: FC = (): ReactElement => {
 		addLink(addLinkAction(id, linksInitialData));
 	}
 
-	const getItems = (items: any): ReactNode => {
-		return items.map((el: any, index: number) => (
-			<Accordion key={index} title={el.label}>
-				<LinksView id={index} />
-			</Accordion>
-		))
-	}
-
 	return (
 		<div>
 			<SectionTitle>{t('websites.social.links')}</SectionTitle>
 			<Subtitle>{t('website.social.links.subtitle')}</Subtitle>
-			{getItems(links)}
+			{Object.entries(links).map((el: any, index: number) => (
+				<Accordion key={index} title={el.label}>
+					<LinksView id={index} />
+				</Accordion>
+			))}
 			<AddLink onClick={addItem}>
 				{t('add.link')}
 			</AddLink>

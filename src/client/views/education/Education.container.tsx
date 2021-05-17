@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ReactNode, useState } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -29,20 +29,18 @@ const Education: FC = (): ReactElement => {
 		addEducation(addEducationAction(id, educationInitialData));
 	}
 
-	const getItems = (items: any): ReactNode => {
-		return items.map((el: any, index: number) => (
-			<Accordion key={index} title={el.degree}>
-				<EducationView id={index} />
-			</Accordion>
-		));
-	}
-
 	return (
 		<ErrorBoundary>
 			<div>
 				<SectionTitle>{t('add.education')}</SectionTitle>
 				<Subtitle>{t('education.subtitle')}</Subtitle>
-				{getItems(items)}
+				{
+					Object.entries(items).map((el: any, index: number) => (
+						<Accordion key={index} title={el.degree}>
+							<EducationView id={index} />
+						</Accordion>
+					))
+				}
 				<AddLink onClick={addEducationItem}>
 					{t('add.education')}
 				</AddLink>
