@@ -1,15 +1,15 @@
 import * as type from '../../store/types/Skills.type';
-import initialState from '../../store/states//Skills.state';
+import initialState from '../../store/states/Skills.state';
 import { ActionType } from '../../store/models/Skills.model';
 
 const reducer = (state = initialState, action: ActionType) => {
 	switch (action.type) {
-		case type.ADD_SKILL:
+		case type.SKILL_ADDED:
 			return {
 				...state,
 				[action.id]: action.value,
 			};
-		case type.SKILL_NAME:
+		case type.SKILL_NAME_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					name: action.value,
 				},
 			};
-		case type.SKILL_LEVEL:
+		case type.SKILL_LEVEL_SET:
 			return {
 				...state,
 				[action.id]: {

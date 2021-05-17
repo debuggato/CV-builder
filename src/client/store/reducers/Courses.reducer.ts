@@ -1,15 +1,15 @@
-import initialState from '../../store/states//Courses.state';
+import initialState from '../../store/states/Courses.state';
 import * as type from '../../store/types/Courses.type';
 import { ActionType } from '../../store/models/Courses.model';
 
 const reducer = (state = initialState, action: ActionType) => {
 	switch (action.type) {
-		case type.ADD_COURSE:
+		case type.COURSE_ADDED:
 			return {
 				...state,
 				[action.id]: action.value,
 			};
-		case type.COURSE_TITLE:
+		case type.COURSE_TITLE_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					course: action.value,
 				},
 			};
-		case type.COURSE_INSTITUTION:
+		case type.COURSE_INSTITUTION_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					institution: action.value,
 				},
 			};
-		case type.COURSE_DATE_FROM:
+		case type.COURSE_DATE_FROM_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					dateFrom: action.value,
 				},
 			};
-		case type.COURSE_DATE_TO:
+		case type.COURSE_DATE_TO_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -44,6 +44,6 @@ const reducer = (state = initialState, action: ActionType) => {
 		default:
 			return state;
 	}
-};
+}
 
 export default reducer;

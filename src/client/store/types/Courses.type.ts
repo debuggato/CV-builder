@@ -1,9 +1,9 @@
-export const COURSE_TITLE: string = 'COURSE_TITLE';
+export const COURSE_TITLE_SET = 'COURSE_TITLE_SET';
 
-export const COURSE_INSTITUTION: string = 'COURSE_INSTITUTION';
+export const COURSE_INSTITUTION_SET = 'COURSE_INSTITUTION_SET';
 
-export const COURSE_DATE_FROM: string = 'COURSE_DATE_FROM';
+export const COURSE_DATE_FROM_SET = 'COURSE_DATE_FROM_SET';
 
-export const COURSE_DATE_TO: string = 'COURSE_DATE_TO';
+export const COURSE_DATE_TO_SET = 'COURSE_DATE_TO_SET';
 
-export const ADD_COURSE: string = 'ADD_COURSE';
+export const COURSE_ADDED = 'COURSE_ADDED';

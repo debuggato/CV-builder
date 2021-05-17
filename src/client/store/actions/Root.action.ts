@@ -7,21 +7,21 @@ export const modalDisplayedAction = (value: boolean): model.modalDisplayedModelA
 });
 
 export const changeLangAction = (value: string): model.changeLangModelAction => ({
-	type: type.CHANGE_LANGUAGE,
+	type: type.LANGUAGE_CHANGED,
 	value,
 });
 
 export const updateDocumentTitleAction = (value: string): model.updateDocumentTitleModelAction => ({
-	type: type.UPDATE_DOCUMENT_TITLE,
+	type: type.DOCUMENT_TITLE_UPDATED,
 	value,
 });
 
 export const chooseTemplateAction = (value: string): model.chooseTemplateModelAction => ({
-	type: type.CHOOSE_TEMPLATE,
+	type: type.TEMPLATE_CHOOSED,
 	value,
 });
 
 export const showLoaderAction = (value: boolean): model.showLoaderModelAction => ({
-	type: type.SHOW_LOADER,
+	type: type.LOADER_DISPLAYED,
 	value,
 });

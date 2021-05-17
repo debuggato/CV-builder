@@ -1,5 +1,5 @@
-export const LINK_TITLE: string = 'LINK_TITLE';
+export const LINK_TITLE_SET = 'LINK_TITLE_SET';
 
-export const LINK_LABEL: string = 'LINK_LABEL';
+export const LINK_LABEL_SET = 'LINK_LABEL_SET';
 
-export const ADD_LINK: string = 'ADD_LINK';
+export const LINK_ADDED = 'LINK_ADDED';

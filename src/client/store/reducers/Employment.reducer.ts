@@ -1,15 +1,15 @@
-import initialState from '../../store/states//Employment.state';
+import initialState from '../../store/states/Employment.state';
 import * as type from '../../store/types/Employment.type';
 import { ActionType } from '../../store/models/Employment.model';
 
 const reducer = (state = initialState, action: ActionType) => {
 	switch (action.type) {
-		case type.ADD_EMPLOYMENT:
+		case type.EMPLOYMENT_ADDED:
 			return {
 				...state,
 				[action.id]: action.value,
 			};
-		case type.EMPLOYMENT_JOB_TITLE:
+		case type.EMPLOYMENT_JOB_TITLE_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					jobTitle: action.value,
 				},
 			};
-		case type.EMPLOYMENT_EMPLOYER:
+		case type.EMPLOYMENT_EMPLOYER_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					employer: action.value,
 				},
 			};
-		case type.EMPLOYMENT_CITY:
+		case type.EMPLOYMENT_CITY_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					city: action.value,
 				},
 			};
-		case type.EMPLOYMENT_DATE_FROM:
+		case type.EMPLOYMENT_DATE_FROM_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					dateFrom: action.value,
 				},
 			};
-		case type.EMPLOYMENT_DATE_TO:
+		case type.EMPLOYMENT_DATE_TO_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -49,7 +49,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					dateTo: action.value,
 				},
 			};
-		case type.EMPLOYMENT_DESCRIPTION:
+		case type.EMPLOYMENT_DESCRIPTION_SET:
 			return {
 				...state,
 				[action.id]: {

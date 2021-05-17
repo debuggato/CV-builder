@@ -1,15 +1,15 @@
-import initialState from '../../store/states//Education.state';
+import initialState from '../../store/states/Education.state';
 import * as type from '../../store/types/Education.type';
 import { ActionType } from '../../store/models/Education.model';
 
 const reducer = (state = initialState, action: ActionType) => {
 	switch (action.type) {
-		case type.ADD_EDUCATION:
+		case type.EDUCATION_ADDED:
 			return {
 				...state,
 				[action.id]: action.value,
 			};
-		case type.EDUCATION_SCHOOL:
+		case type.EDUCATION_SCHOOL_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					school: action.value,
 				},
 			};
-		case type.EDUCATION_DEGREE:
+		case type.EDUCATION_DEGREE_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					degree: action.value,
 				},
 			};
-		case type.EDUCATION_CITY:
+		case type.EDUCATION_CITY_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -33,7 +33,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					city: action.value,
 				},
 			};
-		case type.EDUCATION_DESCRIPTION:
+		case type.EDUCATION_DESCRIPTION_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -41,7 +41,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					description: action.value,
 				},
 			};
-		case type.EDUCATION_DATE_FROM:
+		case type.EDUCATION_DATE_FROM_SET:
 			return {
 				...state,
 				[action.id]: {
@@ -49,7 +49,7 @@ const reducer = (state = initialState, action: ActionType) => {
 					dateFrom: action.value,
 				},
 			};
-		case type.EDUCATION_DATE_TO:
+		case type.EDUCATION_DATE_TO_SET:
 			return {
 				...state,
 				[action.id]: {

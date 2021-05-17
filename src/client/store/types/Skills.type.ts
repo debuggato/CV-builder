@@ -1,5 +1,5 @@
-export const SKILL_NAME: string = 'SKILL_NAME';
+export const SKILL_NAME_SET = 'SKILL_NAME_SET';
 
-export const SKILL_LEVEL: string = 'SKILL_LEVEL';
+export const SKILL_LEVEL_SET = 'SKILL_LEVEL_SET';
 
-export const ADD_SKILL: string = 'ADD_SKILL';
+export const SKILL_ADDED = 'SKILL_ADDED';

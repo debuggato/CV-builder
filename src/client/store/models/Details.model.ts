@@ -15,7 +15,12 @@ export type DetailsState = {
 	nationality: string;
 	placeOfBirth: string;
 	dateOfBirth: string | Date;
-};
+}
+
+export interface photoModel {
+	type: typeof types.PHOTO_UPLOADED;
+	value: string;
+}
 
 export interface jobTitleModelAction {
 	type: typeof types.JOB_TITLE_SET;
@@ -82,7 +87,8 @@ export interface dateOfBirthModelAction {
 	value: Date;
 }
 
-export type ActionType = jobTitleModelAction |
+export type ActionType = photoModel |
+	jobTitleModelAction |
 	firstNameModelAction |
 	lastNameModelAction |
 	cityModelAction |
