@@ -17,7 +17,7 @@ function* uploadPhotoCall(action: any) {
 		yield sendImgToServer(data);
 		yield put(onPhotoSuccessAction('/assets/photo_profile.jpg'));
 	} catch (error) {
-		put(onPhotoFailureAction(error));
+		yield put(onPhotoFailureAction(error));
 	}
 }
 
