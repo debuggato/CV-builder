@@ -1,36 +1,13 @@
 import React, { FC, ReactElement } from 'react';
-import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import * as action from '../../store/actions/Details.action';
 import Input from '../../components/input';
 import Datepicker from '../../components/datepicker/Datepicker.view';
 import { Wrapper } from './Details.style';
+import useDataFromState from '../../utils/useDataFromState';
+import { useDispatch } from 'react-redux';
 
-interface StateProps {
-	city: string;
-	postalCode: string;
-	country: string;
-	address: string;
-	drivingLicense: string;
-	nationality: string;
-	placeOfBirth: string;
-	dateOfBirth: string;
-}
-
-interface DispatchProps {
-	setAddress: (arg0: string) => void;
-	setCity: (arg0: string) => void;
-	setCountry: (arg0: string) => void;
-	setDateOfBirth: (arg0: Date) => void;
-	setDrivingLicense: (arg0: string) => void;
-	setNationality: (arg0: string) => void;
-	setPlaceOfBirth: (arg0: string) => void;
-	setPostalCode: (arg0: string) => void;
-}
-
-type Props = StateProps & DispatchProps;
-
-const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
+const AdditionalDetails: FC = (): ReactElement => {
 	const {
 		city,
 		postalCode,
@@ -39,65 +16,65 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
 		drivingLicense,
 		nationality,
 		placeOfBirth,
-		dateOfBirth,
-		setAddress,
-		setCity,
-		setCountry,
-		setDateOfBirth,
-		setDrivingLicense,
-		setNationality,
-		setPlaceOfBirth,
-		setPostalCode
-	} = props;
+		dateOfBirth
+	} = useDataFromState('details');
+	const setAddress = useDispatch<Dispatch>();
+	const setCity = useDispatch<Dispatch>();
+	const setCountry = useDispatch<Dispatch>();
+	const setDateOfBirth = useDispatch<Dispatch>();
+	const setDrivingLicense = useDispatch<Dispatch>();
+	const setNationality = useDispatch<Dispatch>();
+	const setPlaceOfBirth = useDispatch<Dispatch>();
+	const setPostalCode = useDispatch<Dispatch>();
 
 	return (
 		<>
 			<Wrapper>
 				<Input
 					label="Address"
-					onChange={e => setAddress(e.target.value)}
+					onChange={e => setAddress(action.addressAction(e.target.value))}
 					value={address}
 				/>
 			</Wrapper>
 			<Wrapper>
 				<Input
 					label="City"
-					onChange={e => setCity(e.target.value)}
+					onChange={e => setCity(action.cityAction(e.target.value))}
 					value={city}
 				/>
 			</Wrapper>
 			<Wrapper>
 				<Input
 					label="Postal code"
-					onChange={e => setPostalCode(e.target.value)}
+					onChange={e => setPostalCode(action.postalCodeAction(e.target.value))}
 					value={postalCode + ''}
 				/>
 			</Wrapper>
 			<Wrapper>
 				<Input
 					label="Country"
-					onChange={e => setCountry(e.target.value)}
+					onChange={e => setCountry(action.countryAction(e.target.value))}
 					value={country}
 				/>
 			</Wrapper>
 			<Wrapper>
 				<Input
 					label="Driving License"
-					onChange={e => setDrivingLicense(e.target.value)}
+					onChange={e => setDrivingLicense(action.drivingLicenseAction(e.target.value))}
 					value={drivingLicense}
 				/>
 			</Wrapper>
 			<Wrapper>
 				<Input
 					label="Nationality"
-					onChange={e => setNationality(e.target.value)}
+					onChange={e => setNationality(action.nationalityAction(e.target.value))}
 					value={nationality}
 				/>
 			</Wrapper>
 			<Wrapper>
 				<Input
 					label="Place of birth"
-					onChange={e => setPlaceOfBirth(e.target.value)}
+					onChange={e => setPlaceOfBirth(action.placeOfBirthAction(e.target.value))}
 					value={placeOfBirth}
 				/>
 			</Wrapper>
@@ -105,63 +82,11 @@ const AdditionalDetails: FC<Props> = (props: Props): ReactElement => {
 				<Datepicker
 					label="Date of birth"
 					value={dateOfBirth}
-					onChange={(date: any) => setDateOfBirth(date)}
+					onChange={(date: any) => setDateOfBirth(action.dateOfBirthAction(date))}
 				/>
 			</Wrapper>
 		</>
-	);
-};
+	)
+}
 
-const mapStateToProps = (state: any): StateProps => {
-
-	const {
-		city,
-		postalCode,
-		country,
-		address,
-		drivingLicense,
-		nationality,
-		placeOfBirth,
-		dateOfBirth
-	} = state.details;
-
-	return {
-		city,
-		postalCode,
-		country,
-		address,
-		drivingLicense,
-		nationality,
-		placeOfBirth,
-		dateOfBirth
-	}
-};
-
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-	setCity: (value: string) => {
-		dispatch(action.cityAction(value));
-	},
-	setCountry: (value: string) => {
-		dispatch(action.countryAction(value));
-	},
-	setAddress: (value: string) => {
-		dispatch(action.addressAction(value));
-	},
-	setPostalCode: (value: string) => {
-		dispatch(action.postalCodeAction(value));
-	},
-	setDrivingLicense: (value: string) => {
-		dispatch(action.drivingLicenseAction(value));
-	},
-	setNationality: (value: string) => {
-		dispatch(action.nationalityAction(value));
-	},
-	setPlaceOfBirth: (value: string) => {
-		dispatch(action.placeOfBirthAction(value));
-	},
-	setDateOfBirth: (value: Date) => {
-		dispatch(action.dateOfBirthAction(value));
-	},
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdditionalDetails);
+export default AdditionalDetails;

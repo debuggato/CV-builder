@@ -24,9 +24,7 @@ const Details: FC = (): ReactElement => {
 				</Button>
 				<Icon icon={open ? faChevronUp : faChevronDown} />
 			</ButtonWrapper>
-			{open &&
-				<AdditionalDetails />
-			}
+			{open && <AdditionalDetails />}
 		</Container>
 	);
 }

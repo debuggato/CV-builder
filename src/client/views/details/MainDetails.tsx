@@ -56,7 +56,7 @@ const MainDetails: FC = (): ReactElement => {
 				/>
 			</Wrapper>
 		</>
-	);
-};
+	)
+}
 
 export default MainDetails;
