@@ -18,3 +18,19 @@
 .btn:focus {
   @apply outline-none;
 }
+
+.btn__primary {
+  @apply bg-blue-500;
+  @apply text-white;
+}
+
+.btn__secondary {
+  @apply bg-white;
+  @apply text-blue-500;
+  @apply border-blue-500;
+}
+
+.btn__secondary:hover {
+  @apply bg-white;
+  @apply text-blue-500;
+}
