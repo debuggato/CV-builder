@@ -4,13 +4,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import FieldLabel from '../../components/FieldLabel.view';
 import { Wrapper, Container } from './Datepicker.style';
 
-interface Props {
+type Props = {
 	label: string;
 	onChangeDateFrom: (arg0: Date) => void;
 	onChangeDateTo: (arg0: Date) => void;
 }
-
-//const DatepickerCustom = InputStyle.withComponent(DatePicker);
 
 const FromToDate: FC<Props> = (props: Props): ReactElement => {
 	const { label, onChangeDateFrom, onChangeDateTo } = props;
@@ -36,7 +34,7 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
 		<Container>
 			<FieldLabel value={label} />
 			<Wrapper>
-				{/* <DatepickerCustom
+				<DatePicker
 					selected={startDate}
 					onChange={(date: Date) => onSetDateFrom(date)}
 					selectsStart
@@ -46,7 +44,7 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
 					showMonthYearPicker
 					onChangeRaw={handleDateChangeRaw}
 				/>
-				<DatepickerCustom
+				<DatePicker
 					selected={endDate}
 					onChange={(date: Date) => onSetDateTo(date)}
 					selectsStart
@@ -56,10 +54,10 @@ const FromToDate: FC<Props> = (props: Props): ReactElement => {
 					showMonthYearPicker
 					popperPlacement="bottom-end"
 					onChangeRaw={handleDateChangeRaw}
-				/> */}
+				/>
 			</Wrapper>
 		</Container>
 	);
-};
+}
 
 export default FromToDate;

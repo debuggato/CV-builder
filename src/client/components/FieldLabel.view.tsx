@@ -10,12 +10,14 @@ const Label = styled.label`
   font-size: ${sizes.label};
 `;
 
-interface Props {
+type Props = {
 	value: string | undefined;
 }
 
-const FieldLabel: FC<Props> = ({ value }: Props): ReactElement => {
-	return <Label>{value}</Label>;
-};
+const FieldLabel: FC<Props> = ({
+	value
+}: Props): ReactElement => (
+	<Label>{value}</Label>
+)
 
 export default FieldLabel;

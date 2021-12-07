@@ -20,35 +20,29 @@ const CoursesView: FC<Props> = ({ id }: Props): ReactElement => {
 
 	return (
 		<ErrorBoundary>
-			<div>
-				<Input
-					type="text"
-					label="Course"
-					onChange={e => setCourse(action.courseAction(id, e.target.value))}
-					value={course}
-				/>
-			</div>
-			<div>
-				<Input
-					type="text"
-					label="Institution"
-					onChange={e => setInstitution(action.institutionAction(id, e.target.value))}
-					value={institution}
-				/>
-			</div>
-			<div>
-				<RangePicker
-					label="From to date"
-					onChangeDateFrom={date => {
-						setDateFrom(action.dateFromAction(id, new Date(date)))
-					}}
-					onChangeDateTo={date => {
-						setDateTo(action.dateToAction(id, new Date(date)))
-					}}
-				/>
-			</div>
+			<Input
+				type="text"
+				label="Course"
+				onChange={e => setCourse(action.titleSetAction(id, e.target.value))}
+				value={course}
+			/>
+			<Input
+				type="text"
+				label="Institution"
+				onChange={e => setInstitution(action.institutionAction(id, e.target.value))}
+				value={institution}
+			/>
+			<RangePicker
+				label="From to date"
+				onChangeDateFrom={date => {
+					setDateFrom(action.dateFromAction(id, new Date(date)))
+				}}
+				onChangeDateTo={date => {
+					setDateTo(action.dateToAction(id, new Date(date)))
+				}}
+			/>
 		</ErrorBoundary>
 	);
-};
+}
 
 export default CoursesView;

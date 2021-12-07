@@ -23,41 +23,33 @@ const EducationView: FC<Props> = ({ id }: Props): ReactElement => {
 
 	return (
 		<>
-			<div>
-				<Input
-					type="text"
-					label="Degree"
-					onChange={e => setDegree(action.degreeAction(id, e.target.value))}
-					value={degree}
-				/>
-			</div>
-			<div>
-				<Input
-					type="text"
-					label="School"
-					onChange={e => setSchool(action.schoolAction(id, e.target.value))}
-					value={school}
-				/>
-			</div>
-			<div>
-				<Input
-					type="text"
-					label="City"
-					onChange={e => setCity(action.cityAction(id, e.target.value))}
-					value={city}
-				/>
-			</div>
+			<Input
+				type="text"
+				label="Degree"
+				onChange={e => setDegree(action.degreeAction(id, e.target.value))}
+				value={degree}
+			/>
+			<Input
+				type="text"
+				label="School"
+				onChange={e => setSchool(action.schoolAction(id, e.target.value))}
+				value={school}
+			/>
+			<Input
+				type="text"
+				label="City"
+				onChange={e => setCity(action.cityAction(id, e.target.value))}
+				value={city}
+			/>
 			<RangePicker
 				label="From to date"
 				onChangeDateFrom={date => setDateFrom(action.dateFromAction(id, new Date(date)))}
 				onChangeDateTo={date => setDateTo(action.dateToAction(id, new Date(date)))}
 			/>
-			<div>
-				<TextEditor
-					onChange={e => setDescription(action.descriptionAction(id, e))}
-					value={description}
-				/>
-			</div>
+			<TextEditor
+				onChange={e => setDescription(action.descriptionAction(id, e))}
+				value={description}
+			/>
 		</>
 	)
 }

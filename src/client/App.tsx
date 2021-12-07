@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from 'react';
-import { withTranslation } from 'react-i18next';
 import Resume from './views/resume/Resume';
 import Sidebar from './views/sidebar';
 import './styles/global.css';
@@ -11,4 +10,4 @@ const App: FC = (): ReactElement => (
 	</div>
 )
 
-export default withTranslation()(App);
+export default App;

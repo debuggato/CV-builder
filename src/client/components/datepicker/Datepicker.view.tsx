@@ -5,15 +5,16 @@ import FieldLabel from '../../components/FieldLabel.view';
 import { Wrapper, Container } from './Datepicker.style';
 import ErrorBoundary from '../../components/ErrorBoundary';
 
-interface Props {
+type Props = {
 	value: string;
 	label: string;
 	onChange: (date: Date) => void;
 }
 
-//const DatepickerCustom = InputStyle.withComponent(DatePicker);
-
-const Datepicker: FC<Props> = ({ label, onChange, value }: Props): ReactElement => {
+const Datepicker: FC<Props> = ({
+	label,
+	onChange
+}: Props): ReactElement => {
 	const [startDate, setStartDate] = useState(new Date());
 
 	const onSetDate = (date: Date) => {
@@ -31,7 +32,7 @@ const Datepicker: FC<Props> = ({ label, onChange, value }: Props): ReactElement 
 			<Container>
 				<FieldLabel value={label} />
 				<Wrapper>
-					{/* <DatepickerCustom
+					<DatePicker
 						showPopperArrow={false}
 						selected={startDate}
 						onChange={(date: Date) => onSetDate(date)}
@@ -39,11 +40,11 @@ const Datepicker: FC<Props> = ({ label, onChange, value }: Props): ReactElement 
 						showMonthDropdown
 						showYearDropdown
 						onChangeRaw={handleDateChangeRaw}
-					/> */}
+					/>
 				</Wrapper>
 			</Container>
 		</ErrorBoundary>
 	);
-};
+}
 
 export default Datepicker;
