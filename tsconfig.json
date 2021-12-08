@@ -22,7 +22,7 @@
 		"isolatedModules": true,
 		"downlevelIteration": false,
 		"rootDir": ".",
-		"outDir": "docs/",
+		"outDir": "dist/",
 		"baseUrl": "./",
 		"watch": true,
 		"noUnusedLocals": true,
