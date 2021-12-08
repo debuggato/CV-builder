@@ -5,8 +5,7 @@ import renderController from '../src/server/controllers/render.controller';
 const app = express();
 
 const corsOptions = {
-  //origin: 'https://cv-builder.stormkit.dev',
-  origin: 'http://localhost:8080',
+  origin: app.get('env') === "development" ? 'http://localhost:8080' : 'https://cv-builder.stormkit.dev',
   optionsSuccessStatus: 200,
   methods: 'POST',
 };
