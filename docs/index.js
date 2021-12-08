@@ -10,7 +10,7 @@ var _render = _interopRequireDefault(require("../src/server/controllers/render.c
 
 var app = (0, _express["default"])();
 var corsOptions = {
-  //origin: app.get('env') === "development" ? 'http://localhost:8080' : 'https://cv-builder.stormkit.dev',
+  // origin: app.get('env') === "development" ? 'http://localhost:8080' : 'https://cv-builder.stormkit.dev',
   origin: 'https://ivanlori.github.io/CV-builder/',
   optionsSuccessStatus: 200,
   methods: 'POST'

@@ -2,8 +2,8 @@
 const isDev = process.env.NODE_ENV === 'development';
 const CLIENT_PORT = 8080;
 const SERVER_PORT = 5000;
-const SERVER_URL = isDev ? `http://localhost:${SERVER_PORT}` : 'https://cv-builder.stormkit.dev';
-const CLIENT_URL = isDev ? `http://localhost:${CLIENT_PORT}` : 'https://cv-builder.stormkit.dev';
+const SERVER_URL = isDev ? `http://localhost:${SERVER_PORT}` : 'https://ivanlori.github.io/CV-builder';
+const CLIENT_URL = isDev ? `http://localhost:${CLIENT_PORT}` : 'https://ivanlori.github.io/CV-builder';
 const RENDER_ENDPOINT = '/render';
 const UPLOAD_ENDPOINT = '/upload';
 const RENDER_URL = `${SERVER_URL + RENDER_ENDPOINT}`;
