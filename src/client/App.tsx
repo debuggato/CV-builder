@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import Resume from './views/resume/Resume';
 import Sidebar from './views/sidebar';
-import "tailwindcss/dist/tailwind.css"
+import './styles/tailwind.css'
 
 const App: FC = (): ReactElement => (
 	<div className="flex h-screen">
