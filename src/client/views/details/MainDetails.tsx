@@ -7,6 +7,14 @@ import Input from '../../components/input';
 import { Wrapper } from './Details.style';
 import useDataFromState from '../../utils/useDataFromState';
 
+const toBase64 = (file: Blob) => new Promise((resolve, reject) => {
+	const reader = new FileReader();
+
+	reader.readAsDataURL(file);
+	reader.onload = () => resolve(reader.result);
+	reader.onerror = error => reject(error);
+});
+
 const MainDetails: FC = (): ReactElement => {
 	const {
 		photo
@@ -21,7 +29,11 @@ const MainDetails: FC = (): ReactElement => {
 	return (
 		<>
 			<Photo
-				onUpload={e => setPhoto(e)}
+				onUpload={async (e) => {
+					const base64img = await toBase64(e.target.files[0])
+
+					setPhoto(action.onPhotoSuccessAction(base64img))
+				}}
 				imgUrl={photo}
 			/>
 			<Wrapper>

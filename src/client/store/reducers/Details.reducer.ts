@@ -7,7 +7,7 @@ const reducer = (state = initialState, action: ActionType) => {
 		case type.PHOTO_UPLOADED:
 			return {
 				...state,
-				photo: `${action.value}?=${Math.random()}`,
+				photo: action.value,
 			};
 		case type.JOB_TITLE_SET:
 			return {

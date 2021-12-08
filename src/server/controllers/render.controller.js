@@ -19,7 +19,7 @@ async function handleRender(req, res) {
   const detailsData = parsedBody.details;
   const templateSelected = parsedBody.templateSelected;
 
-  let preloadedState = {
+  const preloadedState = {
     details: detailsData,
   };
 

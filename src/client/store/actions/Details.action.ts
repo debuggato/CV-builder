@@ -6,19 +6,9 @@ export const jobTitleAction = (value: string) => ({
 	value,
 });
 
-export const onPhotoStartAction = (value: any) => ({
-	type: type.PHOTO_UPLOAD_STARTED,
-	value
-});
-
 export const onPhotoSuccessAction = (value: string) => ({
 	type: type.PHOTO_UPLOADED,
 	value
-});
-
-export const onPhotoFailureAction = (error: string) => ({
-	type: type.PHOTO_NOT_UPLOADED,
-	error
 });
 
 export const firstnameAction = (value: string): model.firstNameModelAction => ({

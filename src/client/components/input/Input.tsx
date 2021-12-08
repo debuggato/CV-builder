@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import FieldLabel from '../FieldLabel.view';
 import './Input.css';
 
@@ -7,17 +7,23 @@ type Props = {
 	label?: string;
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 	value?: string;
+	id?: string;
+	name?: string
 }
 
-const Input: FC<Props> = ({
+const Input = ({
 	label,
 	value,
-	type,
-	onChange
+	type = 'text',
+	onChange,
+	id,
+	name
 }: Props): ReactElement => (
 	<>
 		{label && <FieldLabel value={label} />}
 		<input
+			name={name}
+			id={id}
 			onChange={onChange}
 			className="input"
 			type={type}
@@ -25,9 +31,5 @@ const Input: FC<Props> = ({
 		/>
 	</>
 )
-
-Input.defaultProps = {
-	type: 'text'
-}
 
 export default Input;

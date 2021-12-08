@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import photoController from '../src/server/controllers/photo.controller';
 import renderController from '../src/server/controllers/render.controller';
 
 const app = express();
@@ -16,8 +15,6 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.json({ limit: '50mb', extended: true }));
 app.use(cors(corsOptions));
 app.use(express.static('public'));
-
-app.use('/upload', photoController);
 
 app.use('/render', renderController);
 

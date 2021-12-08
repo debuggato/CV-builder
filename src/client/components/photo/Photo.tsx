@@ -21,7 +21,7 @@ const Photo: FC<Props> = ({ onUpload, imgUrl }: Props): ReactElement => {
 	return (
 		<ErrorBoundary>
 			<Wrapper>
-				{imgUrl && <img src={imgUrl} style={{ width: '100px', marginRight: '10px' }} />}
+				{imgUrl && <img src={`${imgUrl}`} style={{ width: '100px', marginRight: '10px' }} />}
 				{!imgUrl &&
 					<IconContainer>
 						<Icon icon={faUser} />
@@ -33,7 +33,7 @@ const Photo: FC<Props> = ({ onUpload, imgUrl }: Props): ReactElement => {
 						<Icon icon={faUpload} style={iconStyle} />
 						{t('upload.photo')}
 					</UploadLabel>
-					<Input type="file" onChange={e => onUpload(e)} />
+					<Input id="upload" name="upload" type="file" onChange={onUpload} />
 				</label>
 			</Wrapper>
 		</ErrorBoundary>
