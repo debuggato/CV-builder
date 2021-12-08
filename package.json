@@ -10,9 +10,9 @@
 		"eslint": "eslint --ext .js,.ts,.tsx ./src",
 		"test": "jest",
 		"test:coverage": "jest --coverage",
-		"build:all": "NODE_ENV=production && rm -rf dist && yarn build:client && yarn build:server && babel dist/index.js",
-		"build:client": "parcel build --public-url '.' public/index.html",
-		"build:server": "babel src/server/index.js -d dist"
+		"build:all": "NODE_ENV=production && rm -rf docs && yarn build:client && yarn build:server && babel docs/index.js",
+		"build:client": "parcel build --out-dir docs/ --public-url '.' public/index.html",
+		"build:server": "babel src/server/index.js -d --out-dir docs"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.16.3",

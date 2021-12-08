@@ -1,29 +1,40 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "es6"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": false,
-    "jsx": "react",
-    "sourceMap": true,
-    "isolatedModules": true,
-    "downlevelIteration": false,
-    "rootDir": ".",
-    "outDir": "dist/",
-    "baseUrl": "./",
-    "watch": true,
-    "noUnusedLocals": true,
-    "types": ["react", "node", "jest"],
-    "pretty": true
-  },
-  "esclude": ["node_modules", "src/**/.test.tsx"]
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es5",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"es6"
+		],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "commonjs",
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"noEmit": false,
+		"jsx": "react",
+		"sourceMap": true,
+		"isolatedModules": true,
+		"downlevelIteration": false,
+		"rootDir": ".",
+		"outDir": "docs/",
+		"baseUrl": "./",
+		"watch": true,
+		"noUnusedLocals": true,
+		"types": [
+			"react",
+			"node",
+			"jest"
+		],
+		"pretty": true
+	},
+	"esclude": [
+		"node_modules",
+		"src/**/.test.tsx"
+	]
 }
