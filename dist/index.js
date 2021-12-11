@@ -23,6 +23,6 @@ app.use(_express["default"].json({
   extended: true
 }));
 app.use((0, _cors["default"])(corsOptions));
-app.use('/render', _render["default"]);
+app.use('/api/render', _render["default"]);
 app.listen(process.env.PORT || 5000);
 module.exports = app;
