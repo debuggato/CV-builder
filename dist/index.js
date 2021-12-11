@@ -6,7 +6,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var _cors = _interopRequireDefault(require("cors"));
 
-var _render = _interopRequireDefault(require("../src/server/controllers/render.controller"));
+var _render = _interopRequireDefault(require("./render.controller"));
 
 var app = (0, _express["default"])();
 var corsOptions = {

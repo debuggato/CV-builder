@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import renderController from '../src/server/controllers/render.controller';
+import renderController from './render.controller';
 
 const app = express();
 

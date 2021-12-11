@@ -12,7 +12,7 @@
 		"test:coverage": "jest --coverage",
 		"build:all": "NODE_ENV=production && rm -rf dist && yarn build:client && yarn build:server && babel dist/index.js",
 		"build:client": "parcel build --public-url '.' public/index.html",
-		"build:server": "babel src/server/index.js -d dist"
+		"build:server": "babel src/api/index.js -d dist"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "~1.2.27",
