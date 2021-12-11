@@ -15,6 +15,9 @@ import DaVinci from '../../client/templates/davinci/DaVinci';
 const renderController = express.Router();
 
 async function handleRender(req, res) {
+	res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+
   const parsedBody = qs.parse(req.body);
   const detailsData = parsedBody.details;
   const templateSelected = parsedBody.templateSelected;

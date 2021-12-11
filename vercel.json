@@ -1,0 +1,8 @@
+{
+	"rewrites": [
+		{
+			"source": "/render/(.*)",
+			"destination": "/render"
+		}
+	]
+}
