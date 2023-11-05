@@ -2,8 +2,6 @@
 
 An application to create Resumes with export in PDF.
 
-[![GitHub license](https://img.shields.io/github/license/ivanlori/CV-builder)](https://github.com/ivanlori/CV-builder/blob/master/LICENSE)
-
 ## Demo
 
 ![](demo.gif)
@@ -24,7 +22,7 @@ You need to have these versions of software installed on your machine in order t
 
 ```
 # clone repository
-git clone https://github.com/ivanlori/CV-builder.git
+git clone https://github.com/debuggato/CV-builder.git
 
 # install dependencies
 yarn install
@@ -51,15 +49,6 @@ yarn build
 - [Webpack](https://webpack.js.org/) - Module bundler
 - [Yarn](https://yarnpkg.com/) - Package manager
 - [Jest](https://jestjs.io/) - JS Testing Framework
-
-## Contributing
-
-Thanks for your interest in this project, it is really appreciated your support!
-In [CONTRIBUTING](CONTRIBUTING.md) file you can see the guidelines of the project. If you need support feel free to contact me at [ivan.lori@protonmail.com](mailto:ivan.lori@protonmail.com).
-
-## Authors
-
-- **Ivan Lori** - _Initial work_ - [ivanlori](https://github.com/ivanlori)
 
 ## License
 

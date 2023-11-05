@@ -1,0 +1,10 @@
+# top-most EditorConfig file
+root = true
+
+# Matches all files
+[*]
+indent_style = tab
+# You can also specify the size of tabs if desired, like so:
+# tab_width = 4
+
+# Add other settings here as needed
